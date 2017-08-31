@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JS面向对象之组件开发 | Adele</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="组件开发是什么组件开发 : 多组对象，像兄弟之间的关系( 代码复用的一种形式 )对象的多种表现形式提高对象的复用性如何配置参数和默认参数例子 : 拖拽例子 : 弹窗 什么是组件？对面向对象的深入应用（UI组件，功能组件）将 配置参数、方法、事件，三者进行分离参见 jQuery UI 创建自定义事件自定义事件：就是让函数能够具备事件的某些特性 有利于多人协作开发代码如何去挂载自定义事件与事件函数 1">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS面向对象之组件开发">
+<meta property="og:url" content="http://yoursite.com/2017/05/29/JS组件开发/index.html">
+<meta property="og:site_name" content="Adele">
+<meta property="og:description" content="组件开发是什么组件开发 : 多组对象，像兄弟之间的关系( 代码复用的一种形式 )对象的多种表现形式提高对象的复用性如何配置参数和默认参数例子 : 拖拽例子 : 弹窗 什么是组件？对面向对象的深入应用（UI组件，功能组件）将 配置参数、方法、事件，三者进行分离参见 jQuery UI 创建自定义事件自定义事件：就是让函数能够具备事件的某些特性 有利于多人协作开发代码如何去挂载自定义事件与事件函数 1">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-05-29T18:18:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS面向对象之组件开发">
+<meta name="twitter:description" content="组件开发是什么组件开发 : 多组对象，像兄弟之间的关系( 代码复用的一种形式 )对象的多种表现形式提高对象的复用性如何配置参数和默认参数例子 : 拖拽例子 : 弹窗 什么是组件？对面向对象的深入应用（UI组件，功能组件）将 配置参数、方法、事件，三者进行分离参见 jQuery UI 创建自定义事件自定义事件：就是让函数能够具备事件的某些特性 有利于多人协作开发代码如何去挂载自定义事件与事件函数 1">
+  
+    <link rel="alternate" href="/atom.xml" title="Adele" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Adele</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JS组件开发" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/29/JS组件开发/" class="article-date">
+  <time datetime="2017-05-29T13:44:48.000Z" itemprop="datePublished">2017-05-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/js/">js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JS面向对象之组件开发
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="组件开发是什么"><a href="#组件开发是什么" class="headerlink" title="组件开发是什么"></a>组件开发是什么</h2><p>组件开发 : 多组对象，像兄弟之间的关系( 代码复用的一种形式 )<br>对象的多种表现形式<br>提高对象的复用性<br>如何配置参数和默认参数<br>例子 : 拖拽<br>例子 : 弹窗</p>
+<h2 id="什么是组件？"><a href="#什么是组件？" class="headerlink" title="什么是组件？"></a>什么是组件？</h2><p>对面向对象的深入应用（UI组件，功能组件）<br>将 配置参数、方法、事件，三者进行分离<br>参见 <a href="http://jqueryui.com/" target="_blank" rel="external">jQuery UI</a></p>
+<h2 id="创建自定义事件"><a href="#创建自定义事件" class="headerlink" title="创建自定义事件"></a>创建自定义事件</h2><p>自定义事件：就是让函数能够具备事件的某些特性</p>
+<p>有利于多人协作开发代码<br>如何去挂载自定义事件与事件函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">window.onload = function()&#123;</div><div class="line">	var oDiv = document.getElementById(&apos;div1&apos;);</div><div class="line">	var oSpan = document.getElementById(&apos;span1&apos;);</div><div class="line">	</div><div class="line">	bindEvent(oDiv , &apos;click&apos;,function()&#123;</div><div class="line">		alert(1);</div><div class="line">	&#125;);</div><div class="line">	</div><div class="line">	bindEvent(oDiv , &apos;click&apos;,function()&#123;</div><div class="line">		alert(2);</div><div class="line">	&#125;);</div><div class="line">	</div><div class="line">	bindEvent(oSpan , &apos;show&apos;,function()&#123;</div><div class="line">		alert(3);</div><div class="line">	&#125;);</div><div class="line">	</div><div class="line">	bindEvent(oSpan , &apos;show&apos;,function()&#123;</div><div class="line">		alert(4);</div><div class="line">	&#125;);</div><div class="line">	</div><div class="line">	bindEvent(oSpan , &apos;hide&apos;,function()&#123;</div><div class="line">		alert(5);</div><div class="line">	&#125;);</div><div class="line">	</div><div class="line">	fireEvent(oSpan , &apos;show&apos;);  //3 , 4</div><div class="line">&#125;;</div><div class="line"></div><div class="line">function bindEvent(obj,events,fn)&#123;</div><div class="line">	//obj : 楼层</div><div class="line">	//events : 书架</div><div class="line">	//fn : 一本书</div><div class="line">	</div><div class="line">	obj.listeners = obj.listeners || &#123;&#125;;</div><div class="line">	obj.listeners[events] = obj.listeners[events] || [];</div><div class="line">	</div><div class="line">	obj.listeners[events].push( fn );</div><div class="line">	</div><div class="line">	if(obj.addEventListener)&#123;</div><div class="line">		obj.addEventListener(events,fn,false);</div><div class="line">	&#125;</div><div class="line">	else&#123;</div><div class="line">		obj.attachEvent(&apos;on&apos;+events,fn);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function fireEvent(obj,events)&#123;   //主动触发自定义事件</div><div class="line">	</div><div class="line">	for(var i=0;i&lt;obj.listeners[events].length;i++)&#123;</div><div class="line">		 obj.listeners[events][i]();</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;div id=&quot;div1&quot;&gt;div&lt;/div&gt;</div><div class="line">&lt;span id=&quot;span1&quot;&gt;span&lt;/span&gt;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/29/JS组件开发/" data-id="cj70362y60007qbryrjo7w8mu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/06/03/ECMAScript6常用语法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ECMAScript6常用语法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/30/JS模块化开发/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JS模块化开发</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/convention/">convention</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">--css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">--html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">-js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/css/" style="font-size: 10px;">--css</a> <a href="/tags/html/" style="font-size: 10px;">--html</a> <a href="/tags/js/" style="font-size: 20px;">-js</a> <a href="/tags/js/" style="font-size: 15px;">js</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/03/ECMAScript6常用语法/">ECMAScript6常用语法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/29/JS组件开发/">JS面向对象之组件开发</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/30/JS模块化开发/">JS模块化开发</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/29/JS面向对象高级篇/">JS面向对象高级篇</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/24/JS面向对象基础篇/">JS面向对象基础篇</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Adele<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

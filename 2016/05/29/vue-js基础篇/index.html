@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Vue.js 基础篇 | Adele</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="vue 是什么构建用户界面的渐进式框架只关注视图层（view） vue中两个核心点响应的数据绑定当数据发生改变 → 自动更新视图利用Object.definedProperty的setter/getter代理数据，监控对数据的操作Object.definedProperty只能兼容IE8以上的浏览器,vue也是如此！组合的视图组件UI页面映射为组件树划分组件可维护、可重用、可测试 虚拟DOM（vi">
+<meta name="keywords" content="-js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue.js 基础篇">
+<meta property="og:url" content="http://yoursite.com/2016/05/29/vue-js基础篇/index.html">
+<meta property="og:site_name" content="Adele">
+<meta property="og:description" content="vue 是什么构建用户界面的渐进式框架只关注视图层（view） vue中两个核心点响应的数据绑定当数据发生改变 → 自动更新视图利用Object.definedProperty的setter/getter代理数据，监控对数据的操作Object.definedProperty只能兼容IE8以上的浏览器,vue也是如此！组合的视图组件UI页面映射为组件树划分组件可维护、可重用、可测试 虚拟DOM（vi">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2016/05/29/images/virtual.png">
+<meta property="og:updated_time" content="2017-08-31T06:36:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue.js 基础篇">
+<meta name="twitter:description" content="vue 是什么构建用户界面的渐进式框架只关注视图层（view） vue中两个核心点响应的数据绑定当数据发生改变 → 自动更新视图利用Object.definedProperty的setter/getter代理数据，监控对数据的操作Object.definedProperty只能兼容IE8以上的浏览器,vue也是如此！组合的视图组件UI页面映射为组件树划分组件可维护、可重用、可测试 虚拟DOM（vi">
+<meta name="twitter:image" content="http://yoursite.com/2016/05/29/images/virtual.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Adele" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Adele</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-vue-js基础篇" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/29/vue-js基础篇/" class="article-date">
+  <time datetime="2016-05-28T18:00:39.000Z" itemprop="datePublished">2016-05-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Vue/">Vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vue.js 基础篇
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="vue-是什么"><a href="#vue-是什么" class="headerlink" title="vue 是什么"></a>vue 是什么</h2><p>构建用户界面的渐进式框架<br>只关注视图层（view）</p>
+<h2 id="vue中两个核心点"><a href="#vue中两个核心点" class="headerlink" title="vue中两个核心点"></a>vue中两个核心点</h2><p><strong>响应的数据绑定</strong><br>当数据发生改变 → 自动更新视图<br>利用<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank" rel="external">Object.definedProperty</a>的setter/getter代理数据，监控对数据的操作<br>Object.definedProperty只能兼容IE8以上的浏览器,vue也是如此！<br><strong>组合的视图组件</strong><br>UI页面映射为组件树<br>划分组件可维护、可重用、可测试</p>
+<h2 id="虚拟DOM（virtual-DOM）"><a href="#虚拟DOM（virtual-DOM）" class="headerlink" title="虚拟DOM（virtual DOM）"></a>虚拟DOM（virtual DOM）</h2><p><img src="../images/virtual.png" alt="虚拟DOM图"></p>
+<h2 id="MVVM模式"><a href="#MVVM模式" class="headerlink" title="MVVM模式"></a>MVVM模式</h2><p>M：Model 数据模板<br>V：view 视图模板<br>vm：view-Model 视图模型</p>
+<h2 id="vue实例"><a href="#vue实例" class="headerlink" title="vue实例"></a>vue实例</h2><p>vue实例<br>每一个应用都是通过Vue这个构造函数创建根实例（root instance）启动new Vue（选项对象）</p>
+<p>需要传入的选项对象，对象包含挂载元素、数据、模板、方法等<br>el：挂载元素选择器  string | HtmlElement<br>data：代理数据  Object | Funtion<br>methods：定义方法  Object</p>
+<p>vue代理data数据<br>每个vue实例都会代理其data对象里所有的属性，这些代理的属性是响应的；<br>新添加的属性不具备响应功能，改变后不会更新视图</p>
+<p>vue实例自身的属性和方法<br>暴露自身的属性和方法，以<code>$</code>开头 例如：<code>$el</code> <code>$data</code>…</p>
+<h2 id="声明式渲染"><a href="#声明式渲染" class="headerlink" title="声明式渲染"></a>声明式渲染</h2><p>声明式：只需要声明在哪里（where）做什么（what），而无需关心如何实现（how）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//使用jQuery 遍历 - map() 方法</div><div class="line">var newArr = arr.map(function(item)&#123;</div><div class="line">    return item * 2;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>命令式<br>需要具体代码表达在哪里（where）做什么（what），如何实现（how）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var arr = [1,2,3,4,5];</div><div class="line">var newArr = [];</div><div class="line">for( var i = 0; i &lt; arr.length; i++ )&#123;</div><div class="line">    newArr.push(arr[i]*2)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>vue声明式渲染<br>初始化根实例，vue自动将数据绑定在DOM模板上</p>
+<h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><p>是一种特殊的自定义行间属性<br>指令的职责就是当其表达式的值改变时相应地将某些行为应用到DOM上<br>在vue中，指令以v-开头<br><strong>vue中的内置指令</strong><br>v-bind 动态的绑定数据，简写为 ：<br>动态绑定class<br>class为元素属性，可以用v-bind:class<br>语法：<br>:class = “{ className:表达式 }”<br>表达式值为true添加className，反之不添加<br>:class = “[className,className]”</p>
+<p>v-on  绑定事件监听器，简写为 @<br>语法：v-on:eventName = “eventHandle”<br>事件处理函数<br>写在methods中统一管理<br>事件对象<br>在事件处理函数中获取<br>内联事件处理函数执行，传入事件对象 $event</p>
+<p>v-text 更新数据，会覆盖已有结构<br>v-html 可以解析数据中的html结构</p>
+<p>v-show 根据值的真假，切换元素的display属性<br>语法：v-show = “表达式”<br>元素会被渲染在页面中，只根据表达式的值进行切换</p>
+<p>v-if 根据值的真假，切换元素会被销毁、重建<br>v-else-if 多条件判断，为真则渲染<br>v-else 条件都不符合渲染</p>
+<p>v-for 基于源数据多次渲染元素或模板<br>语法：value,key in items     value,key of items<br>变异方法<br>vue提供一组方法，对数组进行操作时会触发视图更新<br>push()  pop()  shift() unshift()  splice()  sort()  reverse()</p>
+<p>v-model 在表单控件元素上创建双向数据绑定<br>v-pre 跳过元素和子元素的编译过程<br>v-once 只渲染一次，随后数据更新不重新渲染<br>v-cloak 隐藏未编译的Mustache语法，css中设置[v-cloak]{display:none}</p>
+<p>事件修饰符<br>事件处理函数只有纯粹的逻辑判断，不处理DOM事件的细节，例如，阻止冒泡、取消默认行为、判断按键<br>修饰符的位置： v-on:eventName.修饰符<br>修饰符：.stop   .prevent .capture .self .once<br>按键修饰符：.enter  .tab  .delete  .esc  .space  .up  .down  .left  .right  .ctrl  .alt  .shift  .meta  .键值</p>
+<h2 id="html模板"><a href="#html模板" class="headerlink" title="html模板"></a>html模板</h2><p>html模板：基于DOM的模板，模板都是可解析的有效的HTML<br>插值：<br>文本：使用“Mustache”语法（双大括号） <br>作用：替换实例上的属性值，当值改变时，插值内容处会自动更新</p>
+<p>原生的html：双大括号输出的是文本，不会解析html，v-html可解析<br>属性：使用v-bind进行绑定，可以响应变化<br>使用js表达式：写简单的表达式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;example&quot;&gt;</div><div class="line">    &lt;span :name =&quot;name&quot;&gt;&#123;&#123; html &#125;&#125;&lt;/span&gt;</div><div class="line">    &lt;!-- &lt;div&gt;hello vue!&lt;/div&gt; --&gt;</div><div class="line">    &lt;span &gt;&#123;&#123; 1 + 2 &#125;&#125;&lt;/span&gt;</div><div class="line">    &lt;!-- 3 --&gt;</div><div class="line">    &lt;div v-html = &quot;html&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;!-- hello vue! --&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">let obj = &#123;</div><div class="line">    html: &quot;&lt;div&gt;hello vue!&lt;/div&gt;&quot;,</div><div class="line">    name: &quot;adele&quot;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var example = new Vue(&#123;</div><div class="line">    el: &apos;#example&apos;,</div><div class="line">    data: obj,</div><div class="line">    methods: &#123;</div><div class="line">        popup() &#123;</div><div class="line">            alert(&quot;adele&quot;)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h2 id="字符串模板"><a href="#字符串模板" class="headerlink" title="字符串模板"></a>字符串模板</h2><p>template 字符串<br>template选项对象的属性<br>模板将会替换挂载的元素，挂载元素的内容都将被忽略<br>根节点只能有一个</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;example&quot;&gt;</div><div class="line">    &lt;span :name =&quot;name&quot;&gt;&#123;&#123; html &#125;&#125;&lt;/span&gt;</div><div class="line">    &lt;!-- 挂载元素将被template替换 --&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">let obj = &#123;</div><div class="line">    html: &quot;hello vue!&quot;,</div><div class="line">    name: &quot;adele&quot;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var str = &quot;&lt;div&gt; &#123;&#123; html &#125;&#125; go go~ &lt;/div&gt;&quot;;</div><div class="line">//根节点只能有一个</div><div class="line">var example = new Vue(&#123;</div><div class="line">    el: &apos;#example&apos;,</div><div class="line">    data: obj,</div><div class="line">    template: str</div><div class="line">&#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>将html结构写在一对script标签中，设置type= “x-template”(复用性差)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;example&quot;&gt;</div><div class="line">    &lt;span :name =&quot;name&quot;&gt;&#123;&#123; html &#125;&#125;&lt;/span&gt;</div><div class="line">    &lt;!-- 挂载元素将被template替换 --&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script type = &quot;x-template&quot; id = &quot;temp&quot;&gt;</div><div class="line">    &lt;div&gt; &#123;&#123; html &#125;&#125; go go~ &lt;/div&gt;</div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">let obj = &#123;</div><div class="line">    html: &quot;hello vue!&quot;,</div><div class="line">    name: &quot;adele&quot;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var example = new Vue(&#123;</div><div class="line">    el: &apos;#example&apos;,</div><div class="line">    data: obj,</div><div class="line">    template: temp</div><div class="line">&#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h2 id="模板-render函数"><a href="#模板-render函数" class="headerlink" title="模板-render函数"></a>模板-render函数</h2><p>render函数<br>render选项对象的属性<br>createElement(标签名,[数据对象],子元素)<br>子元素为文本或数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">.bg &#123;</div><div class="line">    background-color: red;</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;div id=&quot;example&quot;&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">let obj = &#123;</div><div class="line">    html: &quot;hello vue!&quot;,</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var example = new Vue(&#123;</div><div class="line">    el: &apos;#example&apos;,</div><div class="line">    data: obj,</div><div class="line">    render(createElement) &#123;</div><div class="line">        return createElement(</div><div class="line">                &quot;ul&quot;,</div><div class="line">                &#123;</div><div class="line">                    class: &#123;</div><div class="line">                        bg: true</div><div class="line">                    &#125;,</div><div class="line">                    style: &#123;</div><div class="line">                        color: &apos;#fff&apos;,</div><div class="line">                        fontSize: &apos;50px&apos;</div><div class="line">                    &#125;,</div><div class="line">                    attrs: &#123;</div><div class="line">                        name: &apos;Adele&apos;</div><div class="line">                    &#125;,</div><div class="line">                    domProps: &#123;</div><div class="line">                        innerHTML: &apos;&lt;li&gt;我会改变结构&lt;/li&gt;&apos;</div><div class="line">                    &#125;</div><div class="line">                &#125;,</div><div class="line">                [</div><div class="line">                    createElement(&quot;li&quot;,1),</div><div class="line">                    createElement(&quot;li&quot;,2),</div><div class="line">                    createElement(&quot;li&quot;,3),</div><div class="line">                ]</div><div class="line">            )</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>数据对象属性<br>class: {} //绑定class，和<code>v-bind: class</code>一样的API<br>style: {} //绑定样式，和<code>v-bind: style</code>一样的API<br>attrs: {} //添加行间属性<br>domProps: {} //DOM元素属性<br>on: {} //绑定事件</p>
+<p>nativeOn: {} //监听原生事件<br>directives: {} //自定义指令<br>除了vue内置的指令可以自己设置指令<br>选项对象的directives属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    directives: &#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="钩子函数"><a href="#钩子函数" class="headerlink" title="钩子函数"></a>钩子函数</h2><p>directives<br>update 被绑定元素所在的模板更新时调用<br>钩子函数中参数<br>    el：指令所绑定的元素，可以用来直接操作DOM<br>    binding：一个对象<br>    value：指令的绑定值</p>
+<p>scopedSlots: {} //slot作用域<br>slot: {} //定义slot名称<br>key: “key” //给元素添加唯一标识<br>ref: “ref”  //引用信息</p>
+<h2 id="计算数据"><a href="#计算数据" class="headerlink" title="计算数据"></a>计算数据</h2><p>模板是为了描述视图的结构，模板中放入太多逻辑导致模板过重难以维护。<br>在计算一个计算属性时，Vue.js更新它的依赖列表并缓存结果，只有当其中一个依赖发生变化，缓存的结果才无效<br>语法<br>    在选项对象中<br>    {<br>        ……<br>        computed:{}<br>    }</p>
+<p>组件的分类</p>
+<ul>
+<li>接入型 container</li>
+<li>展示型</li>
+<li>交互型 比如各类加强版的表单组件，通常强调复用</li>
+<li>功能型 比如 <code>&lt;router-view&gt;</code>，<code>&lt;transition&gt;</code>，作为一种扩展、抽象机制存在。</li>
+</ul>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p><a href="http://hcysun.me/2017/03/03/Vue%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/" target="_blank" rel="external">vue2.1.7源码学习</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/05/29/vue-js基础篇/" data-id="cj70362yg000jqbry99wvk8y6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">-js</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/30/JS基础操作/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JS基础操作
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/29/JS编码规范/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JS编码规范</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/convention/">convention</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">--css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">--html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">-js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/css/" style="font-size: 10px;">--css</a> <a href="/tags/html/" style="font-size: 10px;">--html</a> <a href="/tags/js/" style="font-size: 20px;">-js</a> <a href="/tags/js/" style="font-size: 15px;">js</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/03/ECMAScript6常用语法/">ECMAScript6常用语法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/29/JS组件开发/">JS面向对象之组件开发</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/30/JS模块化开发/">JS模块化开发</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/29/JS面向对象高级篇/">JS面向对象高级篇</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/24/JS面向对象基础篇/">JS面向对象基础篇</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Adele<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -53,7 +53,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="vue,vue-router," />
 
 
 
@@ -69,17 +69,18 @@
 
 
 
-<meta name="description" content="越来越多地，基于web的设备能够确定它们的方向; 也就是说，它们可以报告指示相对于重力拉力的它们的取向的改变的数据。特别地，通过这些数据，像手机等一些手持设备可以实现自动调整旋转角度来保持显示直立，以及当设备旋转到宽屏时（宽度大于高度），自动提供宽屏的网页效果。 有两种Javascript事件负责处理设备方向信息。 第一种是DeviceOrientationEvent（提供给网页开发者当设备（指手">
+<meta name="description" content="前端路由在web开发中，路由是指根据url分配到对应的处理程序 vue-router作用： 通过管理url，实现url和组件的对应以及通过url进行组件之间的切换官方文档 单页应用(SPA)加载单个HTML页面，并在用户与应用程序交互时动态更新该页面。 vue-router使用步骤安装模块npm install vue-router –save 引入模块import VueRouter frome">
+<meta name="keywords" content="vue,vue-router">
 <meta property="og:type" content="article">
-<meta property="og:title" content="H5重力感应事件">
-<meta property="og:url" content="http://yoursite.com/2017/09/10/H5重力感应事件/index.html">
+<meta property="og:title" content="vue.js进阶之vue-router">
+<meta property="og:url" content="http://yoursite.com/2017/09/24/vue-js进阶/index.html">
 <meta property="og:site_name" content="Adele">
-<meta property="og:description" content="越来越多地，基于web的设备能够确定它们的方向; 也就是说，它们可以报告指示相对于重力拉力的它们的取向的改变的数据。特别地，通过这些数据，像手机等一些手持设备可以实现自动调整旋转角度来保持显示直立，以及当设备旋转到宽屏时（宽度大于高度），自动提供宽屏的网页效果。 有两种Javascript事件负责处理设备方向信息。 第一种是DeviceOrientationEvent（提供给网页开发者当设备（指手">
+<meta property="og:description" content="前端路由在web开发中，路由是指根据url分配到对应的处理程序 vue-router作用： 通过管理url，实现url和组件的对应以及通过url进行组件之间的切换官方文档 单页应用(SPA)加载单个HTML页面，并在用户与应用程序交互时动态更新该页面。 vue-router使用步骤安装模块npm install vue-router –save 引入模块import VueRouter frome">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-10T16:17:29.000Z">
+<meta property="og:updated_time" content="2017-09-24T14:19:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="H5重力感应事件">
-<meta name="twitter:description" content="越来越多地，基于web的设备能够确定它们的方向; 也就是说，它们可以报告指示相对于重力拉力的它们的取向的改变的数据。特别地，通过这些数据，像手机等一些手持设备可以实现自动调整旋转角度来保持显示直立，以及当设备旋转到宽屏时（宽度大于高度），自动提供宽屏的网页效果。 有两种Javascript事件负责处理设备方向信息。 第一种是DeviceOrientationEvent（提供给网页开发者当设备（指手">
+<meta name="twitter:title" content="vue.js进阶之vue-router">
+<meta name="twitter:description" content="前端路由在web开发中，路由是指根据url分配到对应的处理程序 vue-router作用： 通过管理url，实现url和组件的对应以及通过url进行组件之间的切换官方文档 单页应用(SPA)加载单个HTML页面，并在用户与应用程序交互时动态更新该页面。 vue-router使用步骤安装模块npm install vue-router –save 引入模块import VueRouter frome">
 
 
 
@@ -109,13 +110,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/10/H5重力感应事件/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/24/vue-js进阶/"/>
 
 
 
 
 
-  <title>H5重力感应事件 | Adele</title>
+  <title>vue.js进阶之vue-router | Adele</title>
   
 
 
@@ -242,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/10/H5重力感应事件/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/24/vue-js进阶/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Adele">
@@ -259,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">H5重力感应事件</h1>
+          <h1 class="post-title" itemprop="name headline">vue.js进阶之vue-router</h1>
         
 
         <div class="post-meta">
@@ -271,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-10T22:27:10+08:00">
-                2017-09-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-24T15:29:19+08:00">
+                2017-09-24
               </time>
             
 
@@ -281,6 +282,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -309,26 +332,20 @@
       
 
       
-        <p>越来越多地，基于web的设备能够确定它们的方向; 也就是说，它们可以报告指示相对于重力拉力的它们的取向的改变的数据。特别地，通过这些数据，像手机等一些手持设备可以实现自动调整旋转角度来保持显示直立，以及当设备旋转到宽屏时（宽度大于高度），自动提供宽屏的网页效果。</p>
-<p>有两种Javascript事件负责处理设备方向信息。</p>
-<p>第一种是DeviceOrientationEvent（提供给网页开发者当设备（指手机，平板等移动设备）在浏览页面时物理旋转的信息。）它会在加速度传感器检测到设备在方向上产生变化时触发。通过处理该事件传来的数据信息，使针对由于用户移动设备引起旋转和仰角变化的行为设计交互响应成为可能。</p>
-<p>第二种是DeviceMotionEvent，它会在加速度发生改变时触发。跟DeviceOrientationEvent不同，监听的是加速度的变化而不是方向。传感器通常都具有监听DeviceMotionEvent的能力，包括笔记本中用于保护移动存储设备的传感器。而能监听DeviceOrientationEvent事件的传感器更多出现在移动设备中。</p>
-<p>处理方向orientation事件</p>
-<p>要接收设备方向变化信息，你只需要注册监听deviceorientation事件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">window.addEventListener(&quot;deviceorientation&quot;, handleOrientation, true);</div></pre></td></tr></table></figure>
-<p>注册完事件监听处理函数后（对应例子中的handleOrientation)，监听函数会定期地接收到最新的设备方向数据。<br>方向事件对象中包含四个值：<br>DeviceOrientationEvent.absolute<br>DeviceOrientationEvent.alpha<br>DeviceOrientationEvent.beta<br>DeviceOrientationEvent.gamma</p>
-<p>下面是一个事件处理函数的例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function handleOrientation(orientData) &#123;</div><div class="line">  var absolute = orientData.absolute;</div><div class="line">  var alpha = orientData.alpha;</div><div class="line">  var beta = orientData.beta;</div><div class="line">  var gamma = orientData.gamma;</div><div class="line"></div><div class="line">  // Do stuff with the new orientation data</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>关于每一个轴的记录值表示的是相对于标准的坐标系，设备在某一个给定轴上的旋转量。<a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/Events/Orientation_and_motion_data_explained" target="_blank" rel="external">Orientation and motion data explained</a>这篇文章有更详细的描述，下面是对这篇文章的总结。<br>DeviceOrientationEvent.alpha 表示设备沿z轴上的旋转角度，范围为0~360。<br>DeviceOrientationEvent.beta 表示设备在x轴上的旋转角度，范围为-180~180。它描述的是设备由前向后旋转的情况。<br>DeviceOrientationEvent.gamma 表示设备在y轴上的旋转角度，范围为-90~90。它描述的是设备由左向右旋转的情况。</p>
-<p>例子</p>
-<p>这个例子会成功运行在支持检测自己方向的设备中的支持deviceorientation事件的浏览器中。</p>
-<p>想象一下花园（garden）中的一个球（ball）：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Detecting_device_orientation" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/API/Detecting_device_orientation</a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/DeviceOrientationEvent" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/API/DeviceOrientationEvent</a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/Events/Orientation_and_motion_data_explained" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/Guide/Events/Orientation_and_motion_data_explained</a></p>
-<p>webapp开发相关jquery手势事件之jGestures<br><a href="http://www.haorooms.com/post/jquery_jGestures" target="_blank" rel="external">http://www.haorooms.com/post/jquery_jGestures</a></p>
-<p>html5图片随手机重力感应而移动效果<br><a href="http://www.haorooms.com/post/html5_image_zlgy" target="_blank" rel="external">http://www.haorooms.com/post/html5_image_zlgy</a></p>
-<p>视觉差效果制作总结和案例下载<br><a href="http://blog.csdn.net/confidence68/article/details/52054556" target="_blank" rel="external">http://blog.csdn.net/confidence68/article/details/52054556</a></p>
-
+        <h2 id="前端路由"><a href="#前端路由" class="headerlink" title="前端路由"></a>前端路由</h2><p>在web开发中，路由是指根据url分配到对应的处理程序</p>
+<h2 id="vue-router"><a href="#vue-router" class="headerlink" title="vue-router"></a>vue-router</h2><p>作用： 通过管理url，实现url和组件的对应以及通过url进行组件之间的切换<br><a href="https://router.vuejs.org/zh-cn/installation.html" target="_blank" rel="external">官方文档</a></p>
+<h2 id="单页应用-SPA"><a href="#单页应用-SPA" class="headerlink" title="单页应用(SPA)"></a>单页应用(SPA)</h2><p>加载单个HTML页面，并在用户与应用程序交互时动态更新该页面。</p>
+<h2 id="vue-router使用步骤"><a href="#vue-router使用步骤" class="headerlink" title="vue-router使用步骤"></a>vue-router使用步骤</h2><p>安装模块<br>npm install vue-router –save</p>
+<p>引入模块<br>import VueRouter frome ‘vue-router’</p>
+<p>作为Vue的插件<br>Vue.use(VueRouter)</p>
+<p>创建路由实例对象<br>new VueRouter({ …配置参数 })</p>
+<p>注入Vue选项参数<br>new Vue({ router })</p>
+<p>告诉路由渲染的位置</p>
+<p><router-view></router-view></p>
+<p>hash和history模式</p>
+<h2 id="router-link各种配置项"><a href="#router-link各种配置项" class="headerlink" title="router-link各种配置项"></a>router-link各种配置项</h2><p><a href="https://router.vuejs.org/zh-cn/api/router-link.html" target="_blank" rel="external"><router-link></router-link></a></p>
+<h2 id="重定向和别名"><a href="#重定向和别名" class="headerlink" title="重定向和别名"></a>重定向和别名</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  path: &apos;*&apos;,</div><div class="line">  //component: noFound</div><div class="line">  </div><div class="line">  // 重定向</div><div class="line">  //redirect: &apos;/home&apos;</div><div class="line">  //redirect: &#123;path: &apos;/home&apos;&#125;</div><div class="line">  // redirect: &#123;name: &apos;About&apos;&#125;</div><div class="line">  redirect: (to) =&gt; &#123;  //动态设置重定向的目标</div><div class="line">    // 目标路由对象，就是访问的路径的路由信息</div><div class="line"></div><div class="line">    if( to.path === &apos;/123&apos; ) &#123;</div><div class="line">      return &apos;/home&apos;</div><div class="line">    &#125;else if(to.path === &apos;/456&apos;)&#123;</div><div class="line">      return &#123;path: &apos;/document&apos;&#125;</div><div class="line">    &#125;else&#123;</div><div class="line">      return &#123;name: &apos;About&apos;&#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    console.log(to)</div><div class="line"></div><div class="line">    //return &apos;/home&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="嵌套路由的使用"><a href="#嵌套路由的使用" class="headerlink" title="嵌套路由的使用"></a>嵌套路由的使用</h2>
       
     </div>
     
@@ -343,6 +360,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/vue-vue-router/" rel="tag"># vue,vue-router</a>
+          
+        </div>
+      
 
       
       
@@ -352,8 +375,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/03/ECMAScript6常用语法/" rel="next" title="ECMAScript6常用语法">
-                <i class="fa fa-chevron-left"></i> ECMAScript6常用语法
+              <a href="/2017/09/10/H5重力感应事件/" rel="next" title="H5重力感应事件">
+                <i class="fa fa-chevron-left"></i> H5重力感应事件
               </a>
             
           </div>
@@ -361,10 +384,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/24/vue-js进阶/" rel="prev" title="vue.js进阶之vue-router">
-                vue.js进阶之vue-router <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -416,8 +435,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -482,6 +510,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前端路由"><span class="nav-number">1.</span> <span class="nav-text">前端路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-router"><span class="nav-number">2.</span> <span class="nav-text">vue-router</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单页应用-SPA"><span class="nav-number">3.</span> <span class="nav-text">单页应用(SPA)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-router使用步骤"><span class="nav-number">4.</span> <span class="nav-text">vue-router使用步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#router-link各种配置项"><span class="nav-number">5.</span> <span class="nav-text">router-link各种配置项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重定向和别名"><span class="nav-number">6.</span> <span class="nav-text">重定向和别名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#嵌套路由的使用"><span class="nav-number">7.</span> <span class="nav-text">嵌套路由的使用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

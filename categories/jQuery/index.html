@@ -69,17 +69,16 @@
 
 
 
-<meta name="description" content="Title                                       任务计划列表                            添加任务：                               个任务未完成                              所有任务                 未完成的任务">
+<meta name="description" content="伟大的小白">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Adele">
-<meta property="og:url" content="http://yoursite.com/demo/todos/todos.html">
+<meta property="og:url" content="http://yoursite.com/categories/jQuery/index.html">
 <meta property="og:site_name" content="Adele">
-<meta property="og:description" content="Title                                       任务计划列表                            添加任务：                               个任务未完成                              所有任务                 未完成的任务">
+<meta property="og:description" content="伟大的小白">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-30T10:26:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Adele">
-<meta name="twitter:description" content="Title                                       任务计划列表                            添加任务：                               个任务未完成                              所有任务                 未完成的任务">
+<meta name="twitter:description" content="伟大的小白">
 
 
 
@@ -109,13 +108,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/demo/todos/todos.html"/>
+  <link rel="canonical" href="http://yoursite.com/categories/jQuery/"/>
 
 
 
 
 
-  <title> | Adele</title>
+  <title>分类: jQuery | Adele</title>
   
 
 
@@ -134,7 +133,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -228,78 +227,55 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-    
-    
-    <div class="post-block page">
-      <header class="post-header">
+  
+  
+  
+  <div class="post-block category">
 
-	<h1 class="post-title" itemprop="name headline"></h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
-        
-        
-          <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="index.css">
-    <script src="./vue.js"></script>
-</head>
-<body>
-    <div class="page-top">
-        <div class="page-content">
-            <h2>任务计划列表</h2>
-        </div>
-    </div>
-    <div class="main">
-        <h3 class="big-title">添加任务：</h3>
-        <input placeholder="例如：吃饭睡觉打豆豆；    提示：+回车即可添加任务" class="task-input" type="text" v-model="todo" @keyup.enter="addTodo">
-        <ul class="task-count">
-            <li>个任务未完成</li>
-            <li class="action">
-                <a href="#all" :class="{active:visibility === 'all'}">所有任务</a>
-                <a href="#unfinished" :class="{active:visibility === 'unfinished'}">未完成的任务</a>
-                <a href="#finished" :class="{active:visibility === 'finished'}">完成的任务</a>
-            </li>
-        </ul>
-        <h3 class="big-title">任务列表：</h3>
-        <div class="tasks">
-            <span class="no-task-tip" v-show="!list.length">还没有添加任何任务</span>
-            <ul class="todo-list">
-                <li class="todo" :class="{completed: item.isChecked,editing: item === edtorTodos}" v-for="item in filteredList">
-                    <div class="view">
-                        <input class="toggle" type="checkbox" v-model="item.isChecked">
-                        <label @dblclick="edtorTodo(item)"></label>
-                        <button class="destroy" @click="deleteTodo(item)"></button>
-                    </div>
-                    <input v-focus="item === edtorTodos" class="edit" type="text" v-model="item.title" @blur="edtorTodoed(item)" @keyup.enter="edtorTodoed(item)" @keyup.esc="cancelTodo(item)">
-                </li>
-            </ul>
-        </div>
-    </div>
-    <script src="./app.js"></script>
-</body>
-</html>
-        
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1>jQuery<small>分类</small>
+        </h1>
       </div>
+
       
-      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2017/10/20/ jQuery-业务笔记/" itemprop="url">
+              
+                <span itemprop="name">jQuery 业务笔记</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-10-20T12:04:13+08:00"
+              content="2017-10-20" >
+          10-20
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
       
     </div>
-    
-    
-    
+
   </div>
+  
+  
+  
+
+  
+
 
 
           </div>
@@ -307,10 +283,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -331,17 +303,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -406,22 +369,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">任务计划列表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">添加任务：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">任务列表：</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

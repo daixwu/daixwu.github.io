@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -86,7 +86,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Mist',
     version: '5.1.2',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -242,6 +242,280 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/22/vue-cli笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Adele">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Adele">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/22/vue-cli笔记/" itemprop="url">vue-cli笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-22T11:17:25+08:00">
+                2017-10-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/20/ jQuery-业务笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Adele">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Adele">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/20/ jQuery-业务笔记/" itemprop="url">jQuery 业务笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-20T12:04:13+08:00">
+                2017-10-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">jQuery</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h2><h3 id="isArray"><a href="#isArray" class="headerlink" title="$.isArray()"></a><code>$.isArray()</code></h3><p>函数用于判断指定参数是否是一个数组<br>函数的返回值为Boolean类型，如果指定的参数是数组，则返回true，否则返回false。</p>
+<h3 id="getScript"><a href="#getScript" class="headerlink" title="$.getScript()"></a><code>$.getScript()</code></h3><p>使用一个HTTP GET请求从服务器加载并执行一个 JavaScript 文件。<a href="http://www.css88.com/jqapi-1.9/jQuery.getScript/" target="_blank" rel="external">参考</a></p>
+<blockquote>
+<p>注意不要直接在<code>$.getScript()</code>执行后直接调用该js文件中的变量或函数，因为<code>$.getScript()</code>是异步加载的，在你访问其中的某个变量或函数时，可能该js文件尚未完全加载完毕。建议你最好在success回调函数中处理，或者你能够确认此时该js文件已经加载完毕。</p>
+</blockquote>
+<h3 id="jQuery-makeArray"><a href="#jQuery-makeArray" class="headerlink" title="jQuery.makeArray()"></a><code>jQuery.makeArray()</code></h3><p>函数用于将一个类数组对象转换为真正的数组对象,函数的返回值为Array类型，返回转换后的数组对象。</p>
+<p>所谓”类数组对象”就是一个常规的Object对象，但它和数组对象非常相似：具备length属性，并以0、1、2、3……等数字作为属性名。不过它毕竟不是数组，没有从数组的原型对象上继承下来的内置方法(例如：push()、 sort()等)。</p>
+<h3 id="bind-trigger-delegate-on-one"><a href="#bind-trigger-delegate-on-one" class="headerlink" title="bind() trigger() delegate() on() one()"></a><code>bind() trigger() delegate() on() one()</code></h3><p>bind()方法类似于原生javascript的addEventListener()方法，用于绑定事件；<br>trigger()方法类似于原生javascript的dispatchEvent()方法，用于触发事件；<br>delegate()方法则是事件绑定的升级版，利用事件代理，提高性能及降低代码复杂度；<br>on()方法是bind()方法和delegate()方法的升级版，将两个方法的功能结合了起来；<br>one()方法用于处理只触发一次的事件<br>参考：<a href="http://www.cnblogs.com/xiaohuochai/p/5929283.html" target="_blank" rel="external">jQuery事件绑定</a></p>
+<h3 id="jQuery-isPlainObject"><a href="#jQuery-isPlainObject" class="headerlink" title="jQuery.isPlainObject()"></a><code>jQuery.isPlainObject()</code></h3><p>函数用于判断指定参数是否是一个纯粹的对象。<br>所谓”纯粹的对象”，就是该对象是通过”{}”或”new Object”创建的。<br>函数的返回值为Boolean类型，如果指定的参数是纯粹的对象，则返回true，否则返回false。</p>
+<h3 id="replaceWith-replaceAll"><a href="#replaceWith-replaceAll" class="headerlink" title="replaceWith() replaceAll()"></a><code>replaceWith() replaceAll()</code></h3><p>方法都可以用于替换元素或元素中的内容。<br><code>$(selector).replaceWith(content)和$(content).replaceAll(selector)</code><br>参数selector为被替换的元素，content为替换的内容。</p>
+<h3 id="extend"><a href="#extend" class="headerlink" title="extend()"></a><code>extend()</code></h3><p>extend(dest,src1,src2,src3…)</p>
+<hr>
+<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h3 id="concat"><a href="#concat" class="headerlink" title="concat()"></a><code>concat()</code></h3><p>用于连接两个或多个数组,该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本。</p>
+<h3 id="replace"><a href="#replace" class="headerlink" title="replace()"></a><code>replace()</code></h3><p>方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/24/vue-js进阶/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -345,8 +619,15 @@
 <p>注入Vue选项参数<br>new Vue({ router })</p>
 <p>告诉路由渲染的位置</p>
 <p><router-view></router-view></p>
-<p>hash和history模式</p>
-<h2 id="router-link各种配置项"><a href="#router-link各种配置项" class="headerlink" title="router-link各种配置项"></a>router-link各种配置项</h2><p><a href="https://router.vuejs.org/zh-cn/api/router-link.html" target="_blank" rel="external"><router-link></router-link></a></p>
+<p>hash和history模式（默认为hash，用mode更改）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let router = new Router(&#123;</div><div class="line">  mode: &apos;history&apos;,</div><div class="line">  ...</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h2 id="router-link各种配置项"><a href="#router-link各种配置项" class="headerlink" title="router-link各种配置项"></a>router-link各种配置项</h2><p><a href="https://router.vuejs.org/zh-cn/api/router-link.html" target="_blank" rel="external"><router-link></router-link></a><br>默认生成a标签，如果要生成div可使用tage=“标签”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;router-link to=&quot;/&quot; tag=&quot;div&quot;&gt;home&lt;/router-link&gt;</div></pre></td></tr></table></figure>
+<p>导航加上小图标方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;router-link to=&quot;/&quot; tag=&quot;li&quot;&gt;</div><div class="line">  &lt;i&gt;&lt;/i&gt;</div><div class="line">  &lt;span&gt;home&lt;/span&gt;</div><div class="line">&lt;/router-link&gt;</div></pre></td></tr></table></figure>
+<p>定义激活状态下的class名<br>第一种方法<br>linkActiveClass: class名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">let router = new Router(&#123;</div><div class="line">	mode: &apos;history&apos;,</div><div class="line">	linkActiveClass: &apos;is-active&apos;</div><div class="line">	....</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>第二种方法<br>active-class=”class名”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;router-link to=&quot;/about&quot; active-class=&quot;activeClass&quot;&gt;about&lt;/router-link&gt;</div></pre></td></tr></table></figure></p>
+<p>改变行为<br>在router-link增加event=“mouseover”</p>
 <h2 id="重定向和别名"><a href="#重定向和别名" class="headerlink" title="重定向和别名"></a>重定向和别名</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  path: &apos;*&apos;,</div><div class="line">  //component: noFound</div><div class="line">  </div><div class="line">  // 重定向</div><div class="line">  //redirect: &apos;/home&apos;</div><div class="line">  //redirect: &#123;path: &apos;/home&apos;&#125;</div><div class="line">  // redirect: &#123;name: &apos;About&apos;&#125;</div><div class="line">  redirect: (to) =&gt; &#123;  //动态设置重定向的目标</div><div class="line">    // 目标路由对象，就是访问的路径的路由信息</div><div class="line"></div><div class="line">    if( to.path === &apos;/123&apos; ) &#123;</div><div class="line">      return &apos;/home&apos;</div><div class="line">    &#125;else if(to.path === &apos;/456&apos;)&#123;</div><div class="line">      return &#123;path: &apos;/document&apos;&#125;</div><div class="line">    &#125;else&#123;</div><div class="line">      return &#123;name: &apos;About&apos;&#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    console.log(to)</div><div class="line"></div><div class="line">    //return &apos;/home&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="嵌套路由的使用"><a href="#嵌套路由的使用" class="headerlink" title="嵌套路由的使用"></a>嵌套路由的使用</h2>
           
@@ -1496,338 +1777,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/05/29/vue-js基础篇/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Adele">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/img/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Adele">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/05/29/vue-js基础篇/" itemprop="url">Vue.js 基础篇</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-05-29T02:00:39+08:00">
-                2016-05-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index">
-                    <span itemprop="name">Vue</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="vue-是什么"><a href="#vue-是什么" class="headerlink" title="vue 是什么"></a>vue 是什么</h2><p>构建用户界面的渐进式框架<br>只关注视图层（view）</p>
-<h2 id="vue中两个核心点"><a href="#vue中两个核心点" class="headerlink" title="vue中两个核心点"></a>vue中两个核心点</h2><p><strong>响应的数据绑定</strong><br>当数据发生改变 → 自动更新视图<br>利用<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank" rel="external">Object.definedProperty</a>的setter/getter代理数据，监控对数据的操作<br>Object.definedProperty只能兼容IE8以上的浏览器,vue也是如此！<br><strong>组合的视图组件</strong><br>UI页面映射为组件树<br>划分组件可维护、可重用、可测试</p>
-<h2 id="虚拟DOM（virtual-DOM）"><a href="#虚拟DOM（virtual-DOM）" class="headerlink" title="虚拟DOM（virtual DOM）"></a>虚拟DOM（virtual DOM）</h2><p><img src="/img/virtual.png" alt="虚拟DOM图"></p>
-<h2 id="MVVM模式"><a href="#MVVM模式" class="headerlink" title="MVVM模式"></a>MVVM模式</h2><p>M：Model 数据模板<br>V：view 视图模板<br>vm：view-Model 视图模型</p>
-<h2 id="vue实例"><a href="#vue实例" class="headerlink" title="vue实例"></a>vue实例</h2><p>vue实例<br>每一个应用都是通过Vue这个构造函数创建根实例（root instance）启动new Vue（选项对象）</p>
-<p>需要传入的选项对象，对象包含挂载元素、数据、模板、方法等<br>el：挂载元素选择器  string | HtmlElement<br>data：代理数据  Object | Funtion<br>methods：定义方法  Object</p>
-<p>vue代理data数据<br>每个vue实例都会代理其data对象里所有的属性，这些代理的属性是响应的；<br>新添加的属性不具备响应功能，改变后不会更新视图</p>
-<p>vue实例自身的属性和方法<br>暴露自身的属性和方法，以<code>$</code>开头 例如：<code>$el</code> <code>$data</code>…</p>
-<h2 id="声明式渲染"><a href="#声明式渲染" class="headerlink" title="声明式渲染"></a>声明式渲染</h2><p>声明式：只需要声明在哪里（where）做什么（what），而无需关心如何实现（how）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//使用jQuery 遍历 - map() 方法</div><div class="line">var newArr = arr.map(function(item)&#123;</div><div class="line">    return item * 2;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>命令式<br>需要具体代码表达在哪里（where）做什么（what），如何实现（how）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var arr = [1,2,3,4,5];</div><div class="line">var newArr = [];</div><div class="line">for( var i = 0; i &lt; arr.length; i++ )&#123;</div><div class="line">    newArr.push(arr[i]*2)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>vue声明式渲染<br>初始化根实例，vue自动将数据绑定在DOM模板上</p>
-<h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><p>是一种特殊的自定义行间属性<br>指令的职责就是当其表达式的值改变时相应地将某些行为应用到DOM上<br>在vue中，指令以v-开头<br><strong>vue中的内置指令</strong><br>v-bind 动态的绑定数据，简写为 ：<br>动态绑定class<br>class为元素属性，可以用v-bind:class<br>语法：<br>:class = “{ className:表达式 }”<br>表达式值为true添加className，反之不添加<br>:class = “[className,className]”</p>
-<p>v-on  绑定事件监听器，简写为 @<br>语法：v-on:eventName = “eventHandle”<br>事件处理函数<br>写在methods中统一管理<br>事件对象<br>在事件处理函数中获取<br>内联事件处理函数执行，传入事件对象 $event</p>
-<p>v-text 更新数据，会覆盖已有结构<br>v-html 可以解析数据中的html结构</p>
-<p>v-show 根据值的真假，切换元素的display属性<br>语法：v-show = “表达式”<br>元素会被渲染在页面中，只根据表达式的值进行切换</p>
-<p>v-if 根据值的真假，切换元素会被销毁、重建<br>v-else-if 多条件判断，为真则渲染<br>v-else 条件都不符合渲染</p>
-<p>v-for 基于源数据多次渲染元素或模板<br>语法：value,key in items     value,key of items<br>变异方法<br>vue提供一组方法，对数组进行操作时会触发视图更新<br>push()  pop()  shift() unshift()  splice()  sort()  reverse()</p>
-<p>v-model 在表单控件元素上创建双向数据绑定<br>v-pre 跳过元素和子元素的编译过程<br>v-once 只渲染一次，随后数据更新不重新渲染<br>v-cloak 隐藏未编译的Mustache语法，css中设置[v-cloak]{display:none}</p>
-<p>事件修饰符<br>事件处理函数只有纯粹的逻辑判断，不处理DOM事件的细节，例如，阻止冒泡、取消默认行为、判断按键<br>修饰符的位置： v-on:eventName.修饰符<br>修饰符：.stop   .prevent .capture .self .once<br>按键修饰符：.enter  .tab  .delete  .esc  .space  .up  .down  .left  .right  .ctrl  .alt  .shift  .meta  .键值</p>
-<h2 id="html模板"><a href="#html模板" class="headerlink" title="html模板"></a>html模板</h2><p>html模板：基于DOM的模板，模板都是可解析的有效的HTML<br>插值：<br>文本：使用“Mustache”语法（双大括号） <br>作用：替换实例上的属性值，当值改变时，插值内容处会自动更新</p>
-<p>原生的html：双大括号输出的是文本，不会解析html，v-html可解析<br>属性：使用v-bind进行绑定，可以响应变化<br>使用js表达式：写简单的表达式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;example&quot;&gt;</div><div class="line">    &lt;span :name =&quot;name&quot;&gt;&#123;&#123; html &#125;&#125;&lt;/span&gt;</div><div class="line">    &lt;!-- &lt;div&gt;hello vue!&lt;/div&gt; --&gt;</div><div class="line">    &lt;span &gt;&#123;&#123; 1 + 2 &#125;&#125;&lt;/span&gt;</div><div class="line">    &lt;!-- 3 --&gt;</div><div class="line">    &lt;div v-html = &quot;html&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;!-- hello vue! --&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">let obj = &#123;</div><div class="line">    html: &quot;&lt;div&gt;hello vue!&lt;/div&gt;&quot;,</div><div class="line">    name: &quot;adele&quot;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var example = new Vue(&#123;</div><div class="line">    el: &apos;#example&apos;,</div><div class="line">    data: obj,</div><div class="line">    methods: &#123;</div><div class="line">        popup() &#123;</div><div class="line">            alert(&quot;adele&quot;)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<h2 id="字符串模板"><a href="#字符串模板" class="headerlink" title="字符串模板"></a>字符串模板</h2><p>template 字符串<br>template选项对象的属性<br>模板将会替换挂载的元素，挂载元素的内容都将被忽略<br>根节点只能有一个</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;example&quot;&gt;</div><div class="line">    &lt;span :name =&quot;name&quot;&gt;&#123;&#123; html &#125;&#125;&lt;/span&gt;</div><div class="line">    &lt;!-- 挂载元素将被template替换 --&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">let obj = &#123;</div><div class="line">    html: &quot;hello vue!&quot;,</div><div class="line">    name: &quot;adele&quot;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var str = &quot;&lt;div&gt; &#123;&#123; html &#125;&#125; go go~ &lt;/div&gt;&quot;;</div><div class="line">//根节点只能有一个</div><div class="line">var example = new Vue(&#123;</div><div class="line">    el: &apos;#example&apos;,</div><div class="line">    data: obj,</div><div class="line">    template: str</div><div class="line">&#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p>将html结构写在一对script标签中，设置type= “x-template”(复用性差)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;example&quot;&gt;</div><div class="line">    &lt;span :name =&quot;name&quot;&gt;&#123;&#123; html &#125;&#125;&lt;/span&gt;</div><div class="line">    &lt;!-- 挂载元素将被template替换 --&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script type = &quot;x-template&quot; id = &quot;temp&quot;&gt;</div><div class="line">    &lt;div&gt; &#123;&#123; html &#125;&#125; go go~ &lt;/div&gt;</div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">let obj = &#123;</div><div class="line">    html: &quot;hello vue!&quot;,</div><div class="line">    name: &quot;adele&quot;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var example = new Vue(&#123;</div><div class="line">    el: &apos;#example&apos;,</div><div class="line">    data: obj,</div><div class="line">    template: temp</div><div class="line">&#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<h2 id="模板-render函数"><a href="#模板-render函数" class="headerlink" title="模板-render函数"></a>模板-render函数</h2><p>render函数<br>render选项对象的属性<br>createElement(标签名,[数据对象],子元素)<br>子元素为文本或数组</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">.bg &#123;</div><div class="line">    background-color: red;</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;div id=&quot;example&quot;&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">let obj = &#123;</div><div class="line">    html: &quot;hello vue!&quot;,</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var example = new Vue(&#123;</div><div class="line">    el: &apos;#example&apos;,</div><div class="line">    data: obj,</div><div class="line">    render(createElement) &#123;</div><div class="line">        return createElement(</div><div class="line">                &quot;ul&quot;,</div><div class="line">                &#123;</div><div class="line">                    class: &#123;</div><div class="line">                        bg: true</div><div class="line">                    &#125;,</div><div class="line">                    style: &#123;</div><div class="line">                        color: &apos;#fff&apos;,</div><div class="line">                        fontSize: &apos;50px&apos;</div><div class="line">                    &#125;,</div><div class="line">                    attrs: &#123;</div><div class="line">                        name: &apos;Adele&apos;</div><div class="line">                    &#125;,</div><div class="line">                    domProps: &#123;</div><div class="line">                        innerHTML: &apos;&lt;li&gt;我会改变结构&lt;/li&gt;&apos;</div><div class="line">                    &#125;</div><div class="line">                &#125;,</div><div class="line">                [</div><div class="line">                    createElement(&quot;li&quot;,1),</div><div class="line">                    createElement(&quot;li&quot;,2),</div><div class="line">                    createElement(&quot;li&quot;,3),</div><div class="line">                ]</div><div class="line">            )</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p>数据对象属性<br>class: {} //绑定class，和<code>v-bind: class</code>一样的API<br>style: {} //绑定样式，和<code>v-bind: style</code>一样的API<br>attrs: {} //添加行间属性<br>domProps: {} //DOM元素属性<br>on: {} //绑定事件</p>
-<p>nativeOn: {} //监听原生事件<br>directives: {} //自定义指令<br>除了vue内置的指令可以自己设置指令<br>选项对象的directives属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    directives: &#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="钩子函数"><a href="#钩子函数" class="headerlink" title="钩子函数"></a>钩子函数</h2><p>directives<br>update 被绑定元素所在的模板更新时调用<br>钩子函数中参数<br>    el：指令所绑定的元素，可以用来直接操作DOM<br>    binding：一个对象<br>    value：指令的绑定值</p>
-<p>scopedSlots: {} //slot作用域<br>slot: {} //定义slot名称<br>key: “key” //给元素添加唯一标识<br>ref: “ref”  //引用信息</p>
-<h2 id="计算数据"><a href="#计算数据" class="headerlink" title="计算数据"></a>计算数据</h2><p>模板是为了描述视图的结构，模板中放入太多逻辑导致模板过重难以维护。<br>在计算一个计算属性时，Vue.js更新它的依赖列表并缓存结果，只有当其中一个依赖发生变化，缓存的结果才无效<br>语法<br>    在选项对象中<br>    {<br>        ……<br>        computed:{}<br>    }</p>
-<p>组件的分类</p>
-<ul>
-<li>接入型 container</li>
-<li>展示型</li>
-<li>交互型 比如各类加强版的表单组件，通常强调复用</li>
-<li>功能型 比如 <code>&lt;router-view&gt;</code>，<code>&lt;transition&gt;</code>，作为一种扩展、抽象机制存在。</li>
-</ul>
-<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p><a href="http://hcysun.me/2017/03/03/Vue%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/" target="_blank" rel="external">vue2.1.7源码学习</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/05/29/JS编码规范/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Adele">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/img/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Adele">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/05/29/JS编码规范/" itemprop="url">JS编码规范</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-05-29T00:00:39+08:00">
-                2016-05-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/convention/" itemprop="url" rel="index">
-                    <span itemprop="name">convention</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><p>本文档的目标是使JavaScript代码风格保持一致，容易被理解和被维护。<br>虽然本文档是针对JavaScript设计的，但是在使用各种JavaScript的预编译语言时(如TypeScript等)时，适用的部分也应尽量遵循本文档的约定。</p>
-<h2 id="2-代码风格"><a href="#2-代码风格" class="headerlink" title="2. 代码风格"></a>2. 代码风格</h2><h2 id="2-1-文件"><a href="#2-1-文件" class="headerlink" title="2.1. 文件"></a>2.1. 文件</h2><p>[建议] JavaScript 文件使用无 BOM 的 UTF-8 编码。<br>解释<br>UTF-8 编码具有更广泛的适应性。BOM 在使用程序或工具处理文件时可能造成不必要的干扰。<br>[建议] 在文件结尾处，保留一个空行。</p>
-<h2 id="2-2-结构"><a href="#2-2-结构" class="headerlink" title="2.2. 结构"></a>2.2. 结构</h2><h2 id="2-2-1-缩进"><a href="#2-2-1-缩进" class="headerlink" title="2.2.1. 缩进"></a>2.2.1. 缩进</h2><p>[强制] 使用 4 个空格做为一个缩进层级，不允许使用 2 个空格 或 tab 字符。<br>[强制] switch 下的 case 和 default 必须增加一个缩进层级。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/05/29/JS编码规范/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1881,7 +1830,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1892,7 +1841,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1903,7 +1852,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1959,7 +1908,7 @@
 
   <span class="post-meta-divider">|</span>
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.2</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.2</div>
 
 
         
@@ -2002,8 +1951,6 @@
   
 
 
-  
-
 
 
 
@@ -2032,9 +1979,6 @@
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
-  
-  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-
 
   
 
@@ -2047,13 +1991,6 @@
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
-
-
 
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>

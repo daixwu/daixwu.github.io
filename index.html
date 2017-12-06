@@ -242,7 +242,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/22/vue-cli笔记/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/05/js事件模型-事件处理机制/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Adele">
@@ -261,7 +261,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/22/vue-cli笔记/" itemprop="url">vue-cli笔记</a></h1>
+                <a class="post-title-link" href="/2017/12/05/js事件模型-事件处理机制/" itemprop="url">js事件模型 事件处理机制</a></h1>
         
 
         <div class="post-meta">
@@ -273,8 +273,155 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-22T11:17:25+08:00">
-                2017-10-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-05T22:13:24+08:00">
+                2017-12-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="事件监听"><a href="#事件监听" class="headerlink" title="事件监听"></a>事件监听</h2><p>关于事件监听，W3C规范中定义了3个事件阶段，依次是捕获阶段、目标阶段、冒泡阶段。</p>
+<p>起初Netscape制定了JavaScript的一套事件驱动机制（即事件捕获）。随即IE也推出了自己的一套事件驱动机制（即事件冒泡）。最后W3C规范了两种事件机制，分为捕获阶段、目标阶段、冒泡阶段。IE8以前IE一直坚持自己的事件机制（前端人员一直头痛的兼容性问题），IE9以后IE也支持了W3C规范。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/05/js事件模型-事件处理机制/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/28/NodeJS-笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Adele">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Adele">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/28/NodeJS-笔记/" itemprop="url">NodeJS 笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-28T23:22:23+08:00">
+                2017-11-28
               </time>
             
 
@@ -313,7 +460,28 @@
       
         
           
-            
+            <p>在ecmascript部分node和js其实是一样的，比如数据类型的定义，语法结构，内置对象</p>
+<p>在js中的顶层对象 window  </p>
+<p>在node中的顶层对象 global<br>注意：在node中也没有什么window</p>
+<p>在一个模块中通过var定义的变量，其作用域范围是当前模块，外部不能够直接的访问<br>如果我们想一个模块能够访问另外一个模块中定义的变量，可以：<br>1.把变量作为global对象的一个属性，但是这样的做法是不推荐的<br>2.使用模块对象 module</p>
+<p>module : 保存提供和当前模块有关的一些信息       </p>
+<p>在这个module对象，有一个子对象：exports 对象<br>我们可以通过这个对象把一个模块中的局部变量对象进行提供访问  </p>
+<h2 id="global"><a href="#global" class="headerlink" title="global"></a>global</h2><p>__filename : 返回当前模块文件解析后的绝对路径，该属性其实并非全局的，而是模块作用域下的</p>
+<p> __dirname : 返回当前模块文件所在目录解析后的绝对路径，该属性也不是全局的，而是模块作用域下的</p>
+<p>process (进程) 全局对象<br>stdin标准输入流<br>stdout标准输出流</p>
+<p>Buffer (缓冲) 用于操作二进制数据流</p>
+<p>new Buffer(size); size [Number] 创建一个Buffer对象，并为这个对象分配一个大小<br>当我们为一个Buffer对象分配空间大小以后，其长度是固定，不能更改</p>
+<p>buf.write(string[, offset[, length]][, encoding])</p>
+<p>buf.toString([encoding[, start[, end]]])<br>根据 encoding 指定的字符编码解码 buf 成一个字符串。 start 和 end 可传入用于只解码 buf 的一部分。</p>
+<p>buf.toJSON()<br>返回 buf 的 JSON 格式。 当字符串化一个 Buffer 实例时，JSON.stringify() 会隐式地调用该函数。</p>
+<h2 id="fs-文件系统"><a href="#fs-文件系统" class="headerlink" title="fs (文件系统)"></a>fs (文件系统)</h2><p>fs.open(path, flags, [mode], callback)<br>path : 要打开的文件的路径<br>flags : 打开文件的方式 读/写<br>mode : 设置文件的模式 读/写/执行  4/2/1<br>callback : 回调<br>err : 文件打开失败的错误保存在err里面，如果成功err为null<br>fd : 被打开文件的标识，和定时器  </p>
+<p>fs.openSync(path, flags[, mode])</p>
+<p>fs.read(fd, buffer, offset, length, position, callback)</p>
+<p>fs.write(fd, buffer[, offset[, length[, position]]], callback)</p>
+<p>fs.writeFile(file, data[, options], callback)<br>异步地写入数据到文件，如果文件已经存在，则替代文件。 data 可以是一个字符串或一个 buffer。</p>
+<p>如果 data 是一个 buffer，则忽略 encoding 选项。它默认为 ‘utf8’。</p>
+<p>http - http模块 - require(‘http’)<br>var http = require(‘http’);<br>var server = http.createServer([requestListener])<br>创建并返回一个HTTP服务器对象<br>requestListener : 监听到客户端连接的回调函数<br>server.listen(port, [hostname], [backlog], [callback])<br>监听客户端连接请求，只有当调用了listen方法以后，服务器才开始工作<br>port : 监听的端口<br>hostname : 主机名（IP/域名)<br>backlog : 连接等待队列的最大长度<br>callback : 调用listen方法并成功开启监听以后，会触发一个listening事件，callback将作为该事件的执行函数</p>
+
           
         
       
@@ -361,7 +529,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/20/ jQuery-业务笔记/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/21/移动端事件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Adele">
@@ -380,7 +548,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/20/ jQuery-业务笔记/" itemprop="url">jQuery 业务笔记</a></h1>
+                <a class="post-title-link" href="/2017/11/21/移动端事件/" itemprop="url">移动端事件</a></h1>
         
 
         <div class="post-meta">
@@ -392,8 +560,617 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-20T12:04:13+08:00">
-                2017-10-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-21T11:15:45+08:00">
+                2017-11-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>移动端的三大事件：<br>手指按下：ontouchstart<br>手指移动：ontouchmove<br>手指抬起：ontouchend</p>
+<p>注意：<br>在移动端开发的时候，浏览器的模拟器时好时坏，一般不用on的方式绑定事件函数，要用事件绑定的方式(addEventListener)。</p>
+<p>pc上的事件比移动端的事件略慢，大概是在300ms左右。</p>
+<p>移动端事件对象<br>当给某个元素加上了事件绑定函数之后，事件函数默认的第一个参数就是事件对象<br>事件对象：<br>当用户在浏览器下触发了某个行为，事件对象会记录用户操作时一些细节信息。</p>
+<p>touches 当前位于屏幕上的所有手指的一个列表</p>
+<p>targetTouches 位于当前DOM元素上的手指的一个列表</p>
+<p>changedTouches  涉及当前事件的手指的一个列表</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/20/弹性盒模型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Adele">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Adele">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/20/弹性盒模型/" itemprop="url">弹性盒模型</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-20T23:08:03+08:00">
+                2017-11-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="新版弹性盒模型"><a href="#新版弹性盒模型" class="headerlink" title="新版弹性盒模型"></a>新版弹性盒模型</h2><h3 id="display-flex"><a href="#display-flex" class="headerlink" title="display: flex;"></a><code>display: flex;</code></h3><h4 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a><code>flex-direction</code></h4><p>设置主轴方向为水平方向<br><code>flex-direction: row;</code><br>设置主轴方向为垂直方向<br><code>flex-direction: column;</code><br>设置主轴方向为水平,元素排列为反序<br><code>flex-direction: row-reverse;</code><br>设置主轴方向为垂直,元素排列为反序<br><code>flex-direction: column-reverse;</code>  </p>
+<p>####<code>justify-content</code><br>元素在主轴开始位置 ，富裕空间在主轴的结束位置<br><code>justify-content: flex-start;</code><br>元素在主轴结束位置，富裕空间在主轴开始位置<br><code>justify-content: flex-end;</code><br>元素在主轴中间,富裕空间在主轴两侧<br><code>justify-content: center;</code><br>富裕空间平均分配在每两个元素之间<br><code>justify-content: space-between;</code><br>富裕空间平均分配在每个元素两侧<br><code>justify-content: space-around;</code>      </p>
+<h4 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a><code>align-items</code></h4><p>元素在侧轴开始位置，富裕空间在侧轴结束位置<br><code>align-items: flex-start;</code><br>元素在侧轴结束位置，富裕空间在侧轴开始位置<br><code>align-items: flex-end;</code><br>元素在侧轴中间位置，富裕空间在侧轴两侧<br><code>align-items: center;</code><br>根据侧轴方向上文字的基线对齐<br><code>align-items: baseline;</code>  </p>
+<h4 id="定义盒子的弹性空间"><a href="#定义盒子的弹性空间" class="headerlink" title="定义盒子的弹性空间"></a>定义盒子的弹性空间</h4><p>子级设置 flex-grow</p>
+<p>元素的具体位置设置<br>子级设置 order</p>
+<h2 id="老版弹性盒模型"><a href="#老版弹性盒模型" class="headerlink" title="老版弹性盒模型"></a>老版弹性盒模型</h2><h3 id="display-webkit-box"><a href="#display-webkit-box" class="headerlink" title="display: -webkit-box;"></a><code>display: -webkit-box;</code></h3><h4 id="webkit-box-orient"><a href="#webkit-box-orient" class="headerlink" title="-webkit-box-orient"></a><code>-webkit-box-orient</code></h4><p>设置主轴方向为水平方向<br><code>-webkit-box-orient: horizontal;</code><br>设置主轴方向为垂直方向<br><code>-webkit-box-orient: vertical;</code><br>元素在主轴上排列为反序<br><code>-webkit-box-direction: reverse;</code><br>元素在主轴上排列为正序<br><code>-webkit-box-direction: normal;</code><br>元素在主轴的开始位置,富裕空间在主轴的结束位置<br><code>-webkit-box-pack: start;</code>  </p>
+<h4 id="webkit-box-pack"><a href="#webkit-box-pack" class="headerlink" title="-webkit-box-pack"></a><code>-webkit-box-pack</code></h4><p>元素在主轴结束位置，富裕空间在主轴开始位置<br><code>-webkit-box-pack: end;</code><br>元素在主轴中间,富裕空间在主轴两侧<br><code>-webkit-box-pack: center;</code><br>富裕空间平均分配在每两个元素之间<br><code>-webkit-box-pack: justify;</code>  </p>
+<h4 id="webkit-box-align"><a href="#webkit-box-align" class="headerlink" title="-webkit-box-align"></a><code>-webkit-box-align</code></h4><p>元素在侧轴开始位置，富裕空间在侧轴结束位置<br><code>-webkit-box-align: start;</code><br>元素在侧轴结束位置，富裕空间在侧轴开始位置<br><code>-webkit-box-align: end;</code><br>元素在侧轴中间位置，富裕空间在侧轴两侧<br><code>-webkit-box-align: center;</code></p>
+<h4 id="定义盒子的弹性空间-1"><a href="#定义盒子的弹性空间-1" class="headerlink" title="定义盒子的弹性空间"></a>定义盒子的弹性空间</h4><p>子级设置 -webkit-box-flex</p>
+<p>元素的具体位置设置<br>子级设置 -webkit-box-ordinal-group</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/20/移动端开发常见问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Adele">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Adele">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/20/移动端开发常见问题/" itemprop="url">移动端开发常见问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-20T19:31:06+08:00">
+                2017-11-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="常用的meta标签"><a href="#常用的meta标签" class="headerlink" title="常用的meta标签"></a>常用的meta标签</h3><p>viewport设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=0&quot; /&gt;</div></pre></td></tr></table></figure></p>
+<p>避免IE使用兼容模式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</div></pre></td></tr></table></figure>
+<p>uc强制竖屏</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;screen-orientation&quot; content=&quot;portrait&quot;&gt;</div></pre></td></tr></table></figure>
+<p>QQ强制竖屏</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;x5-orientation&quot; content=&quot;portrait&quot;&gt;</div></pre></td></tr></table></figure>
+<p>UC强制全屏</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;full-screen&quot; content=&quot;yes&quot;&gt;</div></pre></td></tr></table></figure>
+<p>QQ强制全屏</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;x5-fullscreen&quot; content=&quot;true&quot;&gt;</div></pre></td></tr></table></figure>
+<p>禁止识别电话号码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;format-detection&quot; content=&quot;telephone=no&quot; /&gt;</div></pre></td></tr></table></figure>
+<p>禁止识别邮箱号码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;format-detection&quot; content=&quot;email=no&quot; /&gt;</div></pre></td></tr></table></figure>
+<p>防止地址跳转到地图</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;format-detection&quot; content=&quot;address=no&quot; /&gt;</div></pre></td></tr></table></figure>
+<p>防止日期被显示成别的格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;format-detection&quot; content=&quot;date=no&quot; /&gt;</div></pre></td></tr></table></figure>
+<p>拨打电话和发邮件 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">href=&quot;tel:&quot;  </div><div class="line">href=&quot;mailto:&quot;</div><div class="line"></div><div class="line">&lt;!--eg:--&gt;</div><div class="line">&lt;a href=&quot;tel:8602188888888&quot;&gt;+86 021 88888888&lt;/a&gt;</div></pre></td></tr></table></figure>
+<h3 id="清除点击阴影"><a href="#清除点击阴影" class="headerlink" title="清除点击阴影"></a>清除点击阴影</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a,img,button,input,textarea&#123;-webkit-tap-highlight-color:rgba(255,255,255,0);&#125;</div></pre></td></tr></table></figure>
+<h3 id="消除按钮圆角"><a href="#消除按钮圆角" class="headerlink" title="消除按钮圆角"></a>消除按钮圆角</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">input，button&#123;-webkit-appearance: none;border-radius: 0;&#125;</div></pre></td></tr></table></figure>
+<p>iOS 浏览器横屏时会重置字体大小<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">-webkit-text-size-adjust: 100%;</div><div class="line">-ms-text-size-adjust: 100%;</div><div class="line">text-size-adjust: 100%;</div></pre></td></tr></table></figure></p>
+<h3 id="移动端字体"><a href="#移动端字体" class="headerlink" title="移动端字体"></a>移动端字体</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">font-family: &apos;-apple-system&apos;, &quot;Helvetica Neue&quot;, &quot;Roboto&quot;, &quot;Segoe UI&quot;, sans-serif;</div></pre></td></tr></table></figure>
+<h3 id="禁止复制、选中文本"><a href="#禁止复制、选中文本" class="headerlink" title="禁止复制、选中文本"></a>禁止复制、选中文本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Element &#123;</div><div class="line"> -webkit-user-select: none;</div><div class="line"> -moz-user-select: none;</div><div class="line"> -khtml-user-select: none;</div><div class="line">  user-select: none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Font-Boosting"><a href="#Font-Boosting" class="headerlink" title="Font Boosting"></a>Font Boosting</h3><p>在一段文字没有给其设置高度的时候在webkit内核下文字的大小被浏览器放大 <a href="http://www.jianshu.com/p/e93a2ac608b2" target="_blank" rel="external">参考</a></p>
+<p>Fixed 兼容问题</p>
+<p>IOS的body的overflow问题（加<code>overflow:hidden</code>横向仍可以滚动）</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/14/css3业务笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Adele">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Adele">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/14/css3业务笔记/" itemprop="url">css3业务笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-14T19:28:31+08:00">
+                2017-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="transition过渡"><a href="#transition过渡" class="headerlink" title="transition过渡"></a>transition过渡</h2><p>语法：<code>transition: property duration timing-function delay;</code></p>
+<p><code>transition-property</code><br>（all || [attr] || none）<br>属性规定应用过渡效果的 CSS 属性的名称。（当指定的 CSS 属性改变时，过渡效果将开始）。  </p>
+<blockquote>
+<p>提示：过渡效果通常在用户将鼠标指针浮动到元素上时发生。  </p>
+</blockquote>
+<p><code>transition-duration</code><br>规定完成过渡效果需要花费的时间（以秒或毫秒计）</p>
+<blockquote>
+<p>注：请始终设置 transition-duration 属性，否则时长为 0，就不会产生过渡效果。</p>
+</blockquote>
+<p><code>transition-timing-function</code><br>属性规定过渡效果的速度曲线。该属性允许过渡效果随着时间来改变其速度。</p>
+<p>—— ease：（逐渐变慢）默认值<br>—— linear：（匀速）<br>—— ease-in：(加速)<br>—— ease-out：（减速）<br>—— ease-in-out：（先加速后减速）<br>—— cubic-bezier 贝塞尔曲线（ x1, y1, x2, y2 ）<br><code>transition-delay</code><br>规定过渡效果何时开始，值以秒或毫秒计。 </p>
+<h3 id="过渡完成事件"><a href="#过渡完成事件" class="headerlink" title="过渡完成事件"></a>过渡完成事件</h3><p>Webkit内核： <code>obj.addEventListener(&#39;webkitTransitionEnd&#39;,function(){},false);</code><br>firefox: <code>obj.addEventListener(&#39;transitionend&#39;,function(){},false);</code></p>
+<h2 id="2D变换"><a href="#2D变换" class="headerlink" title="2D变换"></a>2D变换</h2><h3 id="transform"><a href="#transform" class="headerlink" title="transform"></a>transform</h3><p><code>rotate(&lt;angle&gt;)</code>  旋转函数 取值度数(deg度数)</p>
+<p><code>skew(&lt;angle&gt;[,&lt;angle&gt;])</code> 倾斜函数 取值度数<br>该函数包含两个参数，分别用来定义X轴Y轴的坐标倾斜角度。<br>—— skewX()<br>—— skewY()  </p>
+<p><code>scale(&lt;number&gt;[,&lt;number&gt;])</code> 缩放函数 取值 正数、负数和小数<br>该函数包含两个参数，分别用来定义宽和高的缩放比例，如果第二个参数省略则第二个参数等于第一个参数。 </p>
+<p><code>translate(&lt;translation-value&gt;[,&lt;translation-value&gt;])</code> 位移函数<br>该函数包含两个参数，分别用来定义X轴和Y轴的坐标。<br>—— translateX()<br>—— translateY() </p>
+<p><code>Transform-origin</code> 旋转的基点<br>初始值为”50% 50%”，接受两个参数，它们可以是百分比、em、px等具体值，也可以是left、center、right或者top、middle、bottom等描述性关键字<br>2D 转换元素能够改变元素 x 和 y 轴。3D 转换元素还能改变其 Z 轴。<br>该属性必须与 transform 属性一同使用。<br>语法<code>transform-origin: x-axis y-axis z-axis;</code></p>
+<p>Transform 执行顺序问题 — 后写先执行  </p>
+<p><code>matrix(a,b,c,d,e,f)</code> 矩阵函数<br>通过矩阵实现缩放  </p>
+<blockquote>
+<p>x轴缩放 <code>a=x*a    c=x*c     e=x*e</code>;<br>y轴缩放 <code>b=y*b   d=y*d     f=y*f</code>;</p>
+</blockquote>
+<p>通过矩阵实现位移  </p>
+<blockquote>
+<p>x轴位移: <code>e=e+x</code><br>y轴位移: <code>f=f+y</code></p>
+</blockquote>
+<p>通过矩阵实现倾斜  </p>
+<blockquote>
+<p>x轴倾斜: <code>c=Math.tan(xDeg/180*Math.PI)</code><br>y轴倾斜: <code>b=Math.tan(yDeg/180*Math.PI)</code></p>
+</blockquote>
+<p>matrix(a,b,c,d,e,f) 矩阵函数<br>通过矩阵实现旋转<br>—— <code>a=Math.cos(deg/180*Math.PI)</code>;<br>—— <code>b=Math.sin(deg/180*Math.PI)</code>;<br>—— <code>c=-Math.sin(deg/180*Math.PI)</code>;<br>—— <code>d=Math.cos(deg/180*Math.PI)</code>;<br>变换兼容IE9以下IE版本只能通过矩阵来实现<br>filter:   <code>progid:DXImageTransform.Microsoft.Matrix( M11= 1, M12= 0, M21= 0 , M22=1,SizingMethod=&#39;auto expand&#39;);</code><br>IE下的矩阵没有E和F两个参数 <code>M11==a; M12==c; M21==b; M22==d</code></p>
+<h2 id="3d变换"><a href="#3d变换" class="headerlink" title="3d变换"></a>3d变换</h2><p><code>transform-style（preserve-3d）</code> 建立3D空间  </p>
+<blockquote>
+<p>规定如何在 3D 空间中呈现被嵌套的元素,该属性必须与 transform 属性一同使用。 </p>
+</blockquote>
+<p>语法：<code>transform-style: flat|preserve-3d;</code></p>
+<p><code>Perspective</code> 景深  </p>
+<blockquote>
+<p>目前浏览器都不支持 perspective 属性。Chrome 和 Safari 支持替代的 <code>-webkit-perspective</code> 属性。</p>
+</blockquote>
+<p>语法：<code>perspective: number|none;</code><br>Perspective- origin 景深基点  </p>
+<blockquote>
+<p>目前浏览器都不支持 <code>perspective-origin</code>属性。Chrome 和 Safari 支持替代的 <code>-webkit-perspecitve-origin</code> 属性。</p>
+</blockquote>
+<p>Transform 新增函数<br>—— rotateX()<br>—— rotateY()<br>—— rotateZ()<br>—— translateZ()<br>—— scaleZ()  </p>
+<h2 id="animation"><a href="#animation" class="headerlink" title="animation"></a><code>animation</code></h2><p>语法：<code>animation: name duration timing-function delay iteration-count direction;</code></p>
+<blockquote>
+<p>注：请始终规定 animation-duration 属性，否则时长为 0，就不会播放动画了。</p>
+</blockquote>
+<p>关键帧——keyFrames<br>类似于flash：只需指明两个状态，之间的过程由计算机自动计算<br>关键帧的时间单位<br>—— 数字：0%、25%、100%等<br>—— 字符：from(0%)、to(100%)  </p>
+<blockquote>
+<p>注：为了获得最佳的浏览器支持，您应该始终定义 0% 和 100% 选择器。请使用动画属性来控制动画的外观，同时将动画与选择器绑定。<br><strong>格式(1)</strong></p>
+</blockquote>
+<pre><code>@keyframes 动画名称
+{
+    动画状态
+}
+
+栗子：
+@-webkit-keyframes move
+{
+    0%{
+        width:100px;
+    }
+    100%
+    {
+        width:500px;
+    }    
+}
+
+调用：
+animation:2s move;
+</code></pre><p><strong>格式(2)</strong></p>
+<pre><code>@keyframes  miaov_test
+{
+    from { background:red; }
+    to { background:green; }
+}
+</code></pre><p>可以只有to  </p>
+<p>调用的标签(#div1、xxx:hover之类的) </p>
+<p><strong>必要属性</strong><br>—— <code>animation-name</code> 动画名称（关键帧名称）<br>—— <code>animation-duration</code> 动画持续时间<br>例如：</p>
+<pre><code>-webkit-animation-name: ‘miaov&apos;;
+-webkit-animation-duration: 4s;
+</code></pre><p><code>animation-play-state</code> 播放状态（ running 播放 和paused 暂停 ）</p>
+<p><strong>可选属性</strong><br><code>animation-timing-function</code>动画运动形式<br>—— linear    匀速。<br>—— ease        缓冲。<br>—— ease-in    由慢到快。<br>—— ease-out    由快到慢。<br>—— ease-in-out    由慢到快再到慢。<br>—— cubic-bezier(number, number, number, number)：    特定的贝塞尔曲线类型，4个数值需在[0, 1]区间内</p>
+<p><code>animation-delay</code>     动画延迟<br>—— 只是第一次<br><code>animation-iteration-count</code> 重复次数<br>—— infinite为无限次<br><code>animation-direction</code> 播放前重置<br>—— 动画是否重置后再开始播放<br>—— alternate 动画直接从上一次停止的位置开始执行<br>—— normal 动画第二次直接跳到0%的状态开始执行</p>
+<p><strong>通过class</strong><br>—— 在class里加入animation的各种属性<br>—— 直接给元素加-webkit-animation-xxx样式<br><strong>animation的问题</strong><br>—— 写起来麻烦<br>—— 没法动态改变目标点位置<br><code>obj.addEventListener(&#39;webkitAnimationEnd&#39;, function (){}, false);</code></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/14/jQuery中的extend方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Adele">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Adele">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/14/jQuery中的extend方法/" itemprop="url">jQuery中的extend()方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-14T18:12:43+08:00">
+                2017-11-14
               </time>
             
 
@@ -454,147 +1231,53 @@
       
         
           
-            <h2 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h2><h2 id="基础过滤"><a href="#基础过滤" class="headerlink" title="基础过滤"></a>基础过滤</h2><p>###<code>$(&quot;selector&quot;).eq(index)</code><br>index: 要匹配元素的索引值（从0开始计数，负值时从最后一个元素开始倒计数）</p>
-<h3 id="quot-selector-quot-slice-index"><a href="#quot-selector-quot-slice-index" class="headerlink" title="$(&quot;selector&quot;).slice(index)"></a><code>$(&quot;selector&quot;).slice(index)</code></h3><p>选择匹配集合中所有大于给定index（索引值）的元素。</p>
-<h3 id="quot-selector-quot-slice-0-index"><a href="#quot-selector-quot-slice-0-index" class="headerlink" title="$(&quot;selector&quot;).slice(0, index)"></a><code>$(&quot;selector&quot;).slice(0, index)</code></h3><p>选择匹配集合中所有索引值小于给定index参数的元素。</p>
-<h3 id="quot-selector-quot-not"><a href="#quot-selector-quot-not" class="headerlink" title="$(&quot;selector&quot;).not()"></a><code>$(&quot;selector&quot;).not()</code></h3><p>选择所有元素去除不匹配给定的选择器的元素。</p>
-<h3 id="quot-selector-quot-filter-quot-odd-quot"><a href="#quot-selector-quot-filter-quot-odd-quot" class="headerlink" title="$(&quot;selector&quot;).filter(&quot;:odd&quot;)"></a><code>$(&quot;selector&quot;).filter(&quot;:odd&quot;)</code></h3><p>选择索引值为奇数元素，从 0 开始计数。</p>
-<h3 id="quot-selector-quot-filter-quot-even-quot"><a href="#quot-selector-quot-filter-quot-even-quot" class="headerlink" title="$(&quot;selector&quot;).filter(&quot;:even&quot;)"></a><code>$(&quot;selector&quot;).filter(&quot;:even&quot;)</code></h3><p>选择所引值为偶数的元素，从 0 开始计数。</p>
-<blockquote>
-<p>查找表格中索引值是偶数的行(即实际表格中的奇数行)，即匹配第一行、第三行、第五行等 (索引值是 0, 2 ,4 等 )</p>
-</blockquote>
-<h3 id="quot-selector-quot-filter-quot-first-quot"><a href="#quot-selector-quot-filter-quot-first-quot" class="headerlink" title="$(&quot;selector&quot;).filter(&quot;:first&quot;)"></a><code>$(&quot;selector&quot;).filter(&quot;:first&quot;)</code></h3><p>选择第一个匹配的元素。</p>
-<h2 id="内容过滤"><a href="#内容过滤" class="headerlink" title="内容过滤"></a>内容过滤</h2><h3 id="quot-contains-text-quot"><a href="#quot-contains-text-quot" class="headerlink" title="$( &quot;:contains(text)&quot; )"></a><code>$( &quot;:contains(text)&quot; )</code></h3><p>选择所有包含指定文本的元素。</p>
-<h3 id="quot-selector-quot-has-selector-DOMElement"><a href="#quot-selector-quot-has-selector-DOMElement" class="headerlink" title="$(&quot;selector&quot;).has(selector/DOMElement)"></a><code>$(&quot;selector&quot;).has(selector/DOMElement)</code></h3><p>选择元素其中至少包含指定选择器匹配的一个种元素。</p>
-<h2 id="DOM-操作"><a href="#DOM-操作" class="headerlink" title="DOM 操作"></a>DOM 操作</h2><h2 id="class-属性"><a href="#class-属性" class="headerlink" title="class 属性"></a>class 属性</h2><h3 id="addClass-className"><a href="#addClass-className" class="headerlink" title=".addClass( className )"></a><code>.addClass( className )</code></h3><p>为每个匹配的元素添加指定的样式类名，和.removeClass()一起使用，用来切换元素的样式。</p>
-<blockquote>
-<p>值得注意的是这个方法不会替换一个样式类名。它只是简单的添加一个样式类名到元素上。</p>
-</blockquote>
-<h3 id="hasClass"><a href="#hasClass" class="headerlink" title=".hasClass()"></a><code>.hasClass()</code></h3><p>确定任何一个匹配元素是否有被分配给定的（样式）类。</p>
-<h3 id="toggleClass-className-switch"><a href="#toggleClass-className-switch" class="headerlink" title=".toggleClass( className, switch )"></a><code>.toggleClass( className, switch )</code></h3><p>在匹配的元素集合中的每个元素上添加或删除一个或多个样式类,取决于这个样式类是否存在或值切换属性。即：如果存在（不存在）就删除（添加）一个类。<br>switch一个布尔值，用于判断样式是否应该被添加或移除。</p>
-<h2 id="复制元素"><a href="#复制元素" class="headerlink" title="复制元素"></a>复制元素</h2><h3 id="clone"><a href="#clone" class="headerlink" title=".clone()"></a><code>.clone()</code></h3><p>创建一个匹配的元素集合的深度拷贝副本。<br>当和插入方法联合使用时，.clone()对于复制页面上的元素很方便。<code>$(&#39;.hello&#39;).clone().appendTo(&#39;.goodbye&#39;);</code></p>
-<h2 id="DOM-移除"><a href="#DOM-移除" class="headerlink" title="DOM 移除"></a>DOM 移除</h2><h3 id="detach"><a href="#detach" class="headerlink" title=".detach()"></a><code>.detach()</code></h3><p>从DOM中去掉所有匹配的元素。</p>
-<blockquote>
-<p>.detach() 方法和.remove()一样, 除了 .detach()保存所有jQuery数据和被移走的元素相关联。当需要移走一个元素，不久又将该元素插入DOM时，这种方法很有用。</p>
-</blockquote>
-<h3 id="empty"><a href="#empty" class="headerlink" title=".empty()"></a><code>.empty()</code></h3><p>从DOM中移除集合中匹配元素的所有子节点。</p>
-<blockquote>
-<p>为了避免内存泄漏，jQuery先移除子元素的数据和事件处理函数，然后移除子元素。如果你想删除元素，不破坏他们的数据或事件处理程序（这些绑定的信息还可以在之后被重新添加回来），请使用.detach()代替 。</p>
-</blockquote>
-<h3 id="remove"><a href="#remove" class="headerlink" title=".remove()"></a><code>.remove()</code></h3><p>将匹配元素集合从DOM中删除。（注：同时移除元素上的事件及 jQuery 数据。）</p>
-<p>##DOM 替换</p>
-<h3 id="replaceAll"><a href="#replaceAll" class="headerlink" title=".replaceAll()"></a><code>.replaceAll()</code></h3><p>用集合的匹配元素替换每个目标元素。</p>
-<h3 id="replaceWith"><a href="#replaceWith" class="headerlink" title=".replaceWith()"></a><code>.replaceWith()</code></h3><p>用提供的内容替换集合中所有匹配的元素并且返回被删除元素的集合。</p>
-<h2 id="CSS-属性"><a href="#CSS-属性" class="headerlink" title="CSS 属性"></a>CSS 属性</h2><h3 id="css"><a href="#css" class="headerlink" title=".css()"></a><code>.css()</code></h3><p>获取匹配元素集合中的第一个元素的样式属性的值  或  设置每个匹配元素的一个或多个CSS属性。</p>
-<blockquote>
-<p>简写速写的CSS属性(例如： margin, background, border) 是不支持的，例如，如果你想重新获取margin，可以使用$(elem).css(‘marginTop’) 和 $(elem).css(‘marginRight’)，其他的也是如此。</p>
-</blockquote>
-<h3 id="width"><a href="#width" class="headerlink" title=".width()"></a><code>.width()</code></h3><p>为匹配的元素集合中获取第一个元素的当前计算宽度值或给每个匹配的元素设置宽度。</p>
-<h3 id="height"><a href="#height" class="headerlink" title=".height()"></a><code>.height()</code></h3><p>获取匹配元素集合中的第一个元素的当前计算高度值 或 设置每一个匹配元素的高度值。</p>
-<h3 id="innerHeight"><a href="#innerHeight" class="headerlink" title=".innerHeight()"></a><code>.innerHeight()</code></h3><p>为匹配的元素集合中获取第一个元素的当前计算高度值,包括padding，但是不包括border。</p>
-<h3 id="innerWidth"><a href="#innerWidth" class="headerlink" title=".innerWidth()"></a><code>.innerWidth()</code></h3><p>为匹配的元素集合中获取第一个元素的当前计算宽度值,包括padding，但是不包括border。</p>
-<blockquote>
-<p>.css(‘height’) 和 .height()之间的区别是后者返回一个没有单位的数值（例如，400），前者是返回带有完整单位的字符串（例如，400px）。当一个元素的高度需要数学计算的时候推荐使用.height() 方法 。</p>
-</blockquote>
-<p>这个方法同样能计算出window和document的高度。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(window).height();   // returns height of browser viewport</div><div class="line">$(document).height(); // returns height of HTML document</div></pre></td></tr></table></figure>
-<p>注意.height()总是返回内容宽度,不管CSS box-sizing属性值。</p>
-<p>设置高度时如果没有给定明确的单位（像’em’ 或者 ‘%’），那么默认情况下”px”会被直接添加上去（也理解为”px”是默认单位）。</p>
-<h3 id="offset"><a href="#offset" class="headerlink" title=".offset()"></a><code>.offset()</code></h3><p>在匹配的元素集合中，获取的第一个元素的当前坐标，或设置每一个元素的坐标，坐标相对于文档。</p>
-<blockquote>
-<p>.offset()方法允许我们检索一个元素相对于文档（document）的当前位置。和.position()的差别在于：.position()是相对于相对于父级元素的位移。当通过全局操作（特别是通过拖拽操作）将一个新的元素放置到另一个已经存在的元素的上面时，若要取得这个新的元素的位置，那么使用 .offset() 更合适。.offset()返回一个包含top 和 left属性的对象 。</p>
-</blockquote>
-<p>注意：jQuery不支持获取隐藏元素的偏移坐标。同样的，也无法取得隐藏元素的 border, margin, 或 padding 信息。<br>若元素的属性设置的是 visibility:hidden，那么我们依然可以取得它的坐标。但是若设置的属性是 display:none，由于在绘制 DOM 树时根本就不绘制该元素，所以它的位置属性值是 undefined。</p>
-<h3 id="position"><a href="#position" class="headerlink" title=".position()"></a><code>.position()</code></h3><p>获取匹配元素中第一个元素的当前坐标，相对于offset parent的坐标。( 及指离该元素最近的而且被定位过的祖先元素 )</p>
-<h3 id="outerHeight-includeMargin"><a href="#outerHeight-includeMargin" class="headerlink" title=".outerHeight([includeMargin ])"></a><code>.outerHeight([includeMargin ])</code></h3><p>在.outerHeight()计算中总是包含padding-top ,padding-bottom 和 border-top，border-bottom ；如果includeMargin参数是true，那么margin (top 和 bottom)也会被包含。</p>
-<h3 id="outerWidth-includeMargin"><a href="#outerWidth-includeMargin" class="headerlink" title=".outerWidth([includeMargin ])"></a><code>.outerWidth([includeMargin ])</code></h3><p>获取元素集合中第一个元素的当前计算宽度值,包括padding，border和选择性的margin。（注：返回一个整数（不包含“px”）表示的值，或如果在一个空集合上调用该方法，则会返回 null。）</p>
-<h3 id="scrollLeft"><a href="#scrollLeft" class="headerlink" title=".scrollLeft()"></a><code>.scrollLeft()</code></h3><p>获取匹配的元素集合中第一个元素的当前水平滚动条的位置或设置每个匹配元素的水平滚动条位置。</p>
-<h3 id="scrollTop"><a href="#scrollTop" class="headerlink" title=".scrollTop()"></a><code>.scrollTop()</code></h3><p>获取匹配的元素集合中第一个元素的当前垂直滚动条的位置或设置每个匹配元素的垂直滚动条位置。</p>
-<h2 id="DOM-插入"><a href="#DOM-插入" class="headerlink" title="DOM 插入"></a>DOM 插入</h2><h3 id="after"><a href="#after" class="headerlink" title=".after()"></a><code>.after()</code></h3><p>在匹配元素集合中的每个元素后面插入参数所指定的内容，作为其兄弟节点。</p>
-<blockquote>
-<p>.after()和.insertAfter()实现同样的功能。主要的不同是语法——特别是内容和目标的位置。 对于 .after(), 选择表达式在函数的前面，参数是将要插入的内容。 对于.insertAfter(), 刚好相反，内容在方法前面，它将被放在参数里元素的后面。</p>
-</blockquote>
-<h3 id="before"><a href="#before" class="headerlink" title=".before()"></a><code>.before()</code></h3><p>根据参数设定，在匹配元素的前面插入内容</p>
-<blockquote>
-<p>.before() 和.insertBefore()实现同样的功能。主要的不同是语法——内容和目标的位置不同。对于.before(), 选择器表达式在方法的前面，参数是将要插入的内容。对于.insertBefore()刚好相反，内容在方法前面，无论是作为一个选择表达式或作为标记上创建动态，它将被放在目标容器的前面。</p>
-</blockquote>
-<h3 id="append"><a href="#append" class="headerlink" title=".append()"></a><code>.append()</code></h3><p>.append()函数将特定内容插入到每个匹配元素里面的最后面，作为它的最后一个子元素（last child）, (如果要作为第一个子元素 （first child）, 用.prepend()).</p>
-<blockquote>
-<p>.append() 和.appendTo()实现同样的功能。主要的不同是语法——内容和目标的位置不同。对于.append(), 选择器表达式在函数的前面，参数是将要插入的内容。对于.appendTo()刚好相反，内容在方法前面，无论是一个选择器表达式 或创建作为标记上的标记，它都将被插入到目标容器的末尾。</p>
-</blockquote>
-<h2 id="通用属性操作"><a href="#通用属性操作" class="headerlink" title="通用属性操作"></a>通用属性操作</h2><h3 id="attr"><a href="#attr" class="headerlink" title=".attr()"></a><code>.attr()</code></h3><p>获取匹配的元素集合中的第一个元素的属性的值  或 设置每一个匹配元素的一个或多个属性。<br>当设置多个属性,包裹属性名的引号是可选的。但当设置样式名（“class”）属性时，必须使用引号！</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// for example</div><div class="line">$(&apos;#greatphoto&apos;).attr(&#123;</div><div class="line">  alt: &apos;Beijing Brush Seller&apos;,</div><div class="line">  title: &apos;photo by Kelly Clark&apos;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<blockquote>
-<p>注意: jQuery禁止改变一个 input 或 button 元素的type 特性（attribute），并且在所有浏览器下将抛出一个错误。因为Internet Explorer不会允许你改变 input 或者 button 元素的type属性。</p>
-</blockquote>
-<h3 id="prop"><a href="#prop" class="headerlink" title=".prop()"></a><code>.prop()</code></h3><p>获取匹配的元素集中第一个元素的属性（property）值或设置每一个匹配元素的一个或多个属性。</p>
-<blockquote>
-<p>.prop()方法只获得第一个匹配元素的属性值 。如果元素上没有该属性，或者如果没有匹配的元素。那么该方法会返回undefined值。若要取得每个匹配元素的属性值（property），请使用循环结构，如jQuery .each()或.map()方法。</p>
-</blockquote>
-<h3 id="html"><a href="#html" class="headerlink" title=".html()"></a><code>.html()</code></h3><p>获取集合中第一个匹配元素的HTML内容 或 设置每一个匹配元素的html内容。</p>
-<h3 id="removeAttr"><a href="#removeAttr" class="headerlink" title=".removeAttr()"></a><code>.removeAttr()</code></h3><p>为匹配的元素集合中的每个元素中移除一个属性（attribute）。</p>
-<p>注意: Internet Explorer 6， 7 ，或8中，使用.removeAttr()删除一个内联onclick 事件处理程序没有实现，为了避免潜在的问题，使用 .prop()代替：</p>
-<h3 id="removeProp"><a href="#removeProp" class="headerlink" title=".removeProp()"></a><code>.removeProp()</code></h3><p>.removeProp()方法用来删除由.prop()方法设置的属性集。</p>
-<p>注意: 不要使用此方法来删除原生的属性（ property ），比如checked, disabled, 或者 selected。这将完全移除该属性，一旦移除，不能再次被添加到元素上。使用.prop()来设置这些属性设置为false代替。</p>
-<h3 id="text"><a href="#text" class="headerlink" title=".text()"></a><code>.text()</code></h3><p>得到匹配元素集合中每个元素的文本内容结合，包括他们的后代，或设置匹配元素集合中每个元素的文本内容为指定的文本内容。</p>
-<h3 id="val"><a href="#val" class="headerlink" title=".val()"></a><code>.val()</code></h3><p>.val()方法主要用于获取表单元素的值，比如 input, select 和 textarea。对于 <code>&lt;select multiple=&quot;multiple&quot;&gt;</code> 元素,  .val()方法返回一个包含每个选择项的数组，如果没有选择性被选中，它返回null。</p>
-<h3 id="unwrap"><a href="#unwrap" class="headerlink" title=".unwrap()"></a><code>.unwrap()</code></h3><p>将匹配元素集合的父级元素删除，保留自身（和兄弟元素，如果存在）在原来的位置。</p>
-<h3 id="wrap"><a href="#wrap" class="headerlink" title=".wrap()"></a><code>.wrap()</code></h3><p>在每个匹配的元素外层包上一个html元素。</p>
-<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><h2 id="浏览器事件"><a href="#浏览器事件" class="headerlink" title="浏览器事件"></a>浏览器事件</h2><h3 id="scroll"><a href="#scroll" class="headerlink" title=".scroll()"></a><code>.scroll()</code></h3><p>当用户在元素内执行了滚动操作，就会在这个元素上触发scroll事件。它适用于window对象，但也可以是可滚动frames与CSS overflow属性设置为scroll的元素（或auto时，元素的显示高度小于其内容高度）。</p>
-<h2 id="绑定事件处理器"><a href="#绑定事件处理器" class="headerlink" title="绑定事件处理器"></a>绑定事件处理器</h2><h3 id="bind"><a href="#bind" class="headerlink" title=".bind()"></a><code>.bind()</code></h3><p>为一个元素绑定一个事件处理程序。<br>bind()方法类似于原生javascript的addEventListener()方法，用于绑定事件；  </p>
-<h3 id="on"><a href="#on" class="headerlink" title=".on()"></a><code>.on()</code></h3><p>.on()方法事件处理程序到当前选定的jQuery对象中的元素。在jQuery 1.7中，.on()方法 提供绑定事件处理的所有功能。为了帮助从旧的jQuery事件方法转换过来，查看 .bind(),  .delegate(), 和 .live(). 要删除的.on()绑定的事件，请参阅.off()。要绑定一个事件，并且只运行一次，然后删除自己， 请参阅.one() </p>
-<h3 id="off"><a href="#off" class="headerlink" title=".off()"></a><code>.off()</code></h3><p>移除一个事件处理函数。</p>
-<h3 id="one"><a href="#one" class="headerlink" title=".one()"></a><code>.one()</code></h3><p>one()方法用于处理只触发一次的事件  </p>
-<h3 id="trigger"><a href="#trigger" class="headerlink" title=".trigger()"></a><code>.trigger()</code></h3><p>trigger()方法类似于原生javascript的dispatchEvent()方法，用于触发事件； </p>
-<h3 id="triggerHandler"><a href="#triggerHandler" class="headerlink" title=".triggerHandler()"></a><code>.triggerHandler()</code></h3><p>.triggerHandler() 方法的行为与 .trigger() 相似，不同之处有如下几点：  </p>
-<ol>
-<li>triggerHandler() 方法并不会触发事件的默认行为。(例如，表单提交)。   </li>
-<li>trigger() 会影响所有与 jQuery 对象相匹配的元素，而 .triggerHandler() 仅影响第一个匹配到的元素。   </li>
-<li>使用 .triggerHandler() 创建的事件，并不会在 DOM 树中向上冒泡。如果事件没有被目标元素直接处理，那么它就不会进行任何处理。  </li>
-<li>与普通的方法返回 jQuery 对象(这样就能够使用链式用法)相反，.triggerHandler() 返回最后一个处理的事件的返回值。如果没有触发任何事件，会返回 undefined。</li>
-</ol>
-<h2 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h2><h3 id="event-pageX"><a href="#event-pageX" class="headerlink" title="event.pageX"></a><code>event.pageX</code></h3><p>鼠标相对于文档的左边缘的位置（左边）</p>
-<h3 id="event-pageY"><a href="#event-pageY" class="headerlink" title="event.pageY"></a><code>event.pageY</code></h3><p>鼠标相对于文档的顶部边缘的位置（坐标）</p>
-<h3 id="event-preventDefault"><a href="#event-preventDefault" class="headerlink" title="event.preventDefault()"></a><code>event.preventDefault()</code></h3><p>如果调用这个方法，默认事件行为将不再触发</p>
-<h3 id="event-stopPropagation"><a href="#event-stopPropagation" class="headerlink" title="event.stopPropagation()"></a><code>event.stopPropagation()</code></h3><p>防止事件冒泡到DOM树上，也就是不触发的任何前辈元素上的事件处理函数</p>
-<h3 id="event-target"><a href="#event-target" class="headerlink" title="event.target"></a><code>event.target</code></h3><p>触发事件的DOM元素</p>
-<blockquote>
-<p>target 属性可以是注册事件时的元素，或者它的子元素。通常用于比较 event.target 和 this 来确定事件是不是由于冒泡而触发的。经常用于事件冒泡时处理事件委托。</p>
-</blockquote>
-<h3 id="event-which"><a href="#event-which" class="headerlink" title="event.which"></a><code>event.which</code></h3><p>针对键盘和鼠标事件，这个属性能确定你到底按的是哪个键</p>
-<blockquote>
-<p>event.which也将正常化的按钮按下(mousedown 和 mouseupevents)，左键报告1，中间键报告2，右键报告3。使用event.which代替event.button</p>
-</blockquote>
-<p>##表单事件</p>
-<h3 id="blur"><a href="#blur" class="headerlink" title=".blur()"></a><code>.blur()</code></h3><p>一个元素失去焦点将触发blur事件。起初，这个事件仅适用于表单元素，如元素<code>&lt;input&gt;</code> 。在最新的浏览器中，这个事件适用范围已经扩大到包括所有元素类型。一个元素可以通过键盘命令失去焦点，比如tab键，或用鼠标点击网页上的其他地方。</p>
-<h3 id="change"><a href="#change" class="headerlink" title=".change()"></a><code>.change()</code></h3><p>一个元素的值改变的时候将触发change事件。此事件仅限用于<code>&lt;input&gt;</code>元素，<code>&lt;textarea&gt;</code>和<code>&lt;select&gt;</code>元素。对于下拉选择框，复选框和单选按钮，当用户用鼠标作出选择，该事件立即触发，但对于其他类型的input元素，该事件触发将推迟，直到元素失去焦点才会触点。</p>
-<h3 id="focus"><a href="#focus" class="headerlink" title=".focus()"></a><code>.focus()</code></h3><p>当一个元素获得焦点时，focus事件被触发。此事件起初适用于有限的元素，比如表单元素（<code>&lt;input&gt;</code>, <code>&lt;select&gt;</code>等）和链接元素（<code>&lt;a href&gt;</code>）。在最近版本的浏览器中，该事件可以扩展到所有包括通过显式设置tabindex属性的元素类型。一个元素可以通过键盘命令获得焦点，如Tab键，或按鼠标点击的元素。</p>
-<h3 id="focusout"><a href="#focusout" class="headerlink" title=".focusout()"></a><code>.focusout()</code></h3><p>focusout 事件会在元素（或者其内部的任何元素）失去焦点时触发。这跟 blur 事件的显著区别在于，它可以在父元素上检测子元素失去焦点的情况(换而言之，它支持事件冒泡)</p>
-<h3 id="select"><a href="#select" class="headerlink" title=".select()"></a><code>.select()</code></h3><p>当用户在一个元素中进行文本选择时，这个元素上的select事件就会被触发。此事件只能用在<code>&lt;input type=&quot;text&quot;&gt;</code> 和<code>&lt;textarea&gt;</code></p>
-<h3 id="submit"><a href="#submit" class="headerlink" title=".submit()"></a><code>.submit()</code></h3><p>当用户试图提交表单时，就会在这个表单元素上触发submit事件。它只能绑定在<form>元素上。以下几种情况会导致表单被提交：用户点击了<code>&lt;input type=&quot;submit&quot;&gt;</code>, <code>&lt;input type=&quot;image&quot;&gt;</code>, 或者 <code>&lt;button type=&quot;submit&quot;&gt;</code>，或者当某些表单元素获取焦点时，敲击Enter（回车键），都可以提交。</form></p>
-<h2 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h2><h3 id="click"><a href="#click" class="headerlink" title=".click()"></a><code>.click()</code></h3><p>一个元素被点击和鼠标按键被按下和释放时候将触发 click 事件。任何HTML元素都可以接收此事件。</p>
-<h3 id="dblclick"><a href="#dblclick" class="headerlink" title=".dblclick()"></a><code>.dblclick()</code></h3><p>一个元素被双击时将触发 dblclick 事件。任何HTML元素都可以收到此事件。</p>
-<h3 id="hover"><a href="#hover" class="headerlink" title=".hover()"></a><code>.hover()</code></h3><p>.hover()方法是同时绑定 mouseenter和 mouseleave事件。我们可以用它来简单地应用在 鼠标在元素上行为。<br>调用 <code>$(selector).hover(handlerIn, handlerOut)</code> 是以下写法的简写：<br><code>$(selector).mouseenter(handlerIn).mouseleave(handlerOut)</code></p>
-<h3 id="mousedown"><a href="#mousedown" class="headerlink" title=".mousedown()"></a><code>.mousedown()</code></h3><p>当鼠标指针在元素上和按下鼠标键，mousedown事件被发送到这个元素。任何HTML元素都可以收到此事件。</p>
-<h3 id="mouseenter"><a href="#mouseenter" class="headerlink" title=".mouseenter()"></a><code>.mouseenter()</code></h3><p>该事件在鼠标移入到元素上时被触发。任何HTML元素都可以接受此事件。</p>
-<h3 id="mouseleave"><a href="#mouseleave" class="headerlink" title=".mouseleave()"></a><code>.mouseleave()</code></h3><p>该事件在鼠标离开元素上时被触发。任何HTML元素都可以接受此事件。</p>
-<h3 id="mousemove"><a href="#mousemove" class="headerlink" title=".mousemove()"></a><code>.mousemove()</code></h3><p>当鼠标指针在元素内移动时，mousemove事件就会被触发，任何HTML元素都可以接受此事件。</p>
-<h3 id="mouseout"><a href="#mouseout" class="headerlink" title=".mouseout()"></a><code>.mouseout()</code></h3><p>当鼠标指针离开元素时，mouseout事件就会被触发，任何HTML元素都可以接受此事件。</p>
-<h3 id="mouseover"><a href="#mouseover" class="headerlink" title=".mouseover()"></a><code>.mouseover()</code></h3><p>当鼠标指针进入元素内时，mouseover事件就会被触发，任何HTML元素都可以接受此事件。</p>
-<h3 id="mouseup"><a href="#mouseup" class="headerlink" title=".mouseup()"></a><code>.mouseup()</code></h3><p>当鼠标指针在元素内，并且鼠标按键被释放时，mouseup事件就会被触发，任何HTML元素都可以接受此事件。</p>
-<h3 id="toggle"><a href="#toggle" class="headerlink" title=".toggle()"></a><code>.toggle()</code></h3><p>.toggle()方法的处理程序绑定一个click事件,如果提供两个以上的处理函数，.toggle()将在它们中循环。</p>
-<h3 id="isArray"><a href="#isArray" class="headerlink" title="$.isArray()"></a><code>$.isArray()</code></h3><p>函数用于判断指定参数是否是一个数组<br>函数的返回值为Boolean类型，如果指定的参数是数组，则返回true，否则返回false。</p>
-<h3 id="getScript"><a href="#getScript" class="headerlink" title="$.getScript()"></a><code>$.getScript()</code></h3><p>使用一个HTTP GET请求从服务器加载并执行一个 JavaScript 文件。<a href="http://www.css88.com/jqapi-1.9/jQuery.getScript/" target="_blank" rel="external">参考</a></p>
-<blockquote>
-<p>注意不要直接在<code>$.getScript()</code>执行后直接调用该js文件中的变量或函数，因为<code>$.getScript()</code>是异步加载的，在你访问其中的某个变量或函数时，可能该js文件尚未完全加载完毕。建议你最好在success回调函数中处理，或者你能够确认此时该js文件已经加载完毕。</p>
-</blockquote>
-<h3 id="jQuery-makeArray"><a href="#jQuery-makeArray" class="headerlink" title="jQuery.makeArray()"></a><code>jQuery.makeArray()</code></h3><p>函数用于将一个类数组对象转换为真正的数组对象,函数的返回值为Array类型，返回转换后的数组对象。</p>
-<p>所谓”类数组对象”就是一个常规的Object对象，但它和数组对象非常相似：具备length属性，并以0、1、2、3……等数字作为属性名。不过它毕竟不是数组，没有从数组的原型对象上继承下来的内置方法(例如：push()、 sort()等)。</p>
-<h3 id="jQuery-isPlainObject"><a href="#jQuery-isPlainObject" class="headerlink" title="jQuery.isPlainObject()"></a><code>jQuery.isPlainObject()</code></h3><p>函数用于判断指定参数是否是一个纯粹的对象。<br>所谓”纯粹的对象”，就是该对象是通过”{}”或”new Object”创建的。<br>函数的返回值为Boolean类型，如果指定的参数是纯粹的对象，则返回true，否则返回false。</p>
-<h3 id="extend"><a href="#extend" class="headerlink" title="extend()"></a><code>extend()</code></h3><p>extend(dest,src1,src2,src3…)</p>
-<hr>
-<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h3 id="concat"><a href="#concat" class="headerlink" title="concat()"></a><code>concat()</code></h3><p>用于连接两个或多个数组,该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本。</p>
-<h3 id="replace"><a href="#replace" class="headerlink" title="replace()"></a><code>replace()</code></h3><p>方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。</p>
+            <p>通常我们使用jQuery的extend时，大都是为了实现默认字段的覆盖，即若传入某个字段的值，则使用传入值，否则使用默认值。如下面的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function getOpt(option)&#123;</div><div class="line">    var _default = &#123;</div><div class="line">        name : &apos;wenzi&apos;,</div><div class="line">        age : &apos;25&apos;,</div><div class="line">        sex : &apos;male&apos;</div><div class="line">    &#125;</div><div class="line">    $.extend(_default, option);</div><div class="line">    return _default;</div><div class="line">&#125;</div><div class="line">getOpt();  // &#123;name: &quot;wenzi&quot;, age: &quot;25&quot;, sex: &quot;male&quot;&#125;</div><div class="line">getOpt(&#123;name:&apos;bing&apos;&#125;); // &#123;name: &quot;bing&quot;, age: &quot;25&quot;, sex: &quot;male&quot;&#125;</div><div class="line">getOpt(&#123;name:&apos;bing&apos;, age:36, sex:&apos;female&apos;&#125;);  // &#123;name: &quot;bing&quot;, age: 36, sex: &quot;female&quot;&#125;</div></pre></td></tr></table></figure>
+<p>那现在我们就得需要知道这个extend具体是怎么实现的了，除了实现上面的功能，还有其他作用么？那肯定是有的啦，否则我也不会问那句话了（(⊙﹏⊙)b）。我们先来看看extend主要有哪些功能，然后再看实现这些功能的原理。</p>
+<h3 id="1-extend能实现的功能"><a href="#1-extend能实现的功能" class="headerlink" title="1. extend能实现的功能"></a>1. extend能实现的功能</h3><p>其实从extend的含义里，我们就能知道extend是做什么的了。extend翻译成汉语后就是：延伸、扩展、推广。</p>
+<p>####1.1 将两个或更多对象的内容合并到第一个对象</p>
+<p>我们来看看<code>$.extend()</code>提供的参数：<code>jQuery.extend( target [, object1 ] [, objectN ] )</code>，extend方法需要至少传入一个参数，第一个必需，后面的都是可选参数。若传给extend是两个或两个以上的参数都是对象类型，那么就会把后面所有对象的内容合并给target（第一个对象）上。</p>
+<p>我们再来看看上面的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function getOpt(option)&#123;</div><div class="line">    var _default = &#123;</div><div class="line">        name : &apos;wenzi&apos;,</div><div class="line">        age : &apos;25&apos;,</div><div class="line">        sex : &apos;male&apos;</div><div class="line">    &#125;</div><div class="line">    `$.extend(_default, option);`</div><div class="line">    return _default;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>$.extend()</code>中接收了两个参数_default和option，那么extend方法执行时，就会把option对象上字段的值全给了_default。于是_default上设置的默认值就会被option上的值覆盖。当然，若option上没有这个字段，就不会覆盖_default上字段的值。</p>
+<p>上面函数中的extend，只是传入了两个参数，那传的参数再更多一些呢：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">function getOpt(target, obj1, obj2, obj3)&#123;</div><div class="line">    $.extend(target, obj1, obj2, obj3);</div><div class="line">    return target;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var _default = &#123;</div><div class="line">    name : &apos;wenzi&apos;,</div><div class="line">    age : &apos;25&apos;,</div><div class="line">    sex : &apos;male&apos;</div><div class="line">&#125;</div><div class="line">var obj1 = &#123;</div><div class="line">    name : &apos;obj1&apos;</div><div class="line">&#125;</div><div class="line">var obj2 = &#123;</div><div class="line">    name : &apos;obj2&apos;,</div><div class="line">    age : &apos;36&apos;</div><div class="line">&#125;</div><div class="line">var obj3 = &#123;</div><div class="line">    age : &apos;67&apos;,</div><div class="line">    sex : &#123;&apos;error&apos;:&apos;sorry, I dont\&apos;t kown&apos;&#125;</div><div class="line">&#125;</div><div class="line">getOpt(_default, obj1, obj2, obj3);  // &#123;name: &quot;obj2&quot;, age: &quot;67&quot;, sex: &#123;error: &quot;sorry, I dont&apos;t kown&quot;&#125;&#125;</div></pre></td></tr></table></figure>
+<p>这里我们传入了4个参数，然后getOpt()返回第一个参数的值。从运行的得到结果我们可以看到，属性值永远是最后一个属性的值。</p>
+<p>还有很重要的一点，<code>$.extend()</code>其实是有返回值的，返回的就是修改后的第一个参数的值。如我们可以把上面的函数修改成这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function getOpt(target, obj1, obj2, obj3)&#123;</div><div class="line">    var result = $.extend(target, obj1, obj2, obj3); </div><div class="line">    return result; // // result即修改后的target值</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>若我们传入的参数不想被修改，我们可以用一个空对象来作为第一个参数，然后获取<code>$.extend()</code>的返回值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function getOpt(target, obj1, obj2, obj3)&#123;</div><div class="line">    var result = $.extend(&#123;&#125;, target, obj1, obj2, obj3); </div><div class="line">    return result; // // result即为&#123;&#125;修改后的值</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="1-2-为jQuery扩展方法或属性"><a href="#1-2-为jQuery扩展方法或属性" class="headerlink" title="1.2 为jQuery扩展方法或属性"></a>1.2 为jQuery扩展方法或属性</h4><p>刚才我们在1.1中讲的<code>$.extend()</code>的例子都是传了两个或两个以上的参数，但其实只有一个参数是必须的。若只传一个参数会怎样呢。</p>
+<p>如果只有一个参数提供给<code>$.extend()</code>，这意味着目标参数被省略。在这种情况下，jQuery对象本身被默认为目标对象。这样，我们可以在jQuery的命名空间下添加新的功能。这对于插件开发者希望向 jQuery 中添加新函数时是很有用的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$.extend(&#123;</div><div class="line">    _name : &apos;wenzi&apos;,</div><div class="line">    _getName : function()&#123;</div><div class="line">        return this._name;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">$._name; // wenzi</div><div class="line">$._getName(); // wenzi</div></pre></td></tr></table></figure>
+<p>这样我们就为jQuery扩展了_name属性和_getName方法。</p>
+<h4 id="1-3-深度拷贝和浅度拷贝"><a href="#1-3-深度拷贝和浅度拷贝" class="headerlink" title="1.3 深度拷贝和浅度拷贝"></a>1.3 深度拷贝和浅度拷贝</h4><p>针对什么是深度拷贝，什么是浅度拷贝，我们先来看一个简单的例子。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;name:&apos;wenzi&apos;, sex:&apos;male&apos;&#125;;</div><div class="line">var obj1 = obj; // 赋值</div><div class="line">obj1.name = &apos;bing&apos;;</div><div class="line">console.log(obj.name); // bing</div></pre></td></tr></table></figure>
+<p>我们修改了obj1中的name值，结果obj中的值也跟着发生了变化，这是为什么呢。其实这就是浅度拷贝：这仅仅是将obj对象的引用地址简单的复制了一份给予变量 obj1，而并不是将真正的对象克隆了一份，因此obj和obj1指向的都是同一个地址。当修改obj1的属性或给obj1添加新属性时，obj都会受到影响。</p>
+<p>可是如果变量的值不是对象和数组，修改后面的变量是不会影响到前面的变量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var s = &apos;hello&apos;;</div><div class="line">var t = s;</div><div class="line">t = &apos;world&apos;;</div><div class="line">console.log(s); // hello</div></pre></td></tr></table></figure>
+<p>那么深度拷贝就不是拷贝引用地址，而是实实在在的复制一份新对象给新的变量。 在上面使用<code>$.extend()</code>中，都是使用的浅度拷贝，因此若后面的参数值是object类型或array类型，修改<code>_default(target)</code>的值，就会影响后面参数的值。</p>
+<p>如我们使用<code>getOpt(_default, obj1, obj2, obj3)</code>;得到的_default值是<code>{name: “obj2”, age: “67”, sex: {error: “sorry, I dont’t kown”}}</code>，可是若：<br><code>_default.sex.error = &#39;hello world&#39;;</code><br>那么obj3.sex.error也会跟着修改，因为obj3.sex是一个object类型。</p>
+<p>不过<code>$.extend()</code>也提供了深度拷贝的方法：<code>jQuery.extend( [deep ], target, object1 [, objectN ] )</code>。若第一个参数是boolean类型，且值是true，那么就会把第二个参数作为目标参数进行合并。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;name:&apos;wenzi&apos;, score:80&#125;;</div><div class="line">var obj1 = &#123;score:&#123;english:80, math:90&#125;&#125;</div><div class="line">$.extend(true, obj, obj1);</div><div class="line">obj.score.english = 10;</div><div class="line">console.log(obj.score.english);   // 10</div><div class="line">console.log(obj1.score.english);  // 80</div></pre></td></tr></table></figure>
+<p>执行后我们发现，无论怎么修改obj.score里的值，都不会影响到obj1.score了。</p>
+<h3 id="2-jQuery中extend实现原理"><a href="#2-jQuery中extend实现原理" class="headerlink" title="2. jQuery中extend实现原理"></a>2. jQuery中extend实现原理</h3><p>其实不看源码，对extend大致的过程应该也是了解的：对后一个参数进行循环，然后把后面参数上所有的字段都给了第一个字段，若第一个参数里有相同的字段，则进行覆盖操作，否则就添加一个新的字段。</p>
+<p>下面是jQuery中关于extend的源码，我就在源码上进行注释讲解了，随后再在后面进行总结：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div></pre></td><td class="code"><pre><div class="line">// 为与源码的下标对应上，我们把第一个参数称为`第0个参数`，依次类推</div><div class="line">jQuery.extend = jQuery.fn.extend = function() &#123;</div><div class="line">    var options, name, src, copy, copyIsArray, clone,</div><div class="line">        target = arguments[0] || &#123;&#125;, // 默认第0个参数为目标参数</div><div class="line">        i = 1,    // i表示从第几个参数凯斯想目标参数进行合并，默认从第1个参数开始向第0个参数进行合并</div><div class="line">        length = arguments.length,</div><div class="line">        deep = false;  // 默认为浅度拷贝</div><div class="line"></div><div class="line">    // 判断第0个参数的类型，若第0个参数是boolean类型，则获取其为true还是false</div><div class="line">    // 同时将第1个参数作为目标参数，i从当前目标参数的下一个</div><div class="line">    // Handle a deep copy situation</div><div class="line">    if ( typeof target === &quot;boolean&quot; ) &#123;</div><div class="line">        deep = target;</div><div class="line"></div><div class="line">        // Skip the boolean and the target</div><div class="line">        target = arguments[ i ] || &#123;&#125;;</div><div class="line">        i++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //     判断目标参数的类型，若目标参数既不是object类型，也不是function类型，则为目标参数重新赋值 </div><div class="line">    // Handle case when target is a string or something (possible in deep copy)</div><div class="line">    if ( typeof target !== &quot;object&quot; &amp;&amp; !jQuery.isFunction(target) ) &#123;</div><div class="line">        target = &#123;&#125;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // 若目标参数后面没有参数了，如$.extend(&#123;_name:&apos;wenzi&apos;&#125;), $.extend(true, &#123;_name:&apos;wenzi&apos;&#125;)</div><div class="line">    // 则目标参数即为jQuery本身，而target表示的参数不再为目标参数</div><div class="line">    // Extend jQuery itself if only one argument is passed</div><div class="line">    if ( i === length ) &#123;</div><div class="line">        target = this;</div><div class="line">        i--;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // 从第i个参数开始</div><div class="line">    for ( ; i &lt; length; i++ ) &#123;</div><div class="line">        // 获取第i个参数，且该参数不为null和undefind，在js中null和undefined，如果不区分类型，是相等的，null==undefined为true，</div><div class="line">        // 因此可以用null来同时过滤掉null和undefind</div><div class="line">        // 比如$.extend(target, &#123;&#125;, null);中的第2个参数null是不参与合并的</div><div class="line">        // Only deal with non-null/undefined values</div><div class="line">        if ( (options = arguments[ i ]) != null ) &#123;</div><div class="line">            </div><div class="line">            // 使用for~in获取该参数中所有的字段</div><div class="line">            // Extend the base object</div><div class="line">            for ( name in options ) &#123;</div><div class="line">                src = target[ name ];   // 目标参数中name字段的值</div><div class="line">                copy = options[ name ]; // 当前参数中name字段的值</div><div class="line"></div><div class="line">                // 若参数中字段的值就是目标参数，停止赋值，进行下一个字段的赋值</div><div class="line">                // 这是为了防止无限的循环嵌套，我们把这个称为，在下面进行比较详细的讲解</div><div class="line">                // Prevent never-ending loop</div><div class="line">                if ( target === copy ) &#123;</div><div class="line">                    continue;</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                // 若deep为true，且当前参数中name字段的值存在且为object类型或Array类型，则进行深度赋值</div><div class="line">                // Recurse if we&apos;re merging plain objects or arrays</div><div class="line">                if ( deep &amp;&amp; copy &amp;&amp; ( jQuery.isPlainObject(copy) || (copyIsArray = jQuery.isArray(copy)) ) ) &#123;</div><div class="line">                    // 若当前参数中name字段的值为Array类型</div><div class="line">                    // 判断目标参数中name字段的值是否存在，若存在则使用原来的，否则进行初始化</div><div class="line">                    if ( copyIsArray ) &#123;</div><div class="line">                        copyIsArray = false;</div><div class="line">                        clone = src &amp;&amp; jQuery.isArray(src) ? src : [];</div><div class="line"></div><div class="line">                    &#125; else &#123;</div><div class="line">                        // 若原对象存在，则直接进行使用，而不是创建</div><div class="line">                        clone = src &amp;&amp; jQuery.isPlainObject(src) ? src : &#123;&#125;;</div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    // 递归处理，此处为2.2</div><div class="line">                    // Never move original objects, clone them                        </div><div class="line">                    target[ name ] = jQuery.extend( deep, clone, copy );</div><div class="line"></div><div class="line">                // deep为false，则表示浅度拷贝，直接进行赋值</div><div class="line">                // 若copy是简单的类型且存在值，则直接进行赋值</div><div class="line">                // Don&apos;t bring in undefined values</div><div class="line">                &#125; else if ( copy !== undefined ) &#123;</div><div class="line">                    // 若原对象存在name属性，则直接覆盖掉；若不存在，则创建新的属性</div><div class="line">                    target[ name ] = copy;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // 返回修改后的目标参数</div><div class="line">    // Return the modified object</div><div class="line">    return target;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>源码分析完了，下面我们来讲解下源码中存在的几个难点和重点。</p>
+<h4 id="2-1-若参数中字段的值就是目标参数，停止赋值"><a href="#2-1-若参数中字段的值就是目标参数，停止赋值" class="headerlink" title="2.1 若参数中字段的值就是目标参数，停止赋值"></a>2.1 若参数中字段的值就是目标参数，停止赋值</h4><p>在源码中进行了一下这样的判断：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// Prevent never-ending loop</div><div class="line">if ( target === copy ) &#123;</div><div class="line">	continue;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>为什么要有这样的判断，我们来看一个简单的例子，如果没有这个判断会怎么样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var _default = &#123;name : &apos;wenzi&apos;&#125;;</div><div class="line">var obj = &#123;name : _default&#125;</div><div class="line">$.extend(_default, obj);</div><div class="line">console.log(_default);</div></pre></td></tr></table></figure>
+<p>输出的_default是什么呢：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">_default = &#123;name : _default&#125;;</div></pre></td></tr></table></figure>
+<p>_default是object类型，里面有个字段name，值是_default，而_default是object类型，里面有个字段name，值是_default……，无限的循环下去。于是jQuery中直接不进行操作，跳过这个字段，进行下一个字段的操作。</p>
+<h4 id="2-2-深度拷贝时进行递归处理"><a href="#2-2-深度拷贝时进行递归处理" class="headerlink" title="2.2 深度拷贝时进行递归处理"></a>2.2 深度拷贝时进行递归处理</h4><p>我们在前面稍微的讲解了一下，变量值为简单类型（如number, string, boolean）进行赋值时是不会影响上一个变量的值的，因此，如果当前字段的值为Object或Array类型，需要对其进行拆分，直到字段的值为简单类型（如number, string, boolean）时才进行赋值操作</p>
+<h4 id="3-extend-与-fn-extend"><a href="#3-extend-与-fn-extend" class="headerlink" title="3. $.extend()与$.fn.extend()"></a>3. <code>$.extend()</code>与<code>$.fn.extend()</code></h4><p>上面讲解的全都是<code>$.extend()</code>，根本就没讲<code>$.fn.extend()</code>。可是，你有没有发现一个细节，在这段代码的第一行是怎么写的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jQuery.extend = jQuery.fn.extend = function()&#123;&#125;</div></pre></td></tr></table></figure>
+<p>也就是说<code>$.extend()</code>与<code>$.fn.extend()</code>共用的是同一个函数体，所有的操作都是一样的，只不过两个extend使用的对象不同罢了：<code>$.extend()</code>是在jQuery上进行操作的；而<code>$.fn.extend()</code>是在jQuery对象上进行操作的，如<code>$(‘div’).extend()</code>.</p>
+<h3 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h3><p>这就是jQuery中extend的实现，以后若我们需要用到上面的功能时，除了使用<code>$.extend()</code>，我们也可以在不引入jQuery框架的情况下，自己写一个简单的<code>extend()</code>来实现上面的功能。</p>
+<p>原文链接：<a href="https://www.cnblogs.com/MnCu8261/p/6039986.html" target="_blank" rel="external">https://www.cnblogs.com/MnCu8261/p/6039986.html</a></p>
 
           
         
@@ -643,7 +1326,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/24/vue-js进阶/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/14/js数组对象排序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Adele">
@@ -662,7 +1345,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/24/vue-js进阶/" itemprop="url">vue.js进阶之vue-router</a></h1>
+                <a class="post-title-link" href="/2017/11/14/js数组对象排序/" itemprop="url">js数组对象排序</a></h1>
         
 
         <div class="post-meta">
@@ -674,169 +1357,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-24T15:29:19+08:00">
-                2017-09-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/" itemprop="url" rel="index">
-                    <span itemprop="name">vue</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="前端路由"><a href="#前端路由" class="headerlink" title="前端路由"></a>前端路由</h2><p>在web开发中，路由是指根据url分配到对应的处理程序</p>
-<h2 id="vue-router"><a href="#vue-router" class="headerlink" title="vue-router"></a>vue-router</h2><p>作用： 通过管理url，实现url和组件的对应以及通过url进行组件之间的切换<br><a href="https://router.vuejs.org/zh-cn/installation.html" target="_blank" rel="external">官方文档</a></p>
-<h2 id="单页应用-SPA"><a href="#单页应用-SPA" class="headerlink" title="单页应用(SPA)"></a>单页应用(SPA)</h2><p>加载单个HTML页面，并在用户与应用程序交互时动态更新该页面。</p>
-<h2 id="vue-router使用步骤"><a href="#vue-router使用步骤" class="headerlink" title="vue-router使用步骤"></a>vue-router使用步骤</h2><p>安装模块<br>npm install vue-router –save</p>
-<p>引入模块<br>import VueRouter frome ‘vue-router’</p>
-<p>作为Vue的插件<br>Vue.use(VueRouter)</p>
-<p>创建路由实例对象<br>new VueRouter({ …配置参数 })</p>
-<p>注入Vue选项参数<br>new Vue({ router })</p>
-<p>告诉路由渲染的位置</p>
-<p><router-view></router-view></p>
-<p>hash和history模式（默认为hash，用mode更改）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let router = new Router(&#123;</div><div class="line">  mode: &apos;history&apos;,</div><div class="line">  ...</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<h2 id="router-link各种配置项"><a href="#router-link各种配置项" class="headerlink" title="router-link各种配置项"></a>router-link各种配置项</h2><p><a href="https://router.vuejs.org/zh-cn/api/router-link.html" target="_blank" rel="external"><router-link></router-link></a><br>默认生成a标签，如果要生成div可使用tage=“标签”</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;router-link to=&quot;/&quot; tag=&quot;div&quot;&gt;home&lt;/router-link&gt;</div></pre></td></tr></table></figure>
-<p>导航加上小图标方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;router-link to=&quot;/&quot; tag=&quot;li&quot;&gt;</div><div class="line">  &lt;i&gt;&lt;/i&gt;</div><div class="line">  &lt;span&gt;home&lt;/span&gt;</div><div class="line">&lt;/router-link&gt;</div></pre></td></tr></table></figure>
-<p>定义激活状态下的class名<br>第一种方法<br>linkActiveClass: class名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">let router = new Router(&#123;</div><div class="line">	mode: &apos;history&apos;,</div><div class="line">	linkActiveClass: &apos;is-active&apos;</div><div class="line">	....</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>第二种方法<br>active-class=”class名”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;router-link to=&quot;/about&quot; active-class=&quot;activeClass&quot;&gt;about&lt;/router-link&gt;</div></pre></td></tr></table></figure></p>
-<p>改变行为<br>在router-link增加event=“mouseover”</p>
-<h2 id="重定向和别名"><a href="#重定向和别名" class="headerlink" title="重定向和别名"></a>重定向和别名</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  path: &apos;*&apos;,</div><div class="line">  //component: noFound</div><div class="line">  </div><div class="line">  // 重定向</div><div class="line">  //redirect: &apos;/home&apos;</div><div class="line">  //redirect: &#123;path: &apos;/home&apos;&#125;</div><div class="line">  // redirect: &#123;name: &apos;About&apos;&#125;</div><div class="line">  redirect: (to) =&gt; &#123;  //动态设置重定向的目标</div><div class="line">    // 目标路由对象，就是访问的路径的路由信息</div><div class="line"></div><div class="line">    if( to.path === &apos;/123&apos; ) &#123;</div><div class="line">      return &apos;/home&apos;</div><div class="line">    &#125;else if(to.path === &apos;/456&apos;)&#123;</div><div class="line">      return &#123;path: &apos;/document&apos;&#125;</div><div class="line">    &#125;else&#123;</div><div class="line">      return &#123;name: &apos;About&apos;&#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    console.log(to)</div><div class="line"></div><div class="line">    //return &apos;/home&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="嵌套路由的使用"><a href="#嵌套路由的使用" class="headerlink" title="嵌套路由的使用"></a>嵌套路由的使用</h2>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/10/H5重力感应事件/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Adele">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/img/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Adele">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/10/H5重力感应事件/" itemprop="url">H5重力感应事件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-10T22:27:10+08:00">
-                2017-09-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-14T18:05:01+08:00">
+                2017-11-14
               </time>
             
 
@@ -875,25 +1397,35 @@
       
         
           
-            <p>越来越多地，基于web的设备能够确定它们的方向; 也就是说，它们可以报告指示相对于重力拉力的它们的取向的改变的数据。特别地，通过这些数据，像手机等一些手持设备可以实现自动调整旋转角度来保持显示直立，以及当设备旋转到宽屏时（宽度大于高度），自动提供宽屏的网页效果。</p>
-<p>有两种Javascript事件负责处理设备方向信息。</p>
-<p>第一种是DeviceOrientationEvent（提供给网页开发者当设备（指手机，平板等移动设备）在浏览页面时物理旋转的信息。）它会在加速度传感器检测到设备在方向上产生变化时触发。通过处理该事件传来的数据信息，使针对由于用户移动设备引起旋转和仰角变化的行为设计交互响应成为可能。</p>
-<p>第二种是DeviceMotionEvent，它会在加速度发生改变时触发。跟DeviceOrientationEvent不同，监听的是加速度的变化而不是方向。传感器通常都具有监听DeviceMotionEvent的能力，包括笔记本中用于保护移动存储设备的传感器。而能监听DeviceOrientationEvent事件的传感器更多出现在移动设备中。</p>
-<p>处理方向orientation事件</p>
-<p>要接收设备方向变化信息，你只需要注册监听deviceorientation事件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">window.addEventListener(&quot;deviceorientation&quot;, handleOrientation, true);</div></pre></td></tr></table></figure>
-<p>注册完事件监听处理函数后（对应例子中的handleOrientation)，监听函数会定期地接收到最新的设备方向数据。<br>方向事件对象中包含四个值：<br>DeviceOrientationEvent.absolute<br>DeviceOrientationEvent.alpha<br>DeviceOrientationEvent.beta<br>DeviceOrientationEvent.gamma</p>
-<p>下面是一个事件处理函数的例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function handleOrientation(orientData) &#123;</div><div class="line">  var absolute = orientData.absolute;</div><div class="line">  var alpha = orientData.alpha;</div><div class="line">  var beta = orientData.beta;</div><div class="line">  var gamma = orientData.gamma;</div><div class="line"></div><div class="line">  // Do stuff with the new orientation data</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>关于每一个轴的记录值表示的是相对于标准的坐标系，设备在某一个给定轴上的旋转量。<a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/Events/Orientation_and_motion_data_explained" target="_blank" rel="external">Orientation and motion data explained</a>这篇文章有更详细的描述，下面是对这篇文章的总结。<br>DeviceOrientationEvent.alpha 表示设备沿z轴上的旋转角度，范围为0~360。<br>DeviceOrientationEvent.beta 表示设备在x轴上的旋转角度，范围为-180~180。它描述的是设备由前向后旋转的情况。<br>DeviceOrientationEvent.gamma 表示设备在y轴上的旋转角度，范围为-90~90。它描述的是设备由左向右旋转的情况。</p>
-<p>例子</p>
-<p>这个例子会成功运行在支持检测自己方向的设备中的支持deviceorientation事件的浏览器中。</p>
-<p>想象一下花园（garden）中的一个球（ball）：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Detecting_device_orientation" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/API/Detecting_device_orientation</a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/DeviceOrientationEvent" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/API/DeviceOrientationEvent</a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/Events/Orientation_and_motion_data_explained" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/Guide/Events/Orientation_and_motion_data_explained</a></p>
-<p>webapp开发相关jquery手势事件之jGestures<br><a href="http://www.haorooms.com/post/jquery_jGestures" target="_blank" rel="external">http://www.haorooms.com/post/jquery_jGestures</a></p>
-<p>html5图片随手机重力感应而移动效果<br><a href="http://www.haorooms.com/post/html5_image_zlgy" target="_blank" rel="external">http://www.haorooms.com/post/html5_image_zlgy</a></p>
-<p>视觉差效果制作总结和案例下载<br><a href="http://blog.csdn.net/confidence68/article/details/52054556" target="_blank" rel="external">http://blog.csdn.net/confidence68/article/details/52054556</a></p>
+            <h3 id="一、普通数组排序"><a href="#一、普通数组排序" class="headerlink" title="一、普通数组排序　　"></a>一、普通数组排序　　</h3><p>js中用方法sort()为数组排序。sort()方法有一个可选参数，是用来确定元素顺序的函数。如果这个参数被省略，那么数组中的元素将按照ASCII字符顺序进行排序。如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var arr = [&quot;a&quot;, &quot;b&quot;, &quot;A&quot;, &quot;B&quot;];</div><div class="line">arr.sort();</div><div class="line">console.log(arr);//[&quot;A&quot;, &quot;B&quot;, &quot;a&quot;, &quot;b&quot;]</div></pre></td></tr></table></figure>
+<p>因为字母A、B的ASCII值分别为65、66，而a、b的值分别为97、98，所以上面输出的结果是 <code>[&quot;A&quot;, &quot;B&quot;, &quot;a&quot;, &quot;b&quot;]</code> 。</p>
+<p>如果数组元素是数字呢，结果会是怎样？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var arr = [15, 8, 25, 3];</div><div class="line">arr.sort();</div><div class="line">console.log(arr);//[15, 25, 3, 8]</div></pre></td></tr></table></figure>
+<p>结果是 <code>[15, 25, 3, 8]</code> 。其实，sort方法会调用每个数组项的<code>toString()</code>方法，得到字符串，然后再对得到的字符串进行排序。虽然数值15比3大，但在进行字符串比较时”15”则排在”3”前面。显然，这种结果不是我们想要的，这时，<code>sort()</code>方法的参数就起到了作用，我们把这个参数叫做比较函数。</p>
+<p>比较函数接收两个参数，如果第一个参数应该位于第二个之前则返回一个负数，如果两个参数相等则返回0，如果第一个参数应该位于第二个之后则返回一个正数。例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var arr = [23, 9, 4, 78, 3];</div><div class="line">var compare = function (x, y) &#123;//比较函数</div><div class="line">    if (x &lt; y) &#123;</div><div class="line">        return -1;</div><div class="line">    &#125; else if (x &gt; y) &#123;</div><div class="line">        return 1;</div><div class="line">    &#125; else &#123;</div><div class="line">        return 0;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">console.log(arr.sort(compare));</div></pre></td></tr></table></figure>
+<p>结果为 <code>[3, 4, 9, 23, 78]</code> ，返回了我们想要的结果。如果要按降序排序，比较函数写成这样即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var compare = function (x, y) &#123;</div><div class="line">    if (x &lt; y) &#123;</div><div class="line">        return 1;</div><div class="line">    &#125; else if (x &gt; y) &#123;</div><div class="line">        return -1;</div><div class="line">    &#125; else &#123;</div><div class="line">        return 0;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们并不能用比较函数比较一个不能转化为数字的字符串与数字的顺序：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var arr = [&quot;b&quot;, 5];</div><div class="line">console.log(arr.sort(compare))</div></pre></td></tr></table></figure>
+<p>结果是 <code>[&quot;b&quot;, 5]</code> 。因为比较函数在比较时，会把先把字符串转化为数字，然后再比较，字符串b不能转化为数字，所以就不能比较大小。然而，当不用比较函数时，会比较ASCII值，所以结果是 <code>[5, &quot;b&quot;]</code> 。</p>
+<h3 id="二、数组对象排序"><a href="#二、数组对象排序" class="headerlink" title="二、数组对象排序"></a>二、数组对象排序</h3><p>如果数组项是对象，我们需要根据数组项的某个属性对数组进行排序，要怎么办呢？其实和前面的比较函数也差不多：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var arr = [&#123;name: &quot;zlw&quot;, age: 24&#125;, &#123;name: &quot;wlz&quot;, age: 25&#125;];</div><div class="line">var compare = function (obj1, obj2) &#123;</div><div class="line">    var val1 = obj1.name;</div><div class="line">    var val2 = obj2.name;</div><div class="line">    if (val1 &lt; val2) &#123;</div><div class="line">        return -1;</div><div class="line">    &#125; else if (val1 &gt; val2) &#123;</div><div class="line">        return 1;</div><div class="line">    &#125; else &#123;</div><div class="line">        return 0;</div><div class="line">    &#125;            </div><div class="line">&#125; </div><div class="line">console.log(arr.sort(compare));</div></pre></td></tr></table></figure>
+<p>输出结果为 <code>[Object { name=&quot;wlz&quot;, age=25}, Object { name=&quot;zlw&quot;, age=24}]</code> ，可以看到数组已经按照 name 属性进行了排序。我们可以对上面的比较函数再改造一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var compare = function (prop) &#123;</div><div class="line">    return function (obj1, obj2) &#123;</div><div class="line">        var val1 = obj1[prop];</div><div class="line">        var val2 = obj2[prop];if (val1 &lt; val2) &#123;</div><div class="line">            return -1;</div><div class="line">        &#125; else if (val1 &gt; val2) &#123;</div><div class="line">            return 1;</div><div class="line">        &#125; else &#123;</div><div class="line">            return 0;</div><div class="line">        &#125;            </div><div class="line">    &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果想按照 age 进行排序， ``arr.sort(compare(“age”)) 即可。</p>
+<p>但是对age属性进行排序时需要注意了，如果age属性的值是数字，那么排序结果会是我们想要的。但很多时候我们从服务器传回来的数据中，属性值通常是字符串。现在我把上面的数组改为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var arr = [&#123;name: &quot;zlw&quot;, age: &quot;24&quot;&#125;, &#123;name: &quot;wlz&quot;, age: &quot;5&quot;&#125;];</div></pre></td></tr></table></figure>
+<p>可以看到，我把 age 属性由数字改为了字符串，第二个数组项的 age 值改为了 “5” 。再次调用 <code>arr.sort(compare(&quot;age&quot;))</code> 后，结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[Object &#123; name=&quot;zlw&quot;, age=&quot;24&quot;&#125;, Object &#123; name=&quot;wlz&quot;, age=&quot;5&quot;&#125;]</div></pre></td></tr></table></figure>
+<p>我们的期望是5排在25前面，但是结果不是。这是因为当两个数字字符串比较大小时，会比较它们的ASCII值大小，比较规则是：从第一个字符开始，顺次向后直到出现不同的字符为止，然后以第一个不同的字符的ASCII值确定大小。所以”24”与”5”比较大小时，先比较”2“与”5”的ASCII值，显然”2“的ASCII值比”5”小，即确定排序顺序。</p>
+<p>现在，我们需要对比较函数再做一些修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var compare = function (prop) &#123;</div><div class="line">    return function (obj1, obj2) &#123;</div><div class="line">        var val1 = obj1[prop];</div><div class="line">        var val2 = obj2[prop];</div><div class="line">        if (!isNaN(Number(val1)) &amp;&amp; !isNaN(Number(val2))) &#123;</div><div class="line">            val1 = Number(val1);</div><div class="line">            val2 = Number(val2);</div><div class="line">        &#125;</div><div class="line">        if (val1 &lt; val2) &#123;</div><div class="line">            return -1;</div><div class="line">        &#125; else if (val1 &gt; val2) &#123;</div><div class="line">            return 1;</div><div class="line">        &#125; else &#123;</div><div class="line">            return 0;</div><div class="line">        &#125;            </div><div class="line">    &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在比较函数中，先把比较属性值转化为数字 <code>Number(val1)</code> 再通过 <code>!isNaN(Number(val1))</code> 判断转化后的值是不是数字(有可能是NaN)，转化后的值如果是数字，则比较转换后的值，这样就可以得到我们想要的结果了， 调用  <code>arr.sort(compare(&quot;age&quot;))</code> 得到：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[Object &#123; name=&quot;wlz&quot;, age=&quot;5&quot;&#125;, Object &#123; name=&quot;zlw&quot;, age=&quot;24&quot;&#125;]</div></pre></td></tr></table></figure>
+<p>可以看到，确实是按正确的方式排序了。</p>
+<p>原文链接：<a href="https://www.cnblogs.com/xljzlw/p/3694861.html" target="_blank" rel="external">https://www.cnblogs.com/xljzlw/p/3694861.html</a></p>
 
           
         
@@ -942,7 +1474,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/03/ECMAScript6常用语法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/13/Jquery源码分析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Adele">
@@ -961,7 +1493,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/06/03/ECMAScript6常用语法/" itemprop="url">ECMAScript6常用语法</a></h1>
+                <a class="post-title-link" href="/2017/11/13/Jquery源码分析/" itemprop="url">Jquery源码分析</a></h1>
         
 
         <div class="post-meta">
@@ -973,8 +1505,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-03T10:25:27+08:00">
-                2017-06-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-13T18:25:06+08:00">
+                2017-11-13
               </time>
             
 
@@ -1013,125 +1545,10 @@
       
         
           
-            <h2 id="let和const"><a href="#let和const" class="headerlink" title="let和const"></a>let和const</h2><p>let命令：用来声明变量，和var非常类似</p>
-<ol>
-<li>所声明的变量只在所在的代码块内有效。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let a = 1;</div><div class="line">    var b = 2;</div><div class="line">    console.log(a) //1</div><div class="line">&#125;</div><div class="line">console.log(a); //err not defined</div><div class="line">console.log(b); //2</div></pre></td></tr></table></figure>
-<ol>
-<li>使用Let声明的变量在域解析的时候不会被提升。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">console.log(a); //err not defined</div><div class="line">let a = 2;</div><div class="line"></div><div class="line">console.log(b); //undefined</div><div class="line">var b = 1;</div><div class="line"></div><div class="line">typeof c; //err not defined</div><div class="line">let c = 3;</div><div class="line"></div><div class="line">let f = 10;</div><div class="line">function fn() &#123;</div><div class="line">    f = 7; //暂时性死去</div><div class="line">    let f = 2;</div><div class="line">&#125;</div><div class="line">fn(); ////err not defined</div></pre></td></tr></table></figure>
-<ol>
-<li>let不允许在同一个作用域下声明已经存在的变量。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var a = 1;</div><div class="line">let a; //err</div><div class="line"></div><div class="line">let a = 1;</div><div class="line">let a = 2; //err</div></pre></td></tr></table></figure>
-<p>for循环的梗</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">var aLi = document.getElementsByTagName(&apos;li&apos;);</div><div class="line">for(var i = 0; i &lt; aLi.length; i++)&#123;</div><div class="line">    aLi[i].onclick = function() &#123;</div><div class="line">        console.log(i);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">// 得到是只会是aLi.length</div><div class="line"></div><div class="line">for (var i = 0; i &lt; aLi.length; i++) &#123;</div><div class="line">    aLi[i].index = i</div><div class="line">    aLi[i].onclick = function () &#123;</div><div class="line">        console.log(this.index);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">// 添加自定义属性可以拿到每次循环的i</div><div class="line"></div><div class="line">for (var i = 0; i &lt; aLi.length; i++) &#123;</div><div class="line">        (function (i) &#123;</div><div class="line">            aLi[i].onclick = function () &#123;</div><div class="line">                console.log(i);</div><div class="line">            &#125;</div><div class="line">        &#125;)(i);</div><div class="line">&#125;</div><div class="line">// 用闭包方式拿到每次循环的i</div><div class="line"></div><div class="line">for(let i = 0; i &lt; aLi.length; i++)&#123;</div><div class="line">    aLi[i].onclick = function() &#123;</div><div class="line">        console.log(i);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">// let直接搞定 拿到每次循环的i</div></pre></td></tr></table></figure>
-<p>在循环语句之内是父作用域，在循环体之中是一个子作用域</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for (let i = 0; i &lt; 3; i++) &#123;</div><div class="line">    let i = 10;</div><div class="line">    console.log(i); //10 循环体的i不受循环语句内i的影响</div><div class="line">&#125;</div><div class="line">console.log(i); //err not defined 循环体中的i外部访问不到</div></pre></td></tr></table></figure>
-<p>const命令：用来声明一个常量，常量就是不可以变化的量<br>const同样有let的三条特点，此外还要注意：<br>1 声明的时候必须赋值；<br>2 声明的常量储存简单的数据类型时候不可改变其值，如果储存的是对象，那么引用不可以被改变，至于对象里面的数据如何变化是没有关系的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const obj = &#123; a : 10 &#125;;</div><div class="line">obj.a = 20;</div><div class="line">console.log(obj);//&#123; a : 20 &#125;</div></pre></td></tr></table></figure>
-<h2 id="变量的解构赋值"><a href="#变量的解构赋值" class="headerlink" title="变量的解构赋值"></a>变量的解构赋值</h2><p>基本概念：本质上就是一种匹配模式，只要等号两边的模式相同，那么左边的变量就可以被赋予对应的值。<br>解构赋值主要分为：<br>1  数组的解构赋值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">//let a = 1;</div><div class="line">//let b = 2;</div><div class="line">//let c = 3;</div><div class="line"></div><div class="line">let [a, b, c] = [1, 2, 3];</div><div class="line">console.log(a, b , c); //1 2 3</div><div class="line"></div><div class="line">let [a, [ [ b ], c] ] = [1, [ [ 2 ], 3] ] </div><div class="line">console.log(a, b , c); //1 2 3</div><div class="line"></div><div class="line">let [, , c]  = [1, 2, 3];</div><div class="line">console.log(c); // 3</div><div class="line"></div><div class="line">let [x] = [];</div><div class="line">console.log(x); //undefined</div><div class="line"></div><div class="line">let [y = 1] = [];</div><div class="line">console.log(y); //1</div></pre></td></tr></table></figure>
-<p>2 对象的解构赋值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">let &#123;a,b&#125; = &#123;b: &apos;bbb&apos;, a: &apos;aaa&apos;&#125;;</div><div class="line">console.log(a,b); ///aaa  bbb</div><div class="line"></div><div class="line">let &#123;a : b&#125; = &#123;a : 1&#125;;</div><div class="line">console.log(b) //1</div><div class="line">console.log(a) //err not defined</div></pre></td></tr></table></figure>
-<p>3 基本类型的解构赋值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">let [a, b, c, d] = &apos;1234&apos;;</div><div class="line">console.log(a, b, c,d) // 1 2 3 4</div><div class="line"></div><div class="line">let &#123;length : len&#125; = &quot;adele&quot;;</div><div class="line">console.log(len); //5</div><div class="line"></div><div class="line">null和undefined不能被解构赋值</div></pre></td></tr></table></figure>
-<h2 id="数据解构-Set"><a href="#数据解构-Set" class="headerlink" title="数据解构 Set"></a>数据解构 Set</h2><p>集合的基本概念：集合是由一组无序且唯一（即不重复）的项组成的，这个数据结构使用了与有限集合相同的数学概念，应用在计算机的数据结构中。<br>特点： key 和 value 相同  没有重复的value<br>ES6提供了数据结构Set，类似于数组，但是成员的值是唯一的，没有重复的值。<br>1 如何创建 Set</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">const s = new Set([1,2,3]);</div><div class="line">console.log(s);</div></pre></td></tr></table></figure>
-<p>2 Set 类属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(s.size); // 3</div></pre></td></tr></table></figure>
-<p>3 Set类的方法<br>set.add(value) 添加一个数据，返回set结构本身</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">s.add(&apos;a&apos;).add(&apos;b&apos;).add(&apos;c&apos;);</div><div class="line">console.log(s);</div></pre></td></tr></table></figure>
-<p>set.delete(value) 删除指定数据，返回一个布尔值，表示删除是否成功</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log(s.delete(&apos;a&apos;));</div><div class="line">console.log(s);</div></pre></td></tr></table></figure>
-<p>set.has(value) 判断该值是否为set的成员，返回一个布尔值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log(s.has(&apos;a&apos;)); // false</div><div class="line">console.log(s.has(&apos;1&apos;)); //true</div></pre></td></tr></table></figure>
-<p>set.clear() 清楚所有数据，没有返回值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">s.clear();</div><div class="line">console.log(s);</div></pre></td></tr></table></figure>
-<p>keys() 返回键名的遍历器<br><figure class="highlight plain"><figcaption><span>//键和值相同```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">values() 返回键值的遍历器</div><div class="line">```console.log(s.values()); //键和值相同</div></pre></td></tr></table></figure></p>
-<p>entries() 返回键值对的遍历器<br><figure class="highlight plain"><figcaption><span>//键和值相同```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">forEach() 使用回调函数遍历每个成员</div></pre></td></tr></table></figure></p>
-<p>s.forEach(function (value, key, set){<br>    console.log(value + “adele”);<br>})<br>console.log(s); //没有变化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">**利用set为数组去重**</div><div class="line"></div><div class="line">数据结构 Map</div><div class="line">---</div><div class="line">字典：是用来存储不重复key的hash结构。不同于集合（set）的是，字典使用的是[键， 值]的形式来储存数据的</div><div class="line"></div><div class="line">JS的对象（object : &#123;&#125;）只能用字符串当键，这给其使用带来很大限制</div><div class="line"></div><div class="line">ES6的Map数据结构类似于对象，也是键值对的集合，但“键”的范围不限于字符串，各种类型的值（包括对象）都可以当做键。也就是说Object结构提供了“字符串-值”的对应，Map结构提供了 “值-值”的对应，是一种完美的Hash结构实现，如果你需要 “键值对”的数据结构，Map比Object更适合</div><div class="line">1 如何创建一个 Map</div></pre></td></tr></table></figure></p>
-<p>const map = new Map([<br>    [‘a’, 1],<br>    [‘b’, 2]<br>]);<br>console.log(map);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">2  Map 类的属性</div></pre></td></tr></table></figure></p>
-<p>console.log(map.size);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">3 Map 类的方法</div><div class="line">set(key, value) 设置键名key对应值为value，然后返回整个Map结构。如果key已经有值，则键值会被更新，否则重新生成该值</div><div class="line"></div><div class="line">``` </div><div class="line">map.set(&quot;adele&quot;, &quot;fe&quot;).set(&quot;adai&quot;, &quot;rd&quot;)</div></pre></td></tr></table></figure></p>
-<p>get(key) get方法读取key对应的键值，如果找不到key，返回undefined</p>
-<p>delete(key) 删除某个键值，返回true，如果删除失败，返回false</p>
-<p>has(key) 方法返回一个布尔值，表示某个键是否在当前Map对象之中</p>
-<p>clear() 清楚所有数据，没有返回值</p>
-<p>keys() 返回键名的遍历器</p>
-<p>values() 返回键值的遍历器</p>
-<p>entries() 返回键值对的遍历器</p>
-<p>forEach() 使用回调函数遍历每个成员</p>
-<p>map.forEach( function( key, value, map){<br>    console.log(key + ‘:’ + value);<br>})</p>
-<p>map使用的一些注意事项<br>map数据结构中NaN是同一个键<br>map里key的排列顺序按照添加的顺序排列</p>
-<h2 id="iterator和for-of循环"><a href="#iterator和for-of循环" class="headerlink" title="iterator和for-of循环"></a>iterator和for-of循环</h2><p>Iterator是一个接口，为各种不同的数据结构（数组、对象、Set、Map）提供统一的访问机制。任何数据结构只要部署Iterator接口就可以完成遍历操作，而且这种遍历操作时依次处理该数据结构的所有成员</p>
-<p>Iterator遍历器的作用<br>为各种数据结构提供一个统一的、简便的访问接口<br>使得数据结构的成员能够按照某种次序排列<br>ES6新增了遍历命令for…of循环，Iterator接口主要供其消费。</p>
-<p>1、手写Iterator接口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">const arr = [1, 2, 3];</div><div class="line"></div><div class="line">function iterator(arr)&#123;</div><div class="line">    let index = 0;</div><div class="line">    return &#123;</div><div class="line">        next: function () &#123;</div><div class="line">            return index &lt; arr.length ?</div><div class="line">            &#123;value: arr[index++], done: false&#125; :</div><div class="line">            &#123;value: undefined, done: true&#125;;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">const it = iterator(arr);</div><div class="line"></div><div class="line">console.log(it.next());</div><div class="line">console.log(it.next());</div><div class="line">console.log(it.next());</div><div class="line">console.log(it.next());</div></pre></td></tr></table></figure>
-<p>Iterator的遍历过程</p>
-<ol>
-<li>创建一个指针对象，指向当前数据结构的起始位置，也就是说遍历器对象本质上就是一个指针对象</li>
-<li>第一次调用指针对象的next方法，可以将指针指向数据结构的第一个成员</li>
-<li>第二次调用指针对象的next方法，指针指向数据结构的第二个成员</li>
-<li>不断调用指针对象的next 方法，直到它指向数据结构的结束位置。</li>
-</ol>
-<p>每一次调用next方法都会返回数据结构当前的成员信息。具体来说就是返回一个包含value 和done两个属性的对象。其中 value属性是当前成员的值，done属性是一个布尔值，表示遍历是否结束。</p>
-<ol>
-<li>凡是具有 symbol.iterator 属性的数据结构都具有 Iterator 接口<br>arr、set、map（object没有symbol.iterator ）<br>具备iterator接口的数据结构都可以进行如下操作<br>结构复制<br>扩展运算符  （…   作用为将数据结构展开）</li>
-</ol>
-<p>利用Set为数组去重</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let arr = [&#123;&#125;, 1, &apos;a&apos;, 1, &apos;a&apos;, &apos;b&apos;, []];</div><div class="line">console.log([...new Set(arr)]);</div></pre></td></tr></table></figure>
-<p>for…of循环</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">const ofArr = [1, 2, 3, 4];</div><div class="line">for(let i of ofArr) &#123;</div><div class="line">    console.log(i);//i为数据结构中的每一项</div><div class="line">&#125;</div><div class="line">const m = new Map();</div><div class="line"></div><div class="line">m.set(&apos;a&apos;, 1).set(&apos;b&apos;, 2).set(&apos;c&apos;, 3)</div><div class="line">for(let data of m)&#123;</div><div class="line">    console.log(data);</div><div class="line">&#125;</div><div class="line">for(let [key, value] of m)&#123;</div><div class="line">    console.log(key, value);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="class的基本使用"><a href="#class的基本使用" class="headerlink" title="class的基本使用"></a>class的基本使用</h2><p>ES6中新增加了类的概念，可以使用class 关键字声明一个类，之后以这个类来实例化对象</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">class Adele &#123;</div><div class="line">    constructor(a, b)&#123;</div><div class="line">        this.a = a;</div><div class="line">        this.b = b;</div><div class="line">        return this;</div><div class="line">    &#125;</div><div class="line">    print()&#123;</div><div class="line">        console.log(this.a + &apos; &apos; + this.b);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">const adele = new Adele(&apos;hello&apos;, &apos;word&apos;).print();</div></pre></td></tr></table></figure>
-<p>Adele中的constructor方法是构造方法，this关键字则代表实例对象</p>
-<p>Adele这个类除了构造方法还定义了一个print方法。注意，定义“类”的方法时，前面不需要加上function这个关键字，直接把函数定义放进去就可以了，另外方法之间不需要逗号分隔，加了会报错。</p>
-<p>构造函数的prototype属性在ES6的“类”上继续存在，而且类的所有方法都定义在类的prototype属性上面</p>
-<p>定义在类中的方法都是不可以枚举的</p>
-<p>constructor方法是类的默认方法，通过new命令生成对象实例时，自动调用该方法。一个类必须有constructor方法，如果没有显示定义，一个空的constructor方法会被默认添加</p>
-<p>生成类的实例对象的写法与ES5完全一样，也是使用new命令，如果忘记加上new，像函数那样调用class将会报错</p>
-<h2 id="class的继承"><a href="#class的继承" class="headerlink" title="class的继承"></a>class的继承</h2><p> 子类继承父类使用estends 关键字<br> 为父类指定静态方法使用 static 方法名字<br> super</p>
-<blockquote>
-<p>在构造函数中可以当一个函数来使用，相当于调用父类的构造函数<br>在原型方法中可以当一个对象来使用，相当于父亲的原型对象，并且会自动绑定this到子类上</p>
-</blockquote>
-<h2 id="Symbol数据类型"><a href="#Symbol数据类型" class="headerlink" title="Symbol数据类型"></a>Symbol数据类型</h2><p>Symbol表示独一无二的值，它是JS中的第七种数据类型。<br>基本数据类型：Null    Undefined Number  Boolean  String  Symbol<br>引用类型：Object</p>
-<p>Symbol函数不能使用new否则会报错，原因在于Symbol是一个原始类型的值，不是对象</p>
-<p>Symbol函数接受一个字符串作为参数，表示对Symbol的描述，主要是为了在控制台显示，或者转为字符串的时候比较容易区分。</p>
-<p>Symbol数据类型转换：字符产、布尔值</p>
-<h2 id="内置对象的扩展"><a href="#内置对象的扩展" class="headerlink" title="内置对象的扩展"></a>内置对象的扩展</h2><p><strong>字符串扩展</strong><br>新增模板字符串</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">let flag = true;</div><div class="line"></div><div class="line">let html = `</div><div class="line">        &lt;ul&gt;</div><div class="line">            &lt;li&gt;</div><div class="line">                &lt;span&gt;$&#123;&apos;首页&apos;&#125;&lt;/span&gt;</div><div class="line">                &lt;span class = &quot;$&#123;flag ? &apos;show&apos; : &apos;hide&apos;&#125;&quot;&gt;&lt;/span&gt;</div><div class="line">            &lt;/li&gt;</div><div class="line">        &lt;/ul&gt;</div><div class="line">        `;</div><div class="line">console.log(html);</div></pre></td></tr></table></figure>
-<p>repeat()：对字符串做一些重复的操作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let str1 = &apos;a&apos;;</div><div class="line">let str2 = str1.repeat(3);</div><div class="line">console.log(str2); //aaa</div></pre></td></tr></table></figure>
-<p>includes() 类似于indexOf() ，看是否包含某个字符串<br>startsWith() / endsWith() 看开头 / 结尾是否包含某个字符串</p>
-<p><strong>数组扩展</strong><br>Array.from()  将类数组转化为数组</p>
-<p>Array.of()  创建一个数组 类似于 []</p>
-<p>find() 对数组进行筛选，没找到返回undefined<br>findIndex() 返回符合条件元素的下标，没找到返回-1</p>
-<p>fill()  对数组进行填充</p>
-<p><strong>对象的扩展</strong><br>对象的简洁表示法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">let a = 1;</div><div class="line">const obj = &#123;</div><div class="line">    a : a</div><div class="line">&#125;;</div><div class="line"></div><div class="line">//键值相同，可以像下面的方式简写</div><div class="line">const obj = &#123;a&#125;;</div><div class="line"></div><div class="line">const obj = &#123;</div><div class="line">    fn1: function()&#123;</div><div class="line">        console.log(1);</div><div class="line">    &#125;,</div><div class="line">    fn2()&#123;</div><div class="line">        console.log(2); //简写可以不写function</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">obj.fn1();</div><div class="line">obj.fn2();</div></pre></td></tr></table></figure>
-<p>Object.is() 判断两个对象是否一样，长的一样就成</p>
-<p>Object.assign()  将多个对象进行合并</p>
-<p><strong>函数的扩展</strong><br>1 为函数参数指定默认值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function fn(a, b)&#123;</div><div class="line">    a = a || 10;</div><div class="line">    b = b || 20;</div><div class="line">    console.log(a + b);</div><div class="line">&#125;</div><div class="line"></div><div class="line">fn(); //30</div><div class="line">fn(0, 10); //20 0为false取了后面的默认值</div><div class="line"></div><div class="line">//ES6可以直接在参数里面赋值</div><div class="line">function fn1(a = 10, b = 20) &#123;</div><div class="line">    console.log(a + b);</div><div class="line">&#125;</div><div class="line"></div><div class="line">fn1(); //30;</div><div class="line">fn1(0, 10); //10</div></pre></td></tr></table></figure>
-<p>2 函数的 rest 参数<br>rest 参数形式为（”…变量名”），用于获取函数多余的参数，这样就不需要使用arguments对象了。rest 参数搭配的变量是一个数组，该变量将多余的参数放入数组中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function sum(a, ...arr) &#123; //rest后面不能传参数</div><div class="line">    var res = a;</div><div class="line">    for (var i = 0; i &lt; arr.length; i++) &#123;</div><div class="line">        res += arr[i];</div><div class="line">    &#125;</div><div class="line">    console.log(res);</div><div class="line">&#125;</div><div class="line"></div><div class="line">sum(10,1, 2, 3, 4, 5);</div></pre></td></tr></table></figure>
-<p>3 箭头函数<br>使用“箭头”（=&gt;）定义函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">const fn = a =&gt; a;</div><div class="line">const fn2 = function (a) &#123;</div><div class="line">    return a;</div><div class="line">&#125;</div><div class="line">console.log(fn(1)); //1</div><div class="line">console.log(fn2(2)); //2</div><div class="line"></div><div class="line">const fn3 = (a, b) =&gt; a + b;</div><div class="line">console.log(fn3(1, 2));//3</div><div class="line"></div><div class="line">//多行代码需要用中括号包裹起来</div><div class="line">const fn4 = (a, b) =&gt; &#123;</div><div class="line">    a = a * 2;</div><div class="line">    b = b * 2;</div><div class="line">    return a + b;</div><div class="line">&#125;</div><div class="line">console.log(fn4(1, 2)); // 6</div><div class="line"></div><div class="line">//返回值为对象需要用小括号包裹</div><div class="line">const fn5 = (a, b) =&gt; (&#123;a, b&#125;);</div><div class="line">console.log(fn5(1,2));</div></pre></td></tr></table></figure>
-<p>箭头函数体内没有自己的this对象，所以使用时其内部的this就是定义是所在环境的变量，而不是使用时所在环境的对象。</p>
-<p>不能给箭头函数使用call apply bind 去改变其内部的this指向</p>
-<p>箭头函数体内没有arguments对象，如果要要用可以用rest参数代替</p>
-<p>不可以当做构造函数，不可以使用new命令，否则会抛出一个错误</p>
-<h2 id="异步操作之Promise"><a href="#异步操作之Promise" class="headerlink" title="异步操作之Promise"></a>异步操作之Promise</h2><p>Promise 是ES6中新增的异步编程解决方案，体现在代码中它是一个对象，可以通过 Promise 构造函数来实例化<br>new Promise(cb)   ===&gt; 实例的基本作用 Pending(正在进行)  Resolved（已经完成）  Rejected（已经失败）</p>
-<p>Pending(正在进行)  ===&gt;   Resolved（已经完成）<br>Pending(正在进行)  ===&gt;   Rejected（已经失败）<br>两个原型方法<br>Promise.prototype.then() //处理成功后<br>Promise.prototype.catch() //捕获失败后的异常</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">const imgs = [</div><div class="line">&apos;http://pic2116.ytqmx.com:82/2017/0531/35/9.jpg!960.jpg&apos;]</div><div class="line"></div><div class="line">const p = new Promise(function(resolve, reject)&#123;</div><div class="line">    const img = new Image();</div><div class="line"></div><div class="line">    img.src = imgs[0];</div><div class="line"></div><div class="line">    img.onload = function ()&#123;</div><div class="line">        resolve(this);</div><div class="line">    &#125;;</div><div class="line">    img.onerror = function () &#123;</div><div class="line">        reject(new Error(&apos;图片加载失败&apos;));</div><div class="line">    &#125;;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">p.then(function (img) &#123;</div><div class="line">    console.log(&apos;图片加载完成&apos;);</div><div class="line">    document.body.appendChild(img);</div><div class="line">&#125;).catch(function (err) &#123;</div><div class="line">    console.log(err);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>两个常用的静态方法<br>Promise.all()<br>可以将多个Promise实例包装成一个新的Promise实例<br>当所有Promise实例的状态都变成resolved，Promise.all的状态才会变成resolved，此时 返回值组成一个数组，传递给then中的resolve函数。<br>只要其中有一个Rejected，Promise.all的状态就变成Rejected，此时第一个被reject的实例的返回值会传递给p的回调函数。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">const imgs = [</div><div class="line">&apos;http://pic2116.ytqmx.com:82/2017/0531/35/9.jpg!960.jpg&apos;,</div><div class="line">&apos;http://pic2116.ytqmx.com:82/2017/0531/35/10.jpg!960.jpg&apos;</div><div class="line">]</div><div class="line"></div><div class="line">function loadImg(url)&#123;</div><div class="line">   const p = new Promise(function(resolve, reject)&#123;</div><div class="line">        const img = new Image();</div><div class="line">        img.src = url;</div><div class="line">        img.onload = function ()&#123;</div><div class="line">            resolve(this);</div><div class="line">        &#125;;</div><div class="line">        img.onerror = function () &#123;</div><div class="line">            reject(new Error(&apos;图片加载失败&apos;));</div><div class="line">        &#125;;</div><div class="line">    &#125;);</div><div class="line">   return p;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">const allDone = Promise.all([loadImg(imgs[0]), loadImg(imgs[1])]);</div><div class="line"></div><div class="line">allDone.then(function (datas)&#123;</div><div class="line">    datas.forEach(function (item, i) &#123;</div><div class="line">        document.body.appendChild(item);</div><div class="line">    &#125;);</div><div class="line">&#125;).catch(function (arr) &#123;</div><div class="line">    console.log(arr);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>Promise.resolve()<br>将一个对象转换为Promise对象<br>1 参数是Promise实例，将不做任何修改，原封不动地返回这个实例<br>2 j将对象转为Promise对象，然后立即执行thenable对象的then方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Promise.resolve(</div><div class="line">    then(resolve, reject)&#123;</div><div class="line">    &#125;</div><div class="line">)</div></pre></td></tr></table></figure>
-<p>3 参数是一个基本数据类型或者不传参数，那么返回一个状态为 resolved的Promise 对象</p>
-
+            <p>最好用以下方式来判断变量的值是否为undefined<br>typeof undefined == ‘undefined’</p>
+<p>charAt() 方法用于返回指定索引处的字符。索引范围为从 0 到 length() - 1。</p>
+<p><code>$.merge()</code> 数组合并</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var arr1 = [1,2];</div><div class="line">var arr2 = [3,4]</div><div class="line">console.log($.merge(arr1,arr2)) //[1, 2, 3, 4]</div></pre></td></tr></table></figure>
           
         
       
@@ -1179,7 +1596,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/29/JS组件开发/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/10/js面向对象及组件开发/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Adele">
@@ -1198,7 +1615,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/05/29/JS组件开发/" itemprop="url">JS面向对象之组件开发</a></h1>
+                <a class="post-title-link" href="/2017/11/10/js面向对象及组件开发/" itemprop="url">js面向对象及组件开发</a></h1>
         
 
         <div class="post-meta">
@@ -1210,8 +1627,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-29T21:44:48+08:00">
-                2017-05-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-10T14:43:10+08:00">
+                2017-11-10
               </time>
             
 
@@ -1220,28 +1637,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -1272,605 +1667,8 @@
       
         
           
-            <h2 id="组件开发是什么"><a href="#组件开发是什么" class="headerlink" title="组件开发是什么"></a>组件开发是什么</h2><p>组件开发 : 多组对象，像兄弟之间的关系( 代码复用的一种形式 )<br>对象的多种表现形式<br>提高对象的复用性<br>如何配置参数和默认参数<br>例子 : 拖拽<br>例子 : 弹窗</p>
-<h2 id="什么是组件？"><a href="#什么是组件？" class="headerlink" title="什么是组件？"></a>什么是组件？</h2><p>对面向对象的深入应用（UI组件，功能组件）<br>将 配置参数、方法、事件，三者进行分离<br>参见 <a href="http://jqueryui.com/" target="_blank" rel="external">jQuery UI</a></p>
-<h2 id="创建自定义事件"><a href="#创建自定义事件" class="headerlink" title="创建自定义事件"></a>创建自定义事件</h2><p>自定义事件：就是让函数能够具备事件的某些特性</p>
-<p>有利于多人协作开发代码<br>如何去挂载自定义事件与事件函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">window.onload = function()&#123;</div><div class="line">	var oDiv = document.getElementById(&apos;div1&apos;);</div><div class="line">	var oSpan = document.getElementById(&apos;span1&apos;);</div><div class="line">	</div><div class="line">	bindEvent(oDiv , &apos;click&apos;,function()&#123;</div><div class="line">		alert(1);</div><div class="line">	&#125;);</div><div class="line">	</div><div class="line">	bindEvent(oDiv , &apos;click&apos;,function()&#123;</div><div class="line">		alert(2);</div><div class="line">	&#125;);</div><div class="line">	</div><div class="line">	bindEvent(oSpan , &apos;show&apos;,function()&#123;</div><div class="line">		alert(3);</div><div class="line">	&#125;);</div><div class="line">	</div><div class="line">	bindEvent(oSpan , &apos;show&apos;,function()&#123;</div><div class="line">		alert(4);</div><div class="line">	&#125;);</div><div class="line">	</div><div class="line">	bindEvent(oSpan , &apos;hide&apos;,function()&#123;</div><div class="line">		alert(5);</div><div class="line">	&#125;);</div><div class="line">	</div><div class="line">	fireEvent(oSpan , &apos;show&apos;);  //3 , 4</div><div class="line">&#125;;</div><div class="line"></div><div class="line">function bindEvent(obj,events,fn)&#123;</div><div class="line">	//obj : 楼层</div><div class="line">	//events : 书架</div><div class="line">	//fn : 一本书</div><div class="line">	</div><div class="line">	obj.listeners = obj.listeners || &#123;&#125;;</div><div class="line">	obj.listeners[events] = obj.listeners[events] || [];</div><div class="line">	</div><div class="line">	obj.listeners[events].push( fn );</div><div class="line">	</div><div class="line">	if(obj.addEventListener)&#123;</div><div class="line">		obj.addEventListener(events,fn,false);</div><div class="line">	&#125;</div><div class="line">	else&#123;</div><div class="line">		obj.attachEvent(&apos;on&apos;+events,fn);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function fireEvent(obj,events)&#123;   //主动触发自定义事件</div><div class="line">	</div><div class="line">	for(var i=0;i&lt;obj.listeners[events].length;i++)&#123;</div><div class="line">		 obj.listeners[events][i]();</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;div id=&quot;div1&quot;&gt;div&lt;/div&gt;</div><div class="line">&lt;span id=&quot;span1&quot;&gt;span&lt;/span&gt;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/30/JS模块化开发/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Adele">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/img/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Adele">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/01/30/JS模块化开发/" itemprop="url">JS模块化开发</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-30T14:22:42+08:00">
-                2017-01-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
             
           
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>模块化在项目中十分的重要，一个复杂的项目肯定有很多相似的功能模块，如果每次都需要重新编写模块肯定既费时又耗力。但是引用别人编写模块的前提是要有统一的“打开姿势”，如果每个人有各自的写法，那么肯定会乱套，下面介绍几种JS的模块化的规范。</p>
-<h2 id="模块化进程一：script标签"><a href="#模块化进程一：script标签" class="headerlink" title="模块化进程一：script标签"></a>模块化进程一：script标签</h2><p>这是最原始的 JavaScript 文件加载方式，如果把每一个文件看做是一个模块，那么他们的接口通常是暴露在全局作用域下，也就是定义在 window 对象中，不同模块的接口调用都是一个作用域中，一些复杂的框架，会使用命名空间的概念来组织这些模块的接口。</p>
-<p>缺点:<br>1、污染全局作用域<br>2、开发人员必须主观解决模块和代码库的依赖关系<br>3、文件只能按照script标签的书写顺序进行加载<br>4、在大型项目中各种资源难以管理，长期积累的问题导致代码库混乱不堪<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/01/30/JS模块化开发/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/29/JS面向对象高级篇/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Adele">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/img/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Adele">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/11/29/JS面向对象高级篇/" itemprop="url">JS面向对象高级篇</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-29T13:04:33+08:00">
-                2016-11-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="包装对象"><a href="#包装对象" class="headerlink" title="包装对象"></a>包装对象</h2><p>JS基于原型的程序<br>基本类型都有自己的包装对象：<br>String Number Boolean</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var str = &apos;hello&apos;;</div><div class="line">str.charAt(0);  //基本类型会找到对应的包装对象类型，然后包装对象把所有的属性和方法给了基本类型，然后包装对象消失</div><div class="line">console.log(str.charAt(0)) //h</div><div class="line"></div><div class="line">var str = &apos;hello&apos;;</div><div class="line">str.number = 10;</div><div class="line">console.log(str.number) //undefined</div><div class="line"></div><div class="line">var str = &apos;hello&apos;;</div><div class="line">String.prototype.number = 10;</div><div class="line">console.log(str.number) //10</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/11/29/JS面向对象高级篇/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/24/JS面向对象基础篇/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Adele">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/img/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Adele">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/11/24/JS面向对象基础篇/" itemprop="url">JS面向对象基础篇</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-24T23:12:06+08:00">
-                2016-11-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="什么是面向对象编程"><a href="#什么是面向对象编程" class="headerlink" title="什么是面向对象编程"></a>什么是面向对象编程</h2><p>用对象的思想去写代码，就是面向对象编程<br>数组 Array  时间 Date</p>
-<h2 id="面向对象编程-OOP-的特点"><a href="#面向对象编程-OOP-的特点" class="headerlink" title="面向对象编程(OOP)的特点"></a>面向对象编程(OOP)的特点</h2><p>抽象：抓住核心问题<br>封装：只能通过对象来访问方法<br>继承：从已有对象上继承出新的对象<br>多态：多对象的不同形态</p>
-<h2 id="对象的组成"><a href="#对象的组成" class="headerlink" title="对象的组成"></a>对象的组成</h2><p>方法（行为、操作）——函数：过程、动态的<br>属性——对象下面的变量：状态、静态的<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/11/24/JS面向对象基础篇/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/30/JS基础操作/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Adele">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/img/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Adele">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/06/30/JS基础操作/" itemprop="url">JS基础操作</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-30T11:45:24+08:00">
-                2016-06-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="javascript介绍"><a href="#javascript介绍" class="headerlink" title="javascript介绍"></a>javascript介绍</h2><p>JavaScript操作DOM的本质是=获取+触发+改变<br>目的：就是用来操作内存中的DOM节点</p>
-<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>变量本质是一个空盒子，里面记录了一个内存地址，使能找到内存中的对象，保存了指向具体的实在的东西的地址<br>变量存在栈中，对象存在堆中<br>变量的意义：方便我们去操作对象</p>
-<h2 id="window作用域"><a href="#window作用域" class="headerlink" title="window作用域"></a>window作用域</h2><p>只要在script标签中定义的变量，默认就在window的作用域之下<br>默认就是window这个对象里面写代码</p>
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>如何判断js中的数据类型：<br>typeof、instanceof、 constructor、 prototype方法比较<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/06/30/JS基础操作/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -1908,7 +1706,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1957,7 +1755,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1979,7 +1777,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

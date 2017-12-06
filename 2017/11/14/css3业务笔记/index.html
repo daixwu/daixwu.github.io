@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="transition过渡语法：transition: property duration timing-function delay; transition-property（all || [attr] || none）属性规定应用过渡效果的 CSS 属性的名称。（当指定的 CSS 属性改变时，过渡效果将开始）。    提示：过渡效果通常在用户将鼠标指针浮动到元素上时发生。    transiti">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css3业务笔记">
+<meta property="og:url" content="http://yoursite.com/2017/11/14/css3业务笔记/index.html">
+<meta property="og:site_name" content="Adele">
+<meta property="og:description" content="transition过渡语法：transition: property duration timing-function delay; transition-property（all || [attr] || none）属性规定应用过渡效果的 CSS 属性的名称。（当指定的 CSS 属性改变时，过渡效果将开始）。    提示：过渡效果通常在用户将鼠标指针浮动到元素上时发生。    transiti">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-24T10:09:54.796Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css3业务笔记">
+<meta name="twitter:description" content="transition过渡语法：transition: property duration timing-function delay; transition-property（all || [attr] || none）属性规定应用过渡效果的 CSS 属性的名称。（当指定的 CSS 属性改变时，过渡效果将开始）。    提示：过渡效果通常在用户将鼠标指针浮动到元素上时发生。    transiti">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/11/14/css3业务笔记/"/>
+
+
+
+
+
+  <title>css3业务笔记 | Adele</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Adele</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/14/css3业务笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Adele">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Adele">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">css3业务笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-14T19:28:31+08:00">
+                2017-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="transition过渡"><a href="#transition过渡" class="headerlink" title="transition过渡"></a>transition过渡</h2><p>语法：<code>transition: property duration timing-function delay;</code></p>
+<p><code>transition-property</code><br>（all || [attr] || none）<br>属性规定应用过渡效果的 CSS 属性的名称。（当指定的 CSS 属性改变时，过渡效果将开始）。  </p>
+<blockquote>
+<p>提示：过渡效果通常在用户将鼠标指针浮动到元素上时发生。  </p>
+</blockquote>
+<p><code>transition-duration</code><br>规定完成过渡效果需要花费的时间（以秒或毫秒计）</p>
+<blockquote>
+<p>注：请始终设置 transition-duration 属性，否则时长为 0，就不会产生过渡效果。</p>
+</blockquote>
+<p><code>transition-timing-function</code><br>属性规定过渡效果的速度曲线。该属性允许过渡效果随着时间来改变其速度。</p>
+<p>—— ease：（逐渐变慢）默认值<br>—— linear：（匀速）<br>—— ease-in：(加速)<br>—— ease-out：（减速）<br>—— ease-in-out：（先加速后减速）<br>—— cubic-bezier 贝塞尔曲线（ x1, y1, x2, y2 ）<br><code>transition-delay</code><br>规定过渡效果何时开始，值以秒或毫秒计。 </p>
+<h3 id="过渡完成事件"><a href="#过渡完成事件" class="headerlink" title="过渡完成事件"></a>过渡完成事件</h3><p>Webkit内核： <code>obj.addEventListener(&#39;webkitTransitionEnd&#39;,function(){},false);</code><br>firefox: <code>obj.addEventListener(&#39;transitionend&#39;,function(){},false);</code></p>
+<h2 id="2D变换"><a href="#2D变换" class="headerlink" title="2D变换"></a>2D变换</h2><h3 id="transform"><a href="#transform" class="headerlink" title="transform"></a>transform</h3><p><code>rotate(&lt;angle&gt;)</code>  旋转函数 取值度数(deg度数)</p>
+<p><code>skew(&lt;angle&gt;[,&lt;angle&gt;])</code> 倾斜函数 取值度数<br>该函数包含两个参数，分别用来定义X轴Y轴的坐标倾斜角度。<br>—— skewX()<br>—— skewY()  </p>
+<p><code>scale(&lt;number&gt;[,&lt;number&gt;])</code> 缩放函数 取值 正数、负数和小数<br>该函数包含两个参数，分别用来定义宽和高的缩放比例，如果第二个参数省略则第二个参数等于第一个参数。 </p>
+<p><code>translate(&lt;translation-value&gt;[,&lt;translation-value&gt;])</code> 位移函数<br>该函数包含两个参数，分别用来定义X轴和Y轴的坐标。<br>—— translateX()<br>—— translateY() </p>
+<p><code>Transform-origin</code> 旋转的基点<br>初始值为”50% 50%”，接受两个参数，它们可以是百分比、em、px等具体值，也可以是left、center、right或者top、middle、bottom等描述性关键字<br>2D 转换元素能够改变元素 x 和 y 轴。3D 转换元素还能改变其 Z 轴。<br>该属性必须与 transform 属性一同使用。<br>语法<code>transform-origin: x-axis y-axis z-axis;</code></p>
+<p>Transform 执行顺序问题 — 后写先执行  </p>
+<p><code>matrix(a,b,c,d,e,f)</code> 矩阵函数<br>通过矩阵实现缩放  </p>
+<blockquote>
+<p>x轴缩放 <code>a=x*a    c=x*c     e=x*e</code>;<br>y轴缩放 <code>b=y*b   d=y*d     f=y*f</code>;</p>
+</blockquote>
+<p>通过矩阵实现位移  </p>
+<blockquote>
+<p>x轴位移: <code>e=e+x</code><br>y轴位移: <code>f=f+y</code></p>
+</blockquote>
+<p>通过矩阵实现倾斜  </p>
+<blockquote>
+<p>x轴倾斜: <code>c=Math.tan(xDeg/180*Math.PI)</code><br>y轴倾斜: <code>b=Math.tan(yDeg/180*Math.PI)</code></p>
+</blockquote>
+<p>matrix(a,b,c,d,e,f) 矩阵函数<br>通过矩阵实现旋转<br>—— <code>a=Math.cos(deg/180*Math.PI)</code>;<br>—— <code>b=Math.sin(deg/180*Math.PI)</code>;<br>—— <code>c=-Math.sin(deg/180*Math.PI)</code>;<br>—— <code>d=Math.cos(deg/180*Math.PI)</code>;<br>变换兼容IE9以下IE版本只能通过矩阵来实现<br>filter:   <code>progid:DXImageTransform.Microsoft.Matrix( M11= 1, M12= 0, M21= 0 , M22=1,SizingMethod=&#39;auto expand&#39;);</code><br>IE下的矩阵没有E和F两个参数 <code>M11==a; M12==c; M21==b; M22==d</code></p>
+<h2 id="3d变换"><a href="#3d变换" class="headerlink" title="3d变换"></a>3d变换</h2><p><code>transform-style（preserve-3d）</code> 建立3D空间  </p>
+<blockquote>
+<p>规定如何在 3D 空间中呈现被嵌套的元素,该属性必须与 transform 属性一同使用。 </p>
+</blockquote>
+<p>语法：<code>transform-style: flat|preserve-3d;</code></p>
+<p><code>Perspective</code> 景深  </p>
+<blockquote>
+<p>目前浏览器都不支持 perspective 属性。Chrome 和 Safari 支持替代的 <code>-webkit-perspective</code> 属性。</p>
+</blockquote>
+<p>语法：<code>perspective: number|none;</code><br>Perspective- origin 景深基点  </p>
+<blockquote>
+<p>目前浏览器都不支持 <code>perspective-origin</code>属性。Chrome 和 Safari 支持替代的 <code>-webkit-perspecitve-origin</code> 属性。</p>
+</blockquote>
+<p>Transform 新增函数<br>—— rotateX()<br>—— rotateY()<br>—— rotateZ()<br>—— translateZ()<br>—— scaleZ()  </p>
+<h2 id="animation"><a href="#animation" class="headerlink" title="animation"></a><code>animation</code></h2><p>语法：<code>animation: name duration timing-function delay iteration-count direction;</code></p>
+<blockquote>
+<p>注：请始终规定 animation-duration 属性，否则时长为 0，就不会播放动画了。</p>
+</blockquote>
+<p>关键帧——keyFrames<br>类似于flash：只需指明两个状态，之间的过程由计算机自动计算<br>关键帧的时间单位<br>—— 数字：0%、25%、100%等<br>—— 字符：from(0%)、to(100%)  </p>
+<blockquote>
+<p>注：为了获得最佳的浏览器支持，您应该始终定义 0% 和 100% 选择器。请使用动画属性来控制动画的外观，同时将动画与选择器绑定。<br><strong>格式(1)</strong></p>
+</blockquote>
+<pre><code>@keyframes 动画名称
+{
+    动画状态
+}
+
+栗子：
+@-webkit-keyframes move
+{
+    0%{
+        width:100px;
+    }
+    100%
+    {
+        width:500px;
+    }    
+}
+
+调用：
+animation:2s move;
+</code></pre><p><strong>格式(2)</strong></p>
+<pre><code>@keyframes  miaov_test
+{
+    from { background:red; }
+    to { background:green; }
+}
+</code></pre><p>可以只有to  </p>
+<p>调用的标签(#div1、xxx:hover之类的) </p>
+<p><strong>必要属性</strong><br>—— <code>animation-name</code> 动画名称（关键帧名称）<br>—— <code>animation-duration</code> 动画持续时间<br>例如：</p>
+<pre><code>-webkit-animation-name: ‘miaov&apos;;
+-webkit-animation-duration: 4s;
+</code></pre><p><code>animation-play-state</code> 播放状态（ running 播放 和paused 暂停 ）</p>
+<p><strong>可选属性</strong><br><code>animation-timing-function</code>动画运动形式<br>—— linear    匀速。<br>—— ease        缓冲。<br>—— ease-in    由慢到快。<br>—— ease-out    由快到慢。<br>—— ease-in-out    由慢到快再到慢。<br>—— cubic-bezier(number, number, number, number)：    特定的贝塞尔曲线类型，4个数值需在[0, 1]区间内</p>
+<p><code>animation-delay</code>     动画延迟<br>—— 只是第一次<br><code>animation-iteration-count</code> 重复次数<br>—— infinite为无限次<br><code>animation-direction</code> 播放前重置<br>—— 动画是否重置后再开始播放<br>—— alternate 动画直接从上一次停止的位置开始执行<br>—— normal 动画第二次直接跳到0%的状态开始执行</p>
+<p><strong>通过class</strong><br>—— 在class里加入animation的各种属性<br>—— 直接给元素加-webkit-animation-xxx样式<br><strong>animation的问题</strong><br>—— 写起来麻烦<br>—— 没法动态改变目标点位置<br><code>obj.addEventListener(&#39;webkitAnimationEnd&#39;, function (){}, false);</code></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/14/jQuery中的extend方法/" rel="next" title="jQuery中的extend()方法">
+                <i class="fa fa-chevron-left"></i> jQuery中的extend()方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/20/移动端开发常见问题/" rel="prev" title="移动端开发常见问题">
+                移动端开发常见问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/img/avatar.jpg"
+              alt="Adele" />
+          
+            <p class="site-author-name" itemprop="name">Adele</p>
+            <p class="site-description motion-element" itemprop="description">伟大的小白</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#transition过渡"><span class="nav-number">1.</span> <span class="nav-text">transition过渡</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#过渡完成事件"><span class="nav-number">1.1.</span> <span class="nav-text">过渡完成事件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2D变换"><span class="nav-number">2.</span> <span class="nav-text">2D变换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#transform"><span class="nav-number">2.1.</span> <span class="nav-text">transform</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3d变换"><span class="nav-number">3.</span> <span class="nav-text">3d变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#animation"><span class="nav-number">4.</span> <span class="nav-text">animation</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  © 2016 - 2017 &mdash; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Adele</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

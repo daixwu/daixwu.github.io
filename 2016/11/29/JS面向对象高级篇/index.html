@@ -77,7 +77,7 @@
 <meta property="og:site_name" content="Adele">
 <meta property="og:description" content="包装对象JS基于原型的程序基本类型都有自己的包装对象：String Number Boolean 1234567891011var str = &amp;apos;hello&amp;apos;;str.charAt(0);  //基本类型会找到对应的包装对象类型，然后包装对象把所有的属性和方法给了基本类型，然后包装对象消失console.log(str.charAt(0)) //hvar str = &amp;apos">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-05-29T13:42:36.000Z">
+<meta property="og:updated_time" content="2017-11-13T06:54:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS面向对象高级篇">
 <meta name="twitter:description" content="包装对象JS基于原型的程序基本类型都有自己的包装对象：String Number Boolean 1234567891011var str = &amp;apos;hello&amp;apos;;str.charAt(0);  //基本类型会找到对应的包装对象类型，然后包装对象把所有的属性和方法给了基本类型，然后包装对象消失console.log(str.charAt(0)) //hvar str = &amp;apos">
@@ -356,7 +356,7 @@
 <ol>
 <li>类型判断(一般都用这种方法判断是否为数组)</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var arr = [];</div><div class="line">console.log( Object.prototype.toString.call(arr));  //[object Array]</div><div class="line">console.log( Object.prototype.toString.call(arr) == &apos;[object Array]&apos; );  //trun</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var arr = [];</div><div class="line">console.log( Object.prototype.toString.call(arr));  //[object Array]</div><div class="line">console.log( Object.prototype.toString.call(arr) == &apos;[object Array]&apos; );  //tru</div></pre></td></tr></table></figure>
 <p>三种判断数组的方法</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var oF = document.createElement(&apos;iframe&apos;);</div><div class="line">document.body.appendChild( oF );</div><div class="line">var ifArray = window.frames[0].Array;</div><div class="line">var arr = new ifArray();</div><div class="line"></div><div class="line">console.log( arr.constructor == Array );  //false</div><div class="line">console.log( arr instanceof Array );  //false</div><div class="line">console.log( Object.prototype.toString.call(arr) == &apos;[object Array]&apos; );  //true</div></pre></td></tr></table></figure>
 <h2 id="什么是继承"><a href="#什么是继承" class="headerlink" title="什么是继承"></a>什么是继承</h2><p>子类不影响父类，子类可以继承父类的一些功能 (代码复用 )<br>属性的继承 : 调用父类的构造函数 call<br>方法的继承 : 把父类原型赋给子类原型（不靠谱）</p>
@@ -490,7 +490,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -512,7 +512,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -389,272 +389,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/28/NodeJS-笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Adele">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/img/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Adele">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/28/NodeJS-笔记/" itemprop="url">NodeJS 笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-28T23:22:23+08:00">
-                2017-11-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在ecmascript部分node和js其实是一样的，比如数据类型的定义，语法结构，内置对象</p>
-<p>在js中的顶层对象 window  </p>
-<p>在node中的顶层对象 global<br>注意：在node中也没有什么window</p>
-<p>在一个模块中通过var定义的变量，其作用域范围是当前模块，外部不能够直接的访问<br>如果我们想一个模块能够访问另外一个模块中定义的变量，可以：<br>1.把变量作为global对象的一个属性，但是这样的做法是不推荐的<br>2.使用模块对象 module</p>
-<p>module : 保存提供和当前模块有关的一些信息       </p>
-<p>在这个module对象，有一个子对象：exports 对象<br>我们可以通过这个对象把一个模块中的局部变量对象进行提供访问  </p>
-<h2 id="global"><a href="#global" class="headerlink" title="global"></a>global</h2><p>__filename : 返回当前模块文件解析后的绝对路径，该属性其实并非全局的，而是模块作用域下的</p>
-<p> __dirname : 返回当前模块文件所在目录解析后的绝对路径，该属性也不是全局的，而是模块作用域下的</p>
-<p>process (进程) 全局对象<br>stdin标准输入流<br>stdout标准输出流</p>
-<p>Buffer (缓冲) 用于操作二进制数据流</p>
-<p>new Buffer(size); size [Number] 创建一个Buffer对象，并为这个对象分配一个大小<br>当我们为一个Buffer对象分配空间大小以后，其长度是固定，不能更改</p>
-<p>buf.write(string[, offset[, length]][, encoding])</p>
-<p>buf.toString([encoding[, start[, end]]])<br>根据 encoding 指定的字符编码解码 buf 成一个字符串。 start 和 end 可传入用于只解码 buf 的一部分。</p>
-<p>buf.toJSON()<br>返回 buf 的 JSON 格式。 当字符串化一个 Buffer 实例时，JSON.stringify() 会隐式地调用该函数。</p>
-<h2 id="fs-文件系统"><a href="#fs-文件系统" class="headerlink" title="fs (文件系统)"></a>fs (文件系统)</h2><p>fs.open(path, flags, [mode], callback)<br>path : 要打开的文件的路径<br>flags : 打开文件的方式 读/写<br>mode : 设置文件的模式 读/写/执行  4/2/1<br>callback : 回调<br>err : 文件打开失败的错误保存在err里面，如果成功err为null<br>fd : 被打开文件的标识，和定时器  </p>
-<p>fs.openSync(path, flags[, mode])</p>
-<p>fs.read(fd, buffer, offset, length, position, callback)</p>
-<p>fs.write(fd, buffer[, offset[, length[, position]]], callback)</p>
-<p>fs.writeFile(file, data[, options], callback)<br>异步地写入数据到文件，如果文件已经存在，则替代文件。 data 可以是一个字符串或一个 buffer。</p>
-<p>如果 data 是一个 buffer，则忽略 encoding 选项。它默认为 ‘utf8’。</p>
-<p>http - http模块 - require(‘http’)<br>var http = require(‘http’);<br>var server = http.createServer([requestListener])<br>创建并返回一个HTTP服务器对象<br>requestListener : 监听到客户端连接的回调函数<br>server.listen(port, [hostname], [backlog], [callback])<br>监听客户端连接请求，只有当调用了listen方法以后，服务器才开始工作<br>port : 监听的端口<br>hostname : 主机名（IP/域名)<br>backlog : 连接等待队列的最大长度<br>callback : 调用listen方法并成功开启监听以后，会触发一个listening事件，callback将作为该事件的执行函数</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/21/移动端事件/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Adele">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/img/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Adele">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/21/移动端事件/" itemprop="url">移动端事件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-21T11:15:45+08:00">
-                2017-11-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>移动端的三大事件：<br>手指按下：ontouchstart<br>手指移动：ontouchmove<br>手指抬起：ontouchend</p>
-<p>注意：<br>在移动端开发的时候，浏览器的模拟器时好时坏，一般不用on的方式绑定事件函数，要用事件绑定的方式(addEventListener)。</p>
-<p>pc上的事件比移动端的事件略慢，大概是在300ms左右。</p>
-<p>移动端事件对象<br>当给某个元素加上了事件绑定函数之后，事件函数默认的第一个参数就是事件对象<br>事件对象：<br>当用户在浏览器下触发了某个行为，事件对象会记录用户操作时一些细节信息。</p>
-<p>touches 当前位于屏幕上的所有手指的一个列表</p>
-<p>targetTouches 位于当前DOM元素上的手指的一个列表</p>
-<p>changedTouches  涉及当前事件的手指的一个列表</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/20/弹性盒模型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1474,7 +1208,7 @@ animation:2s move;
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/13/Jquery源码分析/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/10/js知识碎片/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Adele">
@@ -1493,7 +1227,7 @@ animation:2s move;
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/13/Jquery源码分析/" itemprop="url">Jquery源码分析</a></h1>
+                <a class="post-title-link" href="/2017/11/10/js知识碎片/" itemprop="url">js知识碎片-历史管理</a></h1>
         
 
         <div class="post-meta">
@@ -1505,8 +1239,8 @@ animation:2s move;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-13T18:25:06+08:00">
-                2017-11-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-10T00:07:48+08:00">
+                2017-11-10
               </time>
             
 
@@ -1515,6 +1249,28 @@ animation:2s move;
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1545,10 +1301,24 @@ animation:2s move;
       
         
           
-            <p>最好用以下方式来判断变量的值是否为undefined<br>typeof undefined == ‘undefined’</p>
-<p>charAt() 方法用于返回指定索引处的字符。索引范围为从 0 到 length() - 1。</p>
-<p><code>$.merge()</code> 数组合并</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var arr1 = [1,2];</div><div class="line">var arr2 = [3,4]</div><div class="line">console.log($.merge(arr1,arr2)) //[1, 2, 3, 4]</div></pre></td></tr></table></figure>
+            <h2 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h2><p>Math 是一个内置对象， 它具有数学常数和函数的属性和方法。不是一个函数对象。(<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math" target="_blank" rel="external">参考</a>)</p>
+<p><code>Math.ceil()</code>执行向上舍入，即它总是将数值向上舍入为最接近的整数；  </p>
+<p><code>Math.floor()</code>执行向下舍入，即它总是将数值向下舍入为最接近的整数；  </p>
+<p><code>Math.round()</code>执行标准舍入，即它总是将数值四舍五入为最接近的整数(这也是我们在数学课上学到的舍入规则)。</p>
+<p><code>Math.random()</code> 函数返回一个浮点,  伪随机数在范围[0，1)，也就是说，从0（包括0）往上，但是不包括1（排除1），然后您可以缩放到所需的范围。<br><strong>得到一个两数之间的随机数</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function getRandomArbitrary(min, max) &#123;</div><div class="line">  return Math.random() * (max - min) + min;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>得到一个两数之间的随机整数</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function getRandomInt(min, max) &#123;</div><div class="line">  min = Math.ceil(min);</div><div class="line">  max = Math.floor(max);</div><div class="line">  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>得到一个两数之间的随机整数，包括两个数在内</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function getRandomIntInclusive(min, max) &#123;</div><div class="line">  min = Math.ceil(min);</div><div class="line">  max = Math.floor(max);</div><div class="line">  return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="window-location"><a href="#window-location" class="headerlink" title="window.location"></a>window.location</h2><p>window.location 只读属性，返回一个 Location  对象，其中包含有关文档当前位置的信息。(<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/location" target="_blank" rel="external">参考</a>)  </p>
+<p><strong>window.location.reload(true)</strong><br>强制从服务器重新加载当前页面</p>
+<p><strong>window.location.hash</strong><br>可以用来获取或设置页面的标签值</p>
+<h2 id="window-onhashchange"><a href="#window-onhashchange" class="headerlink" title="window.onhashchange"></a>window.onhashchange</h2><p>当 一个窗口的哈希改变时就会触发 hashchange 事件<br>语法：<code>window.onhashchange = funcRef;</code>或者：<code>&lt;body onhashchange=&quot;funcRef();&quot;&gt;</code>覆盖任何现有的事件处理程序。<br>为了将一个事件侦听器添加到现有的一个事件处理程序集中，使用函数 “addEventListener”。<br><code>window.addEventListener(&quot;hashchange&quot;, funcRef, false);</code></p>
+<h3 id="history"><a href="#history" class="headerlink" title="history"></a>history</h3><p>pushState: 三个参数： 数据  标题（没实现） 地址（可选）<br>popstate事件： 读取数据event.state<br>注意:网址是虚假的，需要在服务器指定对应页面，不然刷新找不到页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;&#125;;</div><div class="line">$(&quot;#btn&quot;).click(function () &#123;</div><div class="line">    var number = randomNumber(35, 7);</div><div class="line">    var oRD = Math.random(); //随机数作为obj的键值</div><div class="line">    obj[oRD] = number; // number 存入obj</div><div class="line">    $(&quot;div&quot;).text(number);</div><div class="line">    window.location.hash = oRD;</div><div class="line">    //history.pushState(number,&apos;&apos;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// window.onpopstate = function (ev) &#123;</div><div class="line">// 	var number = ev.state || &apos;&apos;;</div><div class="line">//	$(&quot;div&quot;).text(number);</div><div class="line">// &#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 将hash插入div</div><div class="line"> */</div><div class="line">function hashNumber() &#123;</div><div class="line">    var _number = location.hash;</div><div class="line">    $(&quot;div&quot;).text(obj[_number.substring(1)] || &apos;&apos;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">window.addEventListener(&quot;hashchange&quot;, hashNumber,false);</div><div class="line"></div><div class="line">/**</div><div class="line"> *</div><div class="line"> * @param total</div><div class="line"> * @param now</div><div class="line"> * @returns &#123;Array&#125;</div><div class="line"> */</div><div class="line">function randomNumber(total, now) &#123;</div><div class="line">    var arr = [];</div><div class="line">    var newArr = [];</div><div class="line">    for (var i = 1; i&lt;= total; i++) &#123;</div><div class="line">        arr.push(i);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    for (var i = 0; i&lt;now; i++) &#123;</div><div class="line">        newArr.push(arr.splice(Math.floor(Math.random()*arr.length),1))</div><div class="line">   &#125;</div><div class="line">   return newArr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="http://www.oschina.net/question/12_48388" target="_blank" rel="external">PJAX 介绍</a></p>
+
           
         
       
@@ -1596,7 +1366,7 @@ animation:2s move;
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/10/js面向对象及组件开发/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/20/ jQuery-业务笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Adele">
@@ -1615,7 +1385,7 @@ animation:2s move;
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/10/js面向对象及组件开发/" itemprop="url">js面向对象及组件开发</a></h1>
+                <a class="post-title-link" href="/2017/10/20/ jQuery-业务笔记/" itemprop="url">jQuery 业务笔记</a></h1>
         
 
         <div class="post-meta">
@@ -1627,8 +1397,451 @@ animation:2s move;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-10T14:43:10+08:00">
-                2017-11-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-20T12:04:13+08:00">
+                2017-10-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">jQuery</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h2><h2 id="基础过滤"><a href="#基础过滤" class="headerlink" title="基础过滤"></a>基础过滤</h2><p>###<code>$(&quot;selector&quot;).eq(index)</code><br>index: 要匹配元素的索引值（从0开始计数，负值时从最后一个元素开始倒计数）</p>
+<h3 id="quot-selector-quot-slice-index"><a href="#quot-selector-quot-slice-index" class="headerlink" title="$(&quot;selector&quot;).slice(index)"></a><code>$(&quot;selector&quot;).slice(index)</code></h3><p>选择匹配集合中所有大于给定index（索引值）的元素。</p>
+<h3 id="quot-selector-quot-slice-0-index"><a href="#quot-selector-quot-slice-0-index" class="headerlink" title="$(&quot;selector&quot;).slice(0, index)"></a><code>$(&quot;selector&quot;).slice(0, index)</code></h3><p>选择匹配集合中所有索引值小于给定index参数的元素。</p>
+<h3 id="quot-selector-quot-not"><a href="#quot-selector-quot-not" class="headerlink" title="$(&quot;selector&quot;).not()"></a><code>$(&quot;selector&quot;).not()</code></h3><p>选择所有元素去除不匹配给定的选择器的元素。</p>
+<h3 id="quot-selector-quot-filter-quot-odd-quot"><a href="#quot-selector-quot-filter-quot-odd-quot" class="headerlink" title="$(&quot;selector&quot;).filter(&quot;:odd&quot;)"></a><code>$(&quot;selector&quot;).filter(&quot;:odd&quot;)</code></h3><p>选择索引值为奇数元素，从 0 开始计数。</p>
+<h3 id="quot-selector-quot-filter-quot-even-quot"><a href="#quot-selector-quot-filter-quot-even-quot" class="headerlink" title="$(&quot;selector&quot;).filter(&quot;:even&quot;)"></a><code>$(&quot;selector&quot;).filter(&quot;:even&quot;)</code></h3><p>选择所引值为偶数的元素，从 0 开始计数。</p>
+<blockquote>
+<p>查找表格中索引值是偶数的行(即实际表格中的奇数行)，即匹配第一行、第三行、第五行等 (索引值是 0, 2 ,4 等 )</p>
+</blockquote>
+<h3 id="quot-selector-quot-filter-quot-first-quot"><a href="#quot-selector-quot-filter-quot-first-quot" class="headerlink" title="$(&quot;selector&quot;).filter(&quot;:first&quot;)"></a><code>$(&quot;selector&quot;).filter(&quot;:first&quot;)</code></h3><p>选择第一个匹配的元素。</p>
+<h2 id="内容过滤"><a href="#内容过滤" class="headerlink" title="内容过滤"></a>内容过滤</h2><h3 id="quot-contains-text-quot"><a href="#quot-contains-text-quot" class="headerlink" title="$( &quot;:contains(text)&quot; )"></a><code>$( &quot;:contains(text)&quot; )</code></h3><p>选择所有包含指定文本的元素。</p>
+<h3 id="quot-selector-quot-has-selector-DOMElement"><a href="#quot-selector-quot-has-selector-DOMElement" class="headerlink" title="$(&quot;selector&quot;).has(selector/DOMElement)"></a><code>$(&quot;selector&quot;).has(selector/DOMElement)</code></h3><p>选择元素其中至少包含指定选择器匹配的一个种元素。</p>
+<h2 id="DOM-操作"><a href="#DOM-操作" class="headerlink" title="DOM 操作"></a>DOM 操作</h2><h2 id="class-属性"><a href="#class-属性" class="headerlink" title="class 属性"></a>class 属性</h2><h3 id="addClass-className"><a href="#addClass-className" class="headerlink" title=".addClass( className )"></a><code>.addClass( className )</code></h3><p>为每个匹配的元素添加指定的样式类名，和.removeClass()一起使用，用来切换元素的样式。</p>
+<blockquote>
+<p>值得注意的是这个方法不会替换一个样式类名。它只是简单的添加一个样式类名到元素上。</p>
+</blockquote>
+<h3 id="hasClass"><a href="#hasClass" class="headerlink" title=".hasClass()"></a><code>.hasClass()</code></h3><p>确定任何一个匹配元素是否有被分配给定的（样式）类。</p>
+<h3 id="toggleClass-className-switch"><a href="#toggleClass-className-switch" class="headerlink" title=".toggleClass( className, switch )"></a><code>.toggleClass( className, switch )</code></h3><p>在匹配的元素集合中的每个元素上添加或删除一个或多个样式类,取决于这个样式类是否存在或值切换属性。即：如果存在（不存在）就删除（添加）一个类。<br>switch一个布尔值，用于判断样式是否应该被添加或移除。</p>
+<h2 id="复制元素"><a href="#复制元素" class="headerlink" title="复制元素"></a>复制元素</h2><h3 id="clone"><a href="#clone" class="headerlink" title=".clone()"></a><code>.clone()</code></h3><p>创建一个匹配的元素集合的深度拷贝副本。<br>当和插入方法联合使用时，.clone()对于复制页面上的元素很方便。<code>$(&#39;.hello&#39;).clone().appendTo(&#39;.goodbye&#39;);</code></p>
+<h2 id="DOM-移除"><a href="#DOM-移除" class="headerlink" title="DOM 移除"></a>DOM 移除</h2><h3 id="detach"><a href="#detach" class="headerlink" title=".detach()"></a><code>.detach()</code></h3><p>从DOM中去掉所有匹配的元素。</p>
+<blockquote>
+<p>.detach() 方法和.remove()一样, 除了 .detach()保存所有jQuery数据和被移走的元素相关联。当需要移走一个元素，不久又将该元素插入DOM时，这种方法很有用。</p>
+</blockquote>
+<h3 id="empty"><a href="#empty" class="headerlink" title=".empty()"></a><code>.empty()</code></h3><p>从DOM中移除集合中匹配元素的所有子节点。</p>
+<blockquote>
+<p>为了避免内存泄漏，jQuery先移除子元素的数据和事件处理函数，然后移除子元素。如果你想删除元素，不破坏他们的数据或事件处理程序（这些绑定的信息还可以在之后被重新添加回来），请使用.detach()代替 。</p>
+</blockquote>
+<h3 id="remove"><a href="#remove" class="headerlink" title=".remove()"></a><code>.remove()</code></h3><p>将匹配元素集合从DOM中删除。（注：同时移除元素上的事件及 jQuery 数据。）</p>
+<p>##DOM 替换</p>
+<h3 id="replaceAll"><a href="#replaceAll" class="headerlink" title=".replaceAll()"></a><code>.replaceAll()</code></h3><p>用集合的匹配元素替换每个目标元素。</p>
+<h3 id="replaceWith"><a href="#replaceWith" class="headerlink" title=".replaceWith()"></a><code>.replaceWith()</code></h3><p>用提供的内容替换集合中所有匹配的元素并且返回被删除元素的集合。</p>
+<h2 id="CSS-属性"><a href="#CSS-属性" class="headerlink" title="CSS 属性"></a>CSS 属性</h2><h3 id="css"><a href="#css" class="headerlink" title=".css()"></a><code>.css()</code></h3><p>获取匹配元素集合中的第一个元素的样式属性的值  或  设置每个匹配元素的一个或多个CSS属性。</p>
+<blockquote>
+<p>简写速写的CSS属性(例如： margin, background, border) 是不支持的，例如，如果你想重新获取margin，可以使用$(elem).css(‘marginTop’) 和 $(elem).css(‘marginRight’)，其他的也是如此。</p>
+</blockquote>
+<h3 id="width"><a href="#width" class="headerlink" title=".width()"></a><code>.width()</code></h3><p>为匹配的元素集合中获取第一个元素的当前计算宽度值或给每个匹配的元素设置宽度。</p>
+<h3 id="height"><a href="#height" class="headerlink" title=".height()"></a><code>.height()</code></h3><p>获取匹配元素集合中的第一个元素的当前计算高度值 或 设置每一个匹配元素的高度值。</p>
+<h3 id="innerHeight"><a href="#innerHeight" class="headerlink" title=".innerHeight()"></a><code>.innerHeight()</code></h3><p>为匹配的元素集合中获取第一个元素的当前计算高度值,包括padding，但是不包括border。</p>
+<h3 id="innerWidth"><a href="#innerWidth" class="headerlink" title=".innerWidth()"></a><code>.innerWidth()</code></h3><p>为匹配的元素集合中获取第一个元素的当前计算宽度值,包括padding，但是不包括border。</p>
+<blockquote>
+<p>.css(‘height’) 和 .height()之间的区别是后者返回一个没有单位的数值（例如，400），前者是返回带有完整单位的字符串（例如，400px）。当一个元素的高度需要数学计算的时候推荐使用.height() 方法 。</p>
+</blockquote>
+<p>这个方法同样能计算出window和document的高度。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(window).height();   // returns height of browser viewport</div><div class="line">$(document).height(); // returns height of HTML document</div></pre></td></tr></table></figure>
+<p>注意.height()总是返回内容宽度,不管CSS box-sizing属性值。</p>
+<p>设置高度时如果没有给定明确的单位（像’em’ 或者 ‘%’），那么默认情况下”px”会被直接添加上去（也理解为”px”是默认单位）。</p>
+<h3 id="offset"><a href="#offset" class="headerlink" title=".offset()"></a><code>.offset()</code></h3><p>在匹配的元素集合中，获取的第一个元素的当前坐标，或设置每一个元素的坐标，坐标相对于文档。</p>
+<blockquote>
+<p>.offset()方法允许我们检索一个元素相对于文档（document）的当前位置。和.position()的差别在于：.position()是相对于相对于父级元素的位移。当通过全局操作（特别是通过拖拽操作）将一个新的元素放置到另一个已经存在的元素的上面时，若要取得这个新的元素的位置，那么使用 .offset() 更合适。.offset()返回一个包含top 和 left属性的对象 。</p>
+</blockquote>
+<p>注意：jQuery不支持获取隐藏元素的偏移坐标。同样的，也无法取得隐藏元素的 border, margin, 或 padding 信息。<br>若元素的属性设置的是 visibility:hidden，那么我们依然可以取得它的坐标。但是若设置的属性是 display:none，由于在绘制 DOM 树时根本就不绘制该元素，所以它的位置属性值是 undefined。</p>
+<h3 id="position"><a href="#position" class="headerlink" title=".position()"></a><code>.position()</code></h3><p>获取匹配元素中第一个元素的当前坐标，相对于offset parent的坐标。( 及指离该元素最近的而且被定位过的祖先元素 )</p>
+<h3 id="outerHeight-includeMargin"><a href="#outerHeight-includeMargin" class="headerlink" title=".outerHeight([includeMargin ])"></a><code>.outerHeight([includeMargin ])</code></h3><p>在.outerHeight()计算中总是包含padding-top ,padding-bottom 和 border-top，border-bottom ；如果includeMargin参数是true，那么margin (top 和 bottom)也会被包含。</p>
+<h3 id="outerWidth-includeMargin"><a href="#outerWidth-includeMargin" class="headerlink" title=".outerWidth([includeMargin ])"></a><code>.outerWidth([includeMargin ])</code></h3><p>获取元素集合中第一个元素的当前计算宽度值,包括padding，border和选择性的margin。（注：返回一个整数（不包含“px”）表示的值，或如果在一个空集合上调用该方法，则会返回 null。）</p>
+<h3 id="scrollLeft"><a href="#scrollLeft" class="headerlink" title=".scrollLeft()"></a><code>.scrollLeft()</code></h3><p>获取匹配的元素集合中第一个元素的当前水平滚动条的位置或设置每个匹配元素的水平滚动条位置。</p>
+<h3 id="scrollTop"><a href="#scrollTop" class="headerlink" title=".scrollTop()"></a><code>.scrollTop()</code></h3><p>获取匹配的元素集合中第一个元素的当前垂直滚动条的位置或设置每个匹配元素的垂直滚动条位置。</p>
+<h2 id="DOM-插入"><a href="#DOM-插入" class="headerlink" title="DOM 插入"></a>DOM 插入</h2><h3 id="after"><a href="#after" class="headerlink" title=".after()"></a><code>.after()</code></h3><p>在匹配元素集合中的每个元素后面插入参数所指定的内容，作为其兄弟节点。</p>
+<blockquote>
+<p>.after()和.insertAfter()实现同样的功能。主要的不同是语法——特别是内容和目标的位置。 对于 .after(), 选择表达式在函数的前面，参数是将要插入的内容。 对于.insertAfter(), 刚好相反，内容在方法前面，它将被放在参数里元素的后面。</p>
+</blockquote>
+<h3 id="before"><a href="#before" class="headerlink" title=".before()"></a><code>.before()</code></h3><p>根据参数设定，在匹配元素的前面插入内容</p>
+<blockquote>
+<p>.before() 和.insertBefore()实现同样的功能。主要的不同是语法——内容和目标的位置不同。对于.before(), 选择器表达式在方法的前面，参数是将要插入的内容。对于.insertBefore()刚好相反，内容在方法前面，无论是作为一个选择表达式或作为标记上创建动态，它将被放在目标容器的前面。</p>
+</blockquote>
+<h3 id="append"><a href="#append" class="headerlink" title=".append()"></a><code>.append()</code></h3><p>.append()函数将特定内容插入到每个匹配元素里面的最后面，作为它的最后一个子元素（last child）, (如果要作为第一个子元素 （first child）, 用.prepend()).</p>
+<blockquote>
+<p>.append() 和.appendTo()实现同样的功能。主要的不同是语法——内容和目标的位置不同。对于.append(), 选择器表达式在函数的前面，参数是将要插入的内容。对于.appendTo()刚好相反，内容在方法前面，无论是一个选择器表达式 或创建作为标记上的标记，它都将被插入到目标容器的末尾。</p>
+</blockquote>
+<h2 id="通用属性操作"><a href="#通用属性操作" class="headerlink" title="通用属性操作"></a>通用属性操作</h2><h3 id="attr"><a href="#attr" class="headerlink" title=".attr()"></a><code>.attr()</code></h3><p>获取匹配的元素集合中的第一个元素的属性的值  或 设置每一个匹配元素的一个或多个属性。<br>当设置多个属性,包裹属性名的引号是可选的。但当设置样式名（“class”）属性时，必须使用引号！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// for example</div><div class="line">$(&apos;#greatphoto&apos;).attr(&#123;</div><div class="line">  alt: &apos;Beijing Brush Seller&apos;,</div><div class="line">  title: &apos;photo by Kelly Clark&apos;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注意: jQuery禁止改变一个 input 或 button 元素的type 特性（attribute），并且在所有浏览器下将抛出一个错误。因为Internet Explorer不会允许你改变 input 或者 button 元素的type属性。</p>
+</blockquote>
+<h3 id="prop"><a href="#prop" class="headerlink" title=".prop()"></a><code>.prop()</code></h3><p>获取匹配的元素集中第一个元素的属性（property）值或设置每一个匹配元素的一个或多个属性。</p>
+<blockquote>
+<p>.prop()方法只获得第一个匹配元素的属性值 。如果元素上没有该属性，或者如果没有匹配的元素。那么该方法会返回undefined值。若要取得每个匹配元素的属性值（property），请使用循环结构，如jQuery .each()或.map()方法。</p>
+</blockquote>
+<h3 id="html"><a href="#html" class="headerlink" title=".html()"></a><code>.html()</code></h3><p>获取集合中第一个匹配元素的HTML内容 或 设置每一个匹配元素的html内容。</p>
+<h3 id="removeAttr"><a href="#removeAttr" class="headerlink" title=".removeAttr()"></a><code>.removeAttr()</code></h3><p>为匹配的元素集合中的每个元素中移除一个属性（attribute）。</p>
+<p>注意: Internet Explorer 6， 7 ，或8中，使用.removeAttr()删除一个内联onclick 事件处理程序没有实现，为了避免潜在的问题，使用 .prop()代替：</p>
+<h3 id="removeProp"><a href="#removeProp" class="headerlink" title=".removeProp()"></a><code>.removeProp()</code></h3><p>.removeProp()方法用来删除由.prop()方法设置的属性集。</p>
+<p>注意: 不要使用此方法来删除原生的属性（ property ），比如checked, disabled, 或者 selected。这将完全移除该属性，一旦移除，不能再次被添加到元素上。使用.prop()来设置这些属性设置为false代替。</p>
+<h3 id="text"><a href="#text" class="headerlink" title=".text()"></a><code>.text()</code></h3><p>得到匹配元素集合中每个元素的文本内容结合，包括他们的后代，或设置匹配元素集合中每个元素的文本内容为指定的文本内容。</p>
+<h3 id="val"><a href="#val" class="headerlink" title=".val()"></a><code>.val()</code></h3><p>.val()方法主要用于获取表单元素的值，比如 input, select 和 textarea。对于 <code>&lt;select multiple=&quot;multiple&quot;&gt;</code> 元素,  .val()方法返回一个包含每个选择项的数组，如果没有选择性被选中，它返回null。</p>
+<h3 id="unwrap"><a href="#unwrap" class="headerlink" title=".unwrap()"></a><code>.unwrap()</code></h3><p>将匹配元素集合的父级元素删除，保留自身（和兄弟元素，如果存在）在原来的位置。</p>
+<h3 id="wrap"><a href="#wrap" class="headerlink" title=".wrap()"></a><code>.wrap()</code></h3><p>在每个匹配的元素外层包上一个html元素。</p>
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><h2 id="浏览器事件"><a href="#浏览器事件" class="headerlink" title="浏览器事件"></a>浏览器事件</h2><h3 id="scroll"><a href="#scroll" class="headerlink" title=".scroll()"></a><code>.scroll()</code></h3><p>当用户在元素内执行了滚动操作，就会在这个元素上触发scroll事件。它适用于window对象，但也可以是可滚动frames与CSS overflow属性设置为scroll的元素（或auto时，元素的显示高度小于其内容高度）。</p>
+<h2 id="绑定事件处理器"><a href="#绑定事件处理器" class="headerlink" title="绑定事件处理器"></a>绑定事件处理器</h2><h3 id="bind"><a href="#bind" class="headerlink" title=".bind()"></a><code>.bind()</code></h3><p>为一个元素绑定一个事件处理程序。<br>bind()方法类似于原生javascript的addEventListener()方法，用于绑定事件；  </p>
+<h3 id="on"><a href="#on" class="headerlink" title=".on()"></a><code>.on()</code></h3><p>.on()方法事件处理程序到当前选定的jQuery对象中的元素。在jQuery 1.7中，.on()方法 提供绑定事件处理的所有功能。为了帮助从旧的jQuery事件方法转换过来，查看 .bind(),  .delegate(), 和 .live(). 要删除的.on()绑定的事件，请参阅.off()。要绑定一个事件，并且只运行一次，然后删除自己， 请参阅.one() </p>
+<h3 id="off"><a href="#off" class="headerlink" title=".off()"></a><code>.off()</code></h3><p>移除一个事件处理函数。</p>
+<h3 id="one"><a href="#one" class="headerlink" title=".one()"></a><code>.one()</code></h3><p>one()方法用于处理只触发一次的事件  </p>
+<h3 id="trigger"><a href="#trigger" class="headerlink" title=".trigger()"></a><code>.trigger()</code></h3><p>trigger()方法类似于原生javascript的dispatchEvent()方法，用于触发事件； </p>
+<h3 id="triggerHandler"><a href="#triggerHandler" class="headerlink" title=".triggerHandler()"></a><code>.triggerHandler()</code></h3><p>.triggerHandler() 方法的行为与 .trigger() 相似，不同之处有如下几点：  </p>
+<ol>
+<li>triggerHandler() 方法并不会触发事件的默认行为。(例如，表单提交)。   </li>
+<li>trigger() 会影响所有与 jQuery 对象相匹配的元素，而 .triggerHandler() 仅影响第一个匹配到的元素。   </li>
+<li>使用 .triggerHandler() 创建的事件，并不会在 DOM 树中向上冒泡。如果事件没有被目标元素直接处理，那么它就不会进行任何处理。  </li>
+<li>与普通的方法返回 jQuery 对象(这样就能够使用链式用法)相反，.triggerHandler() 返回最后一个处理的事件的返回值。如果没有触发任何事件，会返回 undefined。</li>
+</ol>
+<h2 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h2><h3 id="event-pageX"><a href="#event-pageX" class="headerlink" title="event.pageX"></a><code>event.pageX</code></h3><p>鼠标相对于文档的左边缘的位置（左边）</p>
+<h3 id="event-pageY"><a href="#event-pageY" class="headerlink" title="event.pageY"></a><code>event.pageY</code></h3><p>鼠标相对于文档的顶部边缘的位置（坐标）</p>
+<h3 id="event-preventDefault"><a href="#event-preventDefault" class="headerlink" title="event.preventDefault()"></a><code>event.preventDefault()</code></h3><p>如果调用这个方法，默认事件行为将不再触发</p>
+<h3 id="event-stopPropagation"><a href="#event-stopPropagation" class="headerlink" title="event.stopPropagation()"></a><code>event.stopPropagation()</code></h3><p>防止事件冒泡到DOM树上，也就是不触发的任何前辈元素上的事件处理函数</p>
+<h3 id="event-target"><a href="#event-target" class="headerlink" title="event.target"></a><code>event.target</code></h3><p>触发事件的DOM元素</p>
+<blockquote>
+<p>target 属性可以是注册事件时的元素，或者它的子元素。通常用于比较 event.target 和 this 来确定事件是不是由于冒泡而触发的。经常用于事件冒泡时处理事件委托。</p>
+</blockquote>
+<h3 id="event-which"><a href="#event-which" class="headerlink" title="event.which"></a><code>event.which</code></h3><p>针对键盘和鼠标事件，这个属性能确定你到底按的是哪个键</p>
+<blockquote>
+<p>event.which也将正常化的按钮按下(mousedown 和 mouseupevents)，左键报告1，中间键报告2，右键报告3。使用event.which代替event.button</p>
+</blockquote>
+<p>##表单事件</p>
+<h3 id="blur"><a href="#blur" class="headerlink" title=".blur()"></a><code>.blur()</code></h3><p>一个元素失去焦点将触发blur事件。起初，这个事件仅适用于表单元素，如元素<code>&lt;input&gt;</code> 。在最新的浏览器中，这个事件适用范围已经扩大到包括所有元素类型。一个元素可以通过键盘命令失去焦点，比如tab键，或用鼠标点击网页上的其他地方。</p>
+<h3 id="change"><a href="#change" class="headerlink" title=".change()"></a><code>.change()</code></h3><p>一个元素的值改变的时候将触发change事件。此事件仅限用于<code>&lt;input&gt;</code>元素，<code>&lt;textarea&gt;</code>和<code>&lt;select&gt;</code>元素。对于下拉选择框，复选框和单选按钮，当用户用鼠标作出选择，该事件立即触发，但对于其他类型的input元素，该事件触发将推迟，直到元素失去焦点才会触点。</p>
+<h3 id="focus"><a href="#focus" class="headerlink" title=".focus()"></a><code>.focus()</code></h3><p>当一个元素获得焦点时，focus事件被触发。此事件起初适用于有限的元素，比如表单元素（<code>&lt;input&gt;</code>, <code>&lt;select&gt;</code>等）和链接元素（<code>&lt;a href&gt;</code>）。在最近版本的浏览器中，该事件可以扩展到所有包括通过显式设置tabindex属性的元素类型。一个元素可以通过键盘命令获得焦点，如Tab键，或按鼠标点击的元素。</p>
+<h3 id="focusout"><a href="#focusout" class="headerlink" title=".focusout()"></a><code>.focusout()</code></h3><p>focusout 事件会在元素（或者其内部的任何元素）失去焦点时触发。这跟 blur 事件的显著区别在于，它可以在父元素上检测子元素失去焦点的情况(换而言之，它支持事件冒泡)</p>
+<h3 id="select"><a href="#select" class="headerlink" title=".select()"></a><code>.select()</code></h3><p>当用户在一个元素中进行文本选择时，这个元素上的select事件就会被触发。此事件只能用在<code>&lt;input type=&quot;text&quot;&gt;</code> 和<code>&lt;textarea&gt;</code></p>
+<h3 id="submit"><a href="#submit" class="headerlink" title=".submit()"></a><code>.submit()</code></h3><p>当用户试图提交表单时，就会在这个表单元素上触发submit事件。它只能绑定在<form>元素上。以下几种情况会导致表单被提交：用户点击了<code>&lt;input type=&quot;submit&quot;&gt;</code>, <code>&lt;input type=&quot;image&quot;&gt;</code>, 或者 <code>&lt;button type=&quot;submit&quot;&gt;</code>，或者当某些表单元素获取焦点时，敲击Enter（回车键），都可以提交。</form></p>
+<h2 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h2><h3 id="click"><a href="#click" class="headerlink" title=".click()"></a><code>.click()</code></h3><p>一个元素被点击和鼠标按键被按下和释放时候将触发 click 事件。任何HTML元素都可以接收此事件。</p>
+<h3 id="dblclick"><a href="#dblclick" class="headerlink" title=".dblclick()"></a><code>.dblclick()</code></h3><p>一个元素被双击时将触发 dblclick 事件。任何HTML元素都可以收到此事件。</p>
+<h3 id="hover"><a href="#hover" class="headerlink" title=".hover()"></a><code>.hover()</code></h3><p>.hover()方法是同时绑定 mouseenter和 mouseleave事件。我们可以用它来简单地应用在 鼠标在元素上行为。<br>调用 <code>$(selector).hover(handlerIn, handlerOut)</code> 是以下写法的简写：<br><code>$(selector).mouseenter(handlerIn).mouseleave(handlerOut)</code></p>
+<h3 id="mousedown"><a href="#mousedown" class="headerlink" title=".mousedown()"></a><code>.mousedown()</code></h3><p>当鼠标指针在元素上和按下鼠标键，mousedown事件被发送到这个元素。任何HTML元素都可以收到此事件。</p>
+<h3 id="mouseenter"><a href="#mouseenter" class="headerlink" title=".mouseenter()"></a><code>.mouseenter()</code></h3><p>该事件在鼠标移入到元素上时被触发。任何HTML元素都可以接受此事件。</p>
+<h3 id="mouseleave"><a href="#mouseleave" class="headerlink" title=".mouseleave()"></a><code>.mouseleave()</code></h3><p>该事件在鼠标离开元素上时被触发。任何HTML元素都可以接受此事件。</p>
+<h3 id="mousemove"><a href="#mousemove" class="headerlink" title=".mousemove()"></a><code>.mousemove()</code></h3><p>当鼠标指针在元素内移动时，mousemove事件就会被触发，任何HTML元素都可以接受此事件。</p>
+<h3 id="mouseout"><a href="#mouseout" class="headerlink" title=".mouseout()"></a><code>.mouseout()</code></h3><p>当鼠标指针离开元素时，mouseout事件就会被触发，任何HTML元素都可以接受此事件。</p>
+<h3 id="mouseover"><a href="#mouseover" class="headerlink" title=".mouseover()"></a><code>.mouseover()</code></h3><p>当鼠标指针进入元素内时，mouseover事件就会被触发，任何HTML元素都可以接受此事件。</p>
+<h3 id="mouseup"><a href="#mouseup" class="headerlink" title=".mouseup()"></a><code>.mouseup()</code></h3><p>当鼠标指针在元素内，并且鼠标按键被释放时，mouseup事件就会被触发，任何HTML元素都可以接受此事件。</p>
+<h3 id="toggle"><a href="#toggle" class="headerlink" title=".toggle()"></a><code>.toggle()</code></h3><p>.toggle()方法的处理程序绑定一个click事件,如果提供两个以上的处理函数，.toggle()将在它们中循环。</p>
+<h3 id="isArray"><a href="#isArray" class="headerlink" title="$.isArray()"></a><code>$.isArray()</code></h3><p>函数用于判断指定参数是否是一个数组<br>函数的返回值为Boolean类型，如果指定的参数是数组，则返回true，否则返回false。</p>
+<h3 id="getScript"><a href="#getScript" class="headerlink" title="$.getScript()"></a><code>$.getScript()</code></h3><p>使用一个HTTP GET请求从服务器加载并执行一个 JavaScript 文件。<a href="http://www.css88.com/jqapi-1.9/jQuery.getScript/" target="_blank" rel="external">参考</a></p>
+<blockquote>
+<p>注意不要直接在<code>$.getScript()</code>执行后直接调用该js文件中的变量或函数，因为<code>$.getScript()</code>是异步加载的，在你访问其中的某个变量或函数时，可能该js文件尚未完全加载完毕。建议你最好在success回调函数中处理，或者你能够确认此时该js文件已经加载完毕。</p>
+</blockquote>
+<h3 id="jQuery-makeArray"><a href="#jQuery-makeArray" class="headerlink" title="jQuery.makeArray()"></a><code>jQuery.makeArray()</code></h3><p>函数用于将一个类数组对象转换为真正的数组对象,函数的返回值为Array类型，返回转换后的数组对象。</p>
+<p>所谓”类数组对象”就是一个常规的Object对象，但它和数组对象非常相似：具备length属性，并以0、1、2、3……等数字作为属性名。不过它毕竟不是数组，没有从数组的原型对象上继承下来的内置方法(例如：push()、 sort()等)。</p>
+<h3 id="jQuery-isPlainObject"><a href="#jQuery-isPlainObject" class="headerlink" title="jQuery.isPlainObject()"></a><code>jQuery.isPlainObject()</code></h3><p>函数用于判断指定参数是否是一个纯粹的对象。<br>所谓”纯粹的对象”，就是该对象是通过”{}”或”new Object”创建的。<br>函数的返回值为Boolean类型，如果指定的参数是纯粹的对象，则返回true，否则返回false。</p>
+<h3 id="extend"><a href="#extend" class="headerlink" title="extend()"></a><code>extend()</code></h3><p>extend(dest,src1,src2,src3…)</p>
+<hr>
+<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h3 id="concat"><a href="#concat" class="headerlink" title="concat()"></a><code>concat()</code></h3><p>用于连接两个或多个数组,该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本。</p>
+<h3 id="replace"><a href="#replace" class="headerlink" title="replace()"></a><code>replace()</code></h3><p>方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/24/vue-js进阶/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Adele">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Adele">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/24/vue-js进阶/" itemprop="url">vue.js进阶之vue-router</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-24T15:29:19+08:00">
+                2017-09-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前端路由"><a href="#前端路由" class="headerlink" title="前端路由"></a>前端路由</h2><p>在web开发中，路由是指根据url分配到对应的处理程序</p>
+<h2 id="vue-router"><a href="#vue-router" class="headerlink" title="vue-router"></a>vue-router</h2><p>作用： 通过管理url，实现url和组件的对应以及通过url进行组件之间的切换<br><a href="https://router.vuejs.org/zh-cn/installation.html" target="_blank" rel="external">官方文档</a></p>
+<h2 id="单页应用-SPA"><a href="#单页应用-SPA" class="headerlink" title="单页应用(SPA)"></a>单页应用(SPA)</h2><p>加载单个HTML页面，并在用户与应用程序交互时动态更新该页面。</p>
+<h2 id="vue-router使用步骤"><a href="#vue-router使用步骤" class="headerlink" title="vue-router使用步骤"></a>vue-router使用步骤</h2><p>安装模块<br>npm install vue-router –save</p>
+<p>引入模块<br>import VueRouter frome ‘vue-router’</p>
+<p>作为Vue的插件<br>Vue.use(VueRouter)</p>
+<p>创建路由实例对象<br>new VueRouter({ …配置参数 })</p>
+<p>注入Vue选项参数<br>new Vue({ router })</p>
+<p>告诉路由渲染的位置</p>
+<p><router-view></router-view></p>
+<p>hash和history模式（默认为hash，用mode更改）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let router = new Router(&#123;</div><div class="line">  mode: &apos;history&apos;,</div><div class="line">  ...</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h2 id="router-link各种配置项"><a href="#router-link各种配置项" class="headerlink" title="router-link各种配置项"></a>router-link各种配置项</h2><p><a href="https://router.vuejs.org/zh-cn/api/router-link.html" target="_blank" rel="external"><router-link></router-link></a><br>默认生成a标签，如果要生成div可使用tage=“标签”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;router-link to=&quot;/&quot; tag=&quot;div&quot;&gt;home&lt;/router-link&gt;</div></pre></td></tr></table></figure>
+<p>导航加上小图标方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;router-link to=&quot;/&quot; tag=&quot;li&quot;&gt;</div><div class="line">  &lt;i&gt;&lt;/i&gt;</div><div class="line">  &lt;span&gt;home&lt;/span&gt;</div><div class="line">&lt;/router-link&gt;</div></pre></td></tr></table></figure>
+<p>定义激活状态下的class名<br>第一种方法<br>linkActiveClass: class名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">let router = new Router(&#123;</div><div class="line">	mode: &apos;history&apos;,</div><div class="line">	linkActiveClass: &apos;is-active&apos;</div><div class="line">	....</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>第二种方法<br>active-class=”class名”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;router-link to=&quot;/about&quot; active-class=&quot;activeClass&quot;&gt;about&lt;/router-link&gt;</div></pre></td></tr></table></figure></p>
+<p>改变行为<br>在router-link增加event=“mouseover”</p>
+<h2 id="重定向和别名"><a href="#重定向和别名" class="headerlink" title="重定向和别名"></a>重定向和别名</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  path: &apos;*&apos;,</div><div class="line">  //component: noFound</div><div class="line">  </div><div class="line">  // 重定向</div><div class="line">  //redirect: &apos;/home&apos;</div><div class="line">  //redirect: &#123;path: &apos;/home&apos;&#125;</div><div class="line">  // redirect: &#123;name: &apos;About&apos;&#125;</div><div class="line">  redirect: (to) =&gt; &#123;  //动态设置重定向的目标</div><div class="line">    // 目标路由对象，就是访问的路径的路由信息</div><div class="line"></div><div class="line">    if( to.path === &apos;/123&apos; ) &#123;</div><div class="line">      return &apos;/home&apos;</div><div class="line">    &#125;else if(to.path === &apos;/456&apos;)&#123;</div><div class="line">      return &#123;path: &apos;/document&apos;&#125;</div><div class="line">    &#125;else&#123;</div><div class="line">      return &#123;name: &apos;About&apos;&#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    console.log(to)</div><div class="line"></div><div class="line">    //return &apos;/home&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="嵌套路由的使用"><a href="#嵌套路由的使用" class="headerlink" title="嵌套路由的使用"></a>嵌套路由的使用</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/10/H5重力感应事件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Adele">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Adele">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/10/H5重力感应事件/" itemprop="url">H5重力感应事件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-10T22:27:10+08:00">
+                2017-09-10
               </time>
             
 
@@ -1667,7 +1880,26 @@ animation:2s move;
       
         
           
-            
+            <p>越来越多地，基于web的设备能够确定它们的方向; 也就是说，它们可以报告指示相对于重力拉力的它们的取向的改变的数据。特别地，通过这些数据，像手机等一些手持设备可以实现自动调整旋转角度来保持显示直立，以及当设备旋转到宽屏时（宽度大于高度），自动提供宽屏的网页效果。</p>
+<p>有两种Javascript事件负责处理设备方向信息。</p>
+<p>第一种是DeviceOrientationEvent（提供给网页开发者当设备（指手机，平板等移动设备）在浏览页面时物理旋转的信息。）它会在加速度传感器检测到设备在方向上产生变化时触发。通过处理该事件传来的数据信息，使针对由于用户移动设备引起旋转和仰角变化的行为设计交互响应成为可能。</p>
+<p>第二种是DeviceMotionEvent，它会在加速度发生改变时触发。跟DeviceOrientationEvent不同，监听的是加速度的变化而不是方向。传感器通常都具有监听DeviceMotionEvent的能力，包括笔记本中用于保护移动存储设备的传感器。而能监听DeviceOrientationEvent事件的传感器更多出现在移动设备中。</p>
+<p>处理方向orientation事件</p>
+<p>要接收设备方向变化信息，你只需要注册监听deviceorientation事件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">window.addEventListener(&quot;deviceorientation&quot;, handleOrientation, true);</div></pre></td></tr></table></figure>
+<p>注册完事件监听处理函数后（对应例子中的handleOrientation)，监听函数会定期地接收到最新的设备方向数据。<br>方向事件对象中包含四个值：<br>DeviceOrientationEvent.absolute<br>DeviceOrientationEvent.alpha<br>DeviceOrientationEvent.beta<br>DeviceOrientationEvent.gamma</p>
+<p>下面是一个事件处理函数的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function handleOrientation(orientData) &#123;</div><div class="line">  var absolute = orientData.absolute;</div><div class="line">  var alpha = orientData.alpha;</div><div class="line">  var beta = orientData.beta;</div><div class="line">  var gamma = orientData.gamma;</div><div class="line"></div><div class="line">  // Do stuff with the new orientation data</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>关于每一个轴的记录值表示的是相对于标准的坐标系，设备在某一个给定轴上的旋转量。<a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/Events/Orientation_and_motion_data_explained" target="_blank" rel="external">Orientation and motion data explained</a>这篇文章有更详细的描述，下面是对这篇文章的总结。<br>DeviceOrientationEvent.alpha 表示设备沿z轴上的旋转角度，范围为0~360。<br>DeviceOrientationEvent.beta 表示设备在x轴上的旋转角度，范围为-180~180。它描述的是设备由前向后旋转的情况。<br>DeviceOrientationEvent.gamma 表示设备在y轴上的旋转角度，范围为-90~90。它描述的是设备由左向右旋转的情况。</p>
+<p>例子</p>
+<p>这个例子会成功运行在支持检测自己方向的设备中的支持deviceorientation事件的浏览器中。</p>
+<p>想象一下花园（garden）中的一个球（ball）：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Detecting_device_orientation" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/API/Detecting_device_orientation</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/DeviceOrientationEvent" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/API/DeviceOrientationEvent</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/Events/Orientation_and_motion_data_explained" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/Guide/Events/Orientation_and_motion_data_explained</a></p>
+<p>webapp开发相关jquery手势事件之jGestures<br><a href="http://www.haorooms.com/post/jquery_jGestures" target="_blank" rel="external">http://www.haorooms.com/post/jquery_jGestures</a></p>
+<p>html5图片随手机重力感应而移动效果<br><a href="http://www.haorooms.com/post/html5_image_zlgy" target="_blank" rel="external">http://www.haorooms.com/post/html5_image_zlgy</a></p>
+<p>视觉差效果制作总结和案例下载<br><a href="http://blog.csdn.net/confidence68/article/details/52054556" target="_blank" rel="external">http://blog.csdn.net/confidence68/article/details/52054556</a></p>
+
           
         
       
@@ -1706,7 +1938,7 @@ animation:2s move;
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1755,7 +1987,7 @@ animation:2s move;
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1766,7 +1998,7 @@ animation:2s move;
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1819,7 +2051,7 @@ animation:2s move;
         <div class="copyright" >
   
   &copy;  © 2016 - 2017 &mdash; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

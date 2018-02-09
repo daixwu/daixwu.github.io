@@ -53,7 +53,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="-call -apply," />
 
 
 
@@ -69,17 +69,18 @@
 
 
 
-<meta name="description" content="越来越多地，基于web的设备能够确定它们的方向; 也就是说，它们可以报告指示相对于重力拉力的它们的取向的改变的数据。特别地，通过这些数据，像手机等一些手持设备可以实现自动调整旋转角度来保持显示直立，以及当设备旋转到宽屏时（宽度大于高度），自动提供宽屏的网页效果。 有两种Javascript事件负责处理设备方向信息。 第一种是DeviceOrientationEvent（提供给网页开发者当设备（指手">
+<meta name="description" content="看了冴羽大神的JavaScript深入之call和apply的模拟实现有所收获，顺便在此做个总结，首先贴上作者模拟实现的源码，其实看源码就很容易了解call和apply的实现机制。 call的模拟实现 12345678910111213141516171819202122232425262728293031323334353637383940Function.prototype.call2 = f">
+<meta name="keywords" content="-call -apply">
 <meta property="og:type" content="article">
-<meta property="og:title" content="H5重力感应事件">
-<meta property="og:url" content="http://yoursite.com/2017/09/10/H5重力感应事件/index.html">
+<meta property="og:title" content="JS中的call、apply、bind方法">
+<meta property="og:url" content="http://yoursite.com/2018/02/09/JS中的call、apply、bind方法/index.html">
 <meta property="og:site_name" content="Adele">
-<meta property="og:description" content="越来越多地，基于web的设备能够确定它们的方向; 也就是说，它们可以报告指示相对于重力拉力的它们的取向的改变的数据。特别地，通过这些数据，像手机等一些手持设备可以实现自动调整旋转角度来保持显示直立，以及当设备旋转到宽屏时（宽度大于高度），自动提供宽屏的网页效果。 有两种Javascript事件负责处理设备方向信息。 第一种是DeviceOrientationEvent（提供给网页开发者当设备（指手">
+<meta property="og:description" content="看了冴羽大神的JavaScript深入之call和apply的模拟实现有所收获，顺便在此做个总结，首先贴上作者模拟实现的源码，其实看源码就很容易了解call和apply的实现机制。 call的模拟实现 12345678910111213141516171819202122232425262728293031323334353637383940Function.prototype.call2 = f">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-10T16:17:29.000Z">
+<meta property="og:updated_time" content="2018-02-09T12:10:56.851Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="H5重力感应事件">
-<meta name="twitter:description" content="越来越多地，基于web的设备能够确定它们的方向; 也就是说，它们可以报告指示相对于重力拉力的它们的取向的改变的数据。特别地，通过这些数据，像手机等一些手持设备可以实现自动调整旋转角度来保持显示直立，以及当设备旋转到宽屏时（宽度大于高度），自动提供宽屏的网页效果。 有两种Javascript事件负责处理设备方向信息。 第一种是DeviceOrientationEvent（提供给网页开发者当设备（指手">
+<meta name="twitter:title" content="JS中的call、apply、bind方法">
+<meta name="twitter:description" content="看了冴羽大神的JavaScript深入之call和apply的模拟实现有所收获，顺便在此做个总结，首先贴上作者模拟实现的源码，其实看源码就很容易了解call和apply的实现机制。 call的模拟实现 12345678910111213141516171819202122232425262728293031323334353637383940Function.prototype.call2 = f">
 
 
 
@@ -109,13 +110,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/10/H5重力感应事件/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/02/09/JS中的call、apply、bind方法/"/>
 
 
 
 
 
-  <title>H5重力感应事件 | Adele</title>
+  <title>JS中的call、apply、bind方法 | Adele</title>
   
 
 
@@ -242,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/10/H5重力感应事件/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/09/JS中的call、apply、bind方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Adele">
@@ -259,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">H5重力感应事件</h1>
+          <h1 class="post-title" itemprop="name headline">JS中的call、apply、bind方法</h1>
         
 
         <div class="post-meta">
@@ -271,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-10T22:27:10+08:00">
-                2017-09-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-09T19:55:10+08:00">
+                2018-02-09
               </time>
             
 
@@ -281,6 +282,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -309,25 +332,11 @@
       
 
       
-        <p>越来越多地，基于web的设备能够确定它们的方向; 也就是说，它们可以报告指示相对于重力拉力的它们的取向的改变的数据。特别地，通过这些数据，像手机等一些手持设备可以实现自动调整旋转角度来保持显示直立，以及当设备旋转到宽屏时（宽度大于高度），自动提供宽屏的网页效果。</p>
-<p>有两种Javascript事件负责处理设备方向信息。</p>
-<p>第一种是DeviceOrientationEvent（提供给网页开发者当设备（指手机，平板等移动设备）在浏览页面时物理旋转的信息。）它会在加速度传感器检测到设备在方向上产生变化时触发。通过处理该事件传来的数据信息，使针对由于用户移动设备引起旋转和仰角变化的行为设计交互响应成为可能。</p>
-<p>第二种是DeviceMotionEvent，它会在加速度发生改变时触发。跟DeviceOrientationEvent不同，监听的是加速度的变化而不是方向。传感器通常都具有监听DeviceMotionEvent的能力，包括笔记本中用于保护移动存储设备的传感器。而能监听DeviceOrientationEvent事件的传感器更多出现在移动设备中。</p>
-<p>处理方向orientation事件</p>
-<p>要接收设备方向变化信息，你只需要注册监听deviceorientation事件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">window.addEventListener(&quot;deviceorientation&quot;, handleOrientation, true);</div></pre></td></tr></table></figure>
-<p>注册完事件监听处理函数后（对应例子中的handleOrientation)，监听函数会定期地接收到最新的设备方向数据。<br>方向事件对象中包含四个值：<br>DeviceOrientationEvent.absolute<br>DeviceOrientationEvent.alpha<br>DeviceOrientationEvent.beta<br>DeviceOrientationEvent.gamma</p>
-<p>下面是一个事件处理函数的例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function handleOrientation(orientData) &#123;</div><div class="line">  var absolute = orientData.absolute;</div><div class="line">  var alpha = orientData.alpha;</div><div class="line">  var beta = orientData.beta;</div><div class="line">  var gamma = orientData.gamma;</div><div class="line"></div><div class="line">  // Do stuff with the new orientation data</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>关于每一个轴的记录值表示的是相对于标准的坐标系，设备在某一个给定轴上的旋转量。<a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/Events/Orientation_and_motion_data_explained" target="_blank" rel="external">Orientation and motion data explained</a>这篇文章有更详细的描述，下面是对这篇文章的总结。<br>DeviceOrientationEvent.alpha 表示设备沿z轴上的旋转角度，范围为0~360。<br>DeviceOrientationEvent.beta 表示设备在x轴上的旋转角度，范围为-180~180。它描述的是设备由前向后旋转的情况。<br>DeviceOrientationEvent.gamma 表示设备在y轴上的旋转角度，范围为-90~90。它描述的是设备由左向右旋转的情况。</p>
-<p>例子</p>
-<p>这个例子会成功运行在支持检测自己方向的设备中的支持deviceorientation事件的浏览器中。</p>
-<p>想象一下花园（garden）中的一个球（ball）：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Detecting_device_orientation" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/API/Detecting_device_orientation</a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/DeviceOrientationEvent" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/API/DeviceOrientationEvent</a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/Events/Orientation_and_motion_data_explained" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/Guide/Events/Orientation_and_motion_data_explained</a></p>
-<p>webapp开发相关jquery手势事件之jGestures<br><a href="http://www.haorooms.com/post/jquery_jGestures" target="_blank" rel="external">http://www.haorooms.com/post/jquery_jGestures</a></p>
-<p>html5图片随手机重力感应而移动效果<br><a href="http://www.haorooms.com/post/html5_image_zlgy" target="_blank" rel="external">http://www.haorooms.com/post/html5_image_zlgy</a></p>
-<p>视觉差效果制作总结和案例下载<br><a href="http://blog.csdn.net/confidence68/article/details/52054556" target="_blank" rel="external">http://blog.csdn.net/confidence68/article/details/52054556</a></p>
+        <p>看了冴羽大神的<a href="https://github.com/mqyqingfeng/Blog/issues/11" target="_blank" rel="external">JavaScript深入之call和apply的模拟实现</a>有所收获，顺便在此做个总结，首先贴上作者模拟实现的源码，其实看源码就很容易了解call和apply的实现机制。</p>
+<p><strong>call的模拟实现</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">Function.prototype.call2 = function (context) &#123;</div><div class="line">    var context = context || window;</div><div class="line">    context.fn = this;</div><div class="line"></div><div class="line">    var args = [];</div><div class="line">    for(var i = 1, len = arguments.length; i &lt; len; i++) &#123;</div><div class="line">        args.push(&apos;arguments[&apos; + i + &apos;]&apos;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    var result = eval(&apos;context.fn(&apos; + args +&apos;)&apos;);</div><div class="line"></div><div class="line">    delete context.fn</div><div class="line">    return result;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 测试一下</div><div class="line">var value = 2;</div><div class="line"></div><div class="line">var obj = &#123;</div><div class="line">    value: 1</div><div class="line">&#125;</div><div class="line"></div><div class="line">function bar(name, age) &#123;</div><div class="line">    console.log(this.value);</div><div class="line">    return &#123;</div><div class="line">        value: this.value,</div><div class="line">        name: name,</div><div class="line">        age: age</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">bar.call2(null); // 2</div><div class="line"></div><div class="line">console.log(bar.call2(obj, &apos;kevin&apos;, 18));</div><div class="line">// 1</div><div class="line">// Object &#123;</div><div class="line">//    value: 1,</div><div class="line">//    name: &apos;kevin&apos;,</div><div class="line">//    age: 18</div><div class="line">// &#125;</div></pre></td></tr></table></figure>
+<p><strong>apply的模拟实现</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">Function.prototype.apply = function (context, arr) &#123;</div><div class="line">    var context = Object(context) || window;</div><div class="line">    context.fn = this;</div><div class="line"></div><div class="line">    var result;</div><div class="line">    if (!arr) &#123;</div><div class="line">        result = context.fn();</div><div class="line">    &#125;</div><div class="line">    else &#123;</div><div class="line">        var args = [];</div><div class="line">        for (var i = 0, len = arr.length; i &lt; len; i++) &#123;</div><div class="line">            args.push(&apos;arr[&apos; + i + &apos;]&apos;);</div><div class="line">        &#125;</div><div class="line">        result = eval(&apos;context.fn(&apos; + args + &apos;)&apos;)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    delete context.fn</div><div class="line">    return result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -343,6 +352,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/call-apply/" rel="tag"># -call -apply</a>
+          
+        </div>
+      
 
       
       
@@ -352,8 +367,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/03/ECMAScript6常用语法/" rel="next" title="ECMAScript6常用语法">
-                <i class="fa fa-chevron-left"></i> ECMAScript6常用语法
+              <a href="/2017/12/05/js事件模型-事件处理机制/" rel="next" title="js事件模型 事件处理机制">
+                <i class="fa fa-chevron-left"></i> js事件模型 事件处理机制
               </a>
             
           </div>
@@ -361,10 +376,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/24/vue-js进阶/" rel="prev" title="vue.js进阶之vue-router">
-                vue.js进阶之vue-router <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

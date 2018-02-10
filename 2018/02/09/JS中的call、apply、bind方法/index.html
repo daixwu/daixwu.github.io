@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="看了冴羽大神的JavaScript深入之call和apply的模拟实现有所收获，顺便在此做个总结，首先贴上作者模拟实现的源码，其实看源码就很容易了解call和apply的实现机制。 call的模拟实现12345678910111213141516171819202122232425262728293031323334353637383940414243Function.prototype.call">
+<meta name="description" content="看了冴羽大神的JavaScript深入之call和apply的模拟实现有所收获，顺便在此做个总结，首先贴上作者模拟实现的源码，其实看源码就很容易了解call和apply的实现机制。">
 <meta name="keywords" content="-call -apply">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS中的call、apply、bind方法">
 <meta property="og:url" content="http://yoursite.com/2018/02/09/JS中的call、apply、bind方法/index.html">
 <meta property="og:site_name" content="Siker">
-<meta property="og:description" content="看了冴羽大神的JavaScript深入之call和apply的模拟实现有所收获，顺便在此做个总结，首先贴上作者模拟实现的源码，其实看源码就很容易了解call和apply的实现机制。 call的模拟实现12345678910111213141516171819202122232425262728293031323334353637383940414243Function.prototype.call">
+<meta property="og:description" content="看了冴羽大神的JavaScript深入之call和apply的模拟实现有所收获，顺便在此做个总结，首先贴上作者模拟实现的源码，其实看源码就很容易了解call和apply的实现机制。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-10T08:14:26.808Z">
+<meta property="og:updated_time" content="2018-02-10T08:39:16.007Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS中的call、apply、bind方法">
-<meta name="twitter:description" content="看了冴羽大神的JavaScript深入之call和apply的模拟实现有所收获，顺便在此做个总结，首先贴上作者模拟实现的源码，其实看源码就很容易了解call和apply的实现机制。 call的模拟实现12345678910111213141516171819202122232425262728293031323334353637383940414243Function.prototype.call">
+<meta name="twitter:description" content="看了冴羽大神的JavaScript深入之call和apply的模拟实现有所收获，顺便在此做个总结，首先贴上作者模拟实现的源码，其实看源码就很容易了解call和apply的实现机制。">
 
 
 
@@ -343,8 +343,8 @@
 
       
         <p>看了冴羽大神的<a href="https://github.com/mqyqingfeng/Blog/issues/11" target="_blank" rel="external">JavaScript深入之call和apply的模拟实现</a>有所收获，顺便在此做个总结，首先贴上作者模拟实现的源码，其实看源码就很容易了解call和apply的实现机制。</p>
-<h2 id="call的模拟实现"><a href="#call的模拟实现" class="headerlink" title="call的模拟实现"></a>call的模拟实现</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">Function.prototype.call2 = function (context) &#123;</div><div class="line">    // this 参数可以传 null 此时视为指向 window</div><div class="line">    var context = context || window;</div><div class="line">    // 将函数设为对象的属性（这里用this获取调用call的函数）</div><div class="line">    context.fn = this;</div><div class="line"></div><div class="line">    var args = [];</div><div class="line">    for(var i = 1, len = arguments.length; i &lt; len; i++) &#123;</div><div class="line">        args.push(&apos;arguments[&apos; + i + &apos;]&apos;);</div><div class="line">    &#125;</div><div class="line">    // eval方法把数组转为函数args 当然也可以用 ES6 的方法啦</div><div class="line">    var result = eval(&apos;context.fn(&apos; + args +&apos;)&apos;);</div><div class="line">    // 删除该函数</div><div class="line">    delete context.fn</div><div class="line">    // 函数是返回值</div><div class="line">    return result;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 测试一下</div><div class="line">var value = 2;</div><div class="line"></div><div class="line">var obj = &#123;</div><div class="line">    value: 1</div><div class="line">&#125;</div><div class="line"></div><div class="line">function bar(name, age) &#123;</div><div class="line">    console.log(this.value);</div><div class="line">    return &#123;</div><div class="line">        value: this.value,</div><div class="line">        name: name,</div><div class="line">        age: age</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">bar.call2(null); // 2</div><div class="line"></div><div class="line">console.log(bar.call2(obj, &apos;kevin&apos;, 18));</div><div class="line">// 1</div><div class="line">// Object &#123;</div><div class="line">//    value: 1,</div><div class="line">//    name: &apos;kevin&apos;,</div><div class="line">//    age: 18</div><div class="line">// &#125;</div></pre></td></tr></table></figure>
 <a id="more"></a>
+<h2 id="call的模拟实现"><a href="#call的模拟实现" class="headerlink" title="call的模拟实现"></a>call的模拟实现</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">Function.prototype.call2 = function (context) &#123;</div><div class="line">    // this 参数可以传 null 此时视为指向 window</div><div class="line">    var context = context || window;</div><div class="line">    // 将函数设为对象的属性（这里用this获取调用call的函数）</div><div class="line">    context.fn = this;</div><div class="line"></div><div class="line">    var args = [];</div><div class="line">    for(var i = 1, len = arguments.length; i &lt; len; i++) &#123;</div><div class="line">        args.push(&apos;arguments[&apos; + i + &apos;]&apos;);</div><div class="line">    &#125;</div><div class="line">    // eval方法把数组转为函数args 当然也可以用 ES6 的方法啦</div><div class="line">    var result = eval(&apos;context.fn(&apos; + args +&apos;)&apos;);</div><div class="line">    // 删除该函数</div><div class="line">    delete context.fn</div><div class="line">    // 函数是返回值</div><div class="line">    return result;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 测试一下</div><div class="line">var value = 2;</div><div class="line"></div><div class="line">var obj = &#123;</div><div class="line">    value: 1</div><div class="line">&#125;</div><div class="line"></div><div class="line">function bar(name, age) &#123;</div><div class="line">    console.log(this.value);</div><div class="line">    return &#123;</div><div class="line">        value: this.value,</div><div class="line">        name: name,</div><div class="line">        age: age</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">bar.call2(null); // 2</div><div class="line"></div><div class="line">console.log(bar.call2(obj, &apos;kevin&apos;, 18));</div><div class="line">// 1</div><div class="line">// Object &#123;</div><div class="line">//    value: 1,</div><div class="line">//    name: &apos;kevin&apos;,</div><div class="line">//    age: 18</div><div class="line">// &#125;</div></pre></td></tr></table></figure>
 <h2 id="apply的模拟实现"><a href="#apply的模拟实现" class="headerlink" title="apply的模拟实现"></a>apply的模拟实现</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">Function.prototype.apply = function (context, arr) &#123;</div><div class="line">    var context = Object(context) || window;</div><div class="line">    context.fn = this;</div><div class="line"></div><div class="line">    var result;</div><div class="line">    if (!arr) &#123;</div><div class="line">        result = context.fn();</div><div class="line">    &#125;</div><div class="line">    else &#123;</div><div class="line">        var args = [];</div><div class="line">        for (var i = 0, len = arr.length; i &lt; len; i++) &#123;</div><div class="line">            args.push(&apos;arr[&apos; + i + &apos;]&apos;);</div><div class="line">        &#125;</div><div class="line">        result = eval(&apos;context.fn(&apos; + args + &apos;)&apos;)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    delete context.fn</div><div class="line">    return result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="apply、call"><a href="#apply、call" class="headerlink" title="apply、call"></a>apply、call</h2><p>在 javascript 中，call 和 apply 都是为了改变某个函数运行时的上下文（context）而存在的，换句话说，就是为了改变函数体内部 this 的指向。</p>
 <p>JavaScript 的一大特点是，函数存在「定义时上下文」和「运行时上下文」以及「上下文是可以改变的」这样的概念。</p>
@@ -444,6 +444,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/02/10/JS的短路运算-和/" rel="prev" title="JS的短路运算&&和||">
+                JS的短路运算&&和|| <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -523,7 +527,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -545,7 +549,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

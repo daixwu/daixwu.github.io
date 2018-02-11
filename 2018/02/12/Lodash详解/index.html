@@ -87,13 +87,13 @@
 <meta property="og:site_name" content="Siker">
 <meta property="og:description" content="Lodash 内部封装了诸多对字符串、数组、对象等常见数据类型的处理函数，其中部分是目前 ECMAScript 尚未制定的规范，但同时被业界所认可的辅助函数。 模块组成Lodash 提供的辅助函数主要分为以下几类，函数列表和用法实例请查看 Lodash 的官方文档：  Array，适用于数组类型，比如填充数据、查找元素、数组分片等操作 Collection，适用于数组和对象类型，部分适用于字符串，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/2018/02/lodash-pic1.gif">
-<meta property="og:image" content="http://yoursite.com/images/2018/02/lodash-pic2.gif">
-<meta property="og:updated_time" content="2018-02-11T17:15:18.813Z">
+<meta property="og:image" content="http://yoursite.com/img/20180211/lodash-pic1.gif">
+<meta property="og:image" content="http://yoursite.com/img/20180211/lodash-pic2.gif">
+<meta property="og:updated_time" content="2018-02-11T17:20:33.075Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lodash详解">
 <meta name="twitter:description" content="Lodash 内部封装了诸多对字符串、数组、对象等常见数据类型的处理函数，其中部分是目前 ECMAScript 尚未制定的规范，但同时被业界所认可的辅助函数。 模块组成Lodash 提供的辅助函数主要分为以下几类，函数列表和用法实例请查看 Lodash 的官方文档：  Array，适用于数组类型，比如填充数据、查找元素、数组分片等操作 Collection，适用于数组和对象类型，部分适用于字符串，">
-<meta name="twitter:image" content="http://yoursite.com/images/2018/02/lodash-pic1.gif">
+<meta name="twitter:image" content="http://yoursite.com/img/20180211/lodash-pic1.gif">
 
 
 
@@ -373,9 +373,9 @@
 <p>使用方式：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">import _ from &apos;lodash&apos;;</div><div class="line">import &#123; add &#125; from &apos;lodash/fp&apos;;</div><div class="line"></div><div class="line">const addOne = add(1);</div><div class="line">_.map([1, 2, 3], addOne);</div></pre></td></tr></table></figure>
 <h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><p>在 Filip Zawada 的文章《<a href="http://filimanjaro.com/blog/2014/introducing-lazy-evaluation/" target="_blank" rel="external">How to Speed Up Lo-Dash ×100? Introducing Lazy Evaluation</a>》 中提到了 Lodash 提高执行速度的思路，主要有三点：Lazy Evaluation、Pipelining 和 Deferred Execution。下面两张图来自 Filip 的博客：</p>
-<p><img src="/images/2018/02/lodash-pic1.gif" alt="lodash-example1"></p>
+<p><img src="/img/20180211/lodash-pic1.gif" alt="lodash-example1"></p>
 <p>假设有如上图所示的问题：从若干个球中取出三个面值小于 10 的球。第一步是从所有的球中取出所有面值小于 10 的球，第二步是从上一步的结果取三个球。</p>
-<p><img src="/images/2018/02/lodash-pic2.gif" alt="lodash-example2"></p>
+<p><img src="/img/20180211/lodash-pic2.gif" alt="lodash-example2"></p>
 <p>上图是另一种解决方案，如果一个球能够通过第一步，那么就继续执行第二步，直至结束然后测试下一个球……当我们取到三个球之后就中断整个循环。Filip 称这是 Lazy Evaluation Algorithm，就个人理解这并不全面，他后续提到的 Pipelining(管道计算)，再加上一个中断循环执行的算法应该更符合这里的图示。</p>
 <p>此外，使用 Lodash 的链式调用时，只有显示或隐式调用 .value 方法才会对链式调用的整个操作进行取值，这种不在声明时立即求值，而在使用时求值的方式，是 Lazy Evaluation 最大的特点。</p>
 <h2 id="九个实例"><a href="#九个实例" class="headerlink" title="九个实例"></a>九个实例</h2><p>受益于 Lodash 的普及程度，使用它可以提高多人开发时阅读代码的效率，减少彼此之间的误解（Loss of Consciousness）。在《<a href="https://colintoh.com/blog/lodash-10-javascript-utility-functions-stop-rewriting" target="_blank" rel="external">Lodash: 10 Javascript Utility Functions That You Should Probably Stop Rewriting</a>》一文中，作者列举了多个常用的 Lodash 函数，实例演示了使用 Lodash 的技巧。</p>

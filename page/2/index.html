@@ -252,6 +252,288 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/20/ jQuery-业务笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Adele">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Siker">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/20/ jQuery-业务笔记/" itemprop="url">jQuery 业务笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-20T12:04:13+08:00">
+                2017-10-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">jQuery</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h2><h2 id="基础过滤"><a href="#基础过滤" class="headerlink" title="基础过滤"></a>基础过滤</h2><p>###<code>$(&quot;selector&quot;).eq(index)</code><br>index: 要匹配元素的索引值（从0开始计数，负值时从最后一个元素开始倒计数）</p>
+<h3 id="quot-selector-quot-slice-index"><a href="#quot-selector-quot-slice-index" class="headerlink" title="$(&quot;selector&quot;).slice(index)"></a><code>$(&quot;selector&quot;).slice(index)</code></h3><p>选择匹配集合中所有大于给定index（索引值）的元素。</p>
+<h3 id="quot-selector-quot-slice-0-index"><a href="#quot-selector-quot-slice-0-index" class="headerlink" title="$(&quot;selector&quot;).slice(0, index)"></a><code>$(&quot;selector&quot;).slice(0, index)</code></h3><p>选择匹配集合中所有索引值小于给定index参数的元素。</p>
+<h3 id="quot-selector-quot-not"><a href="#quot-selector-quot-not" class="headerlink" title="$(&quot;selector&quot;).not()"></a><code>$(&quot;selector&quot;).not()</code></h3><p>选择所有元素去除不匹配给定的选择器的元素。</p>
+<h3 id="quot-selector-quot-filter-quot-odd-quot"><a href="#quot-selector-quot-filter-quot-odd-quot" class="headerlink" title="$(&quot;selector&quot;).filter(&quot;:odd&quot;)"></a><code>$(&quot;selector&quot;).filter(&quot;:odd&quot;)</code></h3><p>选择索引值为奇数元素，从 0 开始计数。</p>
+<h3 id="quot-selector-quot-filter-quot-even-quot"><a href="#quot-selector-quot-filter-quot-even-quot" class="headerlink" title="$(&quot;selector&quot;).filter(&quot;:even&quot;)"></a><code>$(&quot;selector&quot;).filter(&quot;:even&quot;)</code></h3><p>选择所引值为偶数的元素，从 0 开始计数。</p>
+<blockquote>
+<p>查找表格中索引值是偶数的行(即实际表格中的奇数行)，即匹配第一行、第三行、第五行等 (索引值是 0, 2 ,4 等 )</p>
+</blockquote>
+<h3 id="quot-selector-quot-filter-quot-first-quot"><a href="#quot-selector-quot-filter-quot-first-quot" class="headerlink" title="$(&quot;selector&quot;).filter(&quot;:first&quot;)"></a><code>$(&quot;selector&quot;).filter(&quot;:first&quot;)</code></h3><p>选择第一个匹配的元素。</p>
+<h2 id="内容过滤"><a href="#内容过滤" class="headerlink" title="内容过滤"></a>内容过滤</h2><h3 id="quot-contains-text-quot"><a href="#quot-contains-text-quot" class="headerlink" title="$( &quot;:contains(text)&quot; )"></a><code>$( &quot;:contains(text)&quot; )</code></h3><p>选择所有包含指定文本的元素。</p>
+<h3 id="quot-selector-quot-has-selector-DOMElement"><a href="#quot-selector-quot-has-selector-DOMElement" class="headerlink" title="$(&quot;selector&quot;).has(selector/DOMElement)"></a><code>$(&quot;selector&quot;).has(selector/DOMElement)</code></h3><p>选择元素其中至少包含指定选择器匹配的一个种元素。</p>
+<h2 id="DOM-操作"><a href="#DOM-操作" class="headerlink" title="DOM 操作"></a>DOM 操作</h2><h2 id="class-属性"><a href="#class-属性" class="headerlink" title="class 属性"></a>class 属性</h2><h3 id="addClass-className"><a href="#addClass-className" class="headerlink" title=".addClass( className )"></a><code>.addClass( className )</code></h3><p>为每个匹配的元素添加指定的样式类名，和.removeClass()一起使用，用来切换元素的样式。</p>
+<blockquote>
+<p>值得注意的是这个方法不会替换一个样式类名。它只是简单的添加一个样式类名到元素上。</p>
+</blockquote>
+<h3 id="hasClass"><a href="#hasClass" class="headerlink" title=".hasClass()"></a><code>.hasClass()</code></h3><p>确定任何一个匹配元素是否有被分配给定的（样式）类。</p>
+<h3 id="toggleClass-className-switch"><a href="#toggleClass-className-switch" class="headerlink" title=".toggleClass( className, switch )"></a><code>.toggleClass( className, switch )</code></h3><p>在匹配的元素集合中的每个元素上添加或删除一个或多个样式类,取决于这个样式类是否存在或值切换属性。即：如果存在（不存在）就删除（添加）一个类。<br>switch一个布尔值，用于判断样式是否应该被添加或移除。</p>
+<h2 id="复制元素"><a href="#复制元素" class="headerlink" title="复制元素"></a>复制元素</h2><h3 id="clone"><a href="#clone" class="headerlink" title=".clone()"></a><code>.clone()</code></h3><p>创建一个匹配的元素集合的深度拷贝副本。<br>当和插入方法联合使用时，.clone()对于复制页面上的元素很方便。<code>$(&#39;.hello&#39;).clone().appendTo(&#39;.goodbye&#39;);</code></p>
+<h2 id="DOM-移除"><a href="#DOM-移除" class="headerlink" title="DOM 移除"></a>DOM 移除</h2><h3 id="detach"><a href="#detach" class="headerlink" title=".detach()"></a><code>.detach()</code></h3><p>从DOM中去掉所有匹配的元素。</p>
+<blockquote>
+<p>.detach() 方法和.remove()一样, 除了 .detach()保存所有jQuery数据和被移走的元素相关联。当需要移走一个元素，不久又将该元素插入DOM时，这种方法很有用。</p>
+</blockquote>
+<h3 id="empty"><a href="#empty" class="headerlink" title=".empty()"></a><code>.empty()</code></h3><p>从DOM中移除集合中匹配元素的所有子节点。</p>
+<blockquote>
+<p>为了避免内存泄漏，jQuery先移除子元素的数据和事件处理函数，然后移除子元素。如果你想删除元素，不破坏他们的数据或事件处理程序（这些绑定的信息还可以在之后被重新添加回来），请使用.detach()代替 。</p>
+</blockquote>
+<h3 id="remove"><a href="#remove" class="headerlink" title=".remove()"></a><code>.remove()</code></h3><p>将匹配元素集合从DOM中删除。（注：同时移除元素上的事件及 jQuery 数据。）</p>
+<p>##DOM 替换</p>
+<h3 id="replaceAll"><a href="#replaceAll" class="headerlink" title=".replaceAll()"></a><code>.replaceAll()</code></h3><p>用集合的匹配元素替换每个目标元素。</p>
+<h3 id="replaceWith"><a href="#replaceWith" class="headerlink" title=".replaceWith()"></a><code>.replaceWith()</code></h3><p>用提供的内容替换集合中所有匹配的元素并且返回被删除元素的集合。</p>
+<h2 id="CSS-属性"><a href="#CSS-属性" class="headerlink" title="CSS 属性"></a>CSS 属性</h2><h3 id="css"><a href="#css" class="headerlink" title=".css()"></a><code>.css()</code></h3><p>获取匹配元素集合中的第一个元素的样式属性的值  或  设置每个匹配元素的一个或多个CSS属性。</p>
+<blockquote>
+<p>简写速写的CSS属性(例如： margin, background, border) 是不支持的，例如，如果你想重新获取margin，可以使用$(elem).css(‘marginTop’) 和 $(elem).css(‘marginRight’)，其他的也是如此。</p>
+</blockquote>
+<h3 id="width"><a href="#width" class="headerlink" title=".width()"></a><code>.width()</code></h3><p>为匹配的元素集合中获取第一个元素的当前计算宽度值或给每个匹配的元素设置宽度。</p>
+<h3 id="height"><a href="#height" class="headerlink" title=".height()"></a><code>.height()</code></h3><p>获取匹配元素集合中的第一个元素的当前计算高度值 或 设置每一个匹配元素的高度值。</p>
+<h3 id="innerHeight"><a href="#innerHeight" class="headerlink" title=".innerHeight()"></a><code>.innerHeight()</code></h3><p>为匹配的元素集合中获取第一个元素的当前计算高度值,包括padding，但是不包括border。</p>
+<h3 id="innerWidth"><a href="#innerWidth" class="headerlink" title=".innerWidth()"></a><code>.innerWidth()</code></h3><p>为匹配的元素集合中获取第一个元素的当前计算宽度值,包括padding，但是不包括border。</p>
+<blockquote>
+<p>.css(‘height’) 和 .height()之间的区别是后者返回一个没有单位的数值（例如，400），前者是返回带有完整单位的字符串（例如，400px）。当一个元素的高度需要数学计算的时候推荐使用.height() 方法 。</p>
+</blockquote>
+<p>这个方法同样能计算出window和document的高度。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(window).height();   // returns height of browser viewport</div><div class="line">$(document).height(); // returns height of HTML document</div></pre></td></tr></table></figure>
+<p>注意.height()总是返回内容宽度,不管CSS box-sizing属性值。</p>
+<p>设置高度时如果没有给定明确的单位（像’em’ 或者 ‘%’），那么默认情况下”px”会被直接添加上去（也理解为”px”是默认单位）。</p>
+<h3 id="offset"><a href="#offset" class="headerlink" title=".offset()"></a><code>.offset()</code></h3><p>在匹配的元素集合中，获取的第一个元素的当前坐标，或设置每一个元素的坐标，坐标相对于文档。</p>
+<blockquote>
+<p>.offset()方法允许我们检索一个元素相对于文档（document）的当前位置。和.position()的差别在于：.position()是相对于相对于父级元素的位移。当通过全局操作（特别是通过拖拽操作）将一个新的元素放置到另一个已经存在的元素的上面时，若要取得这个新的元素的位置，那么使用 .offset() 更合适。.offset()返回一个包含top 和 left属性的对象 。</p>
+</blockquote>
+<p>注意：jQuery不支持获取隐藏元素的偏移坐标。同样的，也无法取得隐藏元素的 border, margin, 或 padding 信息。<br>若元素的属性设置的是 visibility:hidden，那么我们依然可以取得它的坐标。但是若设置的属性是 display:none，由于在绘制 DOM 树时根本就不绘制该元素，所以它的位置属性值是 undefined。</p>
+<h3 id="position"><a href="#position" class="headerlink" title=".position()"></a><code>.position()</code></h3><p>获取匹配元素中第一个元素的当前坐标，相对于offset parent的坐标。( 及指离该元素最近的而且被定位过的祖先元素 )</p>
+<h3 id="outerHeight-includeMargin"><a href="#outerHeight-includeMargin" class="headerlink" title=".outerHeight([includeMargin ])"></a><code>.outerHeight([includeMargin ])</code></h3><p>在.outerHeight()计算中总是包含padding-top ,padding-bottom 和 border-top，border-bottom ；如果includeMargin参数是true，那么margin (top 和 bottom)也会被包含。</p>
+<h3 id="outerWidth-includeMargin"><a href="#outerWidth-includeMargin" class="headerlink" title=".outerWidth([includeMargin ])"></a><code>.outerWidth([includeMargin ])</code></h3><p>获取元素集合中第一个元素的当前计算宽度值,包括padding，border和选择性的margin。（注：返回一个整数（不包含“px”）表示的值，或如果在一个空集合上调用该方法，则会返回 null。）</p>
+<h3 id="scrollLeft"><a href="#scrollLeft" class="headerlink" title=".scrollLeft()"></a><code>.scrollLeft()</code></h3><p>获取匹配的元素集合中第一个元素的当前水平滚动条的位置或设置每个匹配元素的水平滚动条位置。</p>
+<h3 id="scrollTop"><a href="#scrollTop" class="headerlink" title=".scrollTop()"></a><code>.scrollTop()</code></h3><p>获取匹配的元素集合中第一个元素的当前垂直滚动条的位置或设置每个匹配元素的垂直滚动条位置。</p>
+<h2 id="DOM-插入"><a href="#DOM-插入" class="headerlink" title="DOM 插入"></a>DOM 插入</h2><h3 id="after"><a href="#after" class="headerlink" title=".after()"></a><code>.after()</code></h3><p>在匹配元素集合中的每个元素后面插入参数所指定的内容，作为其兄弟节点。</p>
+<blockquote>
+<p>.after()和.insertAfter()实现同样的功能。主要的不同是语法——特别是内容和目标的位置。 对于 .after(), 选择表达式在函数的前面，参数是将要插入的内容。 对于.insertAfter(), 刚好相反，内容在方法前面，它将被放在参数里元素的后面。</p>
+</blockquote>
+<h3 id="before"><a href="#before" class="headerlink" title=".before()"></a><code>.before()</code></h3><p>根据参数设定，在匹配元素的前面插入内容</p>
+<blockquote>
+<p>.before() 和.insertBefore()实现同样的功能。主要的不同是语法——内容和目标的位置不同。对于.before(), 选择器表达式在方法的前面，参数是将要插入的内容。对于.insertBefore()刚好相反，内容在方法前面，无论是作为一个选择表达式或作为标记上创建动态，它将被放在目标容器的前面。</p>
+</blockquote>
+<h3 id="append"><a href="#append" class="headerlink" title=".append()"></a><code>.append()</code></h3><p>.append()函数将特定内容插入到每个匹配元素里面的最后面，作为它的最后一个子元素（last child）, (如果要作为第一个子元素 （first child）, 用.prepend()).</p>
+<blockquote>
+<p>.append() 和.appendTo()实现同样的功能。主要的不同是语法——内容和目标的位置不同。对于.append(), 选择器表达式在函数的前面，参数是将要插入的内容。对于.appendTo()刚好相反，内容在方法前面，无论是一个选择器表达式 或创建作为标记上的标记，它都将被插入到目标容器的末尾。</p>
+</blockquote>
+<h2 id="通用属性操作"><a href="#通用属性操作" class="headerlink" title="通用属性操作"></a>通用属性操作</h2><h3 id="attr"><a href="#attr" class="headerlink" title=".attr()"></a><code>.attr()</code></h3><p>获取匹配的元素集合中的第一个元素的属性的值  或 设置每一个匹配元素的一个或多个属性。<br>当设置多个属性,包裹属性名的引号是可选的。但当设置样式名（“class”）属性时，必须使用引号！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// for example</div><div class="line">$(&apos;#greatphoto&apos;).attr(&#123;</div><div class="line">  alt: &apos;Beijing Brush Seller&apos;,</div><div class="line">  title: &apos;photo by Kelly Clark&apos;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注意: jQuery禁止改变一个 input 或 button 元素的type 特性（attribute），并且在所有浏览器下将抛出一个错误。因为Internet Explorer不会允许你改变 input 或者 button 元素的type属性。</p>
+</blockquote>
+<h3 id="prop"><a href="#prop" class="headerlink" title=".prop()"></a><code>.prop()</code></h3><p>获取匹配的元素集中第一个元素的属性（property）值或设置每一个匹配元素的一个或多个属性。</p>
+<blockquote>
+<p>.prop()方法只获得第一个匹配元素的属性值 。如果元素上没有该属性，或者如果没有匹配的元素。那么该方法会返回undefined值。若要取得每个匹配元素的属性值（property），请使用循环结构，如jQuery .each()或.map()方法。</p>
+</blockquote>
+<h3 id="html"><a href="#html" class="headerlink" title=".html()"></a><code>.html()</code></h3><p>获取集合中第一个匹配元素的HTML内容 或 设置每一个匹配元素的html内容。</p>
+<h3 id="removeAttr"><a href="#removeAttr" class="headerlink" title=".removeAttr()"></a><code>.removeAttr()</code></h3><p>为匹配的元素集合中的每个元素中移除一个属性（attribute）。</p>
+<p>注意: Internet Explorer 6， 7 ，或8中，使用.removeAttr()删除一个内联onclick 事件处理程序没有实现，为了避免潜在的问题，使用 .prop()代替：</p>
+<h3 id="removeProp"><a href="#removeProp" class="headerlink" title=".removeProp()"></a><code>.removeProp()</code></h3><p>.removeProp()方法用来删除由.prop()方法设置的属性集。</p>
+<p>注意: 不要使用此方法来删除原生的属性（ property ），比如checked, disabled, 或者 selected。这将完全移除该属性，一旦移除，不能再次被添加到元素上。使用.prop()来设置这些属性设置为false代替。</p>
+<h3 id="text"><a href="#text" class="headerlink" title=".text()"></a><code>.text()</code></h3><p>得到匹配元素集合中每个元素的文本内容结合，包括他们的后代，或设置匹配元素集合中每个元素的文本内容为指定的文本内容。</p>
+<h3 id="val"><a href="#val" class="headerlink" title=".val()"></a><code>.val()</code></h3><p>.val()方法主要用于获取表单元素的值，比如 input, select 和 textarea。对于 <code>&lt;select multiple=&quot;multiple&quot;&gt;</code> 元素,  .val()方法返回一个包含每个选择项的数组，如果没有选择性被选中，它返回null。</p>
+<h3 id="unwrap"><a href="#unwrap" class="headerlink" title=".unwrap()"></a><code>.unwrap()</code></h3><p>将匹配元素集合的父级元素删除，保留自身（和兄弟元素，如果存在）在原来的位置。</p>
+<h3 id="wrap"><a href="#wrap" class="headerlink" title=".wrap()"></a><code>.wrap()</code></h3><p>在每个匹配的元素外层包上一个html元素。</p>
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><h2 id="浏览器事件"><a href="#浏览器事件" class="headerlink" title="浏览器事件"></a>浏览器事件</h2><h3 id="scroll"><a href="#scroll" class="headerlink" title=".scroll()"></a><code>.scroll()</code></h3><p>当用户在元素内执行了滚动操作，就会在这个元素上触发scroll事件。它适用于window对象，但也可以是可滚动frames与CSS overflow属性设置为scroll的元素（或auto时，元素的显示高度小于其内容高度）。</p>
+<h2 id="绑定事件处理器"><a href="#绑定事件处理器" class="headerlink" title="绑定事件处理器"></a>绑定事件处理器</h2><h3 id="bind"><a href="#bind" class="headerlink" title=".bind()"></a><code>.bind()</code></h3><p>为一个元素绑定一个事件处理程序。<br>bind()方法类似于原生javascript的addEventListener()方法，用于绑定事件；  </p>
+<h3 id="on"><a href="#on" class="headerlink" title=".on()"></a><code>.on()</code></h3><p>.on()方法事件处理程序到当前选定的jQuery对象中的元素。在jQuery 1.7中，.on()方法 提供绑定事件处理的所有功能。为了帮助从旧的jQuery事件方法转换过来，查看 .bind(),  .delegate(), 和 .live(). 要删除的.on()绑定的事件，请参阅.off()。要绑定一个事件，并且只运行一次，然后删除自己， 请参阅.one() </p>
+<h3 id="off"><a href="#off" class="headerlink" title=".off()"></a><code>.off()</code></h3><p>移除一个事件处理函数。</p>
+<h3 id="one"><a href="#one" class="headerlink" title=".one()"></a><code>.one()</code></h3><p>one()方法用于处理只触发一次的事件  </p>
+<h3 id="trigger"><a href="#trigger" class="headerlink" title=".trigger()"></a><code>.trigger()</code></h3><p>trigger()方法类似于原生javascript的dispatchEvent()方法，用于触发事件； </p>
+<h3 id="triggerHandler"><a href="#triggerHandler" class="headerlink" title=".triggerHandler()"></a><code>.triggerHandler()</code></h3><p>.triggerHandler() 方法的行为与 .trigger() 相似，不同之处有如下几点：  </p>
+<ol>
+<li>triggerHandler() 方法并不会触发事件的默认行为。(例如，表单提交)。   </li>
+<li>trigger() 会影响所有与 jQuery 对象相匹配的元素，而 .triggerHandler() 仅影响第一个匹配到的元素。   </li>
+<li>使用 .triggerHandler() 创建的事件，并不会在 DOM 树中向上冒泡。如果事件没有被目标元素直接处理，那么它就不会进行任何处理。  </li>
+<li>与普通的方法返回 jQuery 对象(这样就能够使用链式用法)相反，.triggerHandler() 返回最后一个处理的事件的返回值。如果没有触发任何事件，会返回 undefined。</li>
+</ol>
+<h2 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h2><h3 id="event-pageX"><a href="#event-pageX" class="headerlink" title="event.pageX"></a><code>event.pageX</code></h3><p>鼠标相对于文档的左边缘的位置（左边）</p>
+<h3 id="event-pageY"><a href="#event-pageY" class="headerlink" title="event.pageY"></a><code>event.pageY</code></h3><p>鼠标相对于文档的顶部边缘的位置（坐标）</p>
+<h3 id="event-preventDefault"><a href="#event-preventDefault" class="headerlink" title="event.preventDefault()"></a><code>event.preventDefault()</code></h3><p>如果调用这个方法，默认事件行为将不再触发</p>
+<h3 id="event-stopPropagation"><a href="#event-stopPropagation" class="headerlink" title="event.stopPropagation()"></a><code>event.stopPropagation()</code></h3><p>防止事件冒泡到DOM树上，也就是不触发的任何前辈元素上的事件处理函数</p>
+<h3 id="event-target"><a href="#event-target" class="headerlink" title="event.target"></a><code>event.target</code></h3><p>触发事件的DOM元素</p>
+<blockquote>
+<p>target 属性可以是注册事件时的元素，或者它的子元素。通常用于比较 event.target 和 this 来确定事件是不是由于冒泡而触发的。经常用于事件冒泡时处理事件委托。</p>
+</blockquote>
+<h3 id="event-which"><a href="#event-which" class="headerlink" title="event.which"></a><code>event.which</code></h3><p>针对键盘和鼠标事件，这个属性能确定你到底按的是哪个键</p>
+<blockquote>
+<p>event.which也将正常化的按钮按下(mousedown 和 mouseupevents)，左键报告1，中间键报告2，右键报告3。使用event.which代替event.button</p>
+</blockquote>
+<p>##表单事件</p>
+<h3 id="blur"><a href="#blur" class="headerlink" title=".blur()"></a><code>.blur()</code></h3><p>一个元素失去焦点将触发blur事件。起初，这个事件仅适用于表单元素，如元素<code>&lt;input&gt;</code> 。在最新的浏览器中，这个事件适用范围已经扩大到包括所有元素类型。一个元素可以通过键盘命令失去焦点，比如tab键，或用鼠标点击网页上的其他地方。</p>
+<h3 id="change"><a href="#change" class="headerlink" title=".change()"></a><code>.change()</code></h3><p>一个元素的值改变的时候将触发change事件。此事件仅限用于<code>&lt;input&gt;</code>元素，<code>&lt;textarea&gt;</code>和<code>&lt;select&gt;</code>元素。对于下拉选择框，复选框和单选按钮，当用户用鼠标作出选择，该事件立即触发，但对于其他类型的input元素，该事件触发将推迟，直到元素失去焦点才会触点。</p>
+<h3 id="focus"><a href="#focus" class="headerlink" title=".focus()"></a><code>.focus()</code></h3><p>当一个元素获得焦点时，focus事件被触发。此事件起初适用于有限的元素，比如表单元素（<code>&lt;input&gt;</code>, <code>&lt;select&gt;</code>等）和链接元素（<code>&lt;a href&gt;</code>）。在最近版本的浏览器中，该事件可以扩展到所有包括通过显式设置tabindex属性的元素类型。一个元素可以通过键盘命令获得焦点，如Tab键，或按鼠标点击的元素。</p>
+<h3 id="focusout"><a href="#focusout" class="headerlink" title=".focusout()"></a><code>.focusout()</code></h3><p>focusout 事件会在元素（或者其内部的任何元素）失去焦点时触发。这跟 blur 事件的显著区别在于，它可以在父元素上检测子元素失去焦点的情况(换而言之，它支持事件冒泡)</p>
+<h3 id="select"><a href="#select" class="headerlink" title=".select()"></a><code>.select()</code></h3><p>当用户在一个元素中进行文本选择时，这个元素上的select事件就会被触发。此事件只能用在<code>&lt;input type=&quot;text&quot;&gt;</code> 和<code>&lt;textarea&gt;</code></p>
+<h3 id="submit"><a href="#submit" class="headerlink" title=".submit()"></a><code>.submit()</code></h3><p>当用户试图提交表单时，就会在这个表单元素上触发submit事件。它只能绑定在<form>元素上。以下几种情况会导致表单被提交：用户点击了<code>&lt;input type=&quot;submit&quot;&gt;</code>, <code>&lt;input type=&quot;image&quot;&gt;</code>, 或者 <code>&lt;button type=&quot;submit&quot;&gt;</code>，或者当某些表单元素获取焦点时，敲击Enter（回车键），都可以提交。</form></p>
+<h2 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h2><h3 id="click"><a href="#click" class="headerlink" title=".click()"></a><code>.click()</code></h3><p>一个元素被点击和鼠标按键被按下和释放时候将触发 click 事件。任何HTML元素都可以接收此事件。</p>
+<h3 id="dblclick"><a href="#dblclick" class="headerlink" title=".dblclick()"></a><code>.dblclick()</code></h3><p>一个元素被双击时将触发 dblclick 事件。任何HTML元素都可以收到此事件。</p>
+<h3 id="hover"><a href="#hover" class="headerlink" title=".hover()"></a><code>.hover()</code></h3><p>.hover()方法是同时绑定 mouseenter和 mouseleave事件。我们可以用它来简单地应用在 鼠标在元素上行为。<br>调用 <code>$(selector).hover(handlerIn, handlerOut)</code> 是以下写法的简写：<br><code>$(selector).mouseenter(handlerIn).mouseleave(handlerOut)</code></p>
+<h3 id="mousedown"><a href="#mousedown" class="headerlink" title=".mousedown()"></a><code>.mousedown()</code></h3><p>当鼠标指针在元素上和按下鼠标键，mousedown事件被发送到这个元素。任何HTML元素都可以收到此事件。</p>
+<h3 id="mouseenter"><a href="#mouseenter" class="headerlink" title=".mouseenter()"></a><code>.mouseenter()</code></h3><p>该事件在鼠标移入到元素上时被触发。任何HTML元素都可以接受此事件。</p>
+<h3 id="mouseleave"><a href="#mouseleave" class="headerlink" title=".mouseleave()"></a><code>.mouseleave()</code></h3><p>该事件在鼠标离开元素上时被触发。任何HTML元素都可以接受此事件。</p>
+<h3 id="mousemove"><a href="#mousemove" class="headerlink" title=".mousemove()"></a><code>.mousemove()</code></h3><p>当鼠标指针在元素内移动时，mousemove事件就会被触发，任何HTML元素都可以接受此事件。</p>
+<h3 id="mouseout"><a href="#mouseout" class="headerlink" title=".mouseout()"></a><code>.mouseout()</code></h3><p>当鼠标指针离开元素时，mouseout事件就会被触发，任何HTML元素都可以接受此事件。</p>
+<h3 id="mouseover"><a href="#mouseover" class="headerlink" title=".mouseover()"></a><code>.mouseover()</code></h3><p>当鼠标指针进入元素内时，mouseover事件就会被触发，任何HTML元素都可以接受此事件。</p>
+<h3 id="mouseup"><a href="#mouseup" class="headerlink" title=".mouseup()"></a><code>.mouseup()</code></h3><p>当鼠标指针在元素内，并且鼠标按键被释放时，mouseup事件就会被触发，任何HTML元素都可以接受此事件。</p>
+<h3 id="toggle"><a href="#toggle" class="headerlink" title=".toggle()"></a><code>.toggle()</code></h3><p>.toggle()方法的处理程序绑定一个click事件,如果提供两个以上的处理函数，.toggle()将在它们中循环。</p>
+<h3 id="isArray"><a href="#isArray" class="headerlink" title="$.isArray()"></a><code>$.isArray()</code></h3><p>函数用于判断指定参数是否是一个数组<br>函数的返回值为Boolean类型，如果指定的参数是数组，则返回true，否则返回false。</p>
+<h3 id="getScript"><a href="#getScript" class="headerlink" title="$.getScript()"></a><code>$.getScript()</code></h3><p>使用一个HTTP GET请求从服务器加载并执行一个 JavaScript 文件。<a href="http://www.css88.com/jqapi-1.9/jQuery.getScript/" target="_blank" rel="external">参考</a></p>
+<blockquote>
+<p>注意不要直接在<code>$.getScript()</code>执行后直接调用该js文件中的变量或函数，因为<code>$.getScript()</code>是异步加载的，在你访问其中的某个变量或函数时，可能该js文件尚未完全加载完毕。建议你最好在success回调函数中处理，或者你能够确认此时该js文件已经加载完毕。</p>
+</blockquote>
+<h3 id="jQuery-makeArray"><a href="#jQuery-makeArray" class="headerlink" title="jQuery.makeArray()"></a><code>jQuery.makeArray()</code></h3><p>函数用于将一个类数组对象转换为真正的数组对象,函数的返回值为Array类型，返回转换后的数组对象。</p>
+<p>所谓”类数组对象”就是一个常规的Object对象，但它和数组对象非常相似：具备length属性，并以0、1、2、3……等数字作为属性名。不过它毕竟不是数组，没有从数组的原型对象上继承下来的内置方法(例如：push()、 sort()等)。</p>
+<h3 id="jQuery-isPlainObject"><a href="#jQuery-isPlainObject" class="headerlink" title="jQuery.isPlainObject()"></a><code>jQuery.isPlainObject()</code></h3><p>函数用于判断指定参数是否是一个纯粹的对象。<br>所谓”纯粹的对象”，就是该对象是通过”{}”或”new Object”创建的。<br>函数的返回值为Boolean类型，如果指定的参数是纯粹的对象，则返回true，否则返回false。</p>
+<h3 id="extend"><a href="#extend" class="headerlink" title="extend()"></a><code>extend()</code></h3><p>extend(dest,src1,src2,src3…)</p>
+<hr>
+<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h3 id="concat"><a href="#concat" class="headerlink" title="concat()"></a><code>concat()</code></h3><p>用于连接两个或多个数组,该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本。</p>
+<h3 id="replace"><a href="#replace" class="headerlink" title="replace()"></a><code>replace()</code></h3><p>方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/24/vue-js进阶/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1661,155 +1943,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/05/28/CSS编码规范/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Adele">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Siker">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/05/28/CSS编码规范/" itemprop="url">CSS编码规范</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-05-28T23:01:44+08:00">
-                2016-05-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/convention/" itemprop="url" rel="index">
-                    <span itemprop="name">convention</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><p>文档目标是使CSS代码风格保持一致，容易被理解和被维护。<br>虽然本文档是针对CSS设计的，但是在使用各种CSS的预编译器(如less、sass、stylus等)</p>
-<h2 id="2-代码风格"><a href="#2-代码风格" class="headerlink" title="2. 代码风格"></a>2. 代码风格</h2><h2 id="2-1-文件"><a href="#2-1-文件" class="headerlink" title="2.1. 文件"></a>2.1. 文件</h2><p>[建议] CSS 文件使用无 BOM 的 UTF-8 编码。<br>解释<br>UTF-8 编码具有更广泛的适应性。BOM 在使用程序或工具处理文件时可能造成不必要的干扰。</p>
-<h2 id="2-2-缩进"><a href="#2-2-缩进" class="headerlink" title="2.2. 缩进"></a>2.2. 缩进</h2><p>[强制]使用 4 个空格做为一个缩进层级，不允许使用 2 个空格 或 tab 字符。<br>示例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.selector &#123;</div><div class="line">    margin: 0;</div><div class="line">    padding: 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/05/28/CSS编码规范/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1864,7 +1997,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

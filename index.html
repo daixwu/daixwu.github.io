@@ -252,6 +252,217 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/12/Lodash详解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Adele">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Siker">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/12/Lodash详解/" itemprop="url">Lodash详解</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-12T00:29:24+08:00">
+                2018-02-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/odash/" itemprop="url" rel="index">
+                    <span itemprop="name">odash</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://www.npmjs.com/package/lodash" target="_blank" rel="external">Lodash</a> 内部封装了诸多对字符串、数组、对象等常见数据类型的处理函数，其中部分是目前 ECMAScript 尚未制定的规范，但同时被业界所认可的辅助函数。</p>
+<h2 id="模块组成"><a href="#模块组成" class="headerlink" title="模块组成"></a>模块组成</h2><p>Lodash 提供的辅助函数主要分为以下几类，函数列表和用法实例请查看 <a href="https://lodash.com/docs/4.17.5" target="_blank" rel="external">Lodash 的官方文档</a>：</p>
+<ul>
+<li>Array，适用于数组类型，比如填充数据、查找元素、数组分片等操作</li>
+<li>Collection，适用于数组和对象类型，部分适用于字符串，比如分组、查找、过滤等操作</li>
+<li>Function，适用于函数类型，比如节流、延迟、缓存、设置钩子等操作</li>
+<li>Lang，普遍适用于各种类型，常用于执行类型判断和类型转换</li>
+<li>Math，适用于数值类型，常用于执行数学运算</li>
+<li>Number，适用于生成随机数，比较数值与数值区间的关系</li>
+<li>Object，适用于对象类型，常用于对象的创建、扩展、类型转换、检索、集合等操作</li>
+<li>Seq，常用于创建链式调用，提高执行性能（惰性计算）</li>
+<li>String，适用于字符串类型</li>
+</ul>
+<h2 id="lodash-fp"><a href="#lodash-fp" class="headerlink" title="lodash/fp"></a>lodash/fp</h2><p>lodash/fp 模块提供了更接近函数式编程的开发方式，其内部的函数经过包装，具有 immutable、auto-curried、iteratee-first、data-last（官方介绍）等特点。Lodash 在 <a href="https://github.com/lodash/lodash/wiki/FP-Guide" target="_blank" rel="external">GitHub Wiki</a> 中对 lodash/fp 的特点做了如下概述：</p>
+<ul>
+<li>Fixed Arity，固化参数个数，便于柯里化</li>
+<li>Rearragned Arguments，重新调整参数位置，便于函数之间的聚合</li>
+<li>Capped Iteratee Argument，封装 Iteratee 参数</li>
+<li>New Methods</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">// The `lodash/map` iteratee receives three arguments:</div><div class="line">// (value, index|key, collection)</div><div class="line">_.map([&apos;6&apos;, &apos;8&apos;, &apos;10&apos;], parseInt);</div><div class="line">// → [6, NaN, 2]</div><div class="line"></div><div class="line">// The `lodash/fp/map` iteratee is capped at one argument:</div><div class="line">// (value)</div><div class="line">fp.map(parseInt)([&apos;6&apos;, &apos;8&apos;, &apos;10&apos;]);</div><div class="line">// → [6, 8, 10]</div><div class="line"></div><div class="line"></div><div class="line">// `lodash/padStart` accepts an optional `chars` param.</div><div class="line">_.padStart(&apos;a&apos;, 3, &apos;-&apos;)</div><div class="line">// → &apos;--a&apos;</div><div class="line"></div><div class="line">// `lodash/fp/padStart` does not.</div><div class="line">fp.padStart(3)(&apos;a&apos;);</div><div class="line">// → &apos;  a&apos;</div><div class="line">fp.padCharsStart(&apos;-&apos;)(3)(&apos;a&apos;);</div><div class="line">// → &apos;--a&apos;</div><div class="line"></div><div class="line"></div><div class="line">// `lodash/filter` is data-first iteratee-last:</div><div class="line">// (collection, iteratee)</div><div class="line">var compact = _.partial(_.filter, _, Boolean);</div><div class="line">compact([&apos;a&apos;, null, &apos;c&apos;]);</div><div class="line">// → [&apos;a&apos;, &apos;c&apos;]</div><div class="line"></div><div class="line">// `lodash/fp/filter` is iteratee-first data-last:</div><div class="line">// (iteratee, collection)</div><div class="line">var compact = fp.filter(Boolean);</div><div class="line">compact([&apos;a&apos;, null, &apos;c&apos;]);</div><div class="line">// → [&apos;a&apos;, &apos;c&apos;]</div></pre></td></tr></table></figure>
+<p>在 React + Webpack + Babel(ES6) 的开发环境中，使用 Lodash 需要安装插件 <a href="https://www.npmjs.com/package/babel-plugin-lodash" target="_blank" rel="external">babel-plugin-lodash</a> 并更新 Babel 配置文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install --save lodash</div><div class="line">npm install --save-dev babel-plugin-lodash</div></pre></td></tr></table></figure>
+<p>更新 Babel 的配置文件 .babelrc:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;presets&quot;: [</div><div class="line">        &quot;react&quot;,</div><div class="line">        &quot;es2015&quot;,</div><div class="line">        &quot;stage-0&quot;</div><div class="line">    ],</div><div class="line">    &quot;plugins&quot;: [</div><div class="line">        &quot;lodash&quot;</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">import _ from &apos;lodash&apos;;</div><div class="line">import &#123; add &#125; from &apos;lodash/fp&apos;;</div><div class="line"></div><div class="line">const addOne = add(1);</div><div class="line">_.map([1, 2, 3], addOne);</div></pre></td></tr></table></figure>
+<h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><p>在 Filip Zawada 的文章《<a href="http://filimanjaro.com/blog/2014/introducing-lazy-evaluation/" target="_blank" rel="external">How to Speed Up Lo-Dash ×100? Introducing Lazy Evaluation</a>》 中提到了 Lodash 提高执行速度的思路，主要有三点：Lazy Evaluation、Pipelining 和 Deferred Execution。下面两张图来自 Filip 的博客：</p>
+<p><img src="/images/2018/02/lodash-pic1.gif" alt="lodash-example1"></p>
+<p>假设有如上图所示的问题：从若干个球中取出三个面值小于 10 的球。第一步是从所有的球中取出所有面值小于 10 的球，第二步是从上一步的结果取三个球。</p>
+<p><img src="/images/2018/02/lodash-pic2.gif" alt="lodash-example2"></p>
+<p>上图是另一种解决方案，如果一个球能够通过第一步，那么就继续执行第二步，直至结束然后测试下一个球……当我们取到三个球之后就中断整个循环。Filip 称这是 Lazy Evaluation Algorithm，就个人理解这并不全面，他后续提到的 Pipelining(管道计算)，再加上一个中断循环执行的算法应该更符合这里的图示。</p>
+<p>此外，使用 Lodash 的链式调用时，只有显示或隐式调用 .value 方法才会对链式调用的整个操作进行取值，这种不在声明时立即求值，而在使用时求值的方式，是 Lazy Evaluation 最大的特点。</p>
+<h2 id="九个实例"><a href="#九个实例" class="headerlink" title="九个实例"></a>九个实例</h2><p>受益于 Lodash 的普及程度，使用它可以提高多人开发时阅读代码的效率，减少彼此之间的误解（Loss of Consciousness）。在《<a href="https://colintoh.com/blog/lodash-10-javascript-utility-functions-stop-rewriting" target="_blank" rel="external">Lodash: 10 Javascript Utility Functions That You Should Probably Stop Rewriting</a>》一文中，作者列举了多个常用的 Lodash 函数，实例演示了使用 Lodash 的技巧。</p>
+<h3 id="1-N-次循环"><a href="#1-N-次循环" class="headerlink" title="1. N 次循环"></a>1. N 次循环</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// 1. Basic for loop.</div><div class="line">for(var i = 0; i &lt; 5; i++) &#123;</div><div class="line">    // ...</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 2. Using Array&apos;s join and split methods</div><div class="line">Array.apply(null, Array(5)).forEach(function()&#123;</div><div class="line">    // ...</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// Lodash</div><div class="line">_.times(5, function()&#123;</div><div class="line">    // ...</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>for 语句是执行循环的不二选择，Array.apply 也可以模拟循环，但在上面代码的使用场景下，_.times() 的解决方式更加简洁和易于理解。</p>
+<h3 id="2-深层查找属性值"><a href="#2-深层查找属性值" class="headerlink" title="2. 深层查找属性值"></a>2. 深层查找属性值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">// Fetch the name of the first pet from each owner</div><div class="line">var ownerArr = [&#123;</div><div class="line">    &quot;owner&quot;: &quot;Colin&quot;,</div><div class="line">    &quot;pets&quot;: [&#123;&quot;name&quot;:&quot;dog1&quot;&#125;, &#123;&quot;name&quot;: &quot;dog2&quot;&#125;]</div><div class="line">&#125;, &#123;</div><div class="line">    &quot;owner&quot;: &quot;John&quot;,</div><div class="line">    &quot;pets&quot;: [&#123;&quot;name&quot;:&quot;dog3&quot;&#125;, &#123;&quot;name&quot;: &quot;dog4&quot;&#125;]</div><div class="line">&#125;];</div><div class="line"></div><div class="line">// Array&apos;s map method.</div><div class="line">ownerArr.map(function(owner)&#123;</div><div class="line">   return owner.pets[0].name;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// Lodash</div><div class="line">_.map(ownerArr, &apos;pets[0].name&apos;);</div></pre></td></tr></table></figure>
+<p>_.map 方法是对原生 map 方法的改进，其中使用 pets[0].name 字符串对嵌套数据取值的方式简化了很多冗余的代码，非常类似使用 jQuery 选择 DOM 节点 ul &gt; li &gt; a，对于前端开发者来说有种久违的亲切感。</p>
+<h3 id="3-个性化数组"><a href="#3-个性化数组" class="headerlink" title="3. 个性化数组"></a>3. 个性化数组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// Array&apos;s map method.</div><div class="line">Array.apply(null, Array(6)).map(function(item, index)&#123;</div><div class="line">    return &quot;ball_&quot; + index;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// Lodash</div><div class="line">_.times(6, _.uniqueId.bind(null, &apos;ball_&apos;));</div><div class="line"></div><div class="line">// Lodash</div><div class="line">_.times(6, _.partial(_.uniqueId, &apos;ball_&apos;));</div><div class="line">// eg. [ball_0, ball_1, ball_2, ball_3, ball_4, ball_5]</div></pre></td></tr></table></figure>
+<p>在上面的代码中，我们要创建一个初始值不同、长度为 6 的数组，其中 _.uniqueId 方法用于生成独一无二的标识符（递增的数字，在程序运行期间保持独一无二），_partial 方法是对 bind 的封装。</p>
+<h3 id="4-深拷贝"><a href="#4-深拷贝" class="headerlink" title="4. 深拷贝"></a>4. 深拷贝</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var objA = &#123;</div><div class="line">    &quot;name&quot;: &quot;colin&quot;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// Normal method? Too long. See Stackoverflow for solution:</div><div class="line">// http://stackoverflow.com/questions/4459928/how-to-deep-clone-in-javascript</div><div class="line"></div><div class="line">// Lodash</div><div class="line">var objB = _.cloneDeep(objA);</div><div class="line">objB === objA // false</div></pre></td></tr></table></figure>
+<p>JavaScript 没有直接提供深拷贝的函数，但我们可以用其他函数来模拟，比如 JSON.parse(JSON.stringify(objectToClone))，但这种方法要求对象中的属性值不能是函数。Lodash 中的 _.cloneDeep 函数封装了深拷贝的逻辑，用起来更加简洁。</p>
+<h3 id="5-随机数"><a href="#5-随机数" class="headerlink" title="5. 随机数"></a>5. 随机数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// Naive utility method</div><div class="line">function getRandomNumber(min, max)&#123;</div><div class="line">    return Math.floor(Math.random() * (max - min + 1)) + min;</div><div class="line">&#125;</div><div class="line"></div><div class="line">getRandomNumber(15, 20);</div><div class="line"></div><div class="line">// Lodash</div><div class="line">_.random(15, 20);</div></pre></td></tr></table></figure>
+<p>Lodash 的随机数生成函数更贴近实际开发，ECMAScript 的随机数生成函数是底层必备的接口，两者都不可或缺。此外，使用 _.random(15, 20, true) 还可以在 15 到 20 之间生成随机的浮点数。</p>
+<h3 id="6-对象扩展"><a href="#6-对象扩展" class="headerlink" title="6. 对象扩展"></a>6. 对象扩展</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// Adding extend function to Object.prototype</div><div class="line">Object.prototype.extend = function(obj) &#123;</div><div class="line">    for (var i in obj) &#123;</div><div class="line">        if (obj.hasOwnProperty(i)) &#123;</div><div class="line">            this[i] = obj[i];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var objA = &#123;&quot;name&quot;: &quot;colin&quot;, &quot;car&quot;: &quot;suzuki&quot;&#125;;</div><div class="line">var objB = &#123;&quot;name&quot;: &quot;james&quot;, &quot;age&quot;: 17&#125;;</div><div class="line"></div><div class="line">objA.extend(objB);</div><div class="line">objA; // &#123;&quot;name&quot;: &quot;james&quot;, &quot;age&quot;: 17, &quot;car&quot;: &quot;suzuki&quot;&#125;;</div><div class="line"></div><div class="line">// Lodash</div><div class="line">_.assign(objA, objB);</div></pre></td></tr></table></figure>
+<p>_.assign 是浅拷贝，和 ES6 新增的 Ojbect.assign 函数功能一致（建议优先使用 Object.assign）。</p>
+<h3 id="7-筛选属性"><a href="#7-筛选属性" class="headerlink" title="7. 筛选属性"></a>7. 筛选属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">// Naive method: Remove an array of keys from object</div><div class="line">Object.prototype.remove = function(arr) &#123;</div><div class="line">    var that = this;</div><div class="line">    arr.forEach(function(key)&#123;</div><div class="line">        delete(that[key]);</div><div class="line">    &#125;);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var objA = &#123;&quot;name&quot;: &quot;colin&quot;, &quot;car&quot;: &quot;suzuki&quot;, &quot;age&quot;: 17&#125;;</div><div class="line"></div><div class="line">objA.remove([&apos;car&apos;, &apos;age&apos;]);</div><div class="line">objA; // &#123;&quot;name&quot;: &quot;colin&quot;&#125;</div><div class="line"></div><div class="line">// Lodash</div><div class="line">objA = _.omit(objA, [&apos;car&apos;, &apos;age&apos;]);</div><div class="line">// =&gt; &#123;&quot;name&quot;: &quot;colin&quot;&#125;</div><div class="line">objA = _.omit(objA, &apos;car&apos;);</div><div class="line">// =&gt; &#123;&quot;name&quot;: &quot;colin&quot;, &quot;age&quot;: 17&#125;;</div><div class="line">objA = _.omit(objA, _.isNumber);</div><div class="line">// =&gt; &#123;&quot;name&quot;: &quot;colin&quot;&#125;;</div></pre></td></tr></table></figure>
+<p>大多数情况下，Lodash 所提供的辅助函数都会比原生的函数更贴近开发需求。在上面的代码中，开发者可以使用数组、字符串以及函数的方式筛选对象的属性，并且最终会返回一个新的对象，中间执行筛选时不会对旧对象产生影响。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">// Naive method: Returning a new object with selected properties</div><div class="line">Object.prototype.pick = function(arr) &#123;</div><div class="line">    var _this = this;</div><div class="line">    var obj = &#123;&#125;;</div><div class="line">    arr.forEach(function(key)&#123;</div><div class="line">        obj[key] = _this[key];</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    return obj;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var objA = &#123;&quot;name&quot;: &quot;colin&quot;, &quot;car&quot;: &quot;suzuki&quot;, &quot;age&quot;: 17&#125;;</div><div class="line"></div><div class="line">var objB = objA.pick([&apos;car&apos;, &apos;age&apos;]);</div><div class="line">// &#123;&quot;car&quot;: &quot;suzuki&quot;, &quot;age&quot;: 17&#125;</div><div class="line"></div><div class="line">// Lodash</div><div class="line">var objB = _.pick(objA, [&apos;car&apos;, &apos;age&apos;]);</div><div class="line">// &#123;&quot;car&quot;: &quot;suzuki&quot;, &quot;age&quot;: 17&#125;</div></pre></td></tr></table></figure>
+<p><em>.pick 是 </em>.omit 的相反操作，用于从其他对象中挑选属性生成新的对象。</p>
+<h3 id="8-随机元素"><a href="#8-随机元素" class="headerlink" title="8. 随机元素"></a>8. 随机元素</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var luckyDraw = [&quot;Colin&quot;, &quot;John&quot;, &quot;James&quot;, &quot;Lily&quot;, &quot;Mary&quot;];</div><div class="line"></div><div class="line">function pickRandomPerson(luckyDraw)&#123;</div><div class="line">    var index = Math.floor(Math.random() * (luckyDraw.length -1));</div><div class="line">    return luckyDraw[index];</div><div class="line">&#125;</div><div class="line"></div><div class="line">pickRandomPerson(luckyDraw); // John</div><div class="line"></div><div class="line">// Lodash</div><div class="line">_.sample(luckyDraw); // Colin</div><div class="line"></div><div class="line">// Lodash - Getting 2 random item</div><div class="line">_.sample(luckyDraw, 2); // [&apos;John&apos;,&apos;Lily&apos;]</div></pre></td></tr></table></figure>
+<p>_.sample 支持随机挑选多个元素并返回心的数组。</p>
+<h3 id="9-针对-JSON-parse-的错误处理"><a href="#9-针对-JSON-parse-的错误处理" class="headerlink" title="9. 针对 JSON.parse 的错误处理"></a>9. 针对 JSON.parse 的错误处理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">// Using try-catch to handle the JSON.parse error</div><div class="line">function parse(str)&#123;</div><div class="line">    try &#123;</div><div class="line">        return JSON.parse(str);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    catch(e) &#123;</div><div class="line">        return false;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// With Lodash</div><div class="line">function parseLodash(str)&#123;</div><div class="line">    return _.attempt(JSON.parse.bind(null, str));</div><div class="line">&#125;</div><div class="line"></div><div class="line">parse(&apos;a&apos;);</div><div class="line">// =&gt; false</div><div class="line">parseLodash(&apos;a&apos;);</div><div class="line">// =&gt; Return an error object</div><div class="line"></div><div class="line">parse(&apos;&#123;&quot;name&quot;: &quot;colin&quot;&#125;&apos;);</div><div class="line">// =&gt; Return &#123;&quot;name&quot;: &quot;colin&quot;&#125;</div><div class="line">parseLodash(&apos;&#123;&quot;name&quot;: &quot;colin&quot;&#125;&apos;);</div><div class="line">// =&gt; Return &#123;&quot;name&quot;: &quot;colin&quot;&#125;</div></pre></td></tr></table></figure>
+<p>如果你在使用 JSON.parse 时没有预置错误处理，那么它很有可能会成为一个定时炸弹，我们不应该默认接收的 JSON 对象都是有效的。try-catch 是最常见的错误处理方式，如果项目中 Lodash，那么可以使用 _.attmpt 替代 try-catch 的方式，当解析 JSON 出错时，该方法会返回一个 Error 对象。</p>
+<p>随着 ES6 的普及，Lodash 的功能或多或少会被原生功能所替代，所以使用时还需要进一步甄别，建议优先使用原生函数，有关 ES6 替代 Lodash 的部分，请参考文章《10 Lodash Features You Can Replace with ES6》（中文版《<a href="http://www.zcfy.cc/article/10-lodash-features-you-can-replace-with-es6-467.html" target="_blank" rel="external">10 个可用 ES6 替代的 Lodash 特性</a>》）。</p>
+<p>其中有两处非常值得一看：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">// 使用箭头函数创建可复用的路径</div><div class="line">const object = &#123; &apos;a&apos;: [&#123; &apos;b&apos;: &#123; &apos;c&apos;: 3 &#125; &#125;, 4] &#125;;</div><div class="line"></div><div class="line">[</div><div class="line">    obj =&gt; obj.a[0].b.c,</div><div class="line">    obj =&gt; obj.a[1]</div><div class="line">].map(path =&gt; path(object));</div><div class="line"></div><div class="line">// 使用箭头函数编写链式调用</div><div class="line">const pipe = functions =&gt; data =&gt; &#123;</div><div class="line">    return functions.reduce(</div><div class="line">        (value, func) =&gt; func(value),</div><div class="line">        data</div><div class="line">    );</div><div class="line">&#125;;</div><div class="line"></div><div class="line">const pipeline = pipe([</div><div class="line">    x =&gt; x * 2,</div><div class="line">    x =&gt; x / 3,</div><div class="line">    x =&gt; x &gt; 5,</div><div class="line">    b =&gt; !b</div><div class="line">]);</div><div class="line"></div><div class="line">pipeline(5);</div><div class="line">// true</div><div class="line">pipeline(20);</div><div class="line">// false</div></pre></td></tr></table></figure>
+<p>在 ES6 中，如果一个函数只接收一个形参且函数体是一个 return 语句，就可以使用箭头函数简化为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">const func = p =&gt; v;</div><div class="line"></div><div class="line">// 类似于(不完全相同)</div><div class="line">const func = function (p) &#123;</div><div class="line">    return v;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当有多重嵌套时，可以简化为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">const func = a =&gt; b =&gt; c =&gt; a + b + c;</div><div class="line">func(1)(2)(3);</div><div class="line">// =&gt; 6</div><div class="line"></div><div class="line">// 类似于</div><div class="line">const func = function (a) &#123;</div><div class="line">    return function (b) &#123;</div><div class="line">        return function (e) &#123;</div><div class="line">            return a + b + c;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://lodash.com/docs/4.17.5" target="_blank" rel="external">Lodash 官方文档</a></li>
+<li><a href="https://github.com/lodash/lodash/wiki/FP-Guide" target="_blank" rel="external">Lodash FP Guide</a></li>
+<li><a href="https://www.npmjs.com/package/babel-plugin-lodash" target="_blank" rel="external">babel-plugin-lodash</a></li>
+<li><a href="http://filimanjaro.com/blog/2014/introducing-lazy-evaluation/" target="_blank" rel="external">How to Speed Up Lo-Dash ×100? Introducing Lazy Evaluation</a></li>
+<li><a href="https://colintoh.com/blog/lodash-10-javascript-utility-functions-stop-rewriting" target="_blank" rel="external">Lodash: 10 Javascript Utility Functions That You Should Probably Stop Rewriting</a></li>
+<li><a href="https://www.sitepoint.com/lodash-features-replace-es6/" target="_blank" rel="external">10 Lodash Features You Can Replace with ES6</a></li>
+</ul>
+<h2 id="Reprinted-Articles"><a href="#Reprinted-Articles" class="headerlink" title="Reprinted Articles"></a>Reprinted Articles</h2><p>Author：pinggod<br>Link：<a href="https://www.jianshu.com/p/7436e40ac5d1" target="_blank" rel="external">https://www.jianshu.com/p/7436e40ac5d1</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/11/jQuery玩法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1670,164 +1881,6 @@ animation:2s move;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/10/js知识碎片/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Adele">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Siker">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/10/js知识碎片/" itemprop="url">js知识碎片-历史管理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-10T00:07:48+08:00">
-                2017-11-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h2><p>Math 是一个内置对象， 它具有数学常数和函数的属性和方法。不是一个函数对象。(<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math" target="_blank" rel="external">参考</a>)</p>
-<p><code>Math.ceil()</code>执行向上舍入，即它总是将数值向上舍入为最接近的整数；  </p>
-<p><code>Math.floor()</code>执行向下舍入，即它总是将数值向下舍入为最接近的整数；  </p>
-<p><code>Math.round()</code>执行标准舍入，即它总是将数值四舍五入为最接近的整数(这也是我们在数学课上学到的舍入规则)。</p>
-<p><code>Math.random()</code> 函数返回一个浮点,  伪随机数在范围[0，1)，也就是说，从0（包括0）往上，但是不包括1（排除1），然后您可以缩放到所需的范围。<br><strong>得到一个两数之间的随机数</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function getRandomArbitrary(min, max) &#123;</div><div class="line">  return Math.random() * (max - min) + min;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>得到一个两数之间的随机整数</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function getRandomInt(min, max) &#123;</div><div class="line">  min = Math.ceil(min);</div><div class="line">  max = Math.floor(max);</div><div class="line">  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>得到一个两数之间的随机整数，包括两个数在内</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function getRandomIntInclusive(min, max) &#123;</div><div class="line">  min = Math.ceil(min);</div><div class="line">  max = Math.floor(max);</div><div class="line">  return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="window-location"><a href="#window-location" class="headerlink" title="window.location"></a>window.location</h2><p>window.location 只读属性，返回一个 Location  对象，其中包含有关文档当前位置的信息。(<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/location" target="_blank" rel="external">参考</a>)  </p>
-<p><strong>window.location.reload(true)</strong><br>强制从服务器重新加载当前页面</p>
-<p><strong>window.location.hash</strong><br>可以用来获取或设置页面的标签值</p>
-<h2 id="window-onhashchange"><a href="#window-onhashchange" class="headerlink" title="window.onhashchange"></a>window.onhashchange</h2><p>当 一个窗口的哈希改变时就会触发 hashchange 事件<br>语法：<code>window.onhashchange = funcRef;</code>或者：<code>&lt;body onhashchange=&quot;funcRef();&quot;&gt;</code>覆盖任何现有的事件处理程序。<br>为了将一个事件侦听器添加到现有的一个事件处理程序集中，使用函数 “addEventListener”。<br><code>window.addEventListener(&quot;hashchange&quot;, funcRef, false);</code></p>
-<h3 id="history"><a href="#history" class="headerlink" title="history"></a>history</h3><p>pushState: 三个参数： 数据  标题（没实现） 地址（可选）<br>popstate事件： 读取数据event.state<br>注意:网址是虚假的，需要在服务器指定对应页面，不然刷新找不到页面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;&#125;;</div><div class="line">$(&quot;#btn&quot;).click(function () &#123;</div><div class="line">    var number = randomNumber(35, 7);</div><div class="line">    var oRD = Math.random(); //随机数作为obj的键值</div><div class="line">    obj[oRD] = number; // number 存入obj</div><div class="line">    $(&quot;div&quot;).text(number);</div><div class="line">    window.location.hash = oRD;</div><div class="line">    //history.pushState(number,&apos;&apos;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// window.onpopstate = function (ev) &#123;</div><div class="line">// 	var number = ev.state || &apos;&apos;;</div><div class="line">//	$(&quot;div&quot;).text(number);</div><div class="line">// &#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 将hash插入div</div><div class="line"> */</div><div class="line">function hashNumber() &#123;</div><div class="line">    var _number = location.hash;</div><div class="line">    $(&quot;div&quot;).text(obj[_number.substring(1)] || &apos;&apos;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">window.addEventListener(&quot;hashchange&quot;, hashNumber,false);</div><div class="line"></div><div class="line">/**</div><div class="line"> *</div><div class="line"> * @param total</div><div class="line"> * @param now</div><div class="line"> * @returns &#123;Array&#125;</div><div class="line"> */</div><div class="line">function randomNumber(total, now) &#123;</div><div class="line">    var arr = [];</div><div class="line">    var newArr = [];</div><div class="line">    for (var i = 1; i&lt;= total; i++) &#123;</div><div class="line">        arr.push(i);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    for (var i = 0; i&lt;now; i++) &#123;</div><div class="line">        newArr.push(arr.splice(Math.floor(Math.random()*arr.length),1))</div><div class="line">   &#125;</div><div class="line">   return newArr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><a href="http://www.oschina.net/question/12_48388" target="_blank" rel="external">PJAX 介绍</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1882,7 +1935,7 @@ animation:2s move;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1893,7 +1946,7 @@ animation:2s move;
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1904,7 +1957,7 @@ animation:2s move;
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

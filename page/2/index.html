@@ -252,6 +252,164 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/10/js知识碎片/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Adele">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Siker">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/10/js知识碎片/" itemprop="url">js知识碎片-历史管理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-10T00:07:48+08:00">
+                2017-11-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h2><p>Math 是一个内置对象， 它具有数学常数和函数的属性和方法。不是一个函数对象。(<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math" target="_blank" rel="external">参考</a>)</p>
+<p><code>Math.ceil()</code>执行向上舍入，即它总是将数值向上舍入为最接近的整数；  </p>
+<p><code>Math.floor()</code>执行向下舍入，即它总是将数值向下舍入为最接近的整数；  </p>
+<p><code>Math.round()</code>执行标准舍入，即它总是将数值四舍五入为最接近的整数(这也是我们在数学课上学到的舍入规则)。</p>
+<p><code>Math.random()</code> 函数返回一个浮点,  伪随机数在范围[0，1)，也就是说，从0（包括0）往上，但是不包括1（排除1），然后您可以缩放到所需的范围。<br><strong>得到一个两数之间的随机数</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function getRandomArbitrary(min, max) &#123;</div><div class="line">  return Math.random() * (max - min) + min;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>得到一个两数之间的随机整数</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function getRandomInt(min, max) &#123;</div><div class="line">  min = Math.ceil(min);</div><div class="line">  max = Math.floor(max);</div><div class="line">  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>得到一个两数之间的随机整数，包括两个数在内</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function getRandomIntInclusive(min, max) &#123;</div><div class="line">  min = Math.ceil(min);</div><div class="line">  max = Math.floor(max);</div><div class="line">  return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="window-location"><a href="#window-location" class="headerlink" title="window.location"></a>window.location</h2><p>window.location 只读属性，返回一个 Location  对象，其中包含有关文档当前位置的信息。(<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/location" target="_blank" rel="external">参考</a>)  </p>
+<p><strong>window.location.reload(true)</strong><br>强制从服务器重新加载当前页面</p>
+<p><strong>window.location.hash</strong><br>可以用来获取或设置页面的标签值</p>
+<h2 id="window-onhashchange"><a href="#window-onhashchange" class="headerlink" title="window.onhashchange"></a>window.onhashchange</h2><p>当 一个窗口的哈希改变时就会触发 hashchange 事件<br>语法：<code>window.onhashchange = funcRef;</code>或者：<code>&lt;body onhashchange=&quot;funcRef();&quot;&gt;</code>覆盖任何现有的事件处理程序。<br>为了将一个事件侦听器添加到现有的一个事件处理程序集中，使用函数 “addEventListener”。<br><code>window.addEventListener(&quot;hashchange&quot;, funcRef, false);</code></p>
+<h3 id="history"><a href="#history" class="headerlink" title="history"></a>history</h3><p>pushState: 三个参数： 数据  标题（没实现） 地址（可选）<br>popstate事件： 读取数据event.state<br>注意:网址是虚假的，需要在服务器指定对应页面，不然刷新找不到页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;&#125;;</div><div class="line">$(&quot;#btn&quot;).click(function () &#123;</div><div class="line">    var number = randomNumber(35, 7);</div><div class="line">    var oRD = Math.random(); //随机数作为obj的键值</div><div class="line">    obj[oRD] = number; // number 存入obj</div><div class="line">    $(&quot;div&quot;).text(number);</div><div class="line">    window.location.hash = oRD;</div><div class="line">    //history.pushState(number,&apos;&apos;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// window.onpopstate = function (ev) &#123;</div><div class="line">// 	var number = ev.state || &apos;&apos;;</div><div class="line">//	$(&quot;div&quot;).text(number);</div><div class="line">// &#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 将hash插入div</div><div class="line"> */</div><div class="line">function hashNumber() &#123;</div><div class="line">    var _number = location.hash;</div><div class="line">    $(&quot;div&quot;).text(obj[_number.substring(1)] || &apos;&apos;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">window.addEventListener(&quot;hashchange&quot;, hashNumber,false);</div><div class="line"></div><div class="line">/**</div><div class="line"> *</div><div class="line"> * @param total</div><div class="line"> * @param now</div><div class="line"> * @returns &#123;Array&#125;</div><div class="line"> */</div><div class="line">function randomNumber(total, now) &#123;</div><div class="line">    var arr = [];</div><div class="line">    var newArr = [];</div><div class="line">    for (var i = 1; i&lt;= total; i++) &#123;</div><div class="line">        arr.push(i);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    for (var i = 0; i&lt;now; i++) &#123;</div><div class="line">        newArr.push(arr.splice(Math.floor(Math.random()*arr.length),1))</div><div class="line">   &#125;</div><div class="line">   return newArr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="http://www.oschina.net/question/12_48388" target="_blank" rel="external">PJAX 介绍</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/20/ jQuery-业务笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1795,154 +1953,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/05/29/JS编码规范/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Adele">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Siker">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/05/29/JS编码规范/" itemprop="url">JS编码规范</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-05-29T00:00:39+08:00">
-                2016-05-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/convention/" itemprop="url" rel="index">
-                    <span itemprop="name">convention</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><p>本文档的目标是使JavaScript代码风格保持一致，容易被理解和被维护。<br>虽然本文档是针对JavaScript设计的，但是在使用各种JavaScript的预编译语言时(如TypeScript等)时，适用的部分也应尽量遵循本文档的约定。</p>
-<h2 id="2-代码风格"><a href="#2-代码风格" class="headerlink" title="2. 代码风格"></a>2. 代码风格</h2><h2 id="2-1-文件"><a href="#2-1-文件" class="headerlink" title="2.1. 文件"></a>2.1. 文件</h2><p>[建议] JavaScript 文件使用无 BOM 的 UTF-8 编码。<br>解释<br>UTF-8 编码具有更广泛的适应性。BOM 在使用程序或工具处理文件时可能造成不必要的干扰。<br>[建议] 在文件结尾处，保留一个空行。</p>
-<h2 id="2-2-结构"><a href="#2-2-结构" class="headerlink" title="2.2. 结构"></a>2.2. 结构</h2><h2 id="2-2-1-缩进"><a href="#2-2-1-缩进" class="headerlink" title="2.2.1. 缩进"></a>2.2.1. 缩进</h2><p>[强制] 使用 4 个空格做为一个缩进层级，不允许使用 2 个空格 或 tab 字符。<br>[强制] switch 下的 case 和 default 必须增加一个缩进层级。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/05/29/JS编码规范/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1997,7 +2007,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2008,7 +2018,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2019,7 +2029,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

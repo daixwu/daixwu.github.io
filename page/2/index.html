@@ -252,6 +252,154 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/14/js数组对象排序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Adele">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Siker">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/14/js数组对象排序/" itemprop="url">js数组对象排序</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-14T18:05:01+08:00">
+                2017-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="一、普通数组排序"><a href="#一、普通数组排序" class="headerlink" title="一、普通数组排序　　"></a>一、普通数组排序　　</h3><p>js中用方法sort()为数组排序。sort()方法有一个可选参数，是用来确定元素顺序的函数。如果这个参数被省略，那么数组中的元素将按照ASCII字符顺序进行排序。如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var arr = [&quot;a&quot;, &quot;b&quot;, &quot;A&quot;, &quot;B&quot;];</div><div class="line">arr.sort();</div><div class="line">console.log(arr);//[&quot;A&quot;, &quot;B&quot;, &quot;a&quot;, &quot;b&quot;]</div></pre></td></tr></table></figure>
+<p>因为字母A、B的ASCII值分别为65、66，而a、b的值分别为97、98，所以上面输出的结果是 <code>[&quot;A&quot;, &quot;B&quot;, &quot;a&quot;, &quot;b&quot;]</code> 。</p>
+<p>如果数组元素是数字呢，结果会是怎样？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var arr = [15, 8, 25, 3];</div><div class="line">arr.sort();</div><div class="line">console.log(arr);//[15, 25, 3, 8]</div></pre></td></tr></table></figure>
+<p>结果是 <code>[15, 25, 3, 8]</code> 。其实，sort方法会调用每个数组项的<code>toString()</code>方法，得到字符串，然后再对得到的字符串进行排序。虽然数值15比3大，但在进行字符串比较时”15”则排在”3”前面。显然，这种结果不是我们想要的，这时，<code>sort()</code>方法的参数就起到了作用，我们把这个参数叫做比较函数。</p>
+<p>比较函数接收两个参数，如果第一个参数应该位于第二个之前则返回一个负数，如果两个参数相等则返回0，如果第一个参数应该位于第二个之后则返回一个正数。例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var arr = [23, 9, 4, 78, 3];</div><div class="line">var compare = function (x, y) &#123;//比较函数</div><div class="line">    if (x &lt; y) &#123;</div><div class="line">        return -1;</div><div class="line">    &#125; else if (x &gt; y) &#123;</div><div class="line">        return 1;</div><div class="line">    &#125; else &#123;</div><div class="line">        return 0;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">console.log(arr.sort(compare));</div></pre></td></tr></table></figure>
+<p>结果为 <code>[3, 4, 9, 23, 78]</code> ，返回了我们想要的结果。如果要按降序排序，比较函数写成这样即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var compare = function (x, y) &#123;</div><div class="line">    if (x &lt; y) &#123;</div><div class="line">        return 1;</div><div class="line">    &#125; else if (x &gt; y) &#123;</div><div class="line">        return -1;</div><div class="line">    &#125; else &#123;</div><div class="line">        return 0;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们并不能用比较函数比较一个不能转化为数字的字符串与数字的顺序：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var arr = [&quot;b&quot;, 5];</div><div class="line">console.log(arr.sort(compare))</div></pre></td></tr></table></figure>
+<p>结果是 <code>[&quot;b&quot;, 5]</code> 。因为比较函数在比较时，会把先把字符串转化为数字，然后再比较，字符串b不能转化为数字，所以就不能比较大小。然而，当不用比较函数时，会比较ASCII值，所以结果是 <code>[5, &quot;b&quot;]</code> 。</p>
+<h3 id="二、数组对象排序"><a href="#二、数组对象排序" class="headerlink" title="二、数组对象排序"></a>二、数组对象排序</h3><p>如果数组项是对象，我们需要根据数组项的某个属性对数组进行排序，要怎么办呢？其实和前面的比较函数也差不多：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var arr = [&#123;name: &quot;zlw&quot;, age: 24&#125;, &#123;name: &quot;wlz&quot;, age: 25&#125;];</div><div class="line">var compare = function (obj1, obj2) &#123;</div><div class="line">    var val1 = obj1.name;</div><div class="line">    var val2 = obj2.name;</div><div class="line">    if (val1 &lt; val2) &#123;</div><div class="line">        return -1;</div><div class="line">    &#125; else if (val1 &gt; val2) &#123;</div><div class="line">        return 1;</div><div class="line">    &#125; else &#123;</div><div class="line">        return 0;</div><div class="line">    &#125;            </div><div class="line">&#125; </div><div class="line">console.log(arr.sort(compare));</div></pre></td></tr></table></figure>
+<p>输出结果为 <code>[Object { name=&quot;wlz&quot;, age=25}, Object { name=&quot;zlw&quot;, age=24}]</code> ，可以看到数组已经按照 name 属性进行了排序。我们可以对上面的比较函数再改造一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var compare = function (prop) &#123;</div><div class="line">    return function (obj1, obj2) &#123;</div><div class="line">        var val1 = obj1[prop];</div><div class="line">        var val2 = obj2[prop];if (val1 &lt; val2) &#123;</div><div class="line">            return -1;</div><div class="line">        &#125; else if (val1 &gt; val2) &#123;</div><div class="line">            return 1;</div><div class="line">        &#125; else &#123;</div><div class="line">            return 0;</div><div class="line">        &#125;            </div><div class="line">    &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果想按照 age 进行排序， ``arr.sort(compare(“age”)) 即可。</p>
+<p>但是对age属性进行排序时需要注意了，如果age属性的值是数字，那么排序结果会是我们想要的。但很多时候我们从服务器传回来的数据中，属性值通常是字符串。现在我把上面的数组改为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var arr = [&#123;name: &quot;zlw&quot;, age: &quot;24&quot;&#125;, &#123;name: &quot;wlz&quot;, age: &quot;5&quot;&#125;];</div></pre></td></tr></table></figure>
+<p>可以看到，我把 age 属性由数字改为了字符串，第二个数组项的 age 值改为了 “5” 。再次调用 <code>arr.sort(compare(&quot;age&quot;))</code> 后，结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[Object &#123; name=&quot;zlw&quot;, age=&quot;24&quot;&#125;, Object &#123; name=&quot;wlz&quot;, age=&quot;5&quot;&#125;]</div></pre></td></tr></table></figure>
+<p>我们的期望是5排在25前面，但是结果不是。这是因为当两个数字字符串比较大小时，会比较它们的ASCII值大小，比较规则是：从第一个字符开始，顺次向后直到出现不同的字符为止，然后以第一个不同的字符的ASCII值确定大小。所以”24”与”5”比较大小时，先比较”2“与”5”的ASCII值，显然”2“的ASCII值比”5”小，即确定排序顺序。</p>
+<p>现在，我们需要对比较函数再做一些修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var compare = function (prop) &#123;</div><div class="line">    return function (obj1, obj2) &#123;</div><div class="line">        var val1 = obj1[prop];</div><div class="line">        var val2 = obj2[prop];</div><div class="line">        if (!isNaN(Number(val1)) &amp;&amp; !isNaN(Number(val2))) &#123;</div><div class="line">            val1 = Number(val1);</div><div class="line">            val2 = Number(val2);</div><div class="line">        &#125;</div><div class="line">        if (val1 &lt; val2) &#123;</div><div class="line">            return -1;</div><div class="line">        &#125; else if (val1 &gt; val2) &#123;</div><div class="line">            return 1;</div><div class="line">        &#125; else &#123;</div><div class="line">            return 0;</div><div class="line">        &#125;            </div><div class="line">    &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在比较函数中，先把比较属性值转化为数字 <code>Number(val1)</code> 再通过 <code>!isNaN(Number(val1))</code> 判断转化后的值是不是数字(有可能是NaN)，转化后的值如果是数字，则比较转换后的值，这样就可以得到我们想要的结果了， 调用  <code>arr.sort(compare(&quot;age&quot;))</code> 得到：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[Object &#123; name=&quot;wlz&quot;, age=&quot;5&quot;&#125;, Object &#123; name=&quot;zlw&quot;, age=&quot;24&quot;&#125;]</div></pre></td></tr></table></figure>
+<p>可以看到，确实是按正确的方式排序了。</p>
+<p>原文链接：<a href="https://www.cnblogs.com/xljzlw/p/3694861.html" target="_blank" rel="external">https://www.cnblogs.com/xljzlw/p/3694861.html</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/10/js知识碎片/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1374,6 +1522,215 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/22/HTML5常用标签语法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Adele">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Siker">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/02/22/HTML5常用标签语法/" itemprop="url">HTML5常用标签语法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-22T09:00:48+08:00">
+                2017-02-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/html5/" itemprop="url" rel="index">
+                    <span itemprop="name">html5</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="HTML5标签语义化"><a href="#HTML5标签语义化" class="headerlink" title="HTML5标签语义化"></a>HTML5标签语义化</h2><p><strong>为什么标签要语义化</strong></p>
+<ol>
+<li>搜索引擎友好。</li>
+<li>更容易让屏幕阅读器读出网页内容。</li>
+<li>去掉或样式丢失的时候能让页面呈现清晰的结构。</li>
+<li>便于团队开发和维护。</li>
+</ol>
+<p><strong>应注意的问题</strong></p>
+<ul>
+<li>尽可能减少使用无语义标签div和span。</li>
+<li>语义不明显，可以用p也可以使用div的情况下，尽量用p。</li>
+<li>不要使用纯样式标签，例如b、font和u等，改用CSS设置。</li>
+<li>使用HTML5的结构元素。</li>
+</ul>
+<h2 id="HTML5元素标签"><a href="#HTML5元素标签" class="headerlink" title="HTML5元素标签"></a>HTML5元素标签</h2><h3 id="一、结构标签"><a href="#一、结构标签" class="headerlink" title="一、结构标签"></a>一、结构标签</h3><ol>
+<li>article（标识文章）：表示文档、页面中独立完整的可以被外部引用的内容；</li>
+<li>section（给内容分段）：用于对网站或者应用程序中页面上的内容进行分块，一个 section 元素通常由内容以及标题组成；</li>
+<li>aside（设计辅助信息）：表示当前页面或文章的附属信息部分；</li>
+<li>header（添加标题块）：某个区块的头部信息/标题，header元素往往在一对 body 元素之中；</li>
+<li>hgroup（给标题分组）：可以为标题或者子标题进行分组；</li>
+<li>footer（添加脚注块）：通常会在这里标出网站的一些相关信息；</li>
+<li>nav（设计导航信息）：导航条部分信息，一个可以用作页面导航的链接组；</li>
+<li>figure（独立引用单元）：常与 <code>&lt;figcaption&gt;</code> 配合使用，这个标签经常是在主文中引用的图片，插图，表格，代码段等等；</li>
+<li>address（添加联系信息）：用来在文档中定义联系信息。</li>
+</ol>
+<h3 id="二、表单标签"><a href="#二、表单标签" class="headerlink" title="二、表单标签"></a>二、表单标签</h3><ol>
+<li>email：必须输入邮件；</li>
+<li>url：必须输入url地址；</li>
+<li>number：必须输入数值，可通过对其 max、min、step 等属性进行控制；</li>
+<li>range：必须输入一定范围内的数值，在网页中显示为滑动条；</li>
+<li>Date Pickers：日期选择器；<ul>
+<li>date：选取日、月、年</li>
+<li>month：选取月、年</li>
+<li>week：选取周和年</li>
+<li>time：选取时间（小时和分钟）</li>
+<li>datetime：选取时间、日、月、年（UTC时间）</li>
+<li>datetime-local：选取时间、日、月、年（本地时间）</li>
+</ul>
+</li>
+<li>search：搜索常规的文本域；</li>
+<li>tel：用于输入电话号码的文本框；</li>
+<li>color：用于设置颜色的文本框。</li>
+</ol>
+<p><strong>input 属性</strong></p>
+<ul>
+<li>autocomplete 属性：辅助用户完成输入的自动完成功能；</li>
+<li>autofocus 属性：文字输入框会自动获取光标焦点；</li>
+<li>multiple 属性：file 类型支持一次选择多个文件；</li>
+<li>pattern 属性：用于验证 input 类型输入框中用户输入的内容与自定义的正则表达式相匹配；</li>
+<li>placeholder 属性：为 input 类型的输入框提供一种提示；</li>
+<li>required 属性：规定输入框填写的内容不能为空，否则不允许用户提交表单。</li>
+</ul>
+<h2 id="三、媒体标签"><a href="#三、媒体标签" class="headerlink" title="三、媒体标签"></a>三、媒体标签</h2><ol>
+<li>video：播放视频</li>
+<li>audio：播放音频</li>
+<li>embed：嵌入内容（包括各种媒体），Midi、Wav、AU、MP3、Flash、AIFF等。</li>
+</ol>
+<h2 id="四、其他功能标签"><a href="#四、其他功能标签" class="headerlink" title="四、其他功能标签"></a>四、其他功能标签</h2><ol>
+<li>mark：标注（像荧光笔做笔记）</li>
+<li>progress：表示进度条，可通过对其 max、min、step 等属性进行控制</li>
+<li>time：表示时间值，添加 pubdate 属性意思是 time 元素代表文章或者整个网页的发布日期。</li>
+<li>wbr：软换行，页面宽度到需要换行时换行；</li>
+<li>canvas：使用JS代码做内容进行图像绘制；</li>
+<li>command：用来处理命令按钮；</li>
+<li>deteils ：展开菜单，用来表示一段具体的内容，但是内容默认可能不显示。；</li>
+<li>datalist：为输入框提供一个可选的列表，该列表由 datalist 中的 option 元素创建；</li>
+<li>keygen：密钥对生成器，能够使用户验证更为可靠；</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/30/JS模块化开发/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1656,303 +2013,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/24/JS面向对象基础篇/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Adele">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Siker">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/11/24/JS面向对象基础篇/" itemprop="url">JS面向对象基础篇</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-24T23:12:06+08:00">
-                2016-11-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="什么是面向对象编程"><a href="#什么是面向对象编程" class="headerlink" title="什么是面向对象编程"></a>什么是面向对象编程</h2><p>用对象的思想去写代码，就是面向对象编程<br>数组 Array  时间 Date</p>
-<h2 id="面向对象编程-OOP-的特点"><a href="#面向对象编程-OOP-的特点" class="headerlink" title="面向对象编程(OOP)的特点"></a>面向对象编程(OOP)的特点</h2><p>抽象：抓住核心问题<br>封装：只能通过对象来访问方法<br>继承：从已有对象上继承出新的对象<br>多态：多对象的不同形态  </p>
-<h2 id="对象的组成"><a href="#对象的组成" class="headerlink" title="对象的组成"></a>对象的组成</h2><p>方法（行为、操作）——函数：过程、动态的<br>属性——对象下面的变量：状态、静态的<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/11/24/JS面向对象基础篇/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/30/JS基础操作/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Adele">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Siker">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/06/30/JS基础操作/" itemprop="url">JS基础操作</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-30T11:45:24+08:00">
-                2016-06-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="javascript介绍"><a href="#javascript介绍" class="headerlink" title="javascript介绍"></a>javascript介绍</h2><p>JavaScript操作DOM的本质是=获取+触发+改变<br>目的：就是用来操作内存中的DOM节点</p>
-<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>变量本质是一个空盒子，里面记录了一个内存地址，使能找到内存中的对象，保存了指向具体的实在的东西的地址<br>变量存在栈中，对象存在堆中<br>变量的意义：方便我们去操作对象</p>
-<h2 id="window作用域"><a href="#window作用域" class="headerlink" title="window作用域"></a>window作用域</h2><p>只要在script标签中定义的变量，默认就在window的作用域之下<br>默认就是window这个对象里面写代码</p>
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>如何判断js中的数据类型：<br>typeof、instanceof、 constructor、 prototype方法比较<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/06/30/JS基础操作/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2007,7 +2067,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2018,7 +2078,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2029,7 +2089,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

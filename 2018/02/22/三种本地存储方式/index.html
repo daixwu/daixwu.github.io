@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Siker">
 <meta property="og:description" content="cookie作用cookie是纯文本，没有可执行代码。存储数据，当用户访问了某个网站（网页）的时候，我们就可以通过cookie来向访问者电脑上存储数据，或者某些网站为了辨别用户身份、进行session跟踪而储存在用户本地终端上的数据（通常经过加密） 如何工作当网页要发http请求时，浏览器会先检查是否有相应的cookie，有则自动添加在request header中的cookie字段中。这些是浏览">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-22T10:32:46.610Z">
+<meta property="og:updated_time" content="2018-02-22T15:33:25.315Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="三种本地存储方式">
 <meta name="twitter:description" content="cookie作用cookie是纯文本，没有可执行代码。存储数据，当用户访问了某个网站（网页）的时候，我们就可以通过cookie来向访问者电脑上存储数据，或者某些网站为了辨别用户身份、进行session跟踪而储存在用户本地终端上的数据（通常经过加密） 如何工作当网页要发http请求时，浏览器会先检查是否有相应的cookie，有则自动添加在request header中的cookie字段中。这些是浏览">
@@ -343,7 +343,7 @@
 
       
         <h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>cookie是纯文本，没有可执行代码。存储数据，当用户访问了某个网站（网页）的时候，我们就可以通过cookie来向访问者电脑上存储数据，或者某些网站为了辨别用户身份、进行session跟踪而储存在用户本地终端上的数据（通常经过加密）</p>
-<h3 id="如何工作"><a href="#如何工作" class="headerlink" title="如何工作"></a>如何工作</h3><p>当网页要发http请求时，浏览器会先检查是否有相应的cookie，有则自动添加在request header中的cookie字段中。这些是浏览器自动帮我们做的，而且<strong>每一次http请求浏览器都会自动帮我们做</strong>。这个特点很重要，因为这关系到“什么样的数据适合存储在cookie中”。</p>
+<h3 id="如何工作"><a href="#如何工作" class="headerlink" title="如何工作"></a>如何工作</h3><p>当网页要发http请求时，浏览器会先检查是否有相应的cookie，有则自动添加在request header中的cookie字段中。这些是浏览器自动帮我们做的，而且<strong>每一次http请求浏览器都会自动帮我们做</strong>。这个特点很重要，因为这关系到“什么样的数据适合存储在cookie中”。<br><a id="more"></a></p>
 <p>存储在cookie中的数据，每次都会被浏览器自动放在http请求中，如果这些数据并不是每个请求都需要发给服务端的数据，浏览器这设置自动处理无疑增加了网络开销；但如果这些数据是每个请求都需要发给服务端的数据（比如身份认证信息），浏览器这设置自动处理就大大免去了重复添加操作。所以对于那种设置“每次请求都要携带的信息（最典型的就是身份认证信息）”就特别适合放在cookie中，其他类型的数据就不适合了。</p>
 <h3 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h3><ol>
 <li>不同的浏览器存放的cookie位置不一样，也是不能通用的。</li>

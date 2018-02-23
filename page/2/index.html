@@ -252,6 +252,194 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/14/jQuery中的extend方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Adele">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Siker">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/14/jQuery中的extend方法/" itemprop="url">jQuery中的extend()方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-14T18:12:43+08:00">
+                2017-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">jQuery</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>通常我们使用jQuery的extend时，大都是为了实现默认字段的覆盖，即若传入某个字段的值，则使用传入值，否则使用默认值。如下面的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function getOpt(option)&#123;</div><div class="line">    var _default = &#123;</div><div class="line">        name : &apos;wenzi&apos;,</div><div class="line">        age : &apos;25&apos;,</div><div class="line">        sex : &apos;male&apos;</div><div class="line">    &#125;</div><div class="line">    $.extend(_default, option);</div><div class="line">    return _default;</div><div class="line">&#125;</div><div class="line">getOpt();  // &#123;name: &quot;wenzi&quot;, age: &quot;25&quot;, sex: &quot;male&quot;&#125;</div><div class="line">getOpt(&#123;name:&apos;bing&apos;&#125;); // &#123;name: &quot;bing&quot;, age: &quot;25&quot;, sex: &quot;male&quot;&#125;</div><div class="line">getOpt(&#123;name:&apos;bing&apos;, age:36, sex:&apos;female&apos;&#125;);  // &#123;name: &quot;bing&quot;, age: 36, sex: &quot;female&quot;&#125;</div></pre></td></tr></table></figure>
+<p>那现在我们就得需要知道这个extend具体是怎么实现的了，除了实现上面的功能，还有其他作用么？那肯定是有的啦，否则我也不会问那句话了（(⊙﹏⊙)b）。我们先来看看extend主要有哪些功能，然后再看实现这些功能的原理。</p>
+<h3 id="1-extend能实现的功能"><a href="#1-extend能实现的功能" class="headerlink" title="1. extend能实现的功能"></a>1. extend能实现的功能</h3><p>其实从extend的含义里，我们就能知道extend是做什么的了。extend翻译成汉语后就是：延伸、扩展、推广。</p>
+<p>####1.1 将两个或更多对象的内容合并到第一个对象</p>
+<p>我们来看看<code>$.extend()</code>提供的参数：<code>jQuery.extend( target [, object1 ] [, objectN ] )</code>，extend方法需要至少传入一个参数，第一个必需，后面的都是可选参数。若传给extend是两个或两个以上的参数都是对象类型，那么就会把后面所有对象的内容合并给target（第一个对象）上。</p>
+<p>我们再来看看上面的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function getOpt(option)&#123;</div><div class="line">    var _default = &#123;</div><div class="line">        name : &apos;wenzi&apos;,</div><div class="line">        age : &apos;25&apos;,</div><div class="line">        sex : &apos;male&apos;</div><div class="line">    &#125;</div><div class="line">    `$.extend(_default, option);`</div><div class="line">    return _default;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>$.extend()</code>中接收了两个参数_default和option，那么extend方法执行时，就会把option对象上字段的值全给了_default。于是_default上设置的默认值就会被option上的值覆盖。当然，若option上没有这个字段，就不会覆盖_default上字段的值。</p>
+<p>上面函数中的extend，只是传入了两个参数，那传的参数再更多一些呢：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">function getOpt(target, obj1, obj2, obj3)&#123;</div><div class="line">    $.extend(target, obj1, obj2, obj3);</div><div class="line">    return target;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var _default = &#123;</div><div class="line">    name : &apos;wenzi&apos;,</div><div class="line">    age : &apos;25&apos;,</div><div class="line">    sex : &apos;male&apos;</div><div class="line">&#125;</div><div class="line">var obj1 = &#123;</div><div class="line">    name : &apos;obj1&apos;</div><div class="line">&#125;</div><div class="line">var obj2 = &#123;</div><div class="line">    name : &apos;obj2&apos;,</div><div class="line">    age : &apos;36&apos;</div><div class="line">&#125;</div><div class="line">var obj3 = &#123;</div><div class="line">    age : &apos;67&apos;,</div><div class="line">    sex : &#123;&apos;error&apos;:&apos;sorry, I dont\&apos;t kown&apos;&#125;</div><div class="line">&#125;</div><div class="line">getOpt(_default, obj1, obj2, obj3);  // &#123;name: &quot;obj2&quot;, age: &quot;67&quot;, sex: &#123;error: &quot;sorry, I dont&apos;t kown&quot;&#125;&#125;</div></pre></td></tr></table></figure>
+<p>这里我们传入了4个参数，然后getOpt()返回第一个参数的值。从运行的得到结果我们可以看到，属性值永远是最后一个属性的值。</p>
+<p>还有很重要的一点，<code>$.extend()</code>其实是有返回值的，返回的就是修改后的第一个参数的值。如我们可以把上面的函数修改成这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function getOpt(target, obj1, obj2, obj3)&#123;</div><div class="line">    var result = $.extend(target, obj1, obj2, obj3); </div><div class="line">    return result; // // result即修改后的target值</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>若我们传入的参数不想被修改，我们可以用一个空对象来作为第一个参数，然后获取<code>$.extend()</code>的返回值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function getOpt(target, obj1, obj2, obj3)&#123;</div><div class="line">    var result = $.extend(&#123;&#125;, target, obj1, obj2, obj3); </div><div class="line">    return result; // // result即为&#123;&#125;修改后的值</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="1-2-为jQuery扩展方法或属性"><a href="#1-2-为jQuery扩展方法或属性" class="headerlink" title="1.2 为jQuery扩展方法或属性"></a>1.2 为jQuery扩展方法或属性</h4><p>刚才我们在1.1中讲的<code>$.extend()</code>的例子都是传了两个或两个以上的参数，但其实只有一个参数是必须的。若只传一个参数会怎样呢。</p>
+<p>如果只有一个参数提供给<code>$.extend()</code>，这意味着目标参数被省略。在这种情况下，jQuery对象本身被默认为目标对象。这样，我们可以在jQuery的命名空间下添加新的功能。这对于插件开发者希望向 jQuery 中添加新函数时是很有用的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$.extend(&#123;</div><div class="line">    _name : &apos;wenzi&apos;,</div><div class="line">    _getName : function()&#123;</div><div class="line">        return this._name;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">$._name; // wenzi</div><div class="line">$._getName(); // wenzi</div></pre></td></tr></table></figure>
+<p>这样我们就为jQuery扩展了_name属性和_getName方法。</p>
+<h4 id="1-3-深度拷贝和浅度拷贝"><a href="#1-3-深度拷贝和浅度拷贝" class="headerlink" title="1.3 深度拷贝和浅度拷贝"></a>1.3 深度拷贝和浅度拷贝</h4><p>针对什么是深度拷贝，什么是浅度拷贝，我们先来看一个简单的例子。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;name:&apos;wenzi&apos;, sex:&apos;male&apos;&#125;;</div><div class="line">var obj1 = obj; // 赋值</div><div class="line">obj1.name = &apos;bing&apos;;</div><div class="line">console.log(obj.name); // bing</div></pre></td></tr></table></figure>
+<p>我们修改了obj1中的name值，结果obj中的值也跟着发生了变化，这是为什么呢。其实这就是浅度拷贝：这仅仅是将obj对象的引用地址简单的复制了一份给予变量 obj1，而并不是将真正的对象克隆了一份，因此obj和obj1指向的都是同一个地址。当修改obj1的属性或给obj1添加新属性时，obj都会受到影响。</p>
+<p>可是如果变量的值不是对象和数组，修改后面的变量是不会影响到前面的变量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var s = &apos;hello&apos;;</div><div class="line">var t = s;</div><div class="line">t = &apos;world&apos;;</div><div class="line">console.log(s); // hello</div></pre></td></tr></table></figure>
+<p>那么深度拷贝就不是拷贝引用地址，而是实实在在的复制一份新对象给新的变量。 在上面使用<code>$.extend()</code>中，都是使用的浅度拷贝，因此若后面的参数值是object类型或array类型，修改<code>_default(target)</code>的值，就会影响后面参数的值。</p>
+<p>如我们使用<code>getOpt(_default, obj1, obj2, obj3)</code>;得到的_default值是<code>{name: “obj2”, age: “67”, sex: {error: “sorry, I dont’t kown”}}</code>，可是若：<br><code>_default.sex.error = &#39;hello world&#39;;</code><br>那么obj3.sex.error也会跟着修改，因为obj3.sex是一个object类型。</p>
+<p>不过<code>$.extend()</code>也提供了深度拷贝的方法：<code>jQuery.extend( [deep ], target, object1 [, objectN ] )</code>。若第一个参数是boolean类型，且值是true，那么就会把第二个参数作为目标参数进行合并。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;name:&apos;wenzi&apos;, score:80&#125;;</div><div class="line">var obj1 = &#123;score:&#123;english:80, math:90&#125;&#125;</div><div class="line">$.extend(true, obj, obj1);</div><div class="line">obj.score.english = 10;</div><div class="line">console.log(obj.score.english);   // 10</div><div class="line">console.log(obj1.score.english);  // 80</div></pre></td></tr></table></figure>
+<p>执行后我们发现，无论怎么修改obj.score里的值，都不会影响到obj1.score了。</p>
+<h3 id="2-jQuery中extend实现原理"><a href="#2-jQuery中extend实现原理" class="headerlink" title="2. jQuery中extend实现原理"></a>2. jQuery中extend实现原理</h3><p>其实不看源码，对extend大致的过程应该也是了解的：对后一个参数进行循环，然后把后面参数上所有的字段都给了第一个字段，若第一个参数里有相同的字段，则进行覆盖操作，否则就添加一个新的字段。</p>
+<p>下面是jQuery中关于extend的源码，我就在源码上进行注释讲解了，随后再在后面进行总结：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div></pre></td><td class="code"><pre><div class="line">// 为与源码的下标对应上，我们把第一个参数称为`第0个参数`，依次类推</div><div class="line">jQuery.extend = jQuery.fn.extend = function() &#123;</div><div class="line">    var options, name, src, copy, copyIsArray, clone,</div><div class="line">        target = arguments[0] || &#123;&#125;, // 默认第0个参数为目标参数</div><div class="line">        i = 1,    // i表示从第几个参数凯斯想目标参数进行合并，默认从第1个参数开始向第0个参数进行合并</div><div class="line">        length = arguments.length,</div><div class="line">        deep = false;  // 默认为浅度拷贝</div><div class="line"></div><div class="line">    // 判断第0个参数的类型，若第0个参数是boolean类型，则获取其为true还是false</div><div class="line">    // 同时将第1个参数作为目标参数，i从当前目标参数的下一个</div><div class="line">    // Handle a deep copy situation</div><div class="line">    if ( typeof target === &quot;boolean&quot; ) &#123;</div><div class="line">        deep = target;</div><div class="line"></div><div class="line">        // Skip the boolean and the target</div><div class="line">        target = arguments[ i ] || &#123;&#125;;</div><div class="line">        i++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //     判断目标参数的类型，若目标参数既不是object类型，也不是function类型，则为目标参数重新赋值 </div><div class="line">    // Handle case when target is a string or something (possible in deep copy)</div><div class="line">    if ( typeof target !== &quot;object&quot; &amp;&amp; !jQuery.isFunction(target) ) &#123;</div><div class="line">        target = &#123;&#125;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // 若目标参数后面没有参数了，如$.extend(&#123;_name:&apos;wenzi&apos;&#125;), $.extend(true, &#123;_name:&apos;wenzi&apos;&#125;)</div><div class="line">    // 则目标参数即为jQuery本身，而target表示的参数不再为目标参数</div><div class="line">    // Extend jQuery itself if only one argument is passed</div><div class="line">    if ( i === length ) &#123;</div><div class="line">        target = this;</div><div class="line">        i--;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // 从第i个参数开始</div><div class="line">    for ( ; i &lt; length; i++ ) &#123;</div><div class="line">        // 获取第i个参数，且该参数不为null和undefind，在js中null和undefined，如果不区分类型，是相等的，null==undefined为true，</div><div class="line">        // 因此可以用null来同时过滤掉null和undefind</div><div class="line">        // 比如$.extend(target, &#123;&#125;, null);中的第2个参数null是不参与合并的</div><div class="line">        // Only deal with non-null/undefined values</div><div class="line">        if ( (options = arguments[ i ]) != null ) &#123;</div><div class="line">            </div><div class="line">            // 使用for~in获取该参数中所有的字段</div><div class="line">            // Extend the base object</div><div class="line">            for ( name in options ) &#123;</div><div class="line">                src = target[ name ];   // 目标参数中name字段的值</div><div class="line">                copy = options[ name ]; // 当前参数中name字段的值</div><div class="line"></div><div class="line">                // 若参数中字段的值就是目标参数，停止赋值，进行下一个字段的赋值</div><div class="line">                // 这是为了防止无限的循环嵌套，我们把这个称为，在下面进行比较详细的讲解</div><div class="line">                // Prevent never-ending loop</div><div class="line">                if ( target === copy ) &#123;</div><div class="line">                    continue;</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                // 若deep为true，且当前参数中name字段的值存在且为object类型或Array类型，则进行深度赋值</div><div class="line">                // Recurse if we&apos;re merging plain objects or arrays</div><div class="line">                if ( deep &amp;&amp; copy &amp;&amp; ( jQuery.isPlainObject(copy) || (copyIsArray = jQuery.isArray(copy)) ) ) &#123;</div><div class="line">                    // 若当前参数中name字段的值为Array类型</div><div class="line">                    // 判断目标参数中name字段的值是否存在，若存在则使用原来的，否则进行初始化</div><div class="line">                    if ( copyIsArray ) &#123;</div><div class="line">                        copyIsArray = false;</div><div class="line">                        clone = src &amp;&amp; jQuery.isArray(src) ? src : [];</div><div class="line"></div><div class="line">                    &#125; else &#123;</div><div class="line">                        // 若原对象存在，则直接进行使用，而不是创建</div><div class="line">                        clone = src &amp;&amp; jQuery.isPlainObject(src) ? src : &#123;&#125;;</div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    // 递归处理，此处为2.2</div><div class="line">                    // Never move original objects, clone them                        </div><div class="line">                    target[ name ] = jQuery.extend( deep, clone, copy );</div><div class="line"></div><div class="line">                // deep为false，则表示浅度拷贝，直接进行赋值</div><div class="line">                // 若copy是简单的类型且存在值，则直接进行赋值</div><div class="line">                // Don&apos;t bring in undefined values</div><div class="line">                &#125; else if ( copy !== undefined ) &#123;</div><div class="line">                    // 若原对象存在name属性，则直接覆盖掉；若不存在，则创建新的属性</div><div class="line">                    target[ name ] = copy;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // 返回修改后的目标参数</div><div class="line">    // Return the modified object</div><div class="line">    return target;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>源码分析完了，下面我们来讲解下源码中存在的几个难点和重点。</p>
+<h4 id="2-1-若参数中字段的值就是目标参数，停止赋值"><a href="#2-1-若参数中字段的值就是目标参数，停止赋值" class="headerlink" title="2.1 若参数中字段的值就是目标参数，停止赋值"></a>2.1 若参数中字段的值就是目标参数，停止赋值</h4><p>在源码中进行了一下这样的判断：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// Prevent never-ending loop</div><div class="line">if ( target === copy ) &#123;</div><div class="line">	continue;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>为什么要有这样的判断，我们来看一个简单的例子，如果没有这个判断会怎么样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var _default = &#123;name : &apos;wenzi&apos;&#125;;</div><div class="line">var obj = &#123;name : _default&#125;</div><div class="line">$.extend(_default, obj);</div><div class="line">console.log(_default);</div></pre></td></tr></table></figure>
+<p>输出的_default是什么呢：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">_default = &#123;name : _default&#125;;</div></pre></td></tr></table></figure>
+<p>_default是object类型，里面有个字段name，值是_default，而_default是object类型，里面有个字段name，值是_default……，无限的循环下去。于是jQuery中直接不进行操作，跳过这个字段，进行下一个字段的操作。</p>
+<h4 id="2-2-深度拷贝时进行递归处理"><a href="#2-2-深度拷贝时进行递归处理" class="headerlink" title="2.2 深度拷贝时进行递归处理"></a>2.2 深度拷贝时进行递归处理</h4><p>我们在前面稍微的讲解了一下，变量值为简单类型（如number, string, boolean）进行赋值时是不会影响上一个变量的值的，因此，如果当前字段的值为Object或Array类型，需要对其进行拆分，直到字段的值为简单类型（如number, string, boolean）时才进行赋值操作</p>
+<h4 id="3-extend-与-fn-extend"><a href="#3-extend-与-fn-extend" class="headerlink" title="3. $.extend()与$.fn.extend()"></a>3. <code>$.extend()</code>与<code>$.fn.extend()</code></h4><p>上面讲解的全都是<code>$.extend()</code>，根本就没讲<code>$.fn.extend()</code>。可是，你有没有发现一个细节，在这段代码的第一行是怎么写的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jQuery.extend = jQuery.fn.extend = function()&#123;&#125;</div></pre></td></tr></table></figure>
+<p>也就是说<code>$.extend()</code>与<code>$.fn.extend()</code>共用的是同一个函数体，所有的操作都是一样的，只不过两个extend使用的对象不同罢了：<code>$.extend()</code>是在jQuery上进行操作的；而<code>$.fn.extend()</code>是在jQuery对象上进行操作的，如<code>$(‘div’).extend()</code>.</p>
+<h3 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h3><p>这就是jQuery中extend的实现，以后若我们需要用到上面的功能时，除了使用<code>$.extend()</code>，我们也可以在不引入jQuery框架的情况下，自己写一个简单的<code>extend()</code>来实现上面的功能。</p>
+<p>原文链接：<a href="https://www.cnblogs.com/MnCu8261/p/6039986.html" target="_blank" rel="external">https://www.cnblogs.com/MnCu8261/p/6039986.html</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/14/js数组对象排序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1815,153 +2003,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/29/JS面向对象高级篇/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Adele">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Siker">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/11/29/JS面向对象高级篇/" itemprop="url">JS面向对象高级篇</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-29T13:04:33+08:00">
-                2016-11-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="包装对象"><a href="#包装对象" class="headerlink" title="包装对象"></a>包装对象</h2><p>JS基于原型的程序<br>基本类型都有自己的包装对象：<br>String Number Boolean</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var str = &apos;hello&apos;;</div><div class="line">str.charAt(0);  //基本类型会找到对应的包装对象类型，然后包装对象把所有的属性和方法给了基本类型，然后包装对象消失</div><div class="line">console.log(str.charAt(0)) //h</div><div class="line"></div><div class="line">var str = &apos;hello&apos;;</div><div class="line">str.number = 10;</div><div class="line">console.log(str.number) //undefined</div><div class="line"></div><div class="line">var str = &apos;hello&apos;;</div><div class="line">String.prototype.number = 10;</div><div class="line">console.log(str.number) //10</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/11/29/JS面向对象高级篇/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2016,7 +2057,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2027,7 +2068,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2038,7 +2079,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

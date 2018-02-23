@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Siker">
 <meta property="og:description" content="cookie作用cookie是纯文本，没有可执行代码。存储数据，当用户访问了某个网站（网页）的时候，我们就可以通过cookie来向访问者电脑上存储数据，或者某些网站为了辨别用户身份、进行session跟踪而储存在用户本地终端上的数据（通常经过加密） 如何工作当网页要发http请求时，浏览器会先检查是否有相应的cookie，有则自动添加在request header中的cookie字段中。这些是浏览">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-22T15:33:25.315Z">
+<meta property="og:updated_time" content="2018-02-23T04:39:48.686Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="三种本地存储方式">
 <meta name="twitter:description" content="cookie作用cookie是纯文本，没有可执行代码。存储数据，当用户访问了某个网站（网页）的时候，我们就可以通过cookie来向访问者电脑上存储数据，或者某些网站为了辨别用户身份、进行session跟踪而储存在用户本地终端上的数据（通常经过加密） 如何工作当网页要发http请求时，浏览器会先检查是否有相应的cookie，有则自动添加在request header中的cookie字段中。这些是浏览">
@@ -371,83 +371,212 @@
 <blockquote>
 <p>注意：如果只设置一个值，那么算cookie中的value; 设置的两个cookie,key值如果设置的相同，下面的也会把上面的覆盖。</p>
 </blockquote>
-<p><strong> cookie的属性（可选项）</strong><br>过期时间<br>如果我们想长时间存放一个cookie。需要在设置这个cookie的时候同时给他设置一个过期的时间。如果不设置，cookie默认是临时存储的，当浏览器关闭进程的时候自动销毁</p>
+<h3 id="cookie的属性（可选项）"><a href="#cookie的属性（可选项）" class="headerlink" title="cookie的属性（可选项）"></a>cookie的属性（可选项）</h3><p><strong>过期时间</strong></p>
+<p>如果我们想长时间存放一个cookie。需要在设置这个cookie的时候同时给他设置一个过期的时间。如果不设置，cookie默认是临时存储的，当浏览器关闭进程的时候自动销毁</p>
+<blockquote>
 <p>注意：document.cookie = ‘名称=值;expires=’ + GMT(格林威治时间)格式的日期型字符串;<br>一般设置天数：new Date().setDate( oDate.getDate() + 5 ); 比当前时间多5天</p>
+</blockquote>
 <p>一个设置cookie时效性的例子</p>
-<p>function setCookie(c_name, value, expiredays){<br>    var exdate=new Date();<br>    exdate.setDate(exdate.getDate() + expiredays);<br>    document.cookie=c_name+ “=” + escape(value) + ((expiredays==null) ? “” : “;expires=”+exdate.toGMTString())<br>}<br>使用方法：setCookie(‘username’,’cfangxu’,30)<br>expires 是 http/1.0协议中的选项，在新的http/1.1协议中expires已经由 max-age 选项代替，两者的作用都是限制cookie 的有效时间。expires的值是一个时间点（cookie失效时刻= expires），而max-age 的值是一个以秒为单位时间段（cookie失效时刻= 创建时刻+ max-age）。<br>另外，max-age 的默认值是 -1(即有效期为 session )；max-age有三种可能值：负数、0、正数。<br>负数：有效期session；<br>0：删除cookie；<br>正数：有效期为创建时刻+ max-age</p>
-<p>cookie的域概念（domain选项）<br>domain指定了 cookie 将要被发送至哪个或哪些域中。默认情况下，domain 会被设置为创建该 cookie 的页面所在的域名，所以当给相同域名发送请求时该 cookie 会被发送至服务器。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function setCookie(c_name, value, expiredays)&#123;</div><div class="line">    var exdate=new Date();</div><div class="line">    exdate.setDate(exdate.getDate() + expiredays);</div><div class="line">    document.cookie=c_name+ &quot;=&quot; + escape(value) + ((expiredays==null) ? &quot;&quot; : &quot;;expires=&quot;+exdate.toUTCString())</div><div class="line">&#125;</div><div class="line"></div><div class="line">使用方法：setCookie(&apos;username&apos;,&apos;adele&apos;,30)</div></pre></td></tr></table></figure>
+<p>expires 是 http/1.0协议中的选项，在新的http/1.1协议中expires已经由 max-age 选项代替，两者的作用都是限制 cookie 的有效时间。expires的值是一个时间点（cookie失效时刻= expires），而max-age 的值是一个以秒为单位时间段（cookie失效时刻= 创建时刻+ max-age）。<br>另外，max-age 的默认值是 -1(即有效期为 session )；max-age有三种可能值：负数、0、正数。</p>
+<ul>
+<li>负数：有效期session；</li>
+<li>0：删除cookie；</li>
+<li>正数：有效期为创建时刻+ max-age</li>
+</ul>
+<p><strong>cookie的域概念（domain选项）</strong></p>
+<p>domain指定了 cookie 将要被发送至哪个或哪些域中。默认情况下，domain 会被设置为创建该 cookie 的页面所在的域名，所以当给相同域名发送请求时该 cookie 会被发送至服务器。</p>
 <p>浏览器会把 domain 的值与请求的域名做一个尾部比较（即从字符串的尾部开始比较），并将匹配的 cookie 发送至服务器。</p>
-<p>客户端设置<br>document.cookie = “username=cfangxu;path=/;domain=qq.com”<br>如上：“www.qq.com” 与 “sports.qq.com” 公用一个关联的域名”qq.com”，我们如果想让 “sports.qq.com” 下的cookie被 “www.qq.com” 访问，我们就需要用到 cookie 的domain属性，并且需要把path属性设置为 “/“。</p>
-<p>服务端设置<br>Set-Cookie: username=cfangxu;path=/;domain=qq.com<br>注：一定的是同域之间的访问，不能把domain的值设置成非主域的域名。</p>
-<p>cookie的路径概念（path选项）<br>cookie 一般都是由于用户访问页面而被创建的，可是并不是只有在创建 cookie 的页面才可以访问这个 cookie。<br>因为安全方面的考虑,默认情况下，只有与创建 cookie 的页面在同一个目录或子目录下的网页才可以访问。<br>即path属性可以为服务器特定文档指定cookie，这个属性设置的url且带有这个前缀的url路径都是有效的。</p>
-<p>客户端设置<br>最常用的例子就是让 cookie 在根目录下,这样不管是哪个子页面创建的 cookie，所有的页面都可以访问到了。</p>
-<p>document.cookie = “username=cfangxu; path=/“</p>
-<p>服务端设置<br>Set-Cookie:name=cfangxu; path=/blog</p>
+<p><strong>客户端设置</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.cookie = &quot;username=adele;path=/;domain=qq.com&quot;</div></pre></td></tr></table></figure>
+<p>如上：“www.qq.com” 与 “sports.qq.com” 公用一个关联的域名”qq.com”，我们如果想让 “sports.qq.com” 下的cookie被 “www.qq.com” 访问，我们就需要用到 cookie 的domain属性，并且需要把path属性设置为 “/“。</p>
+<p><strong>服务端设置</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Set-Cookie: username=cfangxu;path=/;domain=qq.com</div></pre></td></tr></table></figure>
+<p>注：一定的是同域之间的访问，不能把domain的值设置成非主域的域名。</p>
+<p><strong>cookie的路径概念（path选项）</strong></p>
+<p>cookie 一般都是由于用户访问页面而被创建的，可是并不是只有在创建 cookie 的页面才可以访问这个 cookie。<br>因为安全方面的考虑,默认情况下，只有与创建 cookie 的页面在同一个目录或子目录下的网页才可以访问。<br>即path属性可以为服务器特定文档指定cookie，这个属性设置的url且带有这个前缀的url路径都是有效的。</p>
+<p><strong>客户端设置</strong><br>最常用的例子就是让 cookie 在根目录下,这样不管是哪个子页面创建的 cookie，所有的页面都可以访问到了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.cookie = &quot;username=adele; path=/&quot;</div></pre></td></tr></table></figure>
+<p><strong>服务端设置</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Set-Cookie:name=cfangxu; path=/blog</div></pre></td></tr></table></figure>
 <p>如上设置：path 选项值会与 /blog，/blogrool 等等相匹配；任何以 /blog 开头的选项都是合法的。需要注意的是，只有在 domain 选项核实完毕之后才会对 path 属性进行比较。path 属性的默认值是发送 Set-Cookie 消息头所对应的 URL 中的 path 部分。</p>
-<p>domain和path总结：<br>domain是域名，path是路径，两者加起来就构成了 URL，domain和path一起来限制 cookie 能被哪些 URL 访问。<br>所以domain和path2个选项共同决定了cookie何时被浏览器自动添加到请求头部中发送出去。如果没有设置这两个选项，则会使用默认值。domain的默认值为设置该cookie的网页所在的域名，path默认值为设置该cookie的网页所在的目录。</p>
-<p>cookie的安全性（secure选项）<br>通常 cookie 信息都是使用HTTP连接传递数据，这种传递方式很容易被查看，所以 cookie 存储的信息容易被窃取。假如 cookie 中所传递的内容比较重要，那么就要求使用加密的数据传输。</p>
+<p><strong>domain和path总结：</strong></p>
+<p>domain 是域名，path 是路径，两者加起来就构成了 URL，domain和path一起来限制 cookie 能被哪些 URL 访问。<br>所以 domain 和 path 2个选项共同决定了 cookie 何时被浏览器自动添加到请求头部中发送出去。如果没有设置这两个选项，则会使用默认值。domain 的默认值为设置该 cookie 的网页所在的域名，path 默认值为设置该 cookie 的网页所在的目录。</p>
+<p><strong>cookie的安全性（secure选项）</strong></p>
+<p>通常 cookie 信息都是使用HTTP连接传递数据，这种传递方式很容易被查看，所以 cookie 存储的信息容易被窃取。假如 cookie 中所传递的内容比较重要，那么就要求使用加密的数据传输。</p>
 <p>secure选项用来设置cookie只在确保安全的请求中才会发送。当请求是HTTPS或者其他安全协议时，包含 secure 选项的 cookie 才能被发送至服务器。</p>
-<p>document.cookie = “username=cfangxu; secure”</p>
-<p>把cookie设置为secure，只保证 cookie 与服务器之间的数据传输过程加密，而保存在本地的 cookie文件并不加密。就算设置了secure 属性也并不代表他人不能看到你机器本地保存的 cookie 信息。机密且敏感的信息绝不应该在 cookie 中存储或传输，因为 cookie 的整个机制原本都是不安全的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.cookie = &quot;username=adele; secure&quot;</div></pre></td></tr></table></figure>
+<p>把cookie设置为secure，只保证 cookie 与服务器之间的数据传输过程加密，而保存在本地的 cookie文件并不加密。就算设置了secure 属性也并不代表他人不能看到你机器本地保存的 cookie 信息。<strong>机密且敏感的信息绝不应该在 cookie 中存储或传输</strong>，因为 cookie 的整个机制原本都是不安全的</p>
+<blockquote>
 <p>注意：如果想在客户端即网页中通过 js 去设置secure类型的 cookie，必须保证网页是https协议的。在http协议的网页中是无法设置secure类型cookie的。</p>
-<p>httpOnly<br>这个选项用来设置cookie是否能通过 js 去访问。默认情况下，cookie不会带httpOnly选项(即为空)，所以默认情况下，客户端是可以通过js代码去访问（包括读取、修改、删除等）这个cookie的。当cookie带httpOnly选项时，客户端则无法通过js代码去访问（包括读取、修改、删除等）这个cookie。</p>
+</blockquote>
+<p><strong>httpOnly</strong></p>
+<p>这个选项用来设置cookie是否能通过 js 去访问。默认情况下，cookie不会带httpOnly选项(即为空)，所以默认情况下，客户端是可以通过js代码去访问（包括读取、修改、删除等）这个cookie的。当cookie带httpOnly选项时，客户端则无法通过js代码去访问（包括读取、修改、删除等）这个cookie。</p>
 <p>在客户端是不能通过js代码去设置一个httpOnly类型的cookie的，这种类型的cookie只能通过服务端来设置。</p>
-<p>cookie的编码<br>cookie其实是个字符串，但这个字符串中等号、分号、空格被当做了特殊符号。所以当cookie的 key 和 value 中含有这3个特殊字符时，需要对其进行额外编码，一般会用escape进行编码，读取时用unescape进行解码；当然也可以用encodeURIComponent/decodeURIComponent或者encodeURI/decodeURI，查看关于编码的介绍</p>
-<p>第三方cookie<br>通常cookie的域和浏览器地址的域匹配，这被称为第一方cookie。那么第三方cookie就是cookie的域和地址栏中的域不匹配，这种cookie通常被用在第三方广告网站。为了跟踪用户的浏览记录，并且根据收集的用户的浏览习惯，给用户推送相关的广告。<br>关于第三方cookie和cookie的安全问题可以查看<a href="https://mp.weixin.qq.com/s/oOGIuJCplPVW3BuIx9tNQg" target="_blank" rel="external">https://mp.weixin.qq.com/s/oOGIuJCplPVW3BuIx9tNQg</a></p>
-<p>cookie推荐资源</p>
-<p>聊一聊 cookie<br>HTTP cookies 详解<br>localStorage（本地存储）<br>HTML5新方法，不过IE8及以上浏览器都兼容。</p>
-<p>特点<br>生命周期：持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。<br>存储的信息在同一域中是共享的。<br>当本页操作（新增、修改、删除）了localStorage的时候，本页面不会触发storage事件,但是别的页面会触发storage事件。<br>大小：据说是5M（跟浏览器厂商有关系）<br>在非IE下的浏览中可以本地打开。IE浏览器要在服务器中打开。<br>localStorage本质上是对字符串的读取，如果存储内容多的话会消耗内存空间，会导致页面变卡<br>localStorage受同源策略的限制<br>设置<br>localStorage.setItem(‘username’,’cfangxu’);</p>
-<p>获取<br>localStorage.getItem(‘username’)<br>也可以获取键名<br>localStorage.key(0) #获取第一个键名</p>
-<p>删除<br>localStorage.removeItem(‘username’)<br>也可以一次性清除所有存储<br>localStorage.clear()</p>
-<p>storage事件<br>当storage发生改变的时候触发。<br>注意： 当前页面对storage的操作会触发其他页面的storage事件<br>事件的回调函数中有一个参数event,是一个StorageEvent对象，提供了一些实用的属性,如下表：</p>
-<p>Property    Type    Description<br>key    String    The named key that was added, removed, or moddified<br>oldValue    Any    The previous value(now overwritten), or null if a new item was added<br>newValue    Any    The new value, or null if an item was added<br>url/uri    String    The page that called the method that triggered this change<br>sessionStorage<br>其实跟localStorage差不多，也是本地存储，会话本地存储</p>
-<p>特点：<br>用于本地存储一个会话（session）中的数据，这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储。也就是说只要这个浏览器窗口没有关闭，即使刷新页面或进入同源另一页面，数据仍然存在。关闭窗口后，sessionStorage即被销毁，或者在新窗口打开同源的另一个页面，sessionStorage也是没有的。<br>cookie、localStorage、sessionStorage区别<br>相同：在本地（浏览器端）存储数据</p>
-<p>不同：</p>
-<p>localStorage、sessionStorage</p>
-<p>localStorage只要在相同的协议、相同的主机名、相同的端口下，就能读取/修改到同一份localStorage数据。</p>
-<p>sessionStorage比localStorage更严苛一点，除了协议、主机名、端口外，还要求在同一窗口（也就是浏览器的标签页）下。</p>
-<p>localStorage是永久存储，除非手动删除。</p>
-<p>sessionStorage当会话结束（当前页面关闭的时候，自动销毁）</p>
-<p>cookie的数据会在每一次发送http请求的时候，同时发送给服务器而localStorage、sessionStorage不会。</p>
-<p>扩展其他的前端存储方式（不常用）<br>web SQL database<br>先说个会被取代的，为什么会被取代，主要有以下几个原因：</p>
-<p>W3C舍弃 Web SQL database草案,而且是在2010年年底，规范不支持了，浏览器厂商已经支持的就支持了，没有支持的也不打算支持了，比如IE和Firefox。<br>为什么要舍弃？因为 Web SQL database 本质上是一个关系型数据库，后端可能熟悉，但是前端就有很多不熟悉了，虽然SQL的简单操作不难，但是也得需要学习。<br>SQL熟悉后，真实操作中还得把你要存储的东西，比如对象，转成SQL语句，也挺麻烦的。<br>indexedDB<br>来自MDN的解释： indexedDB 是一种低级API，用于客户端存储大量结构化数据(包括, 文件/ blobs)。该API使用索引来实现对该数据的高性能搜索。虽然 Web Storage 对于存储较少量的数据很有用，但对于存储更大量的结构化数据来说，这种方法不太有用。IndexedDB提供了一个解决方案。</p>
+<p><strong>cookie的编码</strong></p>
+<p>cookie其实是个字符串，但这个字符串中等号、分号、空格被当做了特殊符号。所以当cookie的 key 和 value 中含有这3个特殊字符时，需要对其进行额外编码，一般会用escape进行编码，读取时用unescape进行解码；当然也可以用encodeURIComponent/decodeURIComponent或者encodeURI/decodeURI，查看关于编码的介绍</p>
+<p><strong>第三方cookie</strong><br>通常cookie的域和浏览器地址的域匹配，这被称为第一方cookie。那么第三方cookie就是cookie的域和地址栏中的域不匹配，这种cookie通常被用在第三方广告网站。为了跟踪用户的浏览记录，并且根据收集的用户的浏览习惯，给用户推送相关的广告。<br>关于第三方cookie和cookie的安全问题可以查看<a href="https://mp.weixin.qq.com/s/oOGIuJCplPVW3BuIx9tNQg" target="_blank" rel="external">https://mp.weixin.qq.com/s/oOGIuJCplPVW3BuIx9tNQg</a></p>
+<p><strong>cookie推荐资源</strong></p>
+<ul>
+<li><a href="http://blog.csdn.net/canglingyue/article/details/52386196" target="_blank" rel="external">原生js和jquery两种处理cookie的插件介绍</a></li>
+<li><a href="http://bubkoo.com/2014/04/21/http-cookies-explained/" target="_blank" rel="external">HTTP cookies 详解</a></li>
+</ul>
+<h2 id="localStorage（本地存储）"><a href="#localStorage（本地存储）" class="headerlink" title="localStorage（本地存储）"></a>localStorage（本地存储）</h2><p>HTML5新方法，不过IE8及以上浏览器都兼容。</p>
+<p><strong>特点</strong></p>
+<ul>
+<li>生命周期：持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。</li>
+<li>存储的信息在同一域中是共享的。</li>
+<li>当本页操作（新增、修改、删除）了localStorage的时候，本页面不会触发storage事件,但是别的页面会触发storage事件。</li>
+<li>大小：据说是5M（跟浏览器厂商有关系）</li>
+<li>在非IE下的浏览中可以本地打开。IE浏览器要在服务器中打开。</li>
+<li>localStorage本质上是对字符串的读取，如果存储内容多的话会消耗内存空间，会导致页面变卡</li>
+<li>localStorage受同源策略的限制</li>
+</ul>
+<p><strong>设置</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">localStorage.setItem(&apos;username&apos;,&apos;adele&apos;);</div></pre></td></tr></table></figure>
+<p><strong>获取</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">localStorage.getItem(&apos;username&apos;)</div></pre></td></tr></table></figure>
+<p>也可以获取键名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">localStorage.key(0) #获取第一个键名</div></pre></td></tr></table></figure>
+<p><strong>删除</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">localStorage.removeItem(&apos;username&apos;)</div></pre></td></tr></table></figure>
+<p>也可以一次性清除所有存储</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">localStorage.clear()</div></pre></td></tr></table></figure>
+<h3 id="storage事件"><a href="#storage事件" class="headerlink" title="storage事件"></a>storage事件</h3><p>当storage发生改变的时候触发。</p>
+<blockquote>
+<p>注意： 当前页面对storage的操作会触发其他页面的storage事件</p>
+</blockquote>
+<p>事件的回调函数中有一个参数event,是一个StorageEvent对象，提供了一些实用的属性,如下表：</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> key</td>
+<td>String</td>
+<td>The named key that was added, removed, or moddified</td>
+</tr>
+<tr>
+<td> oldValue</td>
+<td>Any</td>
+<td>The previous value(now overwritten), or null if a new item was added</td>
+</tr>
+<tr>
+<td> newValue</td>
+<td>Any</td>
+<td>The new value, or null if an item was added</td>
+</tr>
+<tr>
+<td> url/uri</td>
+<td>String</td>
+<td>The page that called the method that triggered this change</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sessionStorage"><a href="#sessionStorage" class="headerlink" title="sessionStorage"></a>sessionStorage</h2><p>其实跟localStorage差不多，也是本地存储，会话本地存储</p>
+<p><strong>特点：</strong><br>用于本地存储一个会话（session）中的数据，这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此 sessionStorage 不是一种持久化的本地存储，仅仅是会话级别的存储。也就是说只要这个浏览器窗口没有关闭，即使刷新页面或进入同源另一页面，数据仍然存在。关闭窗口后，sessionStorage 即被销毁，或者在新窗口打开同源的另一个页面，sessionStorage 也是没有的。</p>
+<h2 id="cookie、localStorage、sessionStorage区别"><a href="#cookie、localStorage、sessionStorage区别" class="headerlink" title="cookie、localStorage、sessionStorage区别"></a>cookie、localStorage、sessionStorage区别</h2><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>Cookie</th>
+<th>localStorage</th>
+<th>sessionStorage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 数据的生命期</td>
+<td>一般由服务器生成，可设置失效时间。如果在浏览器端生成Cookie，默认是关闭浏览器后失效</td>
+<td>持久化数据，浏览器关闭后数据不会丢失，除非主动删除</td>
+<td>数据在当前浏览器关闭后被清除</td>
+</tr>
+<tr>
+<td> 存放数据大小</td>
+<td>4K左右</td>
+<td>一般为5MB</td>
+<td>-</td>
+</tr>
+<tr>
+<td> 与服务器端通信</td>
+<td>每次都会携带在HTTP头中，如果使用cookie保存过多数据会带来性能问题</td>
+<td>仅在客户端（即浏览器）中保存，不参与和服务器的通信</td>
+<td>-</td>
+</tr>
+<tr>
+<td> 易用性</td>
+<td>需要程序员自己封装，源生的Cookie接口不友好</td>
+<td>源生接口可以接受，亦可再次封装来对Object和Array有更好的支持</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>localStorage只要在相同的协议、相同的主机名、相同的端口下，就能读取/修改到同一份 localStorage 数据。<br>sessionStorage比localStorage更严苛一点，除了协议、主机名、端口外，还要求在同一窗口（也就是浏览器的标签页）下。</p>
+</blockquote>
+<p><strong>应用场景</strong></p>
+<p>有了对上面这些差别的直观理解，我们就可以讨论三者的应用场景了。</p>
+<ul>
+<li><p>因为考虑到每个 HTTP 请求都会带着 Cookie 的信息，所以 Cookie 当然是能精简就精简啦，比较常用的一个应用场景就是判断用户是否登录。针对登录过的用户，服务器端会在他登录时往 Cookie 中插入一段加密过的唯一辨识单一用户的辨识码，下次只要读取这个值就可以判断当前用户是否登录啦。曾经还使用 Cookie 来保存用户在电商网站的购物车信息，如今有了 localStorage，似乎在这个方面也可以给 Cookie 放个假了~</p>
+</li>
+<li><p>另一方面，localStorage接替了 Cookie 管理购物车的工作，同时也能胜任其他一些工作。比如HTML5游戏通常会产生一些本地数据，localStorage 也是非常适用的。</p>
+</li>
+<li><p>如果遇到一些内容特别多的表单，为了优化用户体验，我们可能要把表单页面拆分成多个子页面，然后按步骤引导用户填写。这时候sessionStorage 的作用就发挥出来了（关闭浏览器就失效）。</p>
+</li>
+</ul>
+<h2 id="扩展其他的前端存储方式（不常用）"><a href="#扩展其他的前端存储方式（不常用）" class="headerlink" title="扩展其他的前端存储方式（不常用）"></a>扩展其他的前端存储方式（不常用）</h2><p><strong>web SQL database</strong><br>先说个会被取代的，为什么会被取代，主要有以下几个原因：</p>
+<p>W3C舍弃 Web SQL database草案,而且是在2010年年底，规范不支持了，浏览器厂商已经支持的就支持了，没有支持的也不打算支持了，比如IE和Firefox。<br>为什么要舍弃？因为 Web SQL database 本质上是一个关系型数据库，后端可能熟悉，但是前端就有很多不熟悉了，虽然SQL的简单操作不难，但是也得需要学习。<br>SQL熟悉后，真实操作中还得把你要存储的东西，比如对象，转成SQL语句，也挺麻烦的。</p>
+<p><strong>indexedDB</strong></p>
+<blockquote>
+<p>来自MDN的解释： indexedDB 是一种低级API，用于客户端存储大量结构化数据(包括, 文件/ blobs)。该API使用索引来实现对该数据的高性能搜索。虽然 Web Storage 对于存储较少量的数据很有用，但对于存储更大量的结构化数据来说，这种方法不太有用。IndexedDB提供了一个解决方案。</p>
+</blockquote>
 <p>所以，IndexedDB API是强大的，但对于简单的情况可能看起来太复杂了，所以要看你的业务场景来选择到底是用还是不用。</p>
 <p>indexedDB 是一个基于JavaScript的面向对象的数据库。 IndexedDB允许你存储和检索用键索引的对象;</p>
 <p>IndexedDB 鼓励使用的基本模式如下所示：</p>
-<p>打开数据库并且开始一个事务。<br>创建一个 object store。<br>构建一个请求来执行一些数据库操作，像增加或提取数据等。<br>通过监听正确类型的 DOM 事件以等待操作完成。<br>在操作结果上进行一些操作（可以在 request 对象中找到）<br>1、首先打开indexedDB数据库<br>语法：<br>window.indexedDB.open(dbName, version)</p>
-<p>var db;<br>// 打开数据库,open还有第二个参数版本号<br>var request = window.indexedDB.open(‘myTestDatabase’);<br>// 数据库打开成功后<br>request.onsuccess = function (event) {<br>    // 存储数据结果,后面所有的数据库操作都离不开它。<br>    db = request.result;<br>}<br>request.onerror = function (event) {<br>    alert(“Why didn’t you allow my web app to use IndexedDB?!”);<br>}</p>
-<p>// 数据库首次创建版本，或者window.indexedDB.open传递的新版本（版本数值要比现在的高）<br>request.onupgradeneeded = function (event) {</p>
-<p>}<br>onupgradeneeded事件： 更新数据库的 schema，也就是创建或者删除对象存储空间，这个事件将会作为一个允许你处理对象存储空间的 versionchange 事务的一部分被调用。在数据库第一次被打开时或者当指定的版本号高于当前被持久化的数据库的版本号时，这个 versionchange 事务将被创建。onupgradeneeded 是我们唯一可以修改数据库结构的地方。在这里面，我们可以创建和删除对象存储空间以及构建和删除索引。</p>
-<p>2、构建数据库<br>IndexedDB 使用对象存储空间而不是表，并且一个单独的数据库可以包含任意数量的对象存储空间。每当一个值被存储进一个对象存储空间时，它会被和一个键相关联。</p>
-<p>  // 数据库首次创建版本，或者window.indexedDB.open传递的新版本（版本数值要比现在的高）<br>  request.onupgradeneeded = function (event) {</p>
-<pre><code>//之前咱们不是在success中得到了db了么，为什么还要在这获取，
-//因为在当前事件函数执行后才会去执行success事件
-var db = event.target.result;
-
-// 创建一个对象存储空间，keyPath是id，keyGenerator是自增的
-var objectStore = db.createObjectStore(&apos;testItem&apos;,{keyPath: &apos;id&apos;,autoIncrement: true});
-// 创建一个索引来通过id搜索，id是自增的，不会有重复，所以可以用唯一索引
-objectStore.createIndex(&apos;id&apos;,&apos;id&apos;,{unique: true})
-
-objectStore.createIndex(&apos;name&apos;,&apos;name&apos;);
-objectStore.createIndex(&apos;age&apos;,&apos;age&apos;);
-
-//添加一条信息道数据库中
-objectStore.add({name: &apos;cfangxu&apos;, age: &apos;27&apos;});
-</code></pre><p>  }<br>注意： 执行完后，在调试工具栏Application的indexedDB中也看不到，你得右键刷新一下。</p>
+<ul>
+<li>打开数据库并且开始一个事务。</li>
+<li>创建一个 object store。</li>
+<li>构建一个请求来执行一些数据库操作，像增加或提取数据等。</li>
+<li>通过监听正确类型的 DOM 事件以等待操作完成。</li>
+<li>在操作结果上进行一些操作（可以在 request 对象中找到）</li>
+</ul>
+<p><strong>1、首先打开indexedDB数据库</strong><br>语法：<br>window.indexedDB.open(dbName, version)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var db;</div><div class="line">// 打开数据库,open还有第二个参数版本号</div><div class="line">var request = window.indexedDB.open(&apos;myTestDatabase&apos;);</div><div class="line">// 数据库打开成功后</div><div class="line">request.onsuccess = function (event) &#123;</div><div class="line">    // 存储数据结果,后面所有的数据库操作都离不开它。</div><div class="line">    db = request.result;</div><div class="line">&#125;</div><div class="line">request.onerror = function (event) &#123;</div><div class="line">    alert(&quot;Why didn&apos;t you allow my web app to use IndexedDB?!&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 数据库首次创建版本，或者window.indexedDB.open传递的新版本（版本数值要比现在的高）</div><div class="line">request.onupgradeneeded = function (event) &#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>onupgradeneeded事件： 更新数据库的 schema，也就是创建或者删除对象存储空间，这个事件将会作为一个允许你处理对象存储空间的 versionchange 事务的一部分被调用。在数据库第一次被打开时或者当指定的版本号高于当前被持久化的数据库的版本号时，这个 versionchange 事务将被创建。onupgradeneeded 是我们唯一可以修改数据库结构的地方。在这里面，我们可以创建和删除对象存储空间以及构建和删除索引。</p>
+<p><strong>2、构建数据库</strong><br>IndexedDB 使用对象存储空间而不是表，并且一个单独的数据库可以包含任意数量的对象存储空间。每当一个值被存储进一个对象存储空间时，它会被和一个键相关联。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">// 数据库首次创建版本，或者window.indexedDB.open传递的新版本（版本数值要比现在的高）</div><div class="line">request.onupgradeneeded = function (event) &#123;</div><div class="line"></div><div class="line">  //之前咱们不是在success中得到了db了么，为什么还要在这获取，</div><div class="line">  //因为在当前事件函数执行后才会去执行success事件</div><div class="line">  var db = event.target.result;</div><div class="line"></div><div class="line">  // 创建一个对象存储空间，keyPath是id，keyGenerator是自增的</div><div class="line">  var objectStore = db.createObjectStore(&apos;testItem&apos;,&#123;keyPath: &apos;id&apos;,autoIncrement: true&#125;);</div><div class="line">  // 创建一个索引来通过id搜索，id是自增的，不会有重复，所以可以用唯一索引</div><div class="line">  objectStore.createIndex(&apos;id&apos;,&apos;id&apos;,&#123;unique: true&#125;)</div><div class="line"></div><div class="line">  objectStore.createIndex(&apos;name&apos;,&apos;name&apos;);</div><div class="line">  objectStore.createIndex(&apos;age&apos;,&apos;age&apos;);</div><div class="line"></div><div class="line">  //添加一条信息道数据库中</div><div class="line">  objectStore.add(&#123;name: &apos;cfangxu&apos;, age: &apos;27&apos;&#125;);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注意： 执行完后，在调试工具栏Application的indexedDB中也看不到，你得右键刷新一下。</p>
+</blockquote>
 <p>创建索引的语法：</p>
-<p>objectStore.createIndex(indexName, keyPath, objectParameters)</p>
-<p>indexName:创建的索引名称，可以使用空名称作为索引。<br>keyPath:索引使用的关键路径，可以使用空的keyPath, 或者keyPath传为数组keyPath也是可以的。<br>objectParameters:可选参数。常用参数之一是unique，表示该字段值是否唯一，不能重复。例如，本demo中id是不能重复的，于是有设置：<br>3、添加数据<br>上面的代码建好了字段，并且添加了一条数据，但是我们如果想在onupgradeneeded事件外面操作，接下来的步骤了。<br>由于数据库的操作都是基于事务（transaction）来进行，于是，无论是添加编辑还是删除数据库，我们都要先建立一个事务（transaction），然后才能继续下面的操作。<br>语法： var transaction = db.transaction(dbName, “readwrite”);<br>第一个参数是事务希望跨越的对象存储空间的列表，可以是数组或者字符串。如果你希望事务能够跨越所有的对象存储空间你可以传入一个空数组。如果你没有为第二个参数指定任何内容，你得到的是只读事务。因为这里我们是想要写入所以我们需要传入 “readwrite” 标识。</p>
-<p>var timer = setInterval(function () {<br>    if(db) {<br>        clearInterval(timer);<br>        // 新建一个事务<br>        var transaction = db.transaction([‘testItem’], ‘readwrite’);<br>        // 打开一个存储对象<br>        var objectStore = transaction.objectStore(‘testItem’);<br>        // 添加数据到对象中<br>        objectStore.add({ name: ‘xiaoming’, age: ‘12’ });<br>        objectStore.add({ name: ‘xiaolong’, age: ‘20’ });<br>    }<br>},100)<br>为什么要用一个间隔定时器？ 因为这是一个demo，正常的是要有操作才能进行数据库的写入，在我们的demo中，js执行到transaction会比indexedDB的onsuccess事件回调快，导致会拿到db为undefined，所以写了个间隔定时器等它一会。</p>
-<p>4、获取数据<br>var transaction = db.transaction([‘testItem’], ‘readwrite’);</p>
-<p>var objectStore = transaction.objectStore(‘testItem’);</p>
-<p>var getRquest = objectStore.get(1);<br>getRquest.onsuccess = function (event) {<br>    console.log(getRquest.result);<br>}<br>//输出：{name: “cfangxu”, age: “27”, id: 1}<br>5、修改数据<br>var transaction = db.transaction([‘testItem’], ‘readwrite’);</p>
-<p>var objectStore = transaction.objectStore(‘testItem’);</p>
-<p>var getRquest = objectStore.put({ name: ‘chenfangxu’, age: ‘27’, id:1 });<br>// 修改了id为1的那条数据<br>6、删除数据<br>var transaction = db.transaction([‘testItem’], ‘readwrite’);</p>
-<p>var objectStore = transaction.objectStore(‘testItem’);</p>
-<p>var getRquest = objectStore.delete(1);<br>// 删除了id为1的那条数据<br>上面的例子执行完后，一定一定要右键刷新indexedDB,它自己是不会变的。</p>
-<p>关于数据库的名词解释和indexedDB的游标介绍参阅：HTML5 indexedDB前端本地存储数据库实例教程 张大神的文中没有指出新手要踩的坑，我踩完也说明了。</p>
-<p>作者：流动码文<br>链接：<a href="https://www.jianshu.com/p/7a711de6f1d0" target="_blank" rel="external">https://www.jianshu.com/p/7a711de6f1d0</a><br>來源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">objectStore.createIndex(indexName, keyPath, objectParameters)</div></pre></td></tr></table></figure>
+<ul>
+<li>indexName:创建的索引名称，可以使用空名称作为索引。</li>
+<li>keyPath:索引使用的关键路径，可以使用空的keyPath, 或者keyPath传为数组keyPath也是可以的。</li>
+<li>objectParameters:可选参数。常用参数之一是unique，表示该字段值是否唯一，不能重复。例如，本demo中id是不能重复的，于是有设置：</li>
+</ul>
+<p><strong>3、添加数据</strong></p>
+<p>上面的代码建好了字段，并且添加了一条数据，但是我们如果想在onupgradeneeded事件外面操作，接下来的步骤了。</p>
+<p>由于数据库的操作都是基于事务（transaction）来进行，于是，无论是添加编辑还是删除数据库，我们都要先建立一个事务（transaction），然后才能继续下面的操作。<br>语法：<code>var transaction = db.transaction(dbName, &quot;readwrite&quot;);</code><br>第一个参数是事务希望跨越的对象存储空间的列表，可以是数组或者字符串。如果你希望事务能够跨越所有的对象存储空间你可以传入一个空数组。如果你没有为第二个参数指定任何内容，你得到的是只读事务。因为这里我们是想要写入所以我们需要传入 “readwrite” 标识。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var timer = setInterval(function () &#123;</div><div class="line">    if(db) &#123;</div><div class="line">        clearInterval(timer);</div><div class="line">        // 新建一个事务</div><div class="line">        var transaction = db.transaction([&apos;testItem&apos;], &apos;readwrite&apos;);</div><div class="line">        // 打开一个存储对象</div><div class="line">        var objectStore = transaction.objectStore(&apos;testItem&apos;);</div><div class="line">        // 添加数据到对象中</div><div class="line">        objectStore.add(&#123; name: &apos;xiaoming&apos;, age: &apos;12&apos; &#125;);</div><div class="line">        objectStore.add(&#123; name: &apos;xiaolong&apos;, age: &apos;20&apos; &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;,100)</div></pre></td></tr></table></figure>
+<p><strong>为什么要用一个间隔定时器？</strong> 因为这是一个demo，正常的是要有操作才能进行数据库的写入，在我们的demo中，js执行到transaction会比indexedDB的onsuccess事件回调快，导致会拿到db为undefined，所以写了个间隔定时器等它一会。</p>
+<p><strong>4、获取数据</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var transaction = db.transaction([&apos;testItem&apos;], &apos;readwrite&apos;);</div><div class="line"></div><div class="line">var objectStore = transaction.objectStore(&apos;testItem&apos;);</div><div class="line"></div><div class="line">var getRquest = objectStore.get(1);</div><div class="line">getRquest.onsuccess = function (event) &#123;</div><div class="line">    console.log(getRquest.result);</div><div class="line">&#125;</div><div class="line">//输出：&#123;name: &quot;cfangxu&quot;, age: &quot;27&quot;, id: 1&#125;</div></pre></td></tr></table></figure>
+<p><strong>5、修改数据</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var transaction = db.transaction([&apos;testItem&apos;], &apos;readwrite&apos;);</div><div class="line"></div><div class="line">var objectStore = transaction.objectStore(&apos;testItem&apos;);</div><div class="line"></div><div class="line">var getRquest = objectStore.put(&#123; name: &apos;chenfangxu&apos;, age: &apos;27&apos;, id:1 &#125;);</div><div class="line">// 修改了id为1的那条数据</div></pre></td></tr></table></figure>
+<p><strong>6、删除数据</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var transaction = db.transaction([&apos;testItem&apos;], &apos;readwrite&apos;);</div><div class="line"></div><div class="line">var objectStore = transaction.objectStore(&apos;testItem&apos;);</div><div class="line"></div><div class="line">var getRquest = objectStore.delete(1);</div><div class="line">// 删除了id为1的那条数据</div></pre></td></tr></table></figure>
+<blockquote>
+<p>上面的例子执行完后，一定一定要右键刷新indexedDB,它自己是不会变的。</p>
+</blockquote>
+<p>关于数据库的名词解释和indexedDB的游标介绍参阅：<a href="http://www.zhangxinxu.com/wordpress/2017/07/html5-indexeddb-js-example/" target="_blank" rel="external">HTML5 indexedDB前端本地存储数据库实例教程</a> 张大神的文中没有指出新手要踩的坑，我踩完也说明了。</p>
+<p><strong>From:</strong></p>
+<p>作者：流动码文<br>链接：<a href="https://www.jianshu.com/p/7a711de6f1d0" target="_blank" rel="external">https://www.jianshu.com/p/7a711de6f1d0</a></p>
 
       
     </div>
@@ -491,6 +620,10 @@ objectStore.add({name: &apos;cfangxu&apos;, age: &apos;27&apos;});
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/23/跨域的那些事儿/" rel="prev" title="跨域的那些事儿">
+                跨域的那些事儿 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -571,7 +704,7 @@ objectStore.add({name: &apos;cfangxu&apos;, age: &apos;27&apos;});
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -582,7 +715,7 @@ objectStore.add({name: &apos;cfangxu&apos;, age: &apos;27&apos;});
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -593,7 +726,7 @@ objectStore.add({name: &apos;cfangxu&apos;, age: &apos;27&apos;});
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -626,7 +759,7 @@ objectStore.add({name: &apos;cfangxu&apos;, age: &apos;27&apos;});
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie"><span class="nav-number">1.</span> <span class="nav-text">cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#作用"><span class="nav-number">1.1.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何工作"><span class="nav-number">1.2.</span> <span class="nav-text">如何工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特征"><span class="nav-number">1.3.</span> <span class="nav-text">特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置cookie"><span class="nav-number">1.4.</span> <span class="nav-text">设置cookie</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie"><span class="nav-number">1.</span> <span class="nav-text">cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#作用"><span class="nav-number">1.1.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何工作"><span class="nav-number">1.2.</span> <span class="nav-text">如何工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特征"><span class="nav-number">1.3.</span> <span class="nav-text">特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置cookie"><span class="nav-number">1.4.</span> <span class="nav-text">设置cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie的属性（可选项）"><span class="nav-number">1.5.</span> <span class="nav-text">cookie的属性（可选项）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#localStorage（本地存储）"><span class="nav-number">2.</span> <span class="nav-text">localStorage（本地存储）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#storage事件"><span class="nav-number">2.1.</span> <span class="nav-text">storage事件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sessionStorage"><span class="nav-number">3.</span> <span class="nav-text">sessionStorage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie、localStorage、sessionStorage区别"><span class="nav-number">4.</span> <span class="nav-text">cookie、localStorage、sessionStorage区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展其他的前端存储方式（不常用）"><span class="nav-number">5.</span> <span class="nav-text">扩展其他的前端存储方式（不常用）</span></a></li></ol></div>
             
 
           </div>

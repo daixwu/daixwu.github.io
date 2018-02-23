@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Siker">
 <meta property="og:description" content="造成跨域的两种策略浏览器的同源策略会导致跨域，这里同源策略又分为以下两种  DOM同源策略：禁止对不同源页面DOM进行操作。这里主要场景是iframe跨域的情况，不同域名的iframe是限制互相访问的。  XmlHttpRequest同源策略：禁止使用XHR对象向不同源的服务器地址发起HTTP请求。    只要协议、域名、端口有任何一个不同，都被当作是不同的域，之间的请求就是跨域操作。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-23T06:02:50.052Z">
+<meta property="og:updated_time" content="2018-02-23T06:06:23.754Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="跨域的那些事儿">
 <meta name="twitter:description" content="造成跨域的两种策略浏览器的同源策略会导致跨域，这里同源策略又分为以下两种  DOM同源策略：禁止对不同源页面DOM进行操作。这里主要场景是iframe跨域的情况，不同域名的iframe是限制互相访问的。  XmlHttpRequest同源策略：禁止使用XHR对象向不同源的服务器地址发起HTTP请求。    只要协议、域名、端口有任何一个不同，都被当作是不同的域，之间的请求就是跨域操作。">
@@ -350,8 +350,9 @@
 </li>
 </ol>
 <blockquote>
-<p>只要协议、域名、端口有任何一个不同，都被当作是不同的域，之间的请求就是跨域操作。<br><a id="more"></a></p>
+<p>只要协议、域名、端口有任何一个不同，都被当作是不同的域，之间的请求就是跨域操作。</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="为什么要有跨域限制"><a href="#为什么要有跨域限制" class="headerlink" title="为什么要有跨域限制"></a>为什么要有跨域限制</h2><p>了解完跨域之后，想必大家都会有这么一个思考，为什么要有跨域的限制，浏览器这么做是出于何种原因呢。其实仔细想一想就会明白，跨域限制主要是为了安全考虑。</p>
 <p>AJAX同源策略主要用来防止CSRF攻击。如果没有AJAX同源策略，相当危险，我们发起的每一次HTTP请求都会带上请求地址对应的 cookie，那么可以做如下攻击：</p>
 <ol>

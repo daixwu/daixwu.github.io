@@ -87,14 +87,14 @@
 <meta property="og:site_name" content="Siker">
 <meta property="og:description" content="我们都知道面向对象语言的三大特征：继承、封装、多态，但JavaScript不是真正的面向对象，它只是基于面向对象，所以会有自己独特的地方。这里就说说JavaScript的继承是如何实现的。 学习过Java和c++的都知道，它们的继承通过类实现，但JavaScript没有类这个概念，那它通过什么机制实现继承呢？ 答案是： 原型链！ 其基本思想是利用原型让一个引用类型继承另一个引用类型的属性和方法。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/2018/02/1.png">
-<meta property="og:image" content="http://yoursite.com/images/2018/02/2.png">
-<meta property="og:image" content="http://yoursite.com/images/2018/02/3.png">
-<meta property="og:updated_time" content="2018-02-23T11:38:15.909Z">
+<meta property="og:image" content="http://yoursite.com/img/20180223/1.png">
+<meta property="og:image" content="http://yoursite.com/img/20180223/2.png">
+<meta property="og:image" content="http://yoursite.com/img/20180223/3.png">
+<meta property="og:updated_time" content="2018-02-23T16:51:47.463Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js继承的常用方法">
 <meta name="twitter:description" content="我们都知道面向对象语言的三大特征：继承、封装、多态，但JavaScript不是真正的面向对象，它只是基于面向对象，所以会有自己独特的地方。这里就说说JavaScript的继承是如何实现的。 学习过Java和c++的都知道，它们的继承通过类实现，但JavaScript没有类这个概念，那它通过什么机制实现继承呢？ 答案是： 原型链！ 其基本思想是利用原型让一个引用类型继承另一个引用类型的属性和方法。">
-<meta name="twitter:image" content="http://yoursite.com/images/2018/02/1.png">
+<meta name="twitter:image" content="http://yoursite.com/img/20180223/1.png">
 
 
 
@@ -360,11 +360,11 @@
 </ol>
 <p>另外这一篇也不错，没本文这么啰嗦： <a href="https://www.cnblogs.com/humin/p/4556820.html" target="_blank" rel="external">JS实现继承的几种方式</a></p>
 <p>下面这个是关于Function和Object创建实例之间的关系，不妨先了解一下它们之间复杂的关系：</p>
-<p><img src="/images/2018/02/1.png" alt="图 1"></p>
+<p><img src="/img/20180223/1.png" alt="图 1"></p>
 <p>实现继承之前，先看一个基于原型链继承的链图，对继承有个具体化的概念：  （这个是核心继承部分）</p>
-<p><img src="/images/2018/02/2.png" alt="图 2"></p>
+<p><img src="/img/20180223/2.png" alt="图 2"></p>
 <p>下面是整体的继承链：</p>
-<p><img src="/images/2018/02/3.png" alt="图 3"></p>
+<p><img src="/img/20180223/3.png" alt="图 3"></p>
 <p>有了上面的思路，下面来看js中6种经典的实现继承方法</p>
 <p>导读提示：方法1-3为一个体系，方法4-6为另一个体系.</p>
 <h3 id="1、原型链继承"><a href="#1、原型链继承" class="headerlink" title="1、原型链继承"></a>1、原型链继承</h3><p>简单回顾一下构造函数、原型和实例的关系：每个构造函数都有一个原型对象，原型对象都包含一个指向构造函数的指针(constructor)，而实例都包含一个指向原型对象的内部指针([[Prototype]])。</p>

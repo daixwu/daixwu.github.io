@@ -252,6 +252,135 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/20/弹性盒模型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Adele">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Siker">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/20/弹性盒模型/" itemprop="url">弹性盒模型</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-20T23:08:03+08:00">
+                2017-11-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="新版弹性盒模型"><a href="#新版弹性盒模型" class="headerlink" title="新版弹性盒模型"></a>新版弹性盒模型</h2><h3 id="display-flex"><a href="#display-flex" class="headerlink" title="display: flex;"></a><code>display: flex;</code></h3><h4 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a><code>flex-direction</code></h4><p>设置主轴方向为水平方向<br><code>flex-direction: row;</code><br>设置主轴方向为垂直方向<br><code>flex-direction: column;</code><br>设置主轴方向为水平,元素排列为反序<br><code>flex-direction: row-reverse;</code><br>设置主轴方向为垂直,元素排列为反序<br><code>flex-direction: column-reverse;</code>  </p>
+<p>####<code>justify-content</code><br>元素在主轴开始位置 ，富裕空间在主轴的结束位置<br><code>justify-content: flex-start;</code><br>元素在主轴结束位置，富裕空间在主轴开始位置<br><code>justify-content: flex-end;</code><br>元素在主轴中间,富裕空间在主轴两侧<br><code>justify-content: center;</code><br>富裕空间平均分配在每两个元素之间<br><code>justify-content: space-between;</code><br>富裕空间平均分配在每个元素两侧<br><code>justify-content: space-around;</code>      </p>
+<h4 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a><code>align-items</code></h4><p>元素在侧轴开始位置，富裕空间在侧轴结束位置<br><code>align-items: flex-start;</code><br>元素在侧轴结束位置，富裕空间在侧轴开始位置<br><code>align-items: flex-end;</code><br>元素在侧轴中间位置，富裕空间在侧轴两侧<br><code>align-items: center;</code><br>根据侧轴方向上文字的基线对齐<br><code>align-items: baseline;</code>  </p>
+<h4 id="定义盒子的弹性空间"><a href="#定义盒子的弹性空间" class="headerlink" title="定义盒子的弹性空间"></a>定义盒子的弹性空间</h4><p>子级设置 flex-grow</p>
+<p>元素的具体位置设置<br>子级设置 order</p>
+<h2 id="老版弹性盒模型"><a href="#老版弹性盒模型" class="headerlink" title="老版弹性盒模型"></a>老版弹性盒模型</h2><h3 id="display-webkit-box"><a href="#display-webkit-box" class="headerlink" title="display: -webkit-box;"></a><code>display: -webkit-box;</code></h3><h4 id="webkit-box-orient"><a href="#webkit-box-orient" class="headerlink" title="-webkit-box-orient"></a><code>-webkit-box-orient</code></h4><p>设置主轴方向为水平方向<br><code>-webkit-box-orient: horizontal;</code><br>设置主轴方向为垂直方向<br><code>-webkit-box-orient: vertical;</code><br>元素在主轴上排列为反序<br><code>-webkit-box-direction: reverse;</code><br>元素在主轴上排列为正序<br><code>-webkit-box-direction: normal;</code><br>元素在主轴的开始位置,富裕空间在主轴的结束位置<br><code>-webkit-box-pack: start;</code>  </p>
+<h4 id="webkit-box-pack"><a href="#webkit-box-pack" class="headerlink" title="-webkit-box-pack"></a><code>-webkit-box-pack</code></h4><p>元素在主轴结束位置，富裕空间在主轴开始位置<br><code>-webkit-box-pack: end;</code><br>元素在主轴中间,富裕空间在主轴两侧<br><code>-webkit-box-pack: center;</code><br>富裕空间平均分配在每两个元素之间<br><code>-webkit-box-pack: justify;</code>  </p>
+<h4 id="webkit-box-align"><a href="#webkit-box-align" class="headerlink" title="-webkit-box-align"></a><code>-webkit-box-align</code></h4><p>元素在侧轴开始位置，富裕空间在侧轴结束位置<br><code>-webkit-box-align: start;</code><br>元素在侧轴结束位置，富裕空间在侧轴开始位置<br><code>-webkit-box-align: end;</code><br>元素在侧轴中间位置，富裕空间在侧轴两侧<br><code>-webkit-box-align: center;</code></p>
+<h4 id="定义盒子的弹性空间-1"><a href="#定义盒子的弹性空间-1" class="headerlink" title="定义盒子的弹性空间"></a>定义盒子的弹性空间</h4><p>子级设置 -webkit-box-flex</p>
+<p>元素的具体位置设置<br>子级设置 -webkit-box-ordinal-group</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/20/移动端开发常见问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1905,152 +2034,6 @@ animation:2s move;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/29/JS组件开发/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Adele">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Siker">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/29/JS组件开发/" itemprop="url">JS面向对象之组件开发</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-29T21:44:48+08:00">
-                2017-05-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="组件开发是什么"><a href="#组件开发是什么" class="headerlink" title="组件开发是什么"></a>组件开发是什么</h2><p>组件开发 : 多组对象，像兄弟之间的关系( 代码复用的一种形式 )<br>对象的多种表现形式<br>提高对象的复用性<br>如何配置参数和默认参数<br>例子 : 拖拽<br>例子 : 弹窗</p>
-<h2 id="什么是组件？"><a href="#什么是组件？" class="headerlink" title="什么是组件？"></a>什么是组件？</h2><p>对面向对象的深入应用（UI组件，功能组件）<br>将 配置参数、方法、事件，三者进行分离<br>参见 <a href="http://jqueryui.com/" target="_blank" rel="external">jQuery UI</a></p>
-<h2 id="创建自定义事件"><a href="#创建自定义事件" class="headerlink" title="创建自定义事件"></a>创建自定义事件</h2><p>自定义事件：就是让函数能够具备事件的某些特性</p>
-<p>有利于多人协作开发代码<br>如何去挂载自定义事件与事件函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">window.onload = function()&#123;</div><div class="line">	var oDiv = document.getElementById(&apos;div1&apos;);</div><div class="line">	var oSpan = document.getElementById(&apos;span1&apos;);</div><div class="line">	</div><div class="line">	bindEvent(oDiv , &apos;click&apos;,function()&#123;</div><div class="line">		alert(1);</div><div class="line">	&#125;);</div><div class="line">	</div><div class="line">	bindEvent(oDiv , &apos;click&apos;,function()&#123;</div><div class="line">		alert(2);</div><div class="line">	&#125;);</div><div class="line">	</div><div class="line">	bindEvent(oSpan , &apos;show&apos;,function()&#123;</div><div class="line">		alert(3);</div><div class="line">	&#125;);</div><div class="line">	</div><div class="line">	bindEvent(oSpan , &apos;show&apos;,function()&#123;</div><div class="line">		alert(4);</div><div class="line">	&#125;);</div><div class="line">	</div><div class="line">	bindEvent(oSpan , &apos;hide&apos;,function()&#123;</div><div class="line">		alert(5);</div><div class="line">	&#125;);</div><div class="line">	</div><div class="line">	fireEvent(oSpan , &apos;show&apos;);  //3 , 4</div><div class="line">&#125;;</div><div class="line"></div><div class="line">function bindEvent(obj,events,fn)&#123;</div><div class="line">	//obj : 楼层</div><div class="line">	//events : 书架</div><div class="line">	//fn : 一本书</div><div class="line">	</div><div class="line">	obj.listeners = obj.listeners || &#123;&#125;;</div><div class="line">	obj.listeners[events] = obj.listeners[events] || [];</div><div class="line">	</div><div class="line">	obj.listeners[events].push( fn );</div><div class="line">	</div><div class="line">	if(obj.addEventListener)&#123;</div><div class="line">		obj.addEventListener(events,fn,false);</div><div class="line">	&#125;</div><div class="line">	else&#123;</div><div class="line">		obj.attachEvent(&apos;on&apos;+events,fn);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function fireEvent(obj,events)&#123;   //主动触发自定义事件</div><div class="line">	</div><div class="line">	for(var i=0;i&lt;obj.listeners[events].length;i++)&#123;</div><div class="line">		 obj.listeners[events][i]();</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;div id=&quot;div1&quot;&gt;div&lt;/div&gt;</div><div class="line">&lt;span id=&quot;span1&quot;&gt;span&lt;/span&gt;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2105,7 +2088,7 @@ animation:2s move;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2116,7 +2099,7 @@ animation:2s move;
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2127,7 +2110,7 @@ animation:2s move;
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Siker">
 <meta property="og:description" content="选择器属性选择器 注：前四个为CSS2定义的属性选择器  E[attr] 属性名，不确定具体属性值E[attr=”value”] 指定属性名，并指定其对应属性值E[attr ~=”value”] 指定属性名，找到的是具有此属性名，且与其它属性名之间用空格隔开E[attr |= “value”] 指定属性名，属性值以value-开头或者值为valueE[attr ^= “value”] 指定属性名，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-25T15:23:39.406Z">
+<meta property="og:updated_time" content="2018-02-25T17:18:39.134Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css选择器">
 <meta name="twitter:description" content="选择器属性选择器 注：前四个为CSS2定义的属性选择器  E[attr] 属性名，不确定具体属性值E[attr=”value”] 指定属性名，并指定其对应属性值E[attr ~=”value”] 指定属性名，找到的是具有此属性名，且与其它属性名之间用空格隔开E[attr |= “value”] 指定属性名，属性值以value-开头或者值为valueE[attr ^= “value”] 指定属性名，">
@@ -547,14 +547,94 @@
 <li>1      元素应横跨一列</li>
 <li>all 元素应横跨所有列</li>
 </ul>
-<h3 id="设计盒布局"><a href="#设计盒布局" class="headerlink" title="设计盒布局"></a>设计盒布局</h3><p>父容器上设置box属性</p>
-<p>在父容器上设置<br>display: box;<br>Webkit内核的浏览器，必须加上-webkit前缀。<br>display: -webkit-box;<br>默认情况下,子容器会从左到右水平排列</p>
-<p>box-orient: vertical;<br>设置该属性可以使子容器从上到下垂直排列</p>
-<p>box-direction: reverse;<br>子容器在水平方向从右向左(就是说最右边的元素排在最左边),垂直方向从下向上(最下面的在最上面)</p>
-<p>box-align: start | end | center | stretch<br>父容器水平排列下 start:上,center:中,end:下,stretch:子容器不设置高度或高度为auto时,子容器会拉伸的和父容器一样高,设置高度同start<br>父容器垂直排列下 start:左,center:中,end:右,stretch:子容器不设置宽度或宽度为auto时,子容器会拉伸的和父容器一样宽,设置宽度同start</p>
-<p>box-pack: start | end | center | justify<br>父容器水平排列下 start:左,center:中,end:右,justify:水平等分父容器宽度<br>父容器垂直排列下 start:上,center:中,end:下,justify:水平等分父容器高度</p>
-<p>子容器上设置box-flex属性</p>
-<p>box-flex: 1;<br>定义子容器占的比例, 具体计算规则,父容器-定宽,剩余的按比例等分。<br>但实际计算中并没有实现等分(子容器中还有元素时),常用的解决方法是,<br>添加宽度百分比和box-sizing: border-box;（解决border和padding问题）<br>.bf-2{<br>    box-sizing: border-box;<br>    -webkit-box-flex: 2;<br>    width: 2%;<br>}<br>.bf-1{<br>    box-sizing: border-box;<br>    -webkit-box-flex: 1;<br>    width: 1%;<br>}<br>这样可以实现bf-2是bf-1的2倍<br>不建议width是一个数值和box-flex一起使用</p>
+<h2 id="Flexbox模块"><a href="#Flexbox模块" class="headerlink" title="Flexbox模块"></a>Flexbox模块</h2><blockquote>
+<p>关于Flexbox请参考大漠的这篇文章：<a href="https://www.w3cplus.com/css3/understanding-flexbox-everything-you-need-to-know.html" target="_blank" rel="external">理解Flexbox：你需要知道的一切</a><br>顺便兼顾一下：<a href="https://segmentfault.com/a/1190000005880829" target="_blank" rel="external">弹性盒子display:box</a></p>
+</blockquote>
+<p>Flex容器（Flex Container）：父元素显式设置了display:flex<br>Flex项目（Flex Items）：Flex容器内的子元素</p>
+<h3 id="Flex容器属性"><a href="#Flex容器属性" class="headerlink" title="Flex容器属性"></a>Flex容器属性</h3><p>flex-direction || flex-wrap || flex-flow || justify-content || align-items || align-content</p>
+<p><strong>flex-direction</strong><br>flex-direction属性控制Flex项目沿着主轴（Main Axis）的排列方向。</p>
+<p>它具有四个值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">/* ul 是一个flex容器 */</div><div class="line">ul &#123;</div><div class="line">    flex-direction: row || column || row-reverse || column-reverse;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>简单点来说，就是flex-direction属性让你决定Flex项目如何排列。它可以是行（水平）、列（垂直）或者行和列的反向。</p>
+</blockquote>
+<p><strong>flex-wrap</strong><br>flex-wrap属性有三个属性值, 默认为 nowrap(不换行排列)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ul &#123;</div><div class="line">    flex-wrap: wrap || nowrap || wrap-reverse;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>flex-flow</strong><br>flex-flow是flex-direction和flex-wrap两个属性的速记属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ul &#123;</div><div class="line">    flex-flow: row wrap;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>justify-content</strong><br>记得text-align属性。其实justify-content属性主要定义了Flex项目在水平方向上的对齐方式。</p>
+<p>justify-content属性可以接受下面五个值之一，默认属性值是flex-start：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ul &#123;</div><div class="line">    justify-content: flex-start || flex-end || center || space-between || space-around</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>flex-start 让所有Flex项目靠水平方向开始边缘（左对齐）</li>
+<li>flex-end 让所有Flex项目靠水平方向结束边缘（右对齐）</li>
+<li>center 和你预期的一样，center让所有Flex项目排在水平方向中间（居中对齐）</li>
+<li>space-between 让除了第一个和最一个Flex项目的两者间间距相同（两端对齐）</li>
+<li>space-around 让每个Flex项目具有相同的空间</li>
+</ul>
+<p><strong>align-items</strong><br>align-items属性类似于justify-content属性。它主要用来控制Flex项目在垂直方向对齐方式。这也是align-items和justify-content两个属性之间的不同之处。</p>
+<p>align-items属性可以接受这些属性值：flex-start || flex-end || center || stretch || baseline。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ul &#123;</div><div class="line">    align-items: flex-start || flex-end || center || stretch || baseline</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>stretch 默认值，让所有的Flex项目高度和Flex容器高度一样。</li>
+<li>flex-start 让所有Flex项目靠垂直方向开始边缘（顶部对齐）</li>
+<li>flex-end 让所有Flex项目靠垂直方向结束边缘（底部对齐）</li>
+<li>center 让Flex项目在Cross-Axis中间（居中对齐）</li>
+<li>baseline 让所有Flex项目在Cross-Axis上沿着他们自己的基线对齐</li>
+</ul>
+<p><strong>align-content</strong><br>align-content属性用于多行的Flex容器。它也是用来控制Flex项目在Flex容器里的排列方式，排列效果和align-items值一样，但除了baseline属性值。像align-items属性一样，它的默认值是stretch。</p>
+<ul>
+<li>stretch 使用stretch会拉伸Flex项目，让他们沿着垂直方向适应Flex容器可用的空间</li>
+<li>flex-start 之前你看到过flex-start。这次是让多行Flex项目靠垂直方向开始边缘。沿着垂直方向从上到下排列。因此Flex项目在Flex容器中顶部对齐。</li>
+<li>flex-end 刚好和flex-start相反，让多行Flex项目靠着垂直方向结束位置。让Flex项目沿着垂直方向从下到上排列，即底部对齐。</li>
+<li>center 让多行Flex项目在Cross-Axis中间</li>
+</ul>
+<h3 id="Flex项目属性"><a href="#Flex项目属性" class="headerlink" title="Flex项目属性"></a>Flex项目属性</h3><p>order || flex-grow || flex-shrink || flex-basis</p>
+<p><strong>order</strong><br>允许Flex项目在一个Flex容器中重新排序。基本上，你可以改变Flex项目的顺序，从一个位置移动到另一个地方。</p>
+<p>这不会影响源代码。这也意味着Flex项目的位置在HTML源代码中不需要改变。order属性的默认值是0。它可以接受一个正值，也可以接受一个负值。</p>
+<blockquote>
+<p>值得注意的是，Flex项目会根据order值重新排序。从底到高。</p>
+</blockquote>
+<p><strong>flex-grow 和 flex-shrink</strong><br>flex-grow和flex-shrink属性控制Flex项目在容器有多余的空间如何放大（扩展），在没有额外空间又如何缩小。</p>
+<blockquote>
+<p>他们可能接受0或者大于0的任何正数。默认情况下，flex-grow属性值设置为0。表示Flex项目不会增长，填充Flex容器可用空间。</p>
+</blockquote>
+<p><strong>flex-basis</strong><br>flex-basis属性可以指定Flex项目的初始大小。也就是flex-grow和flex-shrink属性调整它的大小以适应Flex容器之前。</p>
+<p>flex-basis默认的值是auto。flex-basis可以取任何用于width属性的任何值。比如 % || em || rem || px等。</p>
+<blockquote>
+<p>注意：如果flex-basis属性的值是0时，也需要使用单位。即flex-basis: 0px不能写成flex-basis:0。</p>
+</blockquote>
+<p><strong>flex速记</strong><br>flex是flex-grow、flex-shrink和flex-basis三个属性的速记（简写）。</p>
+<blockquote>
+<p>注意它们之间的顺序。flex-grow第一，然后是flex-shrink，最后是flex-basis。缩写成GSB，可以帮助你更好的记忆。</p>
+</blockquote>
+<p>如果你只设置了flex-grow和flex-shrink值，flex-basis可能是默认值0。这就是所谓的<strong>绝对flex项目</strong>。只有当你设置了flex-basis，你会得到一个<strong>相对flex项目</strong>。</p>
+<p><strong>绝对Flex项目的宽度只基于 flex 属性，而相对Flex项目的宽度基于内容大小。</strong></p>
+<p><strong>align-self</strong><br>align-self 改变一个弹性项目沿着侧轴的位置，而不影响相邻的弹性项目。</p>
+<p>该属性的取值可以是这些值之一：auto || flex-start || flex-end || center || baseline || stretch。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">li:first-of-type &#123;</div><div class="line">    align-self: auto || flex-start || flex-end || center || baseline || stretch</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>flex-end将目标项目（Flex项目）对齐到垂直方向的末端</li>
+<li>center将目标项目（Flex项目）对齐到垂直方向的中间</li>
+<li>stretch会将目标项目拉伸，以沿着垂直方向填满Flex容器的可用空间（Flex项目高度和Flex容器高度一样）</li>
+<li>baseline将目标项目沿着基线对齐</li>
+<li>auto 是将目标Flex项目的值设置为父元素的 align-items值，或者如果该元素没有父元素的话，就设置为 stretch</li>
+</ul>
+<p><strong>Auto-margin 对齐</strong><br>当在Flex项目上使用 margin: auto 时，值为 auto 的方向（左、右或者二者都是）会占据所有剩余空间。需要注意的是当在一个Flex项目上使用自动外边距（margin: auto）时，justify-content 属性就不起作用了。</p>
+<h2 id="用户界面"><a href="#用户界面" class="headerlink" title="用户界面"></a>用户界面</h2><h3 id="改变盒模型组成方式"><a href="#改变盒模型组成方式" class="headerlink" title="改变盒模型组成方式"></a>改变盒模型组成方式</h3><p><strong>box-sizing</strong><br>box-sizing属性可设置的值有content-box、border-box和inherit。</p>
+<ul>
+<li>content-box: padding和border不被包含在定义的width和height之内。对象的实际宽度等于设置的width值和border、padding之和，即 (Element width = width + border + padding)，此属性表现为标准模式下的盒模型。</li>
+<li>border-box: padding和border被包含在定义的width和height之内。对象的实际宽度就等于设置的width值，即使定义有border和padding也不会改变对象的实际宽度，即 (Element width = width)，此属性表现为怪异模式下的盒模型。</li>
+</ul>
+<h3 id="调节元素尺寸"><a href="#调节元素尺寸" class="headerlink" title="调节元素尺寸"></a>调节元素尺寸</h3><p><strong>resize</strong><br>resize 属性规定是否可由用户调整元素尺寸。如果希望此属性生效，需要设置元素的 overflow 属性，值可以是 auto、hidden 或 scroll。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">    resize:both; /* none|both|horizontal|vertical; */</div><div class="line">    overflow:auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>none    用户无法调整元素的尺寸</li>
+<li>both    用户可调整元素的高度和宽度</li>
+<li>horizontal    用户可调整元素的宽度</li>
+<li>vertical    用户可调整元素的高度</li>
+</ul>
+<h3 id="设计轮廓"><a href="#设计轮廓" class="headerlink" title="设计轮廓"></a>设计轮廓</h3><p><strong>outline-offset</strong><br>outline-offset属性对轮廓进行偏移，并在超出边框边缘的位置绘制轮廓。</p>
 
       
     </div>
@@ -731,7 +811,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#选择器"><span class="nav-number">1.</span> <span class="nav-text">选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性选择器"><span class="nav-number">1.1.</span> <span class="nav-text">属性选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结构伪类选择器"><span class="nav-number">1.2.</span> <span class="nav-text">结构伪类选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UI伪类选择器"><span class="nav-number">1.3.</span> <span class="nav-text">UI伪类选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他选择器"><span class="nav-number">1.4.</span> <span class="nav-text">其他选择器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本、字体与颜色"><span class="nav-number">2.</span> <span class="nav-text">文本、字体与颜色</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设计文本阴影"><span class="nav-number">2.1.</span> <span class="nav-text">设计文本阴影</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义文本样式"><span class="nav-number">2.2.</span> <span class="nav-text">定义文本样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计颜色样式"><span class="nav-number">2.3.</span> <span class="nav-text">设计颜色样式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#背景和边框"><span class="nav-number">3.</span> <span class="nav-text">背景和边框</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设计边框背景"><span class="nav-number">3.1.</span> <span class="nav-text">设计边框背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计圆角"><span class="nav-number">3.2.</span> <span class="nav-text">设计圆角</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计阴影"><span class="nav-number">3.3.</span> <span class="nav-text">设计阴影</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计背景"><span class="nav-number">3.4.</span> <span class="nav-text">设计背景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2D变形"><span class="nav-number">4.</span> <span class="nav-text">2D变形</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#transform"><span class="nav-number">4.1.</span> <span class="nav-text">transform</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计动画"><span class="nav-number">5.</span> <span class="nav-text">设计动画</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#平滑过渡"><span class="nav-number">5.1.</span> <span class="nav-text">平滑过渡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过渡完成事件"><span class="nav-number">5.2.</span> <span class="nav-text">过渡完成事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3D动画"><span class="nav-number">5.3.</span> <span class="nav-text">3D动画</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#渐变效果"><span class="nav-number">6.</span> <span class="nav-text">渐变效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网页布局"><span class="nav-number">7.</span> <span class="nav-text">网页布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设计多列布局"><span class="nav-number">7.1.</span> <span class="nav-text">设计多列布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计盒布局"><span class="nav-number">7.2.</span> <span class="nav-text">设计盒布局</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#选择器"><span class="nav-number">1.</span> <span class="nav-text">选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性选择器"><span class="nav-number">1.1.</span> <span class="nav-text">属性选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结构伪类选择器"><span class="nav-number">1.2.</span> <span class="nav-text">结构伪类选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UI伪类选择器"><span class="nav-number">1.3.</span> <span class="nav-text">UI伪类选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他选择器"><span class="nav-number">1.4.</span> <span class="nav-text">其他选择器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本、字体与颜色"><span class="nav-number">2.</span> <span class="nav-text">文本、字体与颜色</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设计文本阴影"><span class="nav-number">2.1.</span> <span class="nav-text">设计文本阴影</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义文本样式"><span class="nav-number">2.2.</span> <span class="nav-text">定义文本样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计颜色样式"><span class="nav-number">2.3.</span> <span class="nav-text">设计颜色样式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#背景和边框"><span class="nav-number">3.</span> <span class="nav-text">背景和边框</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设计边框背景"><span class="nav-number">3.1.</span> <span class="nav-text">设计边框背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计圆角"><span class="nav-number">3.2.</span> <span class="nav-text">设计圆角</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计阴影"><span class="nav-number">3.3.</span> <span class="nav-text">设计阴影</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计背景"><span class="nav-number">3.4.</span> <span class="nav-text">设计背景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2D变形"><span class="nav-number">4.</span> <span class="nav-text">2D变形</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#transform"><span class="nav-number">4.1.</span> <span class="nav-text">transform</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计动画"><span class="nav-number">5.</span> <span class="nav-text">设计动画</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#平滑过渡"><span class="nav-number">5.1.</span> <span class="nav-text">平滑过渡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过渡完成事件"><span class="nav-number">5.2.</span> <span class="nav-text">过渡完成事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3D动画"><span class="nav-number">5.3.</span> <span class="nav-text">3D动画</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#渐变效果"><span class="nav-number">6.</span> <span class="nav-text">渐变效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网页布局"><span class="nav-number">7.</span> <span class="nav-text">网页布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设计多列布局"><span class="nav-number">7.1.</span> <span class="nav-text">设计多列布局</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flexbox模块"><span class="nav-number">8.</span> <span class="nav-text">Flexbox模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Flex容器属性"><span class="nav-number">8.1.</span> <span class="nav-text">Flex容器属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Flex项目属性"><span class="nav-number">8.2.</span> <span class="nav-text">Flex项目属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户界面"><span class="nav-number">9.</span> <span class="nav-text">用户界面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#改变盒模型组成方式"><span class="nav-number">9.1.</span> <span class="nav-text">改变盒模型组成方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调节元素尺寸"><span class="nav-number">9.2.</span> <span class="nav-text">调节元素尺寸</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计轮廓"><span class="nav-number">9.3.</span> <span class="nav-text">设计轮廓</span></a></li></ol></li></ol></div>
             
 
           </div>

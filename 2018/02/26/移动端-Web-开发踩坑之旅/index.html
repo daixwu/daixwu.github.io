@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Siker">
 <meta property="og:description" content="1、一部分Android版本系统设置height和line-height的高度无效，可通过”-webkit-appearance: listbox;”属性解决： 123456element &amp;#123;    -webkit-appearance: listbox;    width: 100%;    height: 80px;    line-height: 80px;&amp;#125; 2、设置滚">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-26T04:22:51.449Z">
+<meta property="og:updated_time" content="2018-03-01T15:22:24.921Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端 Web 开发踩坑之旅">
 <meta name="twitter:description" content="1、一部分Android版本系统设置height和line-height的高度无效，可通过”-webkit-appearance: listbox;”属性解决： 123456element &amp;#123;    -webkit-appearance: listbox;    width: 100%;    height: 80px;    line-height: 80px;&amp;#125; 2、设置滚">
@@ -323,6 +323,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">element &#123;</div><div class="line">    -webkit-appearance: listbox;</div><div class="line">    width: 100%;</div><div class="line">    height: 80px;</div><div class="line">    line-height: 80px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><strong>2、设置滚动样式：</strong></p>
 <p>设置上下滚动样式： overflow-y: scroll;<br>设置弹性滚动样式：-webkit-overflow-scrolling: touch;</p>
+<a id="more"></a>
 <p><strong>3、兼容键盘挡住输入框问题（ios）</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(&quot;input&quot;).focus(function()&#123;</div><div class="line">    var scrollTop = $(&quot;body &gt; div&quot;).height();</div><div class="line">    $(&apos;html,body&apos;).animate(&#123;scrollTop: scrollTop+&quot;px&quot;&#125;, 500);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p><strong>4、按原图切下来的图片在手机上会模糊【<a href="https://www.zhihu.com/question/20008517" target="_blank" rel="external">链接</a>】</strong></p>

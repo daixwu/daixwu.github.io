@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="SCSS是一种CSS的开发工具，提供了许多便利的写法，大大节省了设计者的时间，使得CSS的开发，变得简单和可维护。本文总结了SASS的主要用法。由此日常的一般使用就不需要去看官方文档了。 一、基本用法1.1 变量SCSS允许使用变量，所有变量以 $ 开头。 1234　　$blue : #1875e7;　　　div &amp;#123;　　　color : $blue;　　&amp;#125; 如果变量需要镶嵌在字">
+<meta name="description" content="SCSS是一种CSS的开发工具，提供了许多便利的写法，大大节省了设计者的时间，使得CSS的开发，变得简单和可维护。本文总结了SASS的主要用法。由此日常的一般使用就不需要去看官方文档了。 一、基本用法1.1 变量SCSS允许使用变量，所有变量以 $ 开头。 1234　　$blue : #1875e7;　　　div &amp;#123;　　　color : $blue;　　&amp;#125;">
 <meta name="keywords" content="scss,css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SCSS常用语法">
 <meta property="og:url" content="http://yoursite.com/2018/03/15/SCSS常用语法/index.html">
 <meta property="og:site_name" content="Siker">
-<meta property="og:description" content="SCSS是一种CSS的开发工具，提供了许多便利的写法，大大节省了设计者的时间，使得CSS的开发，变得简单和可维护。本文总结了SASS的主要用法。由此日常的一般使用就不需要去看官方文档了。 一、基本用法1.1 变量SCSS允许使用变量，所有变量以 $ 开头。 1234　　$blue : #1875e7;　　　div &amp;#123;　　　color : $blue;　　&amp;#125; 如果变量需要镶嵌在字">
+<meta property="og:description" content="SCSS是一种CSS的开发工具，提供了许多便利的写法，大大节省了设计者的时间，使得CSS的开发，变得简单和可维护。本文总结了SASS的主要用法。由此日常的一般使用就不需要去看官方文档了。 一、基本用法1.1 变量SCSS允许使用变量，所有变量以 $ 开头。 1234　　$blue : #1875e7;　　　div &amp;#123;　　　color : $blue;　　&amp;#125;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-15T08:50:35.833Z">
+<meta property="og:updated_time" content="2018-03-15T09:05:49.777Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SCSS常用语法">
-<meta name="twitter:description" content="SCSS是一种CSS的开发工具，提供了许多便利的写法，大大节省了设计者的时间，使得CSS的开发，变得简单和可维护。本文总结了SASS的主要用法。由此日常的一般使用就不需要去看官方文档了。 一、基本用法1.1 变量SCSS允许使用变量，所有变量以 $ 开头。 1234　　$blue : #1875e7;　　　div &amp;#123;　　　color : $blue;　　&amp;#125; 如果变量需要镶嵌在字">
+<meta name="twitter:description" content="SCSS是一种CSS的开发工具，提供了许多便利的写法，大大节省了设计者的时间，使得CSS的开发，变得简单和可维护。本文总结了SASS的主要用法。由此日常的一般使用就不需要去看官方文档了。 一、基本用法1.1 变量SCSS允许使用变量，所有变量以 $ 开头。 1234　　$blue : #1875e7;　　　div &amp;#123;　　　color : $blue;　　&amp;#125;">
 
 
 
@@ -342,12 +342,12 @@
       
 
       
-        <p>SCSS是一种CSS的开发工具，提供了许多便利的写法，大大节省了设计者的时间，使得CSS的开发，变得简单和可维护。<br>本文总结了SASS的主要用法。由此日常的一般使用就不需要去看官方文档了。</p>
+        <p>SCSS是一种CSS的开发工具，提供了许多便利的写法，大大节省了设计者的时间，使得CSS的开发，变得简单和可维护。本文总结了SASS的主要用法。由此日常的一般使用就不需要去看官方文档了。</p>
 <h2 id="一、基本用法"><a href="#一、基本用法" class="headerlink" title="一、基本用法"></a>一、基本用法</h2><h3 id="1-1-变量"><a href="#1-1-变量" class="headerlink" title="1.1 变量"></a>1.1 变量</h3><p>SCSS允许使用变量，所有变量以 $ 开头。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　　$blue : #1875e7;　</div><div class="line">　　div &#123;</div><div class="line">　　　color : $blue;</div><div class="line">　　&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>如果变量需要镶嵌在字符串之中，就必须需要写在 #{} 之中。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　　$side : left;</div><div class="line">　　.rounded &#123;</div><div class="line">　　　　border-#&#123;$side&#125;-radius: 5px;</div><div class="line">　　&#125;</div></pre></td></tr></table></figure>
-<a id="more"></a>
 <h3 id="1-2-计算功能"><a href="#1-2-计算功能" class="headerlink" title="1.2 计算功能"></a>1.2 计算功能</h3><p>SCSS允许在代码中使用算式：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">　　body &#123;</div><div class="line">　　　　margin: (14px/2);</div><div class="line">　　　　top: 50px + 100px;</div><div class="line">　　　　right: $var * 10%;</div><div class="line">　　&#125;</div></pre></td></tr></table></figure>
 <h3 id="1-3-嵌套"><a href="#1-3-嵌套" class="headerlink" title="1.3 嵌套"></a>1.3 嵌套</h3><p>SCSS允许选择器嵌套。比如，下面的CSS代码：</p>

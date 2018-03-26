@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="video,H5视频," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="这篇文章将带你从头到尾了解H5广告的实现。 本文主要讲一下几个关键点 一、视频内联播放。 ​       – 想要营造一种文字与视频混排的现象，视频不要影响其他模块  二、视频去控件。  ​        – 交互视频，不能点击快/慢进或暂停哦  三、去控件全屏播放。 ​        – 想要模拟 明星给我打电话的体验，不能看到明显的视频播放器  四、视频自动播放。 ​        – 想要释">
+<meta name="keywords" content="video,H5视频">
+<meta property="og:type" content="article">
+<meta property="og:title" content="H5视频播放解决方案">
+<meta property="og:url" content="http://yoursite.com/2018/03/23/H5视频播放解决方案/index.html">
+<meta property="og:site_name" content="Siker">
+<meta property="og:description" content="这篇文章将带你从头到尾了解H5广告的实现。 本文主要讲一下几个关键点 一、视频内联播放。 ​       – 想要营造一种文字与视频混排的现象，视频不要影响其他模块  二、视频去控件。  ​        – 交互视频，不能点击快/慢进或暂停哦  三、去控件全屏播放。 ​        – 想要模拟 明星给我打电话的体验，不能看到明显的视频播放器  四、视频自动播放。 ​        – 想要释">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-26T09:36:26.442Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="H5视频播放解决方案">
+<meta name="twitter:description" content="这篇文章将带你从头到尾了解H5广告的实现。 本文主要讲一下几个关键点 一、视频内联播放。 ​       – 想要营造一种文字与视频混排的现象，视频不要影响其他模块  二、视频去控件。  ​        – 交互视频，不能点击快/慢进或暂停哦  三、去控件全屏播放。 ​        – 想要模拟 明星给我打电话的体验，不能看到明显的视频播放器  四、视频自动播放。 ​        – 想要释">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/23/H5视频播放解决方案/"/>
+
+
+
+
+
+  <title>H5视频播放解决方案 | Siker</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Siker</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Pigs might fly!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/23/H5视频播放解决方案/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Adele">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Siker">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">H5视频播放解决方案</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-23T18:07:20+08:00">
+                2018-03-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML5/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML5</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这篇文章将带你从头到尾了解H5广告的实现。</p>
+<p>本文主要讲一下几个关键点</p>
+<p><strong>一、视频内联播放。</strong></p>
+<p>​       – 想要营造一种文字与视频混排的现象，视频不要影响其他模块 </p>
+<p><strong>二、视频去控件。</strong> </p>
+<p>​        – 交互视频，不能点击快/慢进或暂停哦 </p>
+<p><strong>三、去控件全屏播放。</strong></p>
+<p>​        – 想要模拟 明星给我打电话的体验，不能看到明显的视频播放器 </p>
+<p><strong>四、视频自动播放。</strong></p>
+<p>​        – 想要释放用户操作，打开链接就自动播放 </p>
+<p><strong>五、黑屏问题。</strong></p>
+<p>​       – 开始播放时，有一段黑屏时间，不能无缝衔接 </p>
+<p><strong>六、其他属性和方法。</strong></p>
+<p>​       – 喜欢一个技术，就要了解“她”的全部，这些你也看看呗 </p>
+<a id="more"></a>
+<h3 id="一、video-标签内联播放"><a href="#一、video-标签内联播放" class="headerlink" title="一、video 标签内联播放"></a>一、video 标签内联播放</h3><p>Video 标签内联播放，需要添加属性：</p>
+<blockquote>
+<p>webkit-playsinline=”true” playsinline=“true”</p>
+</blockquote>
+<p>而在 iphone上 默认是全屏播放的。</p>
+<blockquote>
+<p>需要在 Obj-C 里，webview设置allowsInlineMediaPlayback属性为YESwebview.allowsInlineMediaPlayback = YES;</p>
+<p>这个需要客户端的同学注意一下。</p>
+</blockquote>
+<p>iOS 10 之前的版本支持 <strong>webkit-playsinline</strong>，但是加了这个属性后，在 iOS 9 上出现只能听到声音不能看到画面的问题。</p>
+<p>为了 兼容ios8、9 需要再加上这个库 <a href="https://github.com/bfred-it/iphone-inline-video" target="_blank" rel="external">iphone-inline-video</a> 一起使用。</p>
+<p>备注：<strong>ios</strong>下在<strong>微博</strong>中打开网页播放视频会弹出播放器播放，设置playsinline属性无效，还必须使用上面那个插件，亲测有效。</p>
+<p>这里补充一下 iphone-inline-video 使用方法：</p>
+<p>1.npm install –save iphone-inline-video</p>
+<p>2.使用</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">src</span>=<span class="string">'file.mp4'</span> <span class="attr">playsinline</span>&gt;</span> 不支持 video 标签显示<span class="tag">&lt;/<span class="name">vide</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> enableInlineVideo = <span class="built_in">require</span>(<span class="string">'iphone-inline-video'</span>);</div><div class="line"> <span class="keyword">var</span> video = <span class="built_in">document</span>.querySelector(<span class="string">'video'</span>);</div><div class="line"> enableInlineVideo(video);</div><div class="line"> </div><div class="line"> video.addEventListener(<span class="string">'touchstart'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">	video.play();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><em>iphone-inline-video在iOS 10上会自动禁用。</em></p>
+<p><em>确保你使用这个playsinline属性。</em></p>
+<h3 id="二、播放视频去控件"><a href="#二、播放视频去控件" class="headerlink" title="二、播放视频去控件"></a>二、播放视频去控件</h3><p>非全屏下去掉控件可添加CSS:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.IIV</span><span class="selector-pseudo">::-webkit-media-controls-play-button</span>,</div><div class="line"><span class="selector-class">.IIV</span><span class="selector-pseudo">::-webkit-media-controls-start-playback-button</span> &#123;</div><div class="line">  <span class="attribute">opacity</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">pointer-events</span>: none;</div><div class="line">  <span class="attribute">width</span>: <span class="number">5px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="三、去控件全屏播放"><a href="#三、去控件全屏播放" class="headerlink" title="三、去控件全屏播放"></a>三、去控件全屏播放</h3><p>实现去控件全屏播放步骤：</p>
+<p>1、全屏实现：将video视频宽高设置为 100% （全屏），如果发现视频还是不行那么就需要根据实际情况设置 object-fit属性来解决了。 详见<a href="http://link.zhihu.com/?target=http%3A//www.zhangxinxu.com/wordpress/2015/03/css3-object-position-object-fit/" target="_blank" rel="external">半深入理解CSS3 object-position/object-fit属性</a></p>
+<p>备注：在webkit内核浏览器下，默认是object-fit:contain。</p>
+<p>2、去控件参照上面说的第二步</p>
+<p>当然，如果想要实现真正的全屏（顶部的导航消失），针对x5内核的可以使用同层播放器。</p>
+<p>新版的 TBS 内核（&gt;=036849）支持同层播放器的视频播放器，且不需要申请白名单。</p>
+<p>只需给 video 设置以下属性即可</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">x5-video-player-type="h5"  // 可以开启同层播放器，来避免播放后显示推荐视频的问题。</div><div class="line">x5-video-player-fullscreen="true" // 视频全屏播放</div><div class="line">x5-video-orientation="portrait"// 视频竖屏模式播放</div></pre></td></tr></table></figure>
+<ul>
+<li>建议看<a href="https://link.juejin.im/?target=https%3A%2F%2Fx5.tencent.com%2Ftbs%2Fguide%2Fvideo.html" target="_blank" rel="external">官网文档</a>非常详细 。<strong>十分重要</strong>必看。</li>
+</ul>
+<h3 id="四、视频自动播放"><a href="#四、视频自动播放" class="headerlink" title="四、视频自动播放"></a>四、视频自动播放</h3><p>设置属性 autoplay</p>
+<p>But , Android 始终不能自动播放，需要手动调用：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> player = <span class="built_in">document</span>.getElementById(<span class="string">'player'</span>);</div><div class="line">player.play();</div></pre></td></tr></table></figure>
+<p>开发中，遇到一个问题，在微信中始终无法实现自动播放，因为IOS和微信都是要求用户有操作后才能自动播放影音视频。</p>
+<p>这里，找到了一个hack方法：</p>
+<p><strong>微信中，可以监听 WeixinJSBridgeReady 事件，来实现视频的自动播放</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">//也可以在这个事件触发后播放一次然后暂停（这样以后视频会处于加载状态，为后面的流畅播放做准备）</span></div><div class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"WeixinJSBridgeReady"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123; </div><div class="line">    video.play();</div><div class="line">    video.pause();</div><div class="line">&#125;, <span class="literal">false</span>)</div></pre></td></tr></table></figure>
+<h3 id="五、黑屏问题"><a href="#五、黑屏问题" class="headerlink" title="五、黑屏问题"></a>五、黑屏问题</h3><p>ios 在播放视频时，会出现短暂的黑屏（透屏），再正常显示。</p>
+<p>为了避免不正常显示，我们可以这样做：</p>
+<p>在视频上层覆盖一个 使用视频第一帧的图片填充的“div 块”，制造播放假象。然后监听事件 timeupdate ，视频播放有画面时移除这个“div块”</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">video.addEventListener(<span class="string">'timeupdate'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// 当视频的 timeupdate 大于0.1时表示黑屏已过，已有视频画面，可以移除浮层</span></div><div class="line">    <span class="comment">// (pagestartObj 的 div 元素)</span></div><div class="line">    <span class="keyword">if</span> ( <span class="keyword">this</span>.currentTime &gt; <span class="number">0.1</span>) &#123;</div><div class="line">        pagestartObj.fadeOut(<span class="number">500</span>);</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="六、常用属性和事件"><a href="#六、常用属性和事件" class="headerlink" title="六、常用属性和事件"></a>六、常用属性和事件</h3><p>video 支持的属性和事件很多，但在有些属性和事件在不同的系统上跟预想的表现不一致，在尝试比较之后，以下基本可以满足需求：</p>
+<p><strong>1、autoplay 属性</strong></p>
+<blockquote>
+<video autoplay="true">
+
+</video></blockquote>
+<p>设置此属性，视频将自动播放。</p>
+<p><strong>2、preload 属性</strong></p>
+<blockquote>
+<p>&lt;video preload=”auto” /&gt;</p>
+</blockquote>
+<p>规定是否预加载视频。</p>
+<p>可能的值：</p>
+<p>* auto - 当页面加载后载入整个视频</p>
+<p>* meta - 当页面加载后只载入元数据</p>
+<p>* none - 当页面加载后不载入视频</p>
+<p>如果设置了 autoplay 属性，则忽略该属性。</p>
+<p><strong>3、timeupdate 事件</strong></p>
+<p>视频的播放和暂停主要是调用play和pause方法。 而视频播放过程中如果需要一些用户的交互主要是通过timeupdate方法来监听当前的播放时间，代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> isStop = <span class="literal">false</span>;</div><div class="line">    videoElem.on(<span class="string">'timeupdate'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> curTime = <span class="built_in">parseInt</span>(videoElem[<span class="number">0</span>].currentTime);</div><div class="line">        <span class="keyword">if</span> (curTime == <span class="number">152</span>) &#123; <span class="comment">// 该时间点展示交互蒙层</span></div><div class="line">            $(<span class="string">'.js_first_stop'</span>).removeClass(<span class="string">'hide'</span>);</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (curTime &gt; <span class="number">152</span> &amp;&amp; curTime == <span class="number">153</span>) &#123;</div><div class="line">            <span class="keyword">if</span> (!isStop) &#123; <span class="comment">// 解决ios暂停后再次点击播放不了问题，因为该处触发了多次，但是andriod没有该问题。</span></div><div class="line">                isStop = <span class="literal">true</span>;</div><div class="line">                videoElem[<span class="number">0</span>].pause();</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (curTime == <span class="number">248</span>) &#123;</div><div class="line">            $(<span class="string">'.js_second_stop'</span>).removeClass(<span class="string">'hide'</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+<p>在ios中监听timeupdate事件并暂停的视频的时候需要引入一个全局的isStop变量，不然下次点击继续播放的时候没反应（timeupdate的时候触发了多次暂停），但是andriod是没有这个问题的。</p>
+<p><strong>4、ended 事件</strong></p>
+<p> 监听视频播放结束</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">video.addEventListener(<span class="string">'ended'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// 播放结束时触发</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>或者监听视频的timeupdate事件，然后判断ended属性，如果为true则表示结束，false表示未结束。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">videoElem.on(<span class="string">'timeupdate'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   <span class="keyword">if</span>(videoElem[<span class="number">0</span>].ended)&#123;</div><div class="line">    <span class="comment">//播放结束</span></div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>另外在andriod端开启了同层播放器，微信端也提供了2个监听进入同层播放器和退出同层播放器的事件。 进入同层播放器事件（开始播放视频）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">videoElem.on(<span class="string">"x5videoenterfullscreen"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</div></pre></td></tr></table></figure>
+<p>点击左上角返回键退出同层播放器。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">videoElem.on(<span class="string">'x5videoexitfullscreen'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</div></pre></td></tr></table></figure>
+<p>最后需要注意的是在andriod端播放视频后是不会主动退出同层播放器的。<strong>后续如果有展示的界面，也会在播放器中展示</strong>，感觉很怪异。这里可以通过<strong>链接跳转</strong>来解决。</p>
+<p><strong>5、canvas播放视频</strong></p>
+<p>canvas可以播放视频，但是在某些andriod机上会看到有很严重的锯齿，并且有些andriod浏览器播放的时候只有声音而没有图像。</p>
+<p><strong>6、视频编码</strong></p>
+<p>mp4格式的视频要h.264编码方式，不然某些ios只有声音而没有图像。</p>
+<h3 id="后记："><a href="#后记：" class="headerlink" title="后记："></a>后记：</h3><p>网上关于video介绍的文章也挺多，通过搜集和自己的开发经验，这里整理了一些问题：</p>
+<ul>
+<li>因为视频是一边播放一边加载，因此不但视频的大小会影响加载体验，视频的清晰度对加载体验影响更大。</li>
+<li>建议视频1S平均大小范围控制在0.09~0.17M</li>
+<li>视频格式建议使用mp4</li>
+<li>如果 在android 环境中，想要隐藏 video 播放器，style属性 这样写：{ position: relative; display: none;  z-index: -1; }</li>
+</ul>
+<p>最后，一个完整的video配置的如下，仅供参考</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//html</div><div class="line"><span class="tag">&lt;<span class="name">video</span></span></div><div class="line"><span class="tag">  <span class="attr">id</span>=<span class="string">"video1"</span> </span></div><div class="line"><span class="tag">  <span class="attr">src</span>=<span class="string">"src_mp4"</span> </span></div><div class="line"><span class="tag">  <span class="attr">preload</span>=<span class="string">"auto"</span></span></div><div class="line"><span class="tag">  <span class="attr">playsinline</span>=<span class="string">"true"</span></span></div><div class="line"><span class="tag">  <span class="attr">webkit-playsinline</span>=<span class="string">"true"</span></span></div><div class="line"><span class="tag"></span></div><div class="line"><span class="tag">  <span class="attr">x-webkit-airplay</span>=<span class="string">"allow"</span> </span></div><div class="line"><span class="tag">  <span class="attr">x5-video-player-type</span>=<span class="string">"h5"</span>  </span></div><div class="line"><span class="tag">  <span class="attr">x5-video-player-fullscreen</span>=<span class="string">"true"</span></span></div><div class="line"><span class="tag">  <span class="attr">x5-video-orientation</span>=<span class="string">"portraint"</span></span></div><div class="line"><span class="tag">  <span class="attr">style</span>=<span class="string">"object-fit:fill; width: 100%; height: 100%;"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//js</span></div><div class="line"><span class="keyword">var</span> video = <span class="built_in">document</span>.querySelector(<span class="string">'video'</span>);</div><div class="line">videoMethod(video);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">videoMethod</span>(<span class="params">video</span>) </span>&#123;</div><div class="line">    <span class="comment">// 诱导用户触摸</span></div><div class="line">    video.addEventListener(<span class="string">'touchstart'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        video.play();</div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; video.play(); &#125;, <span class="number">1000</span>);</div><div class="line">    </div><div class="line">    <span class="comment">// 微信webview全局内嵌，WeixinJSBridgeReady方法</span></div><div class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">"WeixinJSBridgeReady"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123; </div><div class="line">        video.play();</div><div class="line">        video.pause();</div><div class="line">    &#125;, <span class="literal">false</span>);</div><div class="line">    </div><div class="line">    video.addEventListener(<span class="string">'ended'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">      video.play();</div><div class="line">    &#125;)</div><div class="line">    <span class="comment">//进入全屏</span></div><div class="line">    video.addEventListener(<span class="string">"x5videoenterfullscreen"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="built_in">window</span>.onresize = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        video.style.width = <span class="built_in">window</span>.innerWidth + <span class="string">"px"</span>;</div><div class="line">        video.style.height = <span class="built_in">window</span>.innerHeight + <span class="string">"px"</span>;</div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">    <span class="comment">//退出全屏</span></div><div class="line">    video.addEventListener(<span class="string">"x5videoexitfullscreen"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="built_in">window</span>.onresize = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        video.style.width = 原尺寸;</div><div class="line">        video.style.height = 原尺寸;</div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//引用js</span></div><div class="line">iphone-inline-video</div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//css</div><div class="line"><span class="selector-class">.IIV</span><span class="selector-pseudo">::-webkit-media-controls-play-button</span>,</div><div class="line"><span class="selector-class">.IIV</span><span class="selector-pseudo">::-webkit-media-controls-start-playback-button</span> &#123;</div><div class="line">  <span class="attribute">opacity</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">pointer-events</span>: none;</div><div class="line">  <span class="attribute">width</span>: <span class="number">5px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h3><blockquote>
+<p><a href="https://juejin.im/entry/59917407518825486f1e7fb4" target="_blank" rel="external">如何制作一个完美的全屏视频H5</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/33693226" target="_blank" rel="external">h5视频活动踩坑</a></p>
+<p><a href="https://juejin.im/entry/59799f5ff265da3e2b32eaa6" target="_blank" rel="external">h5视频播放解决方案</a></p>
+<p><a href="http://www.zhangxinxu.com/wordpress/2015/03/css3-object-position-object-fit/" target="_blank" rel="external">半深入理解CSS3 object-position/object-fit属性</a></p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/video/" rel="tag"># video</a>
+          
+            <a href="/tags/H5视频/" rel="tag"># H5视频</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/19/CSS-常见布局解决方案/" rel="next" title="CSS 常见布局解决方案">
+                <i class="fa fa-chevron-left"></i> CSS 常见布局解决方案
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.jpg"
+                alt="Adele" />
+            
+              <p class="site-author-name" itemprop="name">Adele</p>
+              <p class="site-description motion-element" itemprop="description">Coding Peasant</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、video-标签内联播放"><span class="nav-number">1.</span> <span class="nav-text">一、video 标签内联播放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、播放视频去控件"><span class="nav-number">2.</span> <span class="nav-text">二、播放视频去控件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、去控件全屏播放"><span class="nav-number">3.</span> <span class="nav-text">三、去控件全屏播放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、视频自动播放"><span class="nav-number">4.</span> <span class="nav-text">四、视频自动播放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、黑屏问题"><span class="nav-number">5.</span> <span class="nav-text">五、黑屏问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、常用属性和事件"><span class="nav-number">6.</span> <span class="nav-text">六、常用属性和事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后记："><span class="nav-number">7.</span> <span class="nav-text">后记：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料："><span class="nav-number">8.</span> <span class="nav-text">参考资料：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Adele</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
